@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SiteRefresh | A website for your business, $49 a month</title>
+<meta name="description" content="Mike Llewellyn builds simple websites for New Zealand businesses that have great Google reviews but no website. $49 a month, no setup fee, no lock-in, see it free first.">
+<meta name="theme-color" content="#1f5c4a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231f5c4a'/%3E%3Cpath d='M29.3 15.2A10 10 0 1 0 30 22.5' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round'/%3E%3Cpath d='M30.6 9.6l-.9 6.2-6.1-1.1' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='15.6' y='15' width='8.8' height='10' rx='1.8' fill='%239fd9c2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16231f;--muted:#4f5f59;--paper:#f7f4ee;--card:#fff;--line:#e2ddd2;--green:#1f5c4a;--green-2:#e3efe9;--accent-ink:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.55 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0 0 .5em}
+h1{font-size:clamp(2.1rem,6vw,3.6rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.15rem;font-weight:600}
+p{margin:0 0 1em}
+a{color:var(--green)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{padding:18px 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font:800 1.25rem "Bricolage Grotesque",sans-serif;color:var(--ink);text-decoration:none}
+.logo .mark{width:38px;height:38px;flex:none}
+.logo span{font-size:1.35rem;letter-spacing:-.02em}.logo b{color:var(--green);font-weight:800}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--green);color:#fff;text-decoration:none;font-weight:600;padding:14px 22px;border-radius:12px;min-height:48px}
+.btn.ghost{background:transparent;color:var(--green);border:2px solid var(--green)}
+.hero{padding:40px 0 56px}
+.hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.lede{font-size:1.2rem;color:var(--muted);max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.price{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 10px 30px rgba(22,35,31,.06)}
+.price .big{font:800 3.4rem "Bricolage Grotesque",sans-serif;line-height:1}
+.price .big small{font-size:1.1rem;font-weight:600;color:var(--muted)}
+.price ul{list-style:none;padding:0;margin:18px 0 0}
+.price li{display:flex;align-items:center;gap:12px;padding:8px 0;border-top:1px solid var(--line)}
+/* round icons, same build as MowMatch */
+.ic{flex:none;display:flex;align-items:center;justify-content:center;width:var(--d,40px);height:var(--d,40px);border-radius:50%;background:var(--green-2)}
+.ic svg{width:60%;height:60%;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.a{fill:var(--green);stroke:none}.w{stroke:var(--accent-ink)}.p{fill:var(--paper)}
+svg text{fill:var(--accent-ink);stroke:none;font:700 11px "Source Sans 3",system-ui;text-anchor:middle}
+.how{--d:clamp(3.6rem,15vw,5.2rem);--g:clamp(.6rem,3vw,1.6rem);list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--g);max-width:560px}
+.how li{position:relative;text-align:center;font-weight:700;font-size:clamp(.82rem,3.4vw,1rem);line-height:1.2}
+.how .ic{margin:0 auto .5rem}
+.how li+li::before{content:"";position:absolute;left:calc(var(--g)/-2);top:calc(var(--d)/2);width:.5rem;height:.5rem;border-top:2px solid var(--muted);border-right:2px solid var(--muted);transform:translate(-70%,-50%) rotate(45deg)}
+section{padding:56px 0}
+section.alt{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card .ic{--d:56px;margin-bottom:12px}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.phone{max-width:300px;margin:0 auto;border:10px solid var(--ink);border-radius:34px;overflow:hidden;aspect-ratio:9/17;background:#fff}
+.phone iframe{width:100%;height:100%;border:0;display:block}
+.me{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start}
+.avatar{width:120px;height:120px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font:800 2.6rem "Bricolage Grotesque",sans-serif}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:12px}
+summary{font-weight:600;cursor:pointer;min-height:28px}
+details p{margin:.7em 0 0;color:var(--muted)}
+footer{padding:32px 0 48px;color:var(--muted);font-size:.95rem}
+.small{font-size:.95rem;color:var(--muted)}
+@media (max-width:780px){
+ .hero{padding:16px 0 40px}
+ .hero .grid,.why,.cards{grid-template-columns:1fr;gap:24px}
+ .me{grid-template-columns:1fr}
+ .avatar{width:88px;height:88px;font-size:2rem}
+ header .btn{display:none}
+ .cta .btn{width:100%}
+ section{padding:44px 0}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <a class="logo" href="#top" aria-label="SiteRefresh home"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1f5c4a"/><path d="M29.3 15.2A10 10 0 1 0 30 22.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><path d="M30.6 9.6l-.9 6.2-6.1-1.1" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="15.6" y="15" width="8.8" height="10" rx="1.8" fill="#9fd9c2"/><path d="M17.6 18.4h4.8M17.6 21.4h3" stroke="#1f5c4a" stroke-width="1.4" stroke-linecap="round"/></svg><span>Site<b>Refresh</b></span></a>
+ <a class="btn ghost" href="#contact">Get in touch</a>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap grid">
+ <div>
+  <h1>Your Google reviews are great. Let's give them a website.</h1>
+  <p class="lede">I'm Mike. I build simple, good-looking websites for New Zealand businesses that customers already rate highly on Google but who don't have a site yet. I make it, you look at it free, and you only pay if you want to keep it.</p>
+  <div class="cta">
+   <a class="btn" href="#contact">Ask for a free mock-up</a>
+   <a class="btn ghost" href="example/" target="_blank" rel="noopener">See an example</a>
+  </div>
+  <ol class="how" aria-label="How it works">
+   <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 44S10 30.5 10 20a14 14 0 0 1 28 0c0 10.5-14 24-14 24z"/><polygon class="a" points="24,12.5 26.3,17.6 31.8,17.9 27.6,21.4 28.9,26.8 24,23.9 19.1,26.8 20.4,21.4 16.2,17.9 21.7,17.6"/></svg></i>Your Google profile</li>
+   <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="5" y="9" width="38" height="27" rx="3"/><path class="a" d="M8 9h32a3 3 0 0 1 3 3v4H5v-4a3 3 0 0 1 3-3z"/><path d="M11 23h14M11 29h9"/><rect class="a" x="29" y="21" width="9" height="10" rx="1.5"/><path d="M17 42h14M24 36v6"/></svg></i>I build it</li>
+   <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="13" y="5" width="22" height="38" rx="4"/><rect class="a" x="17.5" y="10" width="13" height="21" rx="2"/><path class="w" d="M20.5 20.5l2.5 2.5 4.5-5" stroke-width="2.2"/><path d="M21 37h6"/></svg></i>You see it free</li>
+   <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><ellipse cx="24" cy="24" rx="8" ry="18"/><path d="M6 24h36"/><rect class="a" x="12" y="30" width="24" height="13" rx="3"/><text x="24" y="40">.nz</text></svg></i>Live on your .co.nz</li>
+  </ol>
+ </div>
+ <div class="price">
+  <div class="big">$49 <small>a month</small></div>
+  <p class="small" style="margin-top:8px">NZD. No setup fee. No GST. Cancel any time.</p>
+  <ul>
+   <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><ellipse cx="24" cy="24" rx="8" ry="18"/><path d="M6 24h36M9 15h30M9 33h30"/></svg></i>Your own .co.nz web address</li>
+   <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><polygon class="a" points="24,6 29.3,17.6 42,18.4 32.3,26.6 35.4,39 24,32.2 12.6,39 15.7,26.6 6,18.4 18.7,17.6"/></svg></i>Your Google stars and reviews on the page</li>
+   <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path class="a" d="M15 7h6l3 9-5 3.5a24 24 0 0 0 10.5 10.5L33 25l9 3v6a4 4 0 0 1-4 4C22 38 10 26 10 11a4 4 0 0 1 4-4z"/></svg></i>Tap-to-call button on every phone</li>
+   <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="13" y="13" width="22" height="31" rx="4"/><path d="M21 40h6"/><path class="a" d="M24 4h17a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3h-9l-5.5 4.5V21H24a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"/><path class="w" d="M27 10.5h11M27 15h7" stroke-width="2"/></svg></i>Quote requests sent straight to your mobile</li>
+   <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path class="a" d="M9 39l2.5-9.5L32 9l7 7-20.5 20.5z"/><path d="M28.5 12.5l7 7M6 43h36"/></svg></i>Small changes done for you, just text me</li>
+   <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5l16 6v11c0 10-7 17.5-16 21-9-3.5-16-11-16-21V11z"/><path class="a" d="M24 10l11 4v8c0 7-4.8 12.5-11 15z"/></svg></i>Hosting and security looked after</li>
+  </ul>
+ </div>
+</div></div>
+
+<section class="alt"><div class="wrap">
+ <h2>How it works</h2>
+ <div class="cards">
+  <div class="card"><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="5" y="9" width="38" height="27" rx="3"/><path class="a" d="M8 9h32a3 3 0 0 1 3 3v4H5v-4a3 3 0 0 1 3-3z"/><path d="M11 23h14M11 29h9"/><rect class="a" x="29" y="21" width="9" height="10" rx="1.5"/><path d="M17 42h14M24 36v6"/></svg></i><h3>I build a free mock-up</h3><p>Using your public Google profile: your name, services, area, reviews and photos. Nothing for you to write.</p></div>
+  <div class="card"><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="13" y="5" width="22" height="38" rx="4"/><rect class="a" x="17.5" y="10" width="13" height="21" rx="2"/><path class="w" d="M20.5 20.5l2.5 2.5 4.5-5" stroke-width="2.2"/><path d="M21 37h6"/></svg></i><h3>You have a look</h3><p>I text you a link. Tell me what to change. If you don't like it, say no and that's the end of it.</p></div>
+  <div class="card"><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><ellipse cx="24" cy="24" rx="8" ry="18"/><path d="M6 24h36"/><rect class="a" x="12" y="30" width="24" height="13" rx="3"/><text x="24" y="40">.nz</text></svg></i><h3>It goes live</h3><p>If you want it, it goes live on your own .co.nz address. You pay $49 at the start of each month, and you can stop whenever you like.</p></div>
+ </div>
+</div></section>
+
+<section><div class="wrap why">
+ <div>
+  <h2>Why bother, when Google already sends you work?</h2>
+  <p>Most people find you on Google Maps, then look for a website to check you're the real deal. When there isn't one, some of them move on to the next name on the list.</p>
+  <p>A one-page site makes you look established, shows your best reviews and photos, and makes it easy to call or ask for a quote. That's all it needs to do.</p>
+  <p class="small">The example is a made-up business so you can see the layout. Yours would use your own name, reviews and photos.</p>
+ </div>
+ <div class="phone"><iframe src="example/?v=7" title="Example website for a made-up dog groomer" loading="lazy"></iframe></div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+ <h2>Who's behind this</h2>
+ <div class="me">
+  <div class="avatar">ML</div>
+  <div>
+   <p><strong>Mike Llewellyn</strong>, Auckland. I've spent my career in business finance and advisory, working with owner-run New Zealand companies. SiteRefresh is my small side business: I saw how many good local businesses have dozens of five-star reviews and no website, and how much the usual web agencies charge for something simple.</p>
+   <p>No call centre, no sales team. If you text, you're talking to me.</p>
+   <p class="small">SiteRefresh is a trading name of Llewellyn Ventures Limited, NZBN 9429051034597, a New Zealand company.</p>
+  </div>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Fair questions</h2>
+ <details><summary>Is there a catch?</summary><p>No setup fee and no contract. $49 a month, paid at the start of the month. Stop paying and the site comes down at the end of that month.</p></details>
+ <details><summary>Do I have to do anything?</summary><p>No. I write it from your Google profile. If you want changes later (new photo, new service, holiday hours) just text me and I'll do it.</p></details>
+ <details><summary>Will it get me more work?</summary><p>I can't promise that and won't pretend to. It helps customers who've already found you trust you and get in touch. You'll see every quote request that comes through it.</p></details>
+</div></section>
+
+<section class="alt" id="contact"><div class="wrap">
+ <h2>Want a free mock-up?</h2>
+ <p class="lede">Reply YES to my text, or email me with your business name as it appears on Google. I'll send you a link to look at, usually the same day.</p>
+ <div class="cta"><a class="btn" href="mailto:hello@siterefresh.co.nz?subject=Free%20mock-up">hello@siterefresh.co.nz</a></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <p>© 2026 SiteRefresh, a trading name of Llewellyn Ventures Limited, New Zealand.</p>
+ <p>Privacy: I only use what's public on your Google profile to build a mock-up. I don't sell or share your details, and I delete them if you say no.</p>
+</div></footer>
+</body>
+</html>
