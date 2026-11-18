@@ -20,7 +20,7 @@ h2{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:800;letter-spacing:-.01em}
 h3{font-size:1.15rem;font-weight:600}
 p{margin:0 0 1em}
 a{color:var(--green)}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
 header{padding:18px 0}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo{display:flex;align-items:center;gap:10px;font:800 1.25rem "Bricolage Grotesque",sans-serif;color:var(--ink);text-decoration:none}
@@ -29,7 +29,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--green);color:#fff;text-decoration:none;font-weight:600;padding:14px 22px;border-radius:12px;min-height:48px}
 .btn.ghost{background:transparent;color:var(--green);border:2px solid var(--green)}
 .hero{padding:40px 0 56px}
-.hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.hero .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(48px,6vw,96px);align-items:center}
 .lede{font-size:1.2rem;color:var(--muted);max-width:34em}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 .price{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 10px 30px rgba(22,35,31,.06)}
@@ -42,7 +42,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .ic svg{width:60%;height:60%;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .a{fill:var(--green);stroke:none}.w{stroke:var(--accent-ink)}.p{fill:var(--paper)}
 svg text{fill:var(--accent-ink);stroke:none;font:700 11px "Source Sans 3",system-ui;text-anchor:middle}
-.how{--d:clamp(3.6rem,15vw,5.2rem);--g:clamp(.6rem,3vw,1.6rem);list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--g);max-width:560px}
+.how{--d:clamp(3.6rem,15vw,5.2rem);--g:clamp(.6rem,3vw,1.6rem);list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--g);max-width:640px}
 .how li{position:relative;text-align:center;font-weight:700;font-size:clamp(.82rem,3.4vw,1rem);line-height:1.2}
 .how .ic{margin:0 auto .5rem}
 .how li+li::before{content:"";position:absolute;left:calc(var(--g)/-2);top:calc(var(--d)/2);width:.5rem;height:.5rem;border-top:2px solid var(--muted);border-right:2px solid var(--muted);transform:translate(-70%,-50%) rotate(45deg)}
