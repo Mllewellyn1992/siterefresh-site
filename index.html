@@ -86,6 +86,18 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:.95rem}
  .cta .btn{width:100%}
  section{padding:44px 0}
 }
+.claim{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;background:var(--green);color:#fff;border-radius:24px;padding:clamp(28px,5vw,48px);box-shadow:0 16px 40px rgba(22,35,31,.14)}
+.claim h2{color:#fff;margin-top:0}.claim p{color:#e3efe9;margin:.5em 0 0;max-width:32em}
+.claim-go{display:flex;flex-direction:column;gap:12px}.claim-go small{color:#cfe3da;font-size:.92rem;text-align:center}
+.btn.light{background:#fff;color:var(--green)}.btn.line{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6)}
+.btn.light:hover{background:var(--green-2)}.btn.line:hover{border-color:#fff}
+footer{border-top:1px solid var(--line);background:var(--card);padding:40px 0 32px}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;margin-bottom:24px}
+.foot h3{font:700 .8rem "Source Sans 3",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 10px}
+.foot a{display:block;color:var(--muted);text-decoration:none;padding:3px 0}.foot a:hover{color:var(--green);text-decoration:underline}
+.foot-brand b{font:800 1.3rem "Bricolage Grotesque",sans-serif;color:var(--ink)}.foot-brand b span{color:var(--green)}.foot-brand p{margin:.4em 0 0}
+.fine{font-size:.85rem;color:var(--muted);margin:.5em 0 0;border-top:1px solid var(--line);padding-top:12px}.fine+.fine{border-top:0;padding-top:0}
+@media(max-width:720px){.claim{grid-template-columns:1fr}.foot{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
 </style>
 </head>
 <body>
@@ -145,7 +157,6 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:.95rem}
 
 <section class="alt" id="work"><div class="wrap">
  <h2>Sites I've built</h2>
- <p class="lede">Sites I built and run myself.</p>
  <div class="works five">
   <a class="work" href="https://dealprospect.com/" target="_blank" rel="noopener"><img src="work/dealprospect.jpg" width="800" height="500" loading="lazy" alt="DealProspect home page"><div><b>DealProspect</b><span>Businesses for sale across New Zealand and Australia.</span></div></a>
   <a class="work" href="https://businessborrowing.co.nz/" target="_blank" rel="noopener"><img src="work/business-borrowing.jpg" width="800" height="500" loading="lazy" alt="Business Borrowing home page"><div><b>Business Borrowing</b><span>How much a company can borrow, and at what price.</span></div></a>
@@ -174,18 +185,29 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:.95rem}
 </div></section>
 
 <section id="contact"><div class="wrap">
- <h2>Want a free mock-up?</h2>
- <p class="lede">Got a text from me? Your mock-up is already built: tap below and I'll send you the link. Not texted yet? Send your business name as it appears on Google and I'll make one, usually the same day.</p>
- <div class="cta">
-  <a class="btn" href="sms:+642108278450?body=Hi%20Mike%2C%20yes%20please%20send%20me%20the%20mock-up%20for%20">Claim your free mock-up</a>
-  <a class="btn ghost" href="mailto:hello@siterefresh.co.nz?subject=Free%20mock-up">hello@siterefresh.co.nz</a>
+ <div class="claim">
+  <div>
+   <h2>Want a free mock-up?</h2>
+   <p>Got a text from me? Your mock-up is already built: tap below and I'll send you the link.</p>
+   <p>Not texted yet? Send your business name as it appears on Google and I'll make one, usually the same day.</p>
+  </div>
+  <div class="claim-go">
+   <a class="btn light" href="sms:+642108278450?body=Hi%20Mike%2C%20yes%20please%20send%20me%20the%20mock-up%20for%20">Claim your free mock-up</a>
+   <a class="btn line" href="mailto:hello@siterefresh.co.nz?subject=Free%20mock-up">Email hello@siterefresh.co.nz</a>
+   <small>Free, no obligation. $49 a month only if you want it live.</small>
+  </div>
  </div>
 </div></section>
 </main>
 
 <footer><div class="wrap">
- <p>© 2026 SiteRefresh, a trading name of Llewellyn Ventures Limited (NZBN 9429051034597), New Zealand. <a href="sms:+642108278450">Text 0210 827 8450</a> · <a href="mailto:hello@siterefresh.co.nz">hello@siterefresh.co.nz</a> · <a href="/terms.html">Terms</a></p>
- <p>Privacy: I only use what's public on your Google profile to build a mock-up. I don't sell or share your details, and I delete them if you say no. Visits and clicks on this site are counted without cookies.</p>
+ <div class="foot">
+  <div class="foot-brand"><b>Site<span>Refresh</span></b><p>Simple websites for good local businesses.</p></div>
+  <div><h3>Contact</h3><a href="sms:+642108278450">Text 0210 827 8450</a><a href="mailto:hello@siterefresh.co.nz">hello@siterefresh.co.nz</a></div>
+  <div><h3>Info</h3><a href="/terms.html">Terms</a><a href="#work">Sites I've built</a></div>
+ </div>
+ <p class="fine">Privacy: I only use what's public on your Google profile to build a mock-up. I don't sell or share your details, and I delete them if you say no. Visits and clicks on this site are counted without cookies.</p>
+ <p class="fine">© 2026 SiteRefresh, a trading name of Llewellyn Ventures Limited (NZBN 9429051034597), New Zealand.</p>
 </div></footer>
 <script async src="https://siterefresh-hits.siterefresh-nz.workers.dev/h.js"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1174742f262842a7bc48958e4bed24c4"}'></script><!-- End Cloudflare Web Analytics -->
