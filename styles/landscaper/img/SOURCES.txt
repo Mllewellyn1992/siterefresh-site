@@ -1,0 +1,34 @@
+Photo sources for the Kowhai Lane Landscapes style sample (made-up business).
+All found via Openverse (api.openverse.org) with license filter cc0,pdm. All are CC0 1.0 - no credit required.
+Each was resized to <= 1600px wide, JPEG quality 80, with a light contrast/saturation adjustment (theme: natural con=6 sat=-6).
+
+courtyard-paving.jpg
+  Title: St Alphage Garden 05 - extension garden (by AdamBMorgan, Wikimedia Commons)
+  Source: https://commons.wikimedia.org/w/index.php?curid=35098781
+  File: https://upload.wikimedia.org/wikipedia/commons/c/cf/St_Alphage_Garden_05_-_extension_garden.jpg
+  Licence: CC0 1.0 (cropped: top 30% removed)
+
+stone-edging-grasses.jpg
+  Title: Rain Garden Plants (by Alabama Extension, Flickr)
+  Source: https://www.flickr.com/photos/184594136@N08/52313269453
+  File: https://live.staticflickr.com/65535/52313269453_df788863db_b.jpg
+  Licence: CC0 1.0
+
+tree-fern.jpg
+  Title: Hapuu pulu tree fern (Cibotium glaucum), Hawaii Volcanoes National Park (by Hermann Luyken, Wikimedia Commons)
+  Source: https://commons.wikimedia.org/w/index.php?curid=29663237
+  File: https://upload.wikimedia.org/wikipedia/commons/5/52/2013.10.31.113011_Hapuu_pulu_tree_fern_%28Cibotium_glaucum%29_Hawaii_Volcanoes_National_Park_Hawaii.jpg
+  Licence: CC0 1.0
+
+watering-in.jpg
+  Title: Gardenhose Gardener (by Ryan McGuire, StockSnap)
+  Source: https://stocksnap.io/photo/gardenhose-gardener-369D8C305A
+  File: https://cdn.stocksnap.io/img-thumbs/960w/369D8C305A.jpg
+  Licence: CC0 1.0
+
+clipped-hedges.jpg
+  Title: Garden Shrubs (by Daria Nepriakhina, StockSnap)
+  Source: https://stocksnap.io/photo/garden-shrubs-77AD8564CC
+  File: https://cdn.stocksnap.io/img-thumbs/960w/77AD8564CC.jpg
+  Licence: CC0 1.0
+

@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Harbourview Builders | Builder in Christchurch (sample site)</title>
+<meta name="description" content="Sample site: a made-up Christchurch builder, built to show the Newsprint style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@700&family=Spectral:ital,wght@0,400;0,500;1,400&family=Libre+Franklin:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(94% 0.011 92); --color-paper-2: oklch(90.5% 0.015 88); --color-paper-3: oklch(87% 0.017 86);
+  --color-ink: oklch(17% 0.012 60); --color-ink-2: oklch(27% 0.012 58); --color-muted: oklch(46% 0.014 60);
+  --color-rule: oklch(68% 0.016 75); --color-rule-2: oklch(34% 0.012 60);
+  --color-accent: oklch(44% 0.13 32); --color-accent-ink: oklch(95% 0.012 90); --color-focus: oklch(48% 0.17 32);
+  --font-display: "Zilla Slab", ui-serif, Georgia, serif; --font-body: "Spectral", ui-serif, Georgia, serif;
+  --font-outlier: "Libre Franklin", ui-sans-serif, sans-serif;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px;
+  --shadow-card: none;
+  --tracking-display: -0.02em; --display-weight: 700;
+
+  --space-xs: 0.4rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-title: 1.375rem;
+  --text-display-s: clamp(1.75rem, 1.25rem + 2vw, 2.625rem);
+  --text-display-m: clamp(2.125rem, 1.4rem + 3vw, 3.5rem);
+  --text-display-l: clamp(2.5rem, 1.4rem + 4.6vw, 5.25rem);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body {
+  margin: 0; background: var(--color-paper); color: var(--color-ink-2);
+  font: 400 var(--text-body)/1.55 var(--font-body);
+  padding-top: var(--banner-h); overflow-x: hidden;
+}
+::selection { background: color-mix(in oklab, var(--color-accent) 20%, transparent); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-accent); text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.16em; transition: text-decoration-thickness 120ms ease-out; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); color: var(--color-ink); line-height: 1.05; margin: 0; }
+h2 { font-size: var(--text-display-m); }
+h3 { font-size: var(--text-title); }
+p { margin: 0; }
+.meta { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.agate { font: 500 1em/1.2 var(--font-outlier); font-variant-numeric: tabular-nums; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.rule--double { box-sizing: content-box; height: 2px; border: 0; border-block: var(--rule-hair) solid var(--color-rule-2); margin: 0; }
+.rule { border: 0; border-top: var(--rule-hair) solid var(--color-rule); margin: 0; }
+.section__head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-sm) var(--space-lg); padding-top: var(--space-md); margin-bottom: var(--space-xl); align-items: end; }
+.section__head h2 { grid-column: 1 / span 7; }
+.section__head p { grid-column: 8 / span 5; }
+@media (max-width: 860px) { .section__head h2, .section__head p { grid-column: 1 / -1; } }
+.cols { columns: 2 17rem; column-gap: var(--space-xl); column-rule: var(--rule-hair) solid var(--color-rule); text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+.cols p + p { margin-top: 0.8em; }
+.dropcap::first-letter { float: left; font: 700 3.6em/0.8 var(--font-display); color: var(--color-ink); padding: 0.06em 0.08em 0 0; }
+
+/* sample banner */
+.sample {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h);
+  display: flex; align-items: center; justify-content: center; padding-inline: 1rem;
+  background: var(--color-ink); color: var(--color-paper);
+  font: 500 0.8125rem/1.2 var(--font-body); text-align: center;
+  border-bottom: var(--rule-hair) solid var(--color-accent);
+}
+
+/* controls */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+  border: 0; background: none; border-radius: 0; cursor: pointer; text-decoration: none;
+  padding: var(--space-sm) var(--space-lg); min-height: 3rem;
+  font: 700 0.9375rem/1 var(--font-display); letter-spacing: 0;
+}
+.btn svg { width: 1.1em; height: 1.1em; flex: none; }
+.btn--primary { background: var(--color-ink); color: var(--color-paper); }
+.btn--primary:hover { background: var(--color-ink-2); }
+.btn--secondary { border-block: var(--rule-hair) solid var(--color-ink); color: var(--color-ink); }
+.btn--secondary:hover { border-block-width: 2px; }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+/* masthead */
+.mast { padding-top: var(--space-md); }
+.mast__top { display: flex; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap; padding-bottom: var(--space-xs); }
+.mast__name { display: block; text-align: center; text-decoration: none; color: var(--color-ink); padding-block: var(--space-md) var(--space-sm); }
+.mast__name span { display: block; font: 700 clamp(2.4rem, 1rem + 6.2vw, 6rem)/0.95 var(--font-display); letter-spacing: -0.025em; }
+.mast__name small { display: block; font: 400 italic 1.0625rem/1.4 var(--font-body); color: var(--color-ink-2); margin-top: 0.4rem; }
+.mast__bar { display: flex; justify-content: space-between; align-items: center; gap: var(--space-md); padding-block: 0.55rem; flex-wrap: wrap; }
+.mast__nav { display: flex; gap: var(--space-lg); flex-wrap: wrap; }
+.mast__nav a { color: var(--color-ink); text-decoration-color: transparent; font: 500 var(--text-sm)/1.3 var(--font-body); }
+.mast__nav a:hover { text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; }
+.mast__call { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.mast__call a { font-family: var(--font-outlier); }
+@media (max-width: 640px) { .mast__top .meta:last-child { display: none; } .mast__nav { gap: var(--space-md); } .mast__call { display: none; } }
+
+/* front page */
+.front { padding-block: var(--space-xl) var(--space-2xl); }
+.front__kicker { margin-bottom: var(--space-sm); }
+.front h1 { font-size: var(--text-display-l); max-width: 22ch; }
+.front__dateline { margin-top: var(--space-md); padding-bottom: var(--space-lg); }
+.front__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; padding-top: var(--space-lg); }
+.front__lead { grid-column: 1 / span 7; margin: 0; }
+.front__story { grid-column: 8 / span 5; display: grid; gap: var(--space-lg); }
+.front__story .cols { columns: 1; }
+.front__story p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+@media (max-width: 860px) { .front__lead, .front__story { grid-column: 1 / -1; } }
+
+figure { margin: 0; }
+figure img { width: 100%; object-fit: cover; border: var(--rule-hair) solid var(--color-rule); background: var(--color-paper-3); }
+.img-wide { aspect-ratio: 3 / 2; }
+.img-sq { aspect-ratio: 1 / 1; }
+.img-tall { aspect-ratio: 4 / 5; }
+figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); padding-top: var(--space-xs); }
+figcaption b { color: var(--color-ink); font-weight: 500; }
+
+/* box score */
+.score { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding-block: var(--space-lg); }
+.score div { padding-inline: var(--space-md); display: grid; gap: 0.4rem; align-content: start; }
+.score div:first-child { padding-left: 0; }
+.score div + div { border-left: var(--rule-hair) solid var(--color-rule); }
+.score b { font: 700 var(--text-display-m)/1 var(--font-display); color: var(--color-ink); letter-spacing: var(--tracking-display); font-variant-numeric: tabular-nums; }
+.score span { font: 400 1rem/1.4 var(--font-body); }
+@media (max-width: 760px) {
+  .score { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-lg); }
+  .score div:nth-child(3) { padding-left: 0; border-left: 0; }
+}
+
+/* listings as agate */
+.list { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.list li { list-style: none; display: grid; grid-template-columns: 15rem minmax(0, 1fr) auto; gap: var(--space-sm) var(--space-lg); align-items: baseline; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.list h3 { font-size: var(--text-title); }
+.list .agate { color: var(--color-ink); text-align: right; white-space: nowrap; }
+@media (max-width: 760px) {
+  .list li { grid-template-columns: minmax(0, 1fr) auto; }
+  .list li p:not(.agate) { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* feature well: the quake desk */
+.well { background: var(--color-paper-2); border-block: var(--rule-hair) solid var(--color-rule); }
+.quake { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.quake__text { grid-column: 1 / span 7; display: grid; gap: var(--space-lg); }
+.quake__draw { grid-column: 8 / span 5; }
+.quake__draw svg { width: 100%; height: auto; display: block; border: var(--rule-hair) solid var(--color-rule); background: var(--color-paper); }
+@media (max-width: 860px) { .quake__text, .quake__draw { grid-column: 1 / -1; } }
+.steps { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.steps li { list-style: none; display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; gap: var(--space-md); align-items: baseline; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.steps .n { font: 700 1.25rem/1 var(--font-display); color: var(--color-ink); }
+.steps b { font: 700 1.0625rem/1.3 var(--font-display); color: var(--color-ink); letter-spacing: -0.01em; }
+.steps .agate { color: var(--color-ink); white-space: nowrap; }
+@media (max-width: 480px) { .steps li { grid-template-columns: 2rem minmax(0, 1fr); row-gap: 0.2rem; } .steps .agate { grid-column: 2; } }
+
+/* recent work */
+.work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xl); }
+.work figure + figure { position: relative; }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+
+/* ink band */
+.inkband { background: var(--color-ink); color: var(--color-paper); }
+.inkband .wrap { padding-block: var(--space-2xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: end; }
+.inkband h2 { grid-column: 1 / span 8; color: var(--color-paper); font-size: var(--text-display-m); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-accent); }
+.inkband .side { grid-column: 9 / span 4; display: grid; gap: var(--space-md); }
+.inkband .btn--primary { background: var(--color-paper); color: var(--color-ink); }
+.inkband .btn--primary:hover { background: var(--color-paper-3); }
+.inkband .btn--secondary { border-color: var(--color-paper); color: var(--color-paper); }
+@media (max-width: 860px) { .inkband h2, .inkband .side { grid-column: 1 / -1; } }
+
+/* letters */
+.letters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.letters article { padding: var(--space-md) var(--space-lg) 0; display: grid; gap: var(--space-sm); align-content: start; }
+.letters article:first-child { padding-left: 0; }
+.letters article:last-child { padding-right: 0; }
+.letters article + article { border-left: var(--rule-hair) solid var(--color-rule); }
+.letters h3 { font-size: 1.25rem; }
+.letters blockquote { margin: 0; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+.letters .meta b { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) {
+  .letters { grid-template-columns: 1fr; }
+  .letters article, .letters article:first-child { padding: var(--space-lg) 0; }
+  .letters article + article { border-left: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+}
+.stars { display: inline-flex; gap: 2px; color: var(--color-ink); vertical-align: -1px; }
+.stars svg { width: 0.9rem; height: 0.9rem; }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__map { grid-column: 1 / span 7; }
+.area__map svg { width: 100%; height: auto; display: block; border: var(--rule-hair) solid var(--color-rule); background: var(--color-paper); }
+.area__list { grid-column: 8 / span 5; display: grid; gap: var(--space-md); }
+.map text { paint-order: stroke; stroke: var(--color-paper); stroke-width: 5px; stroke-linejoin: round; }
+.towns { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+.towns .agate { color: var(--color-ink); white-space: nowrap; }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: 700 var(--text-display-m)/1 var(--font-display); color: var(--color-ink); text-decoration: none; letter-spacing: var(--tracking-display); }
+.contact__call .phone:hover { text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; }
+.hours { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 500; }
+.hours dd { margin: 0; color: var(--color-ink); text-align: right; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg) var(--space-lg) var(--space-xl); display: grid; gap: var(--space-md); }
+.form h3 { font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.3rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea {
+  width: 100%; border-radius: 0; border: var(--rule-hair) solid var(--color-rule-2); background: var(--color-paper);
+  font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.65rem 0.75rem; min-height: 2.9rem;
+}
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact__call, .form { grid-column: 1 / -1; } }
+
+@media (max-width: 860px) {
+  .front__grid, .quake, .area, .contact, .inkband .wrap { grid-template-columns: minmax(0, 1fr); }
+  .front__grid > *, .quake > *, .area > *, .contact > *, .inkband .wrap > * { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .section { padding-block: var(--space-2xl); } .front__story p, .cols, .letters blockquote { text-align: left; } }
+
+footer { padding-block: 0 var(--space-2xl); }
+footer .wrap > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); padding-top: var(--space-md); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note">Sample site — made-up business to show this style</div>
+
+<!-- our own drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2"/></symbol>
+  </defs>
+</svg>
+
+<header class="mast" id="top">
+  <div class="wrap">
+    <div class="mast__top">
+      <p class="meta">Christchurch, Selwyn and Banks Peninsula</p>
+      <p class="meta">Licensed Building Practitioner · Est. 2008</p>
+    </div>
+    <hr class="rule--double">
+    <a class="mast__name" href="#top" aria-label="Harbourview Builders, home">
+      <span>Harbourview Builders</span>
+      <small>Mark and a crew of four. New homes, renovations and the repairs the ground left behind.</small>
+    </a>
+    <hr class="rule">
+    <div class="mast__bar">
+      <nav class="mast__nav" aria-label="Main">
+        <a href="#services">Services</a>
+        <a href="#quake">Quake repairs</a>
+        <a href="#letters">Reviews</a>
+        <a href="#area">Area</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="mast__call">Call Mark <a href="tel:+64210000000">021 000 0000</a></p>
+    </div>
+    <hr class="rule--double">
+  </div>
+</header>
+
+<main>
+
+<section class="front">
+  <div class="wrap">
+    <p class="meta front__kicker">Builders · Christchurch</p>
+    <h1>Built properly the first time, so nobody has to come back and fix it.</h1>
+    <p class="meta front__dateline">From the yard in Heathcote Valley, Monday to Saturday.</p>
+    <hr class="rule">
+    <div class="front__grid">
+      <figure class="front__lead">
+        <img class="img-wide" src="img/hero.jpg" width="1280" height="960" alt="A new house in timber frame, trusses on, seen from above with the section dug out around it" fetchpriority="high">
+        <figcaption><b>Frame and trusses up.</b> A four-bedroom new build, eleven weeks after the slab was poured.</figcaption>
+      </figure>
+      <div class="front__story">
+        <p class="dropcap">Mark has been building in Christchurch since 2008, which means he started the year before the city needed builders more than it ever had. Since then his crew has framed new homes on the flat, re-levelled villas on the hills and rebuilt more than a few that other people had already "fixed".</p>
+        <p>He prices every job himself, walks the site himself and is there when the frame goes up. You get one name on the contract and one number to call.</p>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Mark</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <hr class="rule--double">
+  <div class="score" aria-label="Harbourview Builders in figures">
+    <div><b>4.9</b><span>average Google rating</span></div>
+    <div><b>41</b><span>Google reviews, all from local clients</span></div>
+    <div><b>18</b><span>years building in Christchurch</span></div>
+    <div><b>5</b><span>working days to a written quote</span></div>
+  </div>
+  <hr class="rule--double">
+</div>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we build.</h2>
+      <p>Residential work only, from a new deck to a whole new house. Every job is consented where it needs to be and signed off by Mark as the Licensed Building Practitioner.</p>
+    </div>
+    <ul class="list">
+      <li><h3>New homes</h3><p>Architect or group-home plans, built on your section from slab to handover. Frame, roof, cladding and the trades lined up by us.</p><p class="agate">8–10 months</p></li>
+      <li><h3>Renovations</h3><p>Kitchens, bathrooms, opened-up living areas and the wall that was never load-bearing until someone checked.</p><p class="agate">4–12 weeks</p></li>
+      <li><h3>Decks</h3><p>Timber decks on proper piles, at ground level or up off a slope, with balustrades and steps to code.</p><p class="agate">1–3 weeks</p></li>
+      <li><h3>Extensions</h3><p>An extra bedroom, a bigger living room or a second storey, tied into the house so it looks as if it was always there.</p><p class="agate">3–5 months</p></li>
+      <li><h3>Re-cladding</h3><p>Old or leaking cladding off, building wrap and a drained cavity in, new weatherboards or panels back on.</p><p class="agate">20 mm cavity</p></li>
+      <li><h3>Earthquake repairs</h3><p>Re-levelling, new foundations, cracked linings and the jobs left over from earlier repairs that didn't hold.</p><p class="agate">TC1–TC3</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="well section" id="quake">
+  <div class="wrap">
+    <div class="section__head" style="padding-top:0">
+      <h2>Fifteen years on, still fixing the quake.</h2>
+      <p class="meta">A report from the repair side of the business.</p>
+    </div>
+    <div class="quake">
+      <div class="quake__text">
+        <div class="cols">
+          <p>A good share of the work that comes through the door is still from the earthquakes. Some houses were never repaired. More were repaired fast, in a hurry, by whoever was available, and the floor has started to slope again.</p>
+          <p>Mark starts every repair with a floor-level survey and a look under the house. If the piles have dropped, they are re-packed or replaced; if the ground is poor, an engineer designs the foundation before a price is written. You get the survey, the engineer's notes and the quote together, in plain words.</p>
+          <p>Repairs on a house with an insurance claim open are fine. We work to the scope your insurer approves and tell you, in writing, if we find anything outside it.</p>
+        </div>
+        <ol class="steps">
+          <li><span class="n">1</span><b>Floor-level survey and sub-floor look</b><span class="agate">Day 1</span></li>
+          <li><span class="n">2</span><b>Engineer's design, if the ground needs it</b><span class="agate">2–4 weeks</span></li>
+          <li><span class="n">3</span><b>Written quote, scope and timeline</b><span class="agate">5 days</span></li>
+          <li><span class="n">4</span><b>Re-level, re-pile or new foundation</b><span class="agate">1–6 weeks</span></li>
+          <li><span class="n">5</span><b>Linings, doors and final check</b><span class="agate">1–2 weeks</span></li>
+        </ol>
+      </div>
+      <figure class="quake__draw">
+        <svg viewBox="0 0 480 420" role="img" aria-labelledby="relT">
+          <title id="relT">Drawing of a house floor before and after re-levelling: the floor drops 40 mm towards one corner before, and sits level on new packers after.</title>
+          <g font-family="Libre Franklin, sans-serif" font-weight="500" font-size="14" fill="var(--color-ink)">
+            <text x="24" y="36" font-family="Zilla Slab, serif" font-weight="700" font-size="20">Before</text>
+            <!-- ground -->
+            <path d="M24 170 H456" stroke="var(--color-rule-2)" stroke-width="1"/>
+            <g stroke="var(--color-rule)" stroke-width="1"><path d="M40 178l-10 10M90 178l-10 10M140 178l-10 10M190 178l-10 10M240 178l-10 10M290 178l-10 10M340 178l-10 10M390 178l-10 10M440 178l-10 10"/></g>
+            <!-- piles: right ones sunk -->
+            <g fill="var(--color-paper-3)" stroke="var(--color-ink)" stroke-width="1.5">
+              <rect x="60" y="128" width="18" height="50"/><rect x="170" y="134" width="18" height="44"/><rect x="280" y="140" width="18" height="38"/><rect x="390" y="146" width="18" height="32"/>
+            </g>
+            <!-- sloping floor -->
+            <path d="M44 120 L436 144" stroke="var(--color-ink)" stroke-width="5"/>
+            <!-- walls -->
+            <path d="M52 120 V70 L240 40 L428 70 V143" fill="none" stroke="var(--color-ink)" stroke-width="2"/>
+            <!-- level line -->
+            <path d="M44 120 H436" stroke="var(--color-accent)" stroke-width="1" stroke-dasharray="5 4"/>
+            <path d="M448 120 v24 M442 120 h12 M442 144 h12" stroke="var(--color-ink)" stroke-width="1.2"/>
+            <text x="350" y="112">40 mm out</text>
+
+            <path d="M24 214 H456" stroke="var(--color-rule-2)" stroke-width="1"/>
+            <path d="M24 217 H456" stroke="var(--color-rule-2)" stroke-width="1"/>
+
+            <text x="24" y="256" font-family="Zilla Slab, serif" font-weight="700" font-size="20">After</text>
+            <path d="M24 390 H456" stroke="var(--color-rule-2)" stroke-width="1"/>
+            <g stroke="var(--color-rule)" stroke-width="1"><path d="M40 398l-10 10M90 398l-10 10M140 398l-10 10M190 398l-10 10M240 398l-10 10M290 398l-10 10M340 398l-10 10M390 398l-10 10M440 398l-10 10"/></g>
+            <g fill="var(--color-paper-3)" stroke="var(--color-ink)" stroke-width="1.5">
+              <rect x="60" y="348" width="18" height="50"/><rect x="170" y="348" width="18" height="50"/><rect x="280" y="348" width="18" height="50"/><rect x="390" y="348" width="18" height="50"/>
+            </g>
+            <!-- packers -->
+            <g fill="var(--color-ink)"><rect x="60" y="342" width="18" height="6"/><rect x="170" y="342" width="18" height="6"/><rect x="280" y="342" width="18" height="6"/><rect x="390" y="342" width="18" height="6"/></g>
+            <path d="M44 340 L436 340" stroke="var(--color-ink)" stroke-width="5"/>
+            <path d="M52 340 V290 L240 260 L428 290 V340" fill="none" stroke="var(--color-ink)" stroke-width="2"/>
+            <path d="M44 340 H436" stroke="var(--color-accent)" stroke-width="1" stroke-dasharray="5 4" transform="translate(0 -8)"/>
+            <text x="290" y="324">Level within 5 mm</text>
+          </g>
+        </svg>
+        <figcaption>A re-level, drawn. Piles re-packed or replaced until the floor sits flat again.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head" style="padding-top:0">
+      <h2>On the tools this season.</h2>
+      <p class="meta">Photographs are stand-ins for this sample.</p>
+    </div>
+    <hr class="rule" style="margin-bottom:var(--space-lg)">
+    <div class="work">
+      <figure>
+        <img class="img-sq" src="img/decking.jpg" width="683" height="683" loading="lazy" alt="A builder kneeling on a deck frame, marking a board with a pencil">
+        <figcaption><b>Cashmere.</b> Marking out the last boards on a hillside deck.</figcaption>
+      </figure>
+      <figure>
+        <img class="img-sq" src="img/piles.jpg" width="768" height="768" loading="lazy" alt="String lines, timber profiles and pile tubes set out in a back garden for a new deck">
+        <figcaption><b>Opawa.</b> String lines and pile holes for a deck off the kitchen.</figcaption>
+      </figure>
+      <figure>
+        <img class="img-sq" src="img/cladding.jpg" width="614" height="614" loading="lazy" alt="A two-storey house in new painted weatherboards behind a clipped hedge">
+        <figcaption><b>Fendalton.</b> Re-clad in bevel-back weatherboards over a cavity.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="inkband" aria-labelledby="notice">
+  <div class="wrap">
+    <h2 id="notice">Free site visit. A written quote inside five working days.</h2>
+    <div class="side">
+      <p>Mark comes out, measures up and tells you straight whether the job is worth doing. If it isn't, he'll say so.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>021 000 0000</a>
+        <a class="btn btn--secondary" href="#contact">Book a visit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="letters">
+  <div class="wrap">
+    <div class="section__head" style="padding-top:0">
+      <h2>Letters.</h2>
+      <p class="meta"><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span> <span class="agate">4.9</span> from <span class="agate">41</span> Google reviews. Sample reviews written for this style demo.</p>
+    </div>
+    <hr class="rule--double">
+    <div class="letters">
+      <article>
+        <h3>The floor is flat again.</h3>
+        <blockquote>Our villa in St Albans had been "repaired" in 2013 and was sloping again by 2020. Mark found the old packers had been stacked on soft ground. New piles, a level floor and the doors close for the first time in years.</blockquote>
+        <p class="meta"><b>Helen</b>, St Albans · Re-level</p>
+      </article>
+      <article>
+        <h3>On time, which nobody believed.</h3>
+        <blockquote>The extension was meant to take four months and it took four months. Mark sent a text every Friday saying what got done and what was next. The builder's mess went with the builder.</blockquote>
+        <p class="meta"><b>Tama</b>, Halswell · Extension</p>
+      </article>
+      <article>
+        <h3>A deck worth the wait.</h3>
+        <blockquote>We had three quotes for a deck on a steep bit of section. Mark's was the only one who actually got under the house to look at where it would tie in. Solid as anything and the steps are dead even.</blockquote>
+        <p class="meta"><b>Sarah</b>, Cashmere · Deck</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <hr class="rule--double">
+    <div class="section__head">
+      <h2>Where we build.</h2>
+      <p>Based in Heathcote Valley, between the city and the harbour. All of Christchurch, plus Selwyn and Waimakariri; Banks Peninsula for bigger jobs.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 480" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Christchurch on the coast of Pegasus Bay, the Port Hills and Lyttelton Harbour to the south-east, Kaiapoi and Rangiora north of the Waimakariri River, and Rolleston and Lincoln to the south-west.</title>
+          <g class="map" font-family="Spectral, serif" font-weight="500" fill="var(--color-ink)">
+            <!-- sea: Pegasus Bay and Lyttelton Harbour -->
+            <path d="M470 0 C 452 70, 446 150, 452 210 C 456 240, 462 256, 470 266 C 495 276, 540 284, 575 300 C 545 308, 505 318, 452 336 C 492 344, 545 336, 600 326 L600 0 Z" fill="var(--color-paper-2)" stroke="var(--color-ink)" stroke-width="2"/>
+            <!-- sea: south of Banks Peninsula -->
+            <path d="M600 430 C 580 444, 548 456, 505 466 C 470 474, 430 462, 380 468 C 345 472, 315 476, 290 480 L600 480 Z" fill="var(--color-paper-2)" stroke="var(--color-ink)" stroke-width="2"/>
+            <rect x="290" y="478" width="312" height="4" fill="var(--color-paper-2)"/>
+            <text x="512" y="118" font-size="17" font-style="italic" fill="var(--color-ink-2)">Pegasus</text>
+            <text x="526" y="138" font-size="17" font-style="italic" fill="var(--color-ink-2)">Bay</text>
+            <text x="470" y="420" font-size="16" font-style="italic" fill="var(--color-ink-2)">Banks Peninsula</text>
+            <!-- Port Hills: the rim between the city and the harbour -->
+            <path d="M318 330 l12 -12 l10 8 l12 -14 l12 10 l14 -16 l12 12 l14 -14 l12 8 l14 -14 l12 10 l14 -12 l16 8" fill="none" stroke="var(--color-ink)" stroke-width="1.5" stroke-linejoin="miter"/>
+            <text x="322" y="356" font-size="15" fill="var(--color-ink-2)">Port Hills</text>
+            <!-- Waimakariri River -->
+            <path d="M0 118 C 80 124, 160 146, 240 140 C 320 134, 390 150, 451 152" fill="none" stroke="var(--color-ink)" stroke-width="3"/>
+            <text x="30" y="108" font-size="15" font-style="italic" fill="var(--color-ink-2)">Waimakariri River</text>
+            <!-- about 30 km -->
+            <circle cx="373" cy="232" r="190" fill="none" stroke="var(--color-rule-2)" stroke-width="1.2" stroke-dasharray="6 6"/>
+            <!-- city -->
+            <rect x="314" y="200" width="118" height="54" fill="var(--color-ink)"/>
+            <text x="373" y="233" text-anchor="middle" font-family="Zilla Slab, serif" font-weight="700" font-size="17" fill="var(--color-paper)" style="stroke:none">Christchurch</text>
+            <!-- yard, Heathcote Valley -->
+            <circle cx="448" cy="278" r="6" fill="var(--color-accent)" stroke="var(--color-paper)" stroke-width="2"/>
+            <text x="436" y="283" text-anchor="end" font-size="14" fill="var(--color-accent)">The yard</text>
+            <!-- towns -->
+            <g font-size="18">
+              <rect x="320" y="44" width="10" height="10"/><text x="336" y="54">Rangiora</text>
+              <rect x="420" y="112" width="10" height="10"/><text x="352" y="122">Kaiapoi</text>
+              <rect x="164" y="296" width="10" height="10"/><text x="180" y="306">Rolleston</text>
+              <rect x="236" y="366" width="10" height="10"/><text x="252" y="376">Lincoln</text>
+              <rect x="500" y="300" width="9" height="9"/><text x="512" y="268" font-size="16">Lyttelton</text>
+              <path d="M520 272 L507 298" stroke="var(--color-ink)" stroke-width="1"/>
+              <rect x="512" y="348" width="9" height="9" fill="none" stroke="var(--color-ink)" stroke-width="1.5"/><text x="527" y="372" font-size="15" text-anchor="middle" fill="var(--color-ink-2)">Diamond Hbr</text>
+            </g>
+            <!-- north -->
+            <g transform="translate(46 420)"><path d="M0 -20 L8 6 L0 1 L-8 6 Z" fill="var(--color-ink)"/><text x="0" y="26" font-size="15" text-anchor="middle">N</text></g>
+          </g>
+        </svg>
+        <figcaption>Sketch, not to scale. Brick dot: the yard in Heathcote Valley. Dashed ring: about 30 km. The harbour is the one in the name.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>City suburbs include Sumner, Redcliffs, Cashmere, Opawa, St Albans, Fendalton, Merivale, Riccarton, Halswell, Papanui, Burwood and Parklands.</p>
+        <ul class="towns">
+          <li><span>Christchurch city</span><span class="agate">0–15 km</span></li>
+          <li><span>Lyttelton</span><span class="agate">6 km</span></li>
+          <li><span>Kaiapoi</span><span class="agate">24 km</span></li>
+          <li><span>Lincoln</span><span class="agate">26 km</span></li>
+          <li><span>Rolleston</span><span class="agate">29 km</span></li>
+          <li><span>Rangiora</span><span class="agate">35 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <hr class="rule--double">
+    <div class="section__head">
+      <h2>Talk to Mark.</h2>
+      <p>Call or text, or send the form with a rough idea of the job. Photos and plans help; a sketch on the back of an envelope is fine too.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Monday to Friday</dt><dd class="agate">7:00 am – 5:00 pm</dd></div>
+          <div><dt>Saturday</dt><dd><span class="agate">8:00 am – 12:00 pm</span>, site visits</dd></div>
+          <div><dt>Written quote</dt><dd><span class="agate">5</span> working days</dd></div>
+        </dl>
+      </div>
+      <form class="well form" id="quote" novalidate>
+        <h3>Ask for a site visit</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job">
+              <option>New home</option><option>Renovation</option><option>Deck</option><option>Extension</option><option>Re-cladding</option><option>Earthquake repair</option><option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">What you have in mind</label><textarea id="f-msg" name="message" placeholder="e.g. deck off the lounge, about 4 m by 6 m, section slopes away"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <hr class="rule--double">
+    <div>
+      <p class="meta">Harbourview Builders, Christchurch · 021 000 0000</p>
+      <p class="meta">Sample site for siterefresh.co.nz. Harbourview Builders is a made-up business; reviews and job details are examples.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+</body>
+</html>

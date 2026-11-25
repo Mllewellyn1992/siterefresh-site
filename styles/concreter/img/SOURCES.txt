@@ -1,0 +1,34 @@
+Photos for the Stonefield Concrete sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped square, converted to black and white (contrast up) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   2022.11.16 Concrete Pour (Dept of Energy Solar Decathlon)
+  Source:  https://www.flickr.com/photos/38890715@N08/52718959112
+  File:    https://live.staticflickr.com/65535/52718959112_a729b9d68e_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to the left square to leave out the pump truck's company name
+
+aggregate.jpg
+  Title:   Exposed aggregate surface in good condition, Ainsdale St (John Robert McPherson)
+  Source:  https://commons.wikimedia.org/w/index.php?curid=181747618
+  File:    https://upload.wikimedia.org/wikipedia/commons/8/87/Exposed_aggregate_surface_in_good_condition_Ainsdale_St_VPP_Chermside_West_P1040863.jpg
+  Licence: CC0 1.0
+  Note:    cropped from the top of the frame to leave out the photographer's email text near the bottom
+
+foundation.jpg
+  Title:   Foundation formwork (Wikideas1)
+  Source:  https://commons.wikimedia.org/w/index.php?curid=174716836
+  File:    https://upload.wikimedia.org/wikipedia/commons/0/06/Foundation_formwork.webp
+  Licence: CC0 1.0
+
+driveway.jpg
+  Title:   Garagedoors Driveway (Jay Mantri)
+  Source:  https://stocksnap.io/photo/garagedoors-driveway-27A311B359
+  File:    https://cdn.stocksnap.io/img-thumbs/960w/27A311B359.jpg
+  Licence: CC0 1.0
+
+patterned.jpg
+  Title:   Sloping Driveway (Fairy Duff)
+  Source:  https://www.flickr.com/photos/145874413@N08/32207119442
+  File:    https://live.staticflickr.com/452/32207119442_6f1f4d28ba_b.jpg
+  Licence: Public Domain Mark 1.0

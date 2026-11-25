@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Brightline Electrical | Electrician, Tauranga (sample site)</title>
+<meta name="description" content="Sample site for a made-up Tauranga electrician, showing the Blueprint style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(35% 0.105 256); --color-paper-2: oklch(31% 0.10 257); --color-paper-3: oklch(26.5% 0.095 258);
+  --color-ink: oklch(97% 0.012 240); --color-ink-2: oklch(90% 0.025 242); --color-muted: oklch(80% 0.045 244);
+  --color-rule: oklch(93% 0.02 240 / 0.85); --color-rule-2: oklch(93% 0.02 240 / 0.32);
+  --color-grid: oklch(97% 0.01 240 / 0.09); --color-grid-2: oklch(97% 0.01 240 / 0.2);
+  --color-accent: oklch(97% 0.012 240); --color-accent-ink: oklch(33% 0.105 256); --color-focus: oklch(97% 0.012 240);
+  --font-display: "Chakra Petch", ui-sans-serif, sans-serif; --font-body: "IBM Plex Sans", ui-sans-serif, sans-serif;
+  --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-heavy: 2px; --shadow-card: none;
+  --tracking-display: -0.012em; --display-weight: 600; --sheet-inset: 20px; --tick: 14px;
+  --space-xs: 6px; --space-sm: 12px; --space-md: 20px; --space-lg: 28px; --space-xl: 48px; --space-2xl: 88px;
+  --dur-long: 1400ms; --ease-out: cubic-bezier(.16,1,.3,1);
+  --wrap: 1200px; --gutter: 16px; --banner-h: 32px;
+}
+@media (min-width: 720px) { :root { --gutter: 32px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--banner-h) + 12px); }
+body {
+  margin: 0; background: var(--color-paper); color: var(--color-ink);
+  font: 400 17px/1.55 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: var(--tracking-display); margin: 0; }
+h1, h2 { text-transform: uppercase; line-height: 1.02; }
+h1 { font-size: clamp(40px, 8.4vw, 92px); }
+h2 { font-size: clamp(30px, 5vw, 54px); }
+h3 { font-size: 21px; line-height: 1.2; }
+p { margin: 0; }
+a { color: var(--color-ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: transparent; }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.num, .mono { font-family: var(--font-outlier); font-weight: 500; }
+.label { font-weight: 500; font-size: 14px; color: var(--color-muted); }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* sample banner */
+.sample {
+  position: fixed; inset: 0 0 auto 0; z-index: 50; height: var(--banner-h);
+  display: flex; align-items: center; justify-content: center; padding: 0 12px;
+  background: var(--color-paper-3); border-bottom: var(--rule-hair) solid var(--color-rule);
+  font: 500 13px/1.2 var(--font-body); color: var(--color-ink-2); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.sample .mono { font-size: 11px; margin-right: 8px; border: 1px solid var(--color-rule-2); padding: 2px 5px; }
+
+/* header */
+.top { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+.brand svg { flex: none; }
+.brand b { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; font-size: 19px; letter-spacing: 0.02em; line-height: 1; }
+.brand small { display: block; font: 500 11px/1.3 var(--font-outlier); color: var(--color-muted); letter-spacing: 0.04em; margin-top: 3px; }
+.nav { display: none; gap: 26px; }
+.nav a { text-decoration: none; font-weight: 500; font-size: 15px; }
+.nav a:hover { text-decoration: underline; }
+@media (min-width: 980px) { .nav { display: flex; } }
+@media (max-width: 559px) { .brand small { display: none; } .brand b { font-size: 16px; white-space: nowrap; } .top .btn--sm { padding: 8px 12px; white-space: nowrap; } }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px;
+  border: var(--rule-hair) solid var(--color-rule); border-radius: 0; background: transparent; color: var(--color-ink);
+  padding: var(--space-sm) var(--space-lg); font: 500 16px/1 var(--font-body); text-decoration: none; cursor: pointer;
+  transition: background-color .2s;
+}
+.btn:hover { background: var(--color-paper-2); }
+.btn--primary { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-accent-ink); }
+.btn--primary:hover { background: var(--color-ink-2); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn--sm { min-height: 42px; padding: 8px 16px; font-size: 15px; }
+
+/* figures, dimension strings, grid */
+.fig { position: relative; border: var(--rule-hair) solid var(--color-rule); margin: 0; }
+.fig::after { content: ""; position: absolute; inset: 5px; z-index: 2; border: var(--rule-hair) solid var(--color-rule-2); pointer-events: none; }
+.fig img { width: 100%; height: 100%; object-fit: cover; }
+.fig figcaption {
+  position: absolute; left: 0; bottom: 0; z-index: 3; padding: 8px 14px 9px; max-width: 100%;
+  background: var(--color-paper-3); border-top: 1px solid var(--color-rule); border-right: 1px solid var(--color-rule);
+  font-size: 13px; font-weight: 500; color: var(--color-ink-2);
+}
+.fig figcaption .mono { margin-right: 6px; color: var(--color-ink); }
+.dim { position: relative; height: var(--rule-hair); background: var(--color-rule); }
+.dim::before, .dim::after { content: ""; position: absolute; top: calc(var(--tick) / -2); width: var(--rule-hair); height: var(--tick); background: var(--color-rule); transform: rotate(45deg); }
+.dim::before { left: 0; } .dim::after { right: 0; }
+.grid-sheet {
+  background-color: var(--color-paper-2);
+  background-image:
+    linear-gradient(var(--color-grid-2) 1px, transparent 1px), linear-gradient(90deg, var(--color-grid-2) 1px, transparent 1px),
+    linear-gradient(var(--color-grid) 1px, transparent 1px), linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  background-position: var(--sheet-inset) var(--sheet-inset);
+}
+
+/* section heads */
+section { padding: var(--space-2xl) 0; }
+.sec-head { display: grid; gap: 14px; margin-bottom: var(--space-xl); max-width: 760px; }
+.sheetno { font: 500 13px/1 var(--font-outlier); color: var(--color-muted); letter-spacing: .04em; display: flex; gap: 12px; align-items: center; }
+.sheetno::after { content: ""; height: 1px; width: 56px; background: var(--color-rule-2); }
+.sec-head p { color: var(--color-ink-2); max-width: 620px; }
+
+/* hero */
+.hero { padding: 56px 0 0; }
+.hero-grid { display: grid; gap: 40px; }
+.hero-copy { display: grid; gap: 24px; align-content: start; }
+.hero-copy .lede { font-size: 19px; color: var(--color-ink-2); max-width: 560px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.schem { padding: 18px; }
+.schem svg { width: 100%; height: auto; }
+.rating { margin-top: 56px; display: grid; gap: 14px; }
+.rating-top { display: flex; align-items: baseline; gap: 14px 18px; flex-wrap: wrap; }
+.rating-top .big { font-family: var(--font-display); font-weight: 600; font-size: clamp(56px, 10vw, 104px); line-height: .9; letter-spacing: var(--tracking-display); }
+.rating-top .big small { font-size: .38em; color: var(--color-muted); }
+.rating-top p { color: var(--color-ink-2); max-width: 340px; font-size: 15px; }
+.scale { position: relative; height: 34px; }
+.scale .dim { position: absolute; left: 0; top: 10px; width: 98%; transform-origin: left center; transform: scaleX(0); transition: transform var(--dur-long) var(--ease-out); }
+.scale.drawn .dim { transform: scaleX(1); }
+.scale .rest { position: absolute; left: 98%; right: 0; top: 10px; border-top: 1px dashed var(--color-rule-2); }
+.scale .ext { position: absolute; top: 2px; width: 1px; height: 18px; background: var(--color-rule); }
+.scale .ends { position: absolute; top: 20px; left: 0; right: 0; display: flex; justify-content: space-between; font-size: 12px; color: var(--color-muted); }
+.hero-photo { margin-top: 56px; aspect-ratio: 16 / 7; }
+@media (max-width: 719px) { .hero-photo { aspect-ratio: 4 / 3; } }
+@media (min-width: 900px) {
+  .hero { padding-top: 72px; }
+  .hero-grid { grid-template-columns: 7fr 5fr; gap: 56px; align-items: start; }
+}
+
+/* services bento */
+.bento { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--color-rule); border-left: 1px solid var(--color-rule); }
+.cell {
+  border-right: 1px solid var(--color-rule); border-bottom: 1px solid var(--color-rule);
+  padding: 26px 24px 28px; display: grid; gap: 12px; align-content: start; transition: background-color .2s; text-decoration: none;
+}
+a.cell:hover { background: var(--color-paper-2); }
+.cell .cell-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.cell .code { font: 500 12px/1 var(--font-outlier); color: var(--color-muted); }
+.cell svg.ico { width: 52px; height: 52px; }
+.cell p { color: var(--color-ink-2); font-size: 15.5px; }
+.cell--photo { padding: 10px; align-content: stretch; }
+.cell--photo .fig { height: 100%; min-height: 260px; }
+@media (min-width: 640px) { .bento { grid-template-columns: repeat(2, 1fr); } .cell--wide { grid-column: span 2; } .cell--photo { grid-column: span 2; } }
+@media (min-width: 1000px) {
+  .bento { grid-template-columns: repeat(4, 1fr); }
+  .cell--photo { grid-column: 1 / span 2; grid-row: 2 / span 2; }
+  .cell--wide { grid-column: span 2; }
+}
+
+/* process band */
+.band { background: var(--color-paper-2); border-top: 1px solid var(--color-rule); border-bottom: 1px solid var(--color-rule); }
+.band-grid { display: grid; gap: 48px; }
+@media (min-width: 980px) { .band-grid { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; } }
+.stages { position: relative; display: grid; gap: 0; padding-left: 34px; }
+.stages .spine { position: absolute; left: 8px; top: 8px; bottom: 8px; width: 1px; background: var(--color-rule); }
+.stages .spine::before, .stages .spine::after { content: ""; position: absolute; left: -7px; width: var(--tick); height: 1px; background: var(--color-rule); transform: rotate(-45deg); }
+.stages .spine::before { top: 0; } .stages .spine::after { bottom: 0; }
+.stage { position: relative; padding: 0 0 30px; display: grid; gap: 6px; }
+.stage:last-child { padding-bottom: 0; }
+.stage::before { content: ""; position: absolute; left: -33px; top: 11px; width: 16px; height: 1px; background: var(--color-rule); }
+.stage .mono { font-size: 13px; color: var(--color-muted); }
+.stage p { color: var(--color-ink-2); font-size: 16px; max-width: 520px; }
+.band .fig { aspect-ratio: 4 / 3; }
+.facts { margin-top: 40px; display: grid; grid-template-columns: 1fr; border: 1px solid var(--color-rule); }
+.facts div { padding: 16px 18px; border-bottom: 1px solid var(--color-rule); display: grid; gap: 2px; }
+.facts div:last-child { border-bottom: 0; }
+.facts b { font-weight: 500; }
+.facts span { font-size: 14px; color: var(--color-muted); }
+@media (min-width: 640px) { .facts { grid-template-columns: repeat(3, 1fr); } .facts div { border-bottom: 0; border-right: 1px solid var(--color-rule); } .facts div:last-child { border-right: 0; } }
+
+/* reviews */
+.reviews { display: grid; gap: 0; border-top: 1px solid var(--color-rule); border-left: 1px solid var(--color-rule); }
+.review { border-right: 1px solid var(--color-rule); border-bottom: 1px solid var(--color-rule); padding: 28px 26px; display: grid; gap: 18px; align-content: space-between; }
+.review blockquote { margin: 0; font-size: 18px; line-height: 1.5; }
+.review footer { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; border-top: 1px solid var(--color-rule-2); padding-top: 14px; }
+.review footer b { font-weight: 500; }
+.review footer span { font-size: 14px; color: var(--color-muted); }
+.stars { display: flex; gap: 4px; }
+.stars i { width: 12px; height: 12px; background: var(--color-ink); clip-path: polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
+@media (min-width: 860px) { .reviews { grid-template-columns: repeat(3, 1fr); } }
+
+/* area */
+.area-grid { display: grid; gap: 40px; }
+@media (min-width: 980px) { .area-grid { grid-template-columns: 7fr 5fr; gap: 56px; align-items: start; } }
+.map { padding: 10px; }
+.map svg { width: 100%; height: auto; }
+.reg { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+.reg th, .reg td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--color-rule-2); }
+.reg thead th { font-weight: 500; font-size: 13px; color: var(--color-muted); border-bottom: var(--rule-heavy) solid var(--color-rule); }
+.reg td:first-child, .reg th:first-child { width: 56px; padding-left: 0; }
+.reg td.r, .reg th.r { text-align: right; padding-right: 0; }
+.reg td b { font-weight: 500; }
+.reg .mono { font-size: 13.5px; }
+.note { margin-top: 18px; font-size: 14px; color: var(--color-muted); }
+
+/* contact */
+.contact-grid { display: grid; gap: 40px; }
+@media (min-width: 980px) { .contact-grid { grid-template-columns: 5fr 7fr; gap: 56px; align-items: start; } }
+.callbox { display: grid; gap: 22px; align-content: start; }
+.callbox .phone { font-family: var(--font-display); font-weight: 600; font-size: clamp(38px, 6vw, 56px); line-height: 1; letter-spacing: var(--tracking-display); text-decoration: none; }
+.callbox .cta-row .btn { flex: 1 1 160px; }
+.hours { border-top: 1px solid var(--color-rule); }
+.hours div { display: flex; justify-content: space-between; gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--color-rule-2); font-size: 15.5px; }
+.hours .mono { font-size: 14px; }
+.contact-photo { aspect-ratio: 3 / 2; }
+.tblock { border: 1px solid var(--color-rule); display: grid; grid-template-columns: 1fr; }
+.tblock .head { padding: 14px 18px; border-bottom: var(--rule-heavy) solid var(--color-rule); display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.tblock .head b { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; font-size: 18px; letter-spacing: .01em; }
+.tblock .head span { font: 500 12px/1 var(--font-outlier); color: var(--color-muted); }
+.fcell { border-bottom: 1px solid var(--color-rule); padding: 10px 14px 14px; display: grid; gap: 6px; }
+.fcell label { font-size: 13px; font-weight: 500; color: var(--color-muted); }
+.fcell input, .fcell select, .fcell textarea {
+  width: 100%; min-height: 48px; border: 1px solid var(--color-rule); border-radius: 0; background: var(--color-paper-2);
+  color: var(--color-ink); font: 400 16px/1.4 var(--font-body); padding: 10px 12px; -webkit-appearance: none; appearance: none;
+}
+.fcell select { background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%); background-position: calc(100% - 20px) 21px, calc(100% - 15px) 21px; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 36px; }
+.fcell textarea { min-height: 116px; resize: vertical; }
+.fcell input:focus, .fcell select:focus, .fcell textarea:focus { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.fcell ::placeholder { color: var(--color-muted); opacity: .8; }
+.tblock .foot { padding: 14px; display: grid; gap: 10px; }
+.tblock .foot .btn { width: 100%; }
+.tblock .foot p { font-size: 13.5px; color: var(--color-muted); }
+.formmsg { display: none; border: 1px solid var(--color-rule); padding: 12px 14px; font-size: 15px; }
+.formmsg.show { display: block; }
+@media (min-width: 640px) {
+  .tblock { grid-template-columns: 1fr 1fr; }
+  .tblock .head, .tblock .foot, .fcell--full { grid-column: 1 / -1; }
+  .fcell:nth-of-type(odd):not(.fcell--full) { border-right: 1px solid var(--color-rule); }
+}
+
+/* footer */
+.foot-site { border-top: 1px solid var(--color-rule); padding: 32px 0 40px; }
+.foot-site .wrap { display: flex; flex-wrap: wrap; gap: 14px 32px; justify-content: space-between; align-items: center; font-size: 14px; color: var(--color-muted); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><span class="mono">SAMPLE</span>Sample site — made-up business to show this style</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Brightline Electrical, home">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1" y="1" width="32" height="32"/><rect x="4" y="4" width="26" height="26" stroke-opacity=".4"/><path d="M19 7 11 18.5h6L15 27l8-11.5h-6z" stroke-linejoin="miter"/></svg>
+      <span><b>Brightline Electrical</b><small>TAURANGA · REG. ELECTRICIAN</small></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a><a href="#process">How it works</a><a href="#reviews">Reviews</a><a href="#area">Area</a><a href="#contact">Quote</a>
+    </nav>
+    <a class="btn btn--primary btn--sm" href="tel:0210000000">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2.5h3.2l1.4 4-2 1.3a10 10 0 0 0 5.6 5.6l1.3-2 4 1.4V16a1.6 1.6 0 0 1-1.7 1.6C8.6 17.1 2.9 11.4 2.4 4.2A1.6 1.6 0 0 1 4 2.5z"/></svg>
+      Call Sam
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="sheetno">E-01 · TAURANGA · WESTERN BAY OF PLENTY</div>
+        <h1 id="h1">Wired right. Tested. Signed off.</h1>
+        <p class="lede">Rewires, switchboards, heat pumps and EV chargers for Tauranga homes and new builds. Sam quotes a fixed price, does the work himself, and leaves a Certificate of Compliance on every job.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="tel:0210000000">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2.5h3.2l1.4 4-2 1.3a10 10 0 0 0 5.6 5.6l1.3-2 4 1.4V16a1.6 1.6 0 0 1-1.7 1.6C8.6 17.1 2.9 11.4 2.4 4.2A1.6 1.6 0 0 1 4 2.5z"/></svg>
+            Call 021 000 0000
+          </a>
+          <a class="btn" href="sms:0210000000">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 3.5h15v10h-9l-4 3v-3h-2z"/><path d="M6 7.5h8M6 10h5"/></svg>
+            Text Sam
+          </a>
+          <a class="btn" href="#contact">Get a quote</a>
+        </div>
+      </div>
+
+      <figure class="fig grid-sheet schem" aria-label="Line drawing of a house switchboard: supply, meter, main switch and five circuits">
+        <svg viewBox="0 0 470 400" fill="none" stroke="currentColor" stroke-width="1.5" font-family="IBM Plex Mono, monospace" font-size="11" aria-hidden="true">
+          <g fill="currentColor" stroke="none" font-weight="500">
+            <text x="14" y="26">SINGLE-LINE · DWG E-01</text>
+            <text x="14" y="388" fill-opacity=".7">230 V · 50 Hz · 1 PH</text>
+          </g>
+          <!-- supply in -->
+          <path d="M14 70h46"/>
+          <path d="M14 64l8 6-8 6" />
+          <g fill="currentColor" stroke="none"><text x="14" y="56">SUPPLY</text></g>
+          <!-- meter -->
+          <rect x="60" y="50" width="48" height="40"/>
+          <g fill="currentColor" stroke="none"><text x="70" y="75">kWh</text><text x="62" y="106">METER</text></g>
+          <path d="M108 70h34"/>
+          <!-- main switch -->
+          <circle cx="146" cy="70" r="3.5"/>
+          <path d="M149 68.5 172 58"/>
+          <circle cx="176" cy="70" r="3.5"/>
+          <g fill="currentColor" stroke="none"><text x="140" y="46">MAIN 63 A</text></g>
+          <path d="M179.5 70H206"/>
+          <!-- busbar -->
+          <path d="M206 70v270" stroke-width="3"/>
+          <!-- circuits -->
+          <g>
+            <path d="M206 100h30"/><rect x="236" y="92" width="28" height="16"/><path d="M264 100h130"/>
+            <g transform="translate(44 0)"><circle cx="364" cy="100" r="13"/><path d="M354.8 90.8l18.4 18.4M373.2 90.8l-18.4 18.4"/></g>
+            <g fill="currentColor" stroke="none"><text x="270" y="92">C1 LIGHTS 10 A</text></g>
+          </g>
+          <g>
+            <path d="M206 152h30"/><rect x="236" y="144" width="28" height="16"/><path d="M264 152h130"/>
+            <g transform="translate(44 0)"><path d="M351 140h26v24h-26z"/><path d="M358 147v6M370 147v6M364 157v3"/></g>
+            <g fill="currentColor" stroke="none"><text x="270" y="144">C2 POWER 20 A</text></g>
+          </g>
+          <g>
+            <path d="M206 204h30"/><rect x="236" y="196" width="28" height="16"/><path d="M264 204h130"/>
+            <g transform="translate(44 0)"><rect x="350" y="192" width="28" height="24"/><circle cx="364" cy="204" r="7"/><path d="M364 197v14M357 204h14"/></g>
+            <g fill="currentColor" stroke="none"><text x="270" y="196">C3 HEAT PUMP 20 A</text></g>
+          </g>
+          <g>
+            <path d="M206 256h30"/><rect x="236" y="248" width="28" height="16"/><path d="M264 256h130"/>
+            <g transform="translate(44 0)"><rect x="351" y="243" width="26" height="26"/><path d="M366 247l-6 9h6l-2 9 6-10h-6z"/></g>
+            <g fill="currentColor" stroke="none"><text x="270" y="248">C4 EV CHARGER 32 A</text></g>
+          </g>
+          <g>
+            <path d="M206 308h30"/><rect x="236" y="300" width="28" height="16"/><path d="M264 308h130"/>
+            <g transform="translate(44 0)"><path d="M356 294h16v28h-16z"/><path d="M360 300c4 3 4 6 0 9s-4 6 0 9" stroke-width="1.2"/></g>
+            <g fill="currentColor" stroke="none"><text x="270" y="300">C5 HOT WATER 16 A</text></g>
+          </g>
+          <g fill="currentColor" stroke="none" fill-opacity=".7"><text x="226" y="132">RCBO</text></g>
+          <!-- earth -->
+          <path d="M206 340v14M192 354h28M197 360h18M202 366h8"/>
+          <g fill="currentColor" stroke="none"><text x="226" y="362">MEN EARTH</text></g>
+          <!-- board outline -->
+          <rect x="190" y="40" width="98" height="292" stroke-dasharray="4 4" stroke-opacity=".55"/>
+          <g fill="currentColor" stroke="none" fill-opacity=".7"><text x="196" y="34">SWITCHBOARD</text></g>
+        </svg>
+      </figure>
+    </div>
+
+    <div class="rating" aria-label="Rated 4.9 out of 5 from 52 Google reviews">
+      <div class="rating-top">
+        <div class="big">4.9<small> / 5</small></div>
+        <p><span class="num">52</span> Google reviews from Tauranga homeowners, landlords and builders.</p>
+      </div>
+      <div class="scale" id="scale" aria-hidden="true">
+        <span class="ext" style="left:0"></span>
+        <div class="dim"></div>
+        <span class="rest"></span>
+        <span class="ext" style="right:0"></span>
+        <div class="ends"><span class="num">0.0</span><span class="num">5.0</span></div>
+      </div>
+    </div>
+
+    <figure class="fig hero-photo">
+      <img src="img/hero.jpg" alt="Rows of numbered terminal blocks with wires landed in a control board" width="1024" height="576" fetchpriority="high">
+      <figcaption><span class="mono">FIG. 1</span>Terminal blocks, numbered and landed</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="services" aria-labelledby="h-services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sheetno">E-02 · SERVICES</div>
+      <h2 id="h-services">What we wire</h2>
+      <p>Residential and light commercial work across the Western Bay. Every job is tested and certified before Sam leaves.</p>
+    </div>
+
+    <div class="bento">
+      <a class="cell cell--wide" href="#contact">
+        <div class="cell-top">
+          <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 40h10c6 0 6-10 12-10s6 10 12 10h10"/><path d="M4 30h10c6 0 6-10 12-10s6 10 12 10h10" stroke-opacity=".5"/><rect x="2" y="26" width="4" height="18"/><rect x="46" y="26" width="4" height="18"/><path d="M22 8h8v6h-8zM26 14v6"/></svg>
+          <span class="code">E-02.1</span>
+        </div>
+        <h3>Rewiring</h3>
+        <p>Full and part rewires for older Tauranga homes, replacing rubber and early TPS cable. Planned room by room so you keep power where you need it.</p>
+      </a>
+      <a class="cell" href="#contact">
+        <div class="cell-top">
+          <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="6" y="4" width="40" height="44"/><path d="M6 14h40M6 30h40"/><path d="M12 20h5v6h-5zM20 20h5v6h-5zM28 20h5v6h-5zM36 20h5v6h-5z"/><path d="M12 36h5v6h-5zM20 36h5v6h-5z"/></svg>
+          <span class="code">E-02.2</span>
+        </div>
+        <h3>Switchboards</h3>
+        <p>Old fuse boards out, modern boards with RCD protection in.</p>
+      </a>
+      <a class="cell" href="#contact">
+        <div class="cell-top">
+          <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="10" width="44" height="18"/><path d="M4 22h44"/><path d="M10 34c3 3 3 6 0 9M20 34c3 3 3 6 0 9M30 34c3 3 3 6 0 9M40 34c3 3 3 6 0 9"/><circle cx="41" cy="16" r="1.5"/></svg>
+          <span class="code">E-02.3</span>
+        </div>
+        <h3>Heat pump wiring</h3>
+        <p>Dedicated circuits and isolators for new and replacement units.</p>
+      </a>
+
+      <div class="cell cell--photo">
+        <figure class="fig">
+          <img src="img/cable.jpg" alt="Four stripped cable cores" width="1024" height="683" loading="lazy">
+          <figcaption><span class="mono">FIG. 2</span>Cable cores, stripped for termination</figcaption>
+        </figure>
+      </div>
+
+      <a class="cell" href="#contact">
+        <div class="cell-top">
+          <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="4" width="22" height="40"/><path d="M8 44h22"/><rect x="12" y="9" width="14" height="10"/><path d="M20 23l-4 7h5l-3 7"/><path d="M30 26h6a4 4 0 0 1 4 4v10a3 3 0 0 0 6 0V18"/><path d="M43 10v4M49 10v4M41 14h10v4H41z"/></svg>
+          <span class="code">E-02.4</span>
+        </div>
+        <h3>EV chargers</h3>
+        <p>Home chargers sized to your board and your car, with load checks done first.</p>
+      </a>
+      <a class="cell" href="#contact">
+        <div class="cell-top">
+          <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M26 2v14"/><path d="M20 16h12v5H20z"/><path d="M14 36a12 12 0 0 1 24 0z"/><path d="M26 41v2M15 44l-2 2M37 44l2 2"/></svg>
+          <span class="code">E-02.5</span>
+        </div>
+        <h3>Lighting</h3>
+        <p>LED downlights, pendants, outdoor and security lighting.</p>
+      </a>
+      <a class="cell" href="#contact">
+        <div class="cell-top">
+          <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="12" y="4" width="28" height="44"/><rect x="16" y="8" width="20" height="10"/><circle cx="26" cy="30" r="7"/><path d="M26 30l4-4"/><circle cx="19" cy="43" r="1.5"/><circle cx="33" cy="43" r="1.5"/></svg>
+          <span class="code">E-02.6</span>
+        </div>
+        <h3>Fault finding</h3>
+        <p>Tripping RCDs, dead circuits and flickering lights traced and fixed.</p>
+      </a>
+      <a class="cell" href="#contact">
+        <div class="cell-top">
+          <svg class="ico" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="10" width="36" height="32"/><rect x="13" y="15" width="26" height="22" stroke-opacity=".5"/><path d="M20 22v6M32 22v6"/><path d="M24 32h4"/></svg>
+          <span class="code">E-02.7</span>
+        </div>
+        <h3>New builds</h3>
+        <p>Pre-wire to fit-off for builders and owner-builders, on programme.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="process" aria-labelledby="h-process">
+  <div class="wrap">
+    <div class="band-grid">
+      <div>
+        <div class="sec-head" style="margin-bottom:36px">
+          <div class="sheetno">E-03 · HOW A JOB RUNS</div>
+          <h2 id="h-process">From first call to certificate</h2>
+        </div>
+        <div class="stages">
+          <span class="spine" aria-hidden="true"></span>
+          <div class="stage"><span class="mono">STAGE 01</span><h3>Call or text</h3><p>Sam picks up, or calls back the same working day.</p></div>
+          <div class="stage"><span class="mono">STAGE 02</span><h3>Look and quote</h3><p>A site visit, then a fixed price in writing before any work starts.</p></div>
+          <div class="stage"><span class="mono">STAGE 03</span><h3>Do the work</h3><p>Power off only as long as it has to be. Site left tidy each day.</p></div>
+          <div class="stage"><span class="mono">STAGE 04</span><h3>Test and certify</h3><p>Every circuit tested. You get a Certificate of Compliance for your records.</p></div>
+        </div>
+      </div>
+      <div>
+        <figure class="fig">
+          <img src="img/newbuild.jpg" alt="Timber roof trusses on a new house, seen from above" width="1600" height="1200" loading="lazy">
+          <figcaption><span class="mono">FIG. 3</span>New build, trusses up, ready for pre-wire</figcaption>
+        </figure>
+        <div class="facts">
+          <div><b>Registered and licensed</b><span>Electrical Workers Registration Board</span></div>
+          <div><b>CoC on every job</b><span>Tested before sign-off</span></div>
+          <div><b>Fixed quotes</b><span>No surprises on the invoice</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" aria-labelledby="h-reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sheetno">E-04 · REVIEWS</div>
+      <h2 id="h-reviews">4.9 from 52 reviews</h2>
+    </div>
+    <div class="reviews">
+      <article class="review">
+        <blockquote>“Sam rewired our 1960s place in Bethlehem over three days. Fixed price, stuck to it, and the house was tidier when he left than when he arrived.”</blockquote>
+        <footer><div><b>Karen</b><br><span>Bethlehem</span></div><div class="stars" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></div></footer>
+      </article>
+      <article class="review">
+        <blockquote>“Heat pump went in on the Tuesday and Sam had it wired and signed off that afternoon. Explained the board upgrade properly, no hard sell.”</blockquote>
+        <footer><div><b>Hemi</b><br><span>Pāpāmoa</span></div><div class="stars" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></div></footer>
+      </article>
+      <article class="review">
+        <blockquote>“Got the EV charger sorted in the garage. He talked me out of the pricey unit we didn’t need. Quick, clean, would use again.”</blockquote>
+        <footer><div><b>Liz</b><br><span>Mount Maunganui</span></div><div class="stars" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></div></footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="area" aria-labelledby="h-area" style="background:var(--color-paper-3)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sheetno">E-05 · SERVICE AREA</div>
+      <h2 id="h-area">Tauranga and the Western Bay</h2>
+      <p>Based in Tauranga, working from Katikati to Te Puke.</p>
+    </div>
+    <div class="area-grid">
+      <figure class="fig grid-sheet map" aria-label="Drawn map of the service area around Tauranga Harbour">
+        <svg viewBox="0 0 520 400" fill="none" stroke="currentColor" stroke-width="1.4" font-family="IBM Plex Sans, sans-serif" font-size="13" aria-hidden="true">
+          <defs>
+            <pattern id="sea" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0v10" stroke="currentColor" stroke-opacity=".22" stroke-width="1"/></pattern>
+            <clipPath id="mapclip"><rect x="0" y="0" width="520" height="400"/></clipPath>
+          </defs>
+          <g clip-path="url(#mapclip)">
+          <!-- open sea (NE) -->
+          <path d="M40 0 L80 10 L160 60 L240 110 L290 145 L330 170 L400 200 L460 218 L520 232 L520 0 Z" fill="url(#sea)" stroke="none"/>
+          <path d="M40 0 L80 10 L160 60 L240 110 L290 145 L330 170 L400 200 L460 218 L520 232"/>
+          <!-- harbour (between Matakana Is. and mainland) -->
+          <path d="M40 0 L28 18 L75 50 L120 88 L165 118 L180 138 L205 160 L228 190 L262 200 L285 185 L292 158 L262 132 L200 98 L130 58 L85 32 L55 12 Z" fill="url(#sea)" stroke="currentColor"/>
+          <!-- Mt Maunganui -->
+          <circle cx="291" cy="152" r="5" fill="currentColor" stroke="none"/>
+          <!-- service ring 30 km -->
+          <circle cx="277" cy="208" r="300" stroke-dasharray="3 5" stroke-opacity=".7"/>
+          <circle cx="277" cy="208" r="100" stroke-dasharray="3 5" stroke-opacity=".45"/>
+          <!-- towns -->
+          <g fill="currentColor" stroke="none" font-weight="500">
+            <rect x="271" y="202" width="12" height="12"/>
+            <text x="244" y="234">TAURANGA</text>
+            <text x="302" y="146">Mount Maunganui</text>
+            <circle cx="396" cy="222" r="4"/><text x="380" y="244">Pāpāmoa</text>
+            <circle cx="414" cy="316" r="4"/><text x="400" y="338">Te Puke</text>
+            <circle cx="282" cy="255" r="4"/><text x="292" y="270">Welcome Bay</text>
+            <circle cx="229" cy="222" r="4"/><text x="150" y="226">Bethlehem</text>
+            <circle cx="238" cy="300" r="4"/><text x="186" y="322">Pyes Pā</text>
+            <circle cx="176" cy="144" r="4"/><text x="92" y="156">Ōmokoroa</text>
+            <circle cx="62" cy="55" r="4"/><text x="72" y="82">Katikati</text>
+          </g>
+          <g fill="currentColor" stroke="none" font-size="11" font-family="IBM Plex Mono, monospace" fill-opacity=".75">
+            <text x="400" y="80">BAY OF PLENTY</text>
+            <text x="96" y="58" transform="rotate(34 96 58)">TAURANGA HARBOUR</text>
+            <text x="150" y="292">10 km ring</text>
+          </g>
+          </g>
+          <!-- north arrow -->
+          <g transform="translate(482 300)">
+            <path d="M0 -26 L8 0 L0 -6 L-8 0 Z" fill="currentColor" stroke="none"/>
+            <text x="-4" y="16" fill="currentColor" stroke="none" font-family="IBM Plex Mono, monospace" font-size="11">N</text>
+          </g>
+          <!-- scale bar: 10 km = 100 units -->
+          <g transform="translate(24 370)">
+            <path d="M0 0h100"/><path d="M-5 5 5 -5M95 5 105 -5"/><path d="M0 -8v12M100 -8v12"/>
+            <text x="0" y="-12" fill="currentColor" stroke="none" font-family="IBM Plex Mono, monospace" font-size="11">0</text>
+            <text x="84" y="-12" fill="currentColor" stroke="none" font-family="IBM Plex Mono, monospace" font-size="11">10 km</text>
+          </g>
+        </svg>
+      </figure>
+
+      <div>
+        <table class="reg">
+          <thead><tr><th>No.</th><th>Area</th><th class="r">From Tauranga CBD</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">A-01</td><td><b>Mount Maunganui</b></td><td class="r mono">5 km</td></tr>
+            <tr><td class="mono">A-02</td><td><b>Bethlehem</b></td><td class="r mono">5 km</td></tr>
+            <tr><td class="mono">A-03</td><td><b>Welcome Bay</b></td><td class="r mono">5 km</td></tr>
+            <tr><td class="mono">A-04</td><td><b>Pyes Pā</b></td><td class="r mono">10 km</td></tr>
+            <tr><td class="mono">A-05</td><td><b>Pāpāmoa</b></td><td class="r mono">12 km</td></tr>
+            <tr><td class="mono">A-06</td><td><b>Ōmokoroa</b></td><td class="r mono">12 km</td></tr>
+            <tr><td class="mono">A-07</td><td><b>Te Puke</b></td><td class="r mono">18 km</td></tr>
+            <tr><td class="mono">A-08</td><td><b>Katikati</b></td><td class="r mono">26 km</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Straight-line distances. Not on the list? Text Sam, most of the Western Bay is covered.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="h-contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sheetno">E-06 · CONTACT</div>
+      <h2 id="h-contact">Get a fixed quote</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="callbox">
+        <a class="phone" href="tel:0210000000">021 000 0000</a>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="tel:0210000000">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2.5h3.2l1.4 4-2 1.3a10 10 0 0 0 5.6 5.6l1.3-2 4 1.4V16a1.6 1.6 0 0 1-1.7 1.6C8.6 17.1 2.9 11.4 2.4 4.2A1.6 1.6 0 0 1 4 2.5z"/></svg>
+            Call Sam
+          </a>
+          <a class="btn" href="sms:0210000000">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 3.5h15v10h-9l-4 3v-3h-2z"/><path d="M6 7.5h8M6 10h5"/></svg>
+            Text Sam
+          </a>
+        </div>
+        <div class="hours">
+          <div><span>Monday to Friday</span><span class="mono">7:00–17:00</span></div>
+          <div><span>Saturday</span><span class="mono">8:00–12:00</span></div>
+          <div><span>Power out? Call any time</span><span class="mono">24 h</span></div>
+        </div>
+        <figure class="fig contact-photo">
+          <img src="img/pendant.jpg" alt="Glass pendant light hanging below a ring light" width="1600" height="1066" loading="lazy">
+          <figcaption><span class="mono">FIG. 4</span>Pendant, fitted and tested</figcaption>
+        </figure>
+      </div>
+
+      <form class="tblock" id="quote" novalidate>
+        <div class="head"><b>Quote request</b><span>FORM E-06.1</span></div>
+        <div class="fcell"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" placeholder="Your name"></div>
+        <div class="fcell"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="021 ..."></div>
+        <div class="fcell"><label for="f-suburb">Suburb</label><input id="f-suburb" name="suburb" placeholder="e.g. Bethlehem"></div>
+        <div class="fcell"><label for="f-job">Job</label>
+          <select id="f-job" name="job">
+            <option>Rewiring</option><option>Switchboard</option><option>Heat pump wiring</option><option>EV charger</option><option>Lighting</option><option>Fault finding</option><option>New build</option><option>Something else</option>
+          </select>
+        </div>
+        <div class="fcell fcell--full"><label for="f-msg">What needs doing</label><textarea id="f-msg" name="msg" placeholder="A line or two is plenty"></textarea></div>
+        <div class="foot">
+          <button class="btn btn--primary" type="submit">Send quote request</button>
+          <p class="formmsg" id="formmsg" role="status">This is a sample site, so the form doesn’t send anything.</p>
+          <p>Sam replies within one working day.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot-site">
+  <div class="wrap">
+    <span><b style="font-family:var(--font-display);text-transform:uppercase;color:var(--color-ink)">Brightline Electrical</b> · Tauranga · <a href="tel:0210000000">021 000 0000</a></span>
+    <span>Sample site — made-up business. Style: Blueprint.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var s = document.getElementById('scale');
+  if (s) {
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { s.classList.add('drawn'); io.disconnect(); } });
+      }, { threshold: 0.4 });
+      io.observe(s);
+    } else { s.classList.add('drawn'); }
+  }
+  var f = document.getElementById('quote');
+  if (f) f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('formmsg').classList.add('show');
+  });
+})();
+</script>
+</body>
+</html>

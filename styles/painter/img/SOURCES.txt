@@ -1,0 +1,34 @@
+Photos for the Alpine Brush Painters sample (made-up business). All found via Openverse, licence CC0 1.0: no credit required.
+Each was resized/cropped to at most 1600px wide, warmed slightly with highlights pulled down, and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Dochfour Estate House, painted a soft primrose yellow (Sadie-Michaela Harris)
+  Source:  https://wordpress.org/photos/photo/36468b17f0/
+  File:    https://pd.w.org/2025/08/36468b17f04b8e0a8.13981795-2048x1365.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the house and trees in the lower right
+
+tools.jpg
+  Title:   Free paint roller brushes image
+  Source:  https://www.rawpixel.com/image/5904917/photo-image-background-design-tape
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHg4NDQ0MTEtaW1hZ2Uta3d2dXhlNGguanBn.jpg
+  Licence: CC0 1.0
+
+deck.jpg
+  Title:   Deck Stained.jpg (Log Home Finishing)
+  Source:  https://www.flickr.com/photos/23399885@N06/6978841024
+  File:    https://live.staticflickr.com/8148/6978841024_4ec9808da3_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped from portrait to landscape
+
+rail.jpg
+  Title:   Log Home Finishing-8 (Log Home Finishing)
+  Source:  https://www.flickr.com/photos/23399885@N06/14695005378
+  File:    https://live.staticflickr.com/3894/14695005378_e28f0dfb28_b.jpg
+  Licence: CC0 1.0
+
+lake.jpg
+  Title:   Queenstown New Zealand (Bernard Spragg)
+  Source:  https://www.flickr.com/photos/88123769@N02/8168013172
+  File:    https://live.staticflickr.com/8485/8168013172_247ee811bd_b.jpg
+  Licence: CC0 1.0

@@ -1,0 +1,32 @@
+Photos for the Fresh Start Cleaning sample (made-up business). All found via Openverse, licence CC0 1.0: no credit required.
+Each was resized to at most 1600px wide, colour eased (saturation -15%, contrast -6%) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Cleaning Kitchen Counter (Alabama Extension)
+  Source:  https://www.flickr.com/photos/184594136@N08/51486539352
+  File:    https://live.staticflickr.com/65535/51486539352_408b5ddf12_b.jpg
+  Licence: CC0 1.0
+
+floor.jpg
+  Title:   Sweeping floor
+  Source:  https://www.rawpixel.com/image/5919765/sweeping-the-floor-free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHg5ODc4NzctaW1hZ2Uta3d2eDhkYzEuanBn.jpg
+  Licence: CC0 1.0
+
+lounge.jpg
+  Title:   Free minimalist living room interior
+  Source:  https://www.rawpixel.com/image/5927318/photo-image-public-domain-minimalist-house
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2lzMTU3OTYtaW1hZ2Uta3d2eWhleG0uanBn.jpg
+  Licence: CC0 1.0
+
+living.jpg
+  Title:   Free living room interior design
+  Source:  https://www.rawpixel.com/image/5917348/image-frame-light-public-domain
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvaXMxNTcxOC1pbWFnZS1rd3Z3dXcwZC5qcGc.jpg
+  Licence: CC0 1.0
+
+tenancy.jpg
+  Title:   Clean and empty dining room, wood floor (Wonderlane)
+  Source:  https://www.flickr.com/photos/71401718@N00/5490135664
+  File:    https://live.staticflickr.com/5299/5490135664_e8ea2cc7fa_b.jpg
+  Licence: CC0 1.0

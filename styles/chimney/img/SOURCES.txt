@@ -1,0 +1,27 @@
+Emberline Chimney Sweeps (made-up sample) - photo sources
+All images found via Openverse (api.openverse.org), licence CC0 1.0 or Public Domain Mark. No credit required.
+Each was resized to <= 1600px wide, given a light warm grade, and saved as JPEG q80.
+
+burner-door.jpg
+  Title: First Wood Stove Fire of the Season (by cogdogblog)
+  Source: https://www.flickr.com/photos/37996646802@N01/30928197425
+  File:   https://live.staticflickr.com/5826/30928197425_ca0933c5dd_b.jpg
+  Licence: CC0 1.0
+
+embers.jpg
+  Title: A close-up view of a wood fire with glowing embers (by JR Tashjian)
+  Source: https://wordpress.org/photos/photo/7426614614/
+  File:   https://pd.w.org/2024/04/74266146145bf3449.67077297-2048x1365.jpeg
+  Licence: CC0 1.0
+
+chimney-pots.jpg
+  Title: Chimney pots, 11th Street, South Side, Pittsburgh, 2023-07-22 (by Cbaile19)
+  Source: https://commons.wikimedia.org/w/index.php?curid=134832648
+  File:   https://upload.wikimedia.org/wikipedia/commons/4/4a/Chimney_pots%2C_11th_Street%2C_South_Side%2C_Pittsburgh%2C_2023-07-22.jpg
+  Licence: CC0 1.0
+
+grate.jpg
+  Title: Burning Logs in Fireplace (by Image Catalog)
+  Source: https://www.flickr.com/photos/132795455@N08/21556769084
+  File:   https://live.staticflickr.com/568/21556769084_f5d9c648af_b.jpg
+  Licence: CC0 1.0

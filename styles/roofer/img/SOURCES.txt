@@ -1,0 +1,32 @@
+Photos for the Southpeak Roofing sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was printed as a duotone in the page's ink and paper colours (contrast up), resized to at most 1600 px wide and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Standing seam metal roof 3 (Wikideas1)
+  Source:  https://commons.wikimedia.org/w/index.php?curid=133391168
+  File:    https://upload.wikimedia.org/wikipedia/commons/0/06/Standing_seam_metal_roof_3.jpg (1280 px thumbnail)
+  Licence: CC0 1.0
+
+reroof.jpg
+  Title:   Standing seam metal roof aerial (Wikideas1)
+  Source:  https://commons.wikimedia.org/w/index.php?curid=137674686
+  File:    https://upload.wikimedia.org/wikipedia/commons/8/85/Standing_seam_metal_roof_aerial.jpg (960 px thumbnail)
+  Licence: CC0 1.0
+
+spouting.jpg
+  Title:   Cyrus Brame cleaning gutters (U.S. Fish and Wildlife Service, Northeast Region)
+  Source:  https://www.flickr.com/photos/43322816@N08/6086748364
+  File:    https://live.staticflickr.com/6189/6086748364_f348b64142_b.jpg
+  Licence: Public Domain Mark 1.0
+
+rust.jpg
+  Title:   Corrugated Iron Texture
+  Source:  https://www.rawpixel.com/image/5969095/corrugated-iron-texture
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvaXMxODY0MC1pbWFnZS1rd3lzOWY2Zi5qcGc.jpg
+  Licence: CC0 1.0
+
+rain.jpg
+  Title:   Hard rain on a roof (W.carter)
+  Source:  https://commons.wikimedia.org/w/index.php?curid=69918183
+  File:    https://upload.wikimedia.org/wikipedia/commons/6/65/Hard_rain_on_a_roof.jpg (1280 px thumbnail)
+  Licence: CC0 1.0

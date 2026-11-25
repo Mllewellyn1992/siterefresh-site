@@ -1,0 +1,30 @@
+Photos for the Clearway Drainage sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Storm Drain Cleaning (Greenville, NC)
+  Source:  https://www.flickr.com/photos/156869144@N02/53904492315
+  File:    https://live.staticflickr.com/65535/53904492315_bb50ea4525_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped square; saturation down 12%, contrast up 10%
+
+jetting.jpg
+  Title:   Storm Drain Cleaning (Greenville, NC)
+  Source:  https://www.flickr.com/photos/156869144@N02/53904054356
+  File:    https://live.staticflickr.com/65535/53904054356_2b50f097d9_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped square; saturation down 12%, contrast up 10%
+
+trench.jpg
+  Title:   Green Line Extension- Excavating Rock Lowell St., April 2019 (MassDOT)
+  Source:  https://www.flickr.com/photos/42009447@N05/47573614471
+  File:    https://live.staticflickr.com/7860/47573614471_b47e1caab1_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped square to leave out a date stamp and wall graffiti; saturation down 12%, contrast up 10%
+
+pipes.jpg
+  Title:   Drainage Pipes (Tim Sullivan)
+  Source:  https://stocksnap.io/photo/drainage-pipes-J7GDUQ3PHC
+  File:    https://cdn.stocksnap.io/img-thumbs/960w/J7GDUQ3PHC.jpg
+  Licence: CC0 1.0
+  Note:    cropped square; saturation down 12%, contrast up 10%

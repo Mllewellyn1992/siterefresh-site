@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Alpine Brush Painters | Painter in Queenstown (sample site)</title>
+<meta name="description" content="Sample site: a made-up Queenstown painter, built to show the Solstice style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Archivo:wght@400;500&family=Archivo+Narrow:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(94% 0.03 80); --color-paper-2: oklch(97% 0.02 85); --color-paper-3: oklch(89% 0.05 80);
+  --color-ink: oklch(27% 0.05 50); --color-ink-2: oklch(36% 0.05 50); --color-muted: oklch(48% 0.06 55);
+  --color-rule: oklch(84% 0.06 78);
+  --color-accent: oklch(54% 0.20 24); --color-accent-ink: oklch(97% 0.02 85); --color-focus: oklch(54% 0.20 24);
+  --color-gold: oklch(74% 0.14 75); --color-gold-2: oklch(84% 0.11 80); --color-slot: var(--color-gold);
+  --font-display: "Yeseva One", ui-serif, Georgia, serif; --font-body: "Archivo", ui-sans-serif, sans-serif;
+  --font-outlier: "Archivo Narrow", ui-sans-serif, sans-serif;
+  --radius-card: 0; --radius-pill: 999px; --rule-hair: 1px; --rule-bar: 2px;
+  --shadow-card: 10px 10px 0 var(--color-paper-3);
+  --tracking-display: -0.005em; --display-weight: 400;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(1.6rem, 1.2rem + 1.6vw, 2.3rem);
+  --text-display-m: clamp(2.1rem, 1.4rem + 3vw, 3.6rem);
+  --text-display-l: clamp(2.7rem, 1.5rem + 5.2vw, 5.6rem);
+  --dur-short: 200ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.55 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: color-mix(in oklab, var(--color-gold) 40%, transparent); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; transition: color var(--dur-short) var(--ease-out); }
+a:hover { color: var(--color-accent); text-decoration-color: var(--color-accent); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: var(--tracking-display); line-height: 1; color: var(--color-ink); margin: 0; }
+h2 { font-size: var(--text-display-m); }
+h3 { font-size: 1.45rem; line-height: 1.08; }
+p { margin: 0; }
+.small, figcaption { font: 600 13px/1.4 var(--font-outlier); color: var(--color-muted); }
+.meta { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { border-top: var(--rule-bar) solid var(--color-ink); padding-top: var(--space-md); margin-bottom: var(--space-xl);
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 34rem; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* sample banner */
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding-inline: 1rem;
+  background: var(--color-ink); color: var(--color-paper); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; border-bottom: 1px solid var(--color-gold); }
+.sample b { font: 600 13px/1 var(--font-outlier); color: var(--color-gold-2); }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+/* controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; padding: 1rem 1.75rem; min-height: 3rem; border: 0; border-radius: var(--radius-pill); cursor: pointer;
+  font: 600 1rem/1 var(--font-outlier); background: var(--color-accent); color: var(--color-accent-ink); text-decoration: none; transition: filter var(--dur-short) var(--ease-out); }
+.btn:hover { color: var(--color-accent-ink); filter: brightness(1.06); }
+.btn svg { width: 1.1em; height: 1.1em; flex: none; }
+.btn--secondary { background: none; color: var(--color-ink); padding: 0.9rem 0 0.35rem; border-radius: 0; border-bottom: var(--rule-bar) solid var(--color-ink); min-height: 0; }
+.btn--secondary:hover { color: var(--color-ink); filter: none; border-bottom-color: var(--color-gold); }
+.btns { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm) var(--space-lg); }
+
+/* header */
+.top { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--color-ink); }
+.brand:hover { color: var(--color-ink); }
+.brand svg { width: 2.6rem; height: 2.6rem; flex: none; }
+.brand span { font: 400 1.45rem/1 var(--font-display); }
+.brand small { display: block; font: 600 13px/1.3 var(--font-outlier); color: var(--color-muted); margin-top: 0.2rem; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); text-decoration: none; }
+.nav a:not(.btn):hover { text-decoration: underline; }
+.nav .btn { padding: 0.8rem 1.2rem; min-height: 2.75rem; }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1.2rem; } }
+
+/* hero */
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg) var(--space-xl); align-items: end; }
+.hero__copy { grid-column: 1 / span 6; padding-bottom: var(--space-md); }
+.hero__photo { grid-column: 7 / span 6; }
+.hero h1 { font-size: var(--text-display-l); margin-block: var(--space-md) var(--space-lg); }
+.hero__lede { font-size: 1.125rem; max-width: 32rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 1rem; margin-top: var(--space-xl); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); max-width: 32rem; }
+.rating .fig { font: 400 2.6rem/1 var(--font-display); color: var(--color-ink); }
+.stars { display: inline-flex; gap: 2px; color: var(--color-ink); }
+.stars svg { width: 1rem; height: 1rem; }
+
+/* photographs */
+.photo { margin: 0; }
+.photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; outline: var(--rule-hair) solid color-mix(in oklab, var(--color-ink) 10%, transparent); outline-offset: -1px; background: var(--color-paper-3); }
+.photo--tall img { aspect-ratio: 4 / 5; }
+.photo figcaption { margin-top: 0.55rem; display: flex; justify-content: space-between; gap: 1rem; }
+.over { position: relative; }
+.over .cap { position: absolute; left: 0; bottom: 0; right: 0; padding: 2.5rem 1.1rem 0.9rem; color: var(--color-paper);
+  background: linear-gradient(transparent, color-mix(in oklab, var(--color-ink) 55%, transparent)); font: 400 1.25rem/1.15 var(--font-display); }
+
+/* wells */
+.well { background: var(--color-paper-2); border: var(--rule-bar) solid var(--color-ink); outline: var(--rule-hair) solid var(--color-gold); outline-offset: -8px; box-shadow: var(--shadow-card); }
+
+/* services */
+.svc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.svc li { padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.55rem; align-content: start; transition: background var(--dur-short) var(--ease-out); }
+.svc li:hover { background: var(--color-paper-2); }
+.svc li:not(:nth-child(3n+1)) { padding-left: var(--space-lg); border-left: var(--rule-hair) solid var(--color-rule); }
+.svc svg { width: 3rem; height: 3rem; color: var(--color-ink); margin-bottom: 0.4rem; }
+.svc h3 { padding-bottom: 0.55rem; border-bottom: var(--rule-hair) solid var(--color-gold); justify-self: start; }
+@media (max-width: 900px) {
+  .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svc li, .svc li:not(:nth-child(3n+1)) { padding: var(--space-lg) var(--space-md) var(--space-lg) 0; border-left: 0; }
+  .svc li:nth-child(even) { padding-left: var(--space-md); border-left: var(--rule-hair) solid var(--color-rule); }
+}
+@media (max-width: 560px) {
+  .svc { grid-template-columns: 1fr; }
+  .svc li, .svc li:nth-child(even), .svc li:not(:nth-child(3n+1)) { padding: var(--space-lg) 0; border-left: 0; }
+}
+
+/* the painting year on the brown band */
+.band--ink { background: var(--color-ink); color: var(--color-paper); }
+.band--ink h2 { color: var(--color-paper); }
+.band--ink .section__head { border-top-color: var(--color-gold); }
+.band--ink .section__head p { color: color-mix(in oklab, var(--color-paper) 85%, transparent); }
+.year { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin: var(--space-xl) 0 0; padding: 0; list-style: none; }
+.year::before { content: ""; position: absolute; left: 0; right: 0; top: 2.15rem; border-top: 1px solid var(--color-gold); }
+.year li { position: relative; padding-right: var(--space-md); }
+.year .m { display: block; font: 600 13px/1 var(--font-outlier); color: var(--color-gold-2); margin-bottom: 1rem; }
+.year .dot { display: block; width: 14px; height: 14px; border-radius: 50%; background: var(--color-ink); border: 1px solid var(--color-gold); margin-bottom: 1.1rem; }
+.year li.now .dot { background: var(--color-gold); box-shadow: 0 0 0 5px color-mix(in oklab, var(--color-gold) 30%, transparent); }
+.year h3 { color: var(--color-paper); font-size: 1.35rem; margin-bottom: 0.4rem; }
+.year p { color: color-mix(in oklab, var(--color-paper) 80%, transparent); font-size: 0.9375rem; line-height: 1.5; }
+.year li.now .m::after { content: " · now"; color: var(--color-paper); }
+@media (max-width: 900px) {
+  .year { grid-template-columns: 1fr; gap: var(--space-md); }
+  .year::before { top: 0; bottom: 0; left: 6px; right: auto; border-top: 0; border-left: 1px solid var(--color-gold); }
+  .year li { padding-left: 2.2rem; }
+  .year .dot { position: absolute; left: 0; top: 0.1rem; }
+  .year .m { margin-bottom: 0.5rem; }
+}
+
+/* the job as a ruled list */
+.spec { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.spec .photo { grid-column: 1 / span 6; }
+.spec .well { grid-column: 8 / span 5; padding: var(--space-xl) var(--space-lg) var(--space-lg); }
+.spec .well h3 { font-size: var(--text-display-s); padding-bottom: 0.7rem; border-bottom: 1px solid var(--color-gold); margin-bottom: 0.4rem; }
+.rows { margin: 0; }
+.rows div { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-block: 0.75rem; border-bottom: 1px dotted var(--color-gold); }
+.rows div:last-child { border-bottom: 0; }
+.rows dt { font: 600 13px/1.3 var(--font-outlier); color: var(--color-muted); }
+.rows dd { margin: 0; font: 400 1.2rem/1.15 var(--font-display); color: var(--color-ink); text-align: right; }
+.rows dd.sig { color: var(--color-accent); }
+@media (max-width: 860px) { .spec .photo, .spec .well { grid-column: 1 / -1; } }
+
+/* work */
+.work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.score { grid-column: 1 / span 4; padding: var(--space-xl) var(--space-lg); display: grid; gap: 0.6rem; }
+.score .big { font: 400 clamp(5.5rem, 4rem + 6vw, 9rem)/0.85 var(--font-display); color: var(--color-ink); }
+.score p { font-size: 1.05rem; }
+.quotes { grid-column: 6 / span 7; margin: 0; padding: 0; list-style: none; }
+.quotes li { padding-block: var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.7rem; }
+.quotes li:first-child { padding-top: 0; }
+.quotes blockquote { margin: 0; font: 400 1.35rem/1.3 var(--font-display); color: var(--color-ink); }
+.quotes .who { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.quotes .who b { color: var(--color-ink); font-weight: 600; }
+@media (max-width: 860px) { .score, .quotes { grid-column: 1 / -1; } }
+
+/* area */
+.band--paper2 { background: var(--color-paper-2); }
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-paper); outline: var(--rule-bar) solid var(--color-ink); outline-offset: -2px; }
+.map text { paint-order: stroke; stroke: var(--color-paper); stroke-width: 5px; stroke-linejoin: round; }
+.area__list { grid-column: 8 / span 5; display: grid; gap: var(--space-lg); }
+.towns { margin: 0; padding: 0; list-style: none; border-top: var(--rule-bar) solid var(--color-ink); }
+.towns li { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); transition: background var(--dur-short); }
+.towns li:hover { background: var(--color-paper); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.phone { font: 400 var(--text-display-m)/1 var(--font-display); color: var(--color-ink); text-decoration: none; }
+.hours { margin: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 500; }
+.hours dd { margin: 0; text-align: right; }
+.form { grid-column: 7 / span 6; padding: var(--space-xl) var(--space-lg) var(--space-lg); display: grid; gap: var(--space-md); }
+.form h3 { font-size: var(--text-display-s); padding-bottom: 0.7rem; border-bottom: 1px solid var(--color-gold); }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: 0; border: 1px solid var(--color-ink); background: var(--color-paper);
+  font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.75rem 0.85rem; min-height: 3rem; }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 600 13px/1.4 var(--font-outlier); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact__call, .form { grid-column: 1 / -1; } }
+
+@media (max-width: 860px) {
+  .hero__grid, .spec, .reviews, .area, .contact { grid-template-columns: minmax(0, 1fr); }
+  .hero__grid > *, .spec > *, .reviews > *, .area > *, .contact > * { grid-column: 1 / -1; }
+}
+
+footer { border-top: var(--rule-bar) solid var(--color-ink); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 600 13px/1.4 var(--font-outlier); color: var(--color-muted); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Alpine Brush Painters, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="1" y="1" width="46" height="46" fill="var(--color-ink)"/>
+        <rect x="4.5" y="4.5" width="39" height="39" fill="none" stroke="var(--color-gold)" stroke-width="1"/>
+        <path d="M8 34l10-14 6 8 5-6 11 12z" fill="var(--color-paper)"/>
+        <path d="M16 22.8l2-2.8 3.2 4.3z" fill="var(--color-ink)"/>
+        <path d="M10 38h28" stroke="var(--color-gold)" stroke-width="1.5"/>
+        <circle cx="34" cy="13" r="3.2" fill="var(--color-gold)"/>
+      </svg>
+      <span>Alpine Brush Painters<small>Queenstown painter · Jono &amp; crew</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#year">The painting year</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span class="sr">Call Jono</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="small">Painters · Queenstown and the Wakatipu · since 2011</p>
+      <h1>Paint that stands up to an alpine winter.</h1>
+      <p class="hero__lede">Jono and a crew of four repaint homes, baches and decks from Arthurs Point to Jack's Point. Every exterior is washed, sanded and primed properly first, because UV and frost up here find every shortcut.</p>
+      <div class="btns">
+        <a class="btn" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Jono</a>
+        <a class="btn btn--secondary" href="sms:+64210000000">Text a photo of the house</a>
+      </div>
+      <div class="rating">
+        <span class="fig">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="meta">from 38 Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <figure class="photo hero__photo">
+      <img src="img/hero.jpg" width="1120" height="740" alt="A two-storey yellow weatherboard house among tall trees, freshly painted, with a lawn in front" fetchpriority="high">
+      <figcaption><span>Full exterior repaint, late summer</span><span>Two coats, primrose</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we paint</h2>
+      <p>Houses, baches and holiday rentals across the basin. Inside in the cold months, outside when the weather lets us.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 22L24 8l18 14"/><path d="M10 19v22h28V19"/><path d="M10 26h28M10 32h28M10 37h28"/><path d="M20 41v-8h8v8"/>
+        </svg>
+        <h3>Exterior house painting</h3>
+        <p>Weatherboards, soffits, joinery and fascias. Washed, sanded, spot-primed and two top coats.</p>
+        <p class="small">October to April</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true">
+          <rect x="12" y="6" width="24" height="10"/><path d="M36 11h4v9H24v6"/><rect x="21" y="26" width="6" height="16"/>
+        </svg>
+        <h3>Interior painting</h3>
+        <p>Walls, ceilings, trim and doors. Furniture moved and covered, rooms handed back each night.</p>
+        <p class="small">All year</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 30L24 12l20 18"/><path d="M10 25l14-12.5M16 30.5l13-12M22 35l12-11"/><path d="M34 12v6"/><path d="M8 40h32"/>
+        </svg>
+        <h3>Roof painting</h3>
+        <p>Corrugated iron and long-run roofs: water blasted, rust treated, primed and coated.</p>
+        <p class="small">Dry, settled weeks</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true">
+          <rect x="8" y="6" width="22" height="36"/><path d="M30 6h10v36H30"/><path d="M14 14c3 2 3 5 0 7s-3 5 0 7 3 5 0 7M24 14c3 2 3 5 0 7s-3 5 0 7 3 5 0 7"/>
+        </svg>
+        <h3>Wallpapering</h3>
+        <p>Feature walls and full rooms, old paper stripped and walls lined before hanging.</p>
+        <p class="small">Pattern matched</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 30h40M4 36h40"/><path d="M8 30v12M40 30v12"/><path d="M8 30V14M40 30V14M8 18h32"/><path d="M14 18v12M20 18v12M26 18v12M34 18v12"/>
+        </svg>
+        <h3>Decks and stains</h3>
+        <p>Decks, fences and cedar cladding cleaned back and oiled or stained so the timber lasts.</p>
+        <p class="small">Re-oil every 1 to 2 years</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true">
+          <rect x="6" y="6" width="36" height="36"/><path d="M14 16l6 6-3 4 5 6"/><path d="M26 34l12-12"/><path d="M33 17l8 8-3 3-8-8z"/>
+        </svg>
+        <h3>Plaster repairs</h3>
+        <p>Cracks, dents and old fixings filled and sanded flat, so the new paint doesn't show them.</p>
+        <p class="small">Before any interior job</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band--ink section" id="year">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>The painting year in the Wakatipu</h2>
+      <p>Paint needs warmth to cure and dry days to go on. We book outside work into the long-light months and move indoors when the frosts come.</p>
+    </div>
+    <ol class="year">
+      <li><span class="m">Jun – Aug</span><span class="dot"></span><h3>Inside work</h3><p>Interiors, wallpaper and plaster while it snows on the Remarkables.</p></li>
+      <li><span class="m">September</span><span class="dot"></span><h3>Quotes</h3><p>Walk-arounds and colour samples for the summer list.</p></li>
+      <li class="now"><span class="m">Oct – Nov</span><span class="dot"></span><h3>Prep and roofs</h3><p>Washing, sanding, rust treatment and roofs in the first settled weeks.</p></li>
+      <li><span class="m">Dec – Feb</span><span class="dot"></span><h3>Long light</h3><p>Full exteriors, starting at first light, off the sunny walls by midday.</p></li>
+      <li><span class="m">March</span><span class="dot"></span><h3>Decks</h3><p>Oil and stain after the summer crowds, before the leaves drop.</p></li>
+      <li><span class="m">April – May</span><span class="dot"></span><h3>Last coats</h3><p>Finishing outside before the first frost, then back indoors.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What goes into an exterior</h2>
+      <p>A typical three-bedroom weatherboard house in Fernhill. We quote every house after walking round it.</p>
+    </div>
+    <div class="spec">
+      <figure class="photo">
+        <img src="img/tools.jpg" width="1024" height="683" loading="lazy" alt="A paint roller, brushes and masking tape laid on a drop sheet">
+        <figcaption><span>Brushes and rollers cleaned every night</span><span>Fernhill</span></figcaption>
+      </figure>
+      <div class="well">
+        <h3>A weatherboard repaint</h3>
+        <dl class="rows">
+          <div><dt>Prep</dt><dd>Wash, sand, fill, spot-prime</dd></div>
+          <div><dt>Top coats</dt><dd>Two, acrylic</dd></div>
+          <div><dt>Crew on site</dt><dd>Three painters</dd></div>
+          <div><dt>Time</dt><dd class="sig">8 to 10 working days</dd></div>
+          <div><dt>Workmanship guarantee</dt><dd>Five years</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent jobs</h2>
+      <p class="meta">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="photo">
+        <img src="img/deck.jpg" width="768" height="510" loading="lazy" alt="A wide timber deck freshly stained, railings casting long shadows, mountains beyond">
+        <figcaption><span>Deck re-stain, Arthurs Point</span><span>March</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/rail.jpg" width="1024" height="683" loading="lazy" alt="Oiled timber deck boards and round log railings beside a gravel drive">
+        <figcaption><span>Log railings oiled, Arrowtown</span><span>Two coats</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/lake.jpg" width="1024" height="686" loading="lazy" alt="Looking down over Queenstown, Lake Wakatipu and the Remarkables under snow">
+        <figcaption><span>Our patch, from Bob's Peak</span><span>Wakatipu basin</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section band--paper2" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="meta">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="well score">
+        <span class="big">4.9</span>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <p>out of 5, from 38 Google reviews</p>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Jono's crew spent three days just on prep before a drop of paint went on. Two winters later the north wall still looks like the day they finished.”</blockquote>
+          <p class="small who"><b>Fiona</b><span>Fernhill</span><span>· Exterior repaint</span></p>
+        </li>
+        <li>
+          <blockquote>“They did our rental between guests in June. Ceilings, walls and a wallpapered feature wall, all done in a week and not a drip on the carpet.”</blockquote>
+          <p class="small who"><b>Hamish</b><span>Arrowtown</span><span>· Interior and wallpaper</span></p>
+        </li>
+        <li>
+          <blockquote>“Our deck was grey and splitting. They sanded it right back and oiled it. Neighbours have asked who did it.”</blockquote>
+          <p class="small who"><b>Mere</b><span>Lake Hayes</span><span>· Deck stain</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we work</h2>
+      <p>The whole Wakatipu basin from our yard in Frankton. Wānaka and Glenorchy for bigger jobs, by arrangement.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 480" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Lake Wakatipu with Queenstown and Frankton on its shore, Arthurs Point and Arrowtown to the north-east, Lake Hayes, and Jack's Point to the south.</title>
+          <g font-family="Archivo, sans-serif" font-weight="500" fill="var(--color-ink)" class="map">
+            <!-- hills as hatched contours -->
+            <g fill="none" stroke="var(--color-rule)" stroke-width="1.5">
+              <path d="M330 40 C 380 20, 450 30, 480 70"/><path d="M320 60 C 370 42, 440 50, 470 88"/>
+              <path d="M470 300 C 520 280, 570 300, 590 340"/><path d="M460 320 C 510 302, 560 320, 585 360"/>
+              <path d="M40 60 C 90 40, 150 50, 180 90"/><path d="M50 82 C 95 64, 145 72, 170 108"/>
+            </g>
+            <text x="500" y="392" font-family="Archivo Narrow, sans-serif" font-weight="600" font-size="14" fill="var(--color-muted)">The Remarkables</text>
+            <!-- lake -->
+            <path d="M0 210 C 60 190, 120 200, 170 230 S 250 240, 290 215 S 360 210, 380 240 C 395 262, 370 270, 330 262 S 270 270, 250 300 S 270 390, 300 480 L 220 480 C 205 400, 190 330, 160 300 S 60 280, 0 290 Z" fill="var(--color-paper-3)" stroke="var(--color-ink)" stroke-width="2"/>
+            <text x="70" y="255" font-family="Yeseva One, serif" font-size="22" fill="var(--color-ink-2)">Lake Wakatipu</text>
+            <!-- Shotover river -->
+            <path d="M390 0 C 380 60, 350 100, 340 140 S 360 200, 384 243" fill="none" stroke="var(--color-ink)" stroke-width="2"/>
+            <text x="392" y="70" font-family="Archivo Narrow, sans-serif" font-weight="600" font-size="13" fill="var(--color-muted)" transform="rotate(75 392 70)">Shotover River</text>
+            <!-- road -->
+            <path d="M230 205 C 280 200, 330 190, 360 200 S 440 190, 480 170 S 520 120, 530 90" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-dasharray="6 5"/>
+            <path d="M360 200 C 370 150, 345 120, 330 100" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-dasharray="6 5"/>
+            <path d="M380 250 C 370 300, 360 340, 350 400" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-dasharray="6 5"/>
+            <!-- places -->
+            <g font-size="16">
+              <rect x="222" y="198" width="11" height="11"/><text x="168" y="186">Queenstown</text>
+              <rect x="182" y="168" width="9" height="9"/><text x="98" y="166" font-size="14">Fernhill</text>
+              <rect x="324" y="94" width="10" height="10"/><text x="256" y="88">Arthurs Point</text>
+              <rect x="525" y="80" width="11" height="11"/><text x="498" y="70">Arrowtown</text>
+              <rect x="470" y="168" width="10" height="10"/><text x="440" y="208">Lake Hayes</text>
+              <rect x="345" y="398" width="10" height="10"/><text x="364" y="408">Jack's Point</text>
+            </g>
+            <!-- yard -->
+            <circle cx="360" cy="201" r="8" fill="var(--color-accent)" stroke="var(--color-paper)" stroke-width="2.5"/>
+            <text x="372" y="232" font-size="16">Frankton</text>
+            <!-- edge notes -->
+            <text x="586" y="24" font-family="Archivo Narrow, sans-serif" font-weight="600" font-size="13" text-anchor="end" fill="var(--color-muted)">Wānaka, by arrangement ↗</text>
+            <text x="14" y="190" font-family="Archivo Narrow, sans-serif" font-weight="600" font-size="13" fill="var(--color-muted)">← Glenorchy</text>
+            <g transform="translate(560 452)"><path d="M0 -20 L8 8 L0 3 L-8 8 Z" fill="var(--color-ink)"/></g>
+          </g>
+        </svg>
+        <figcaption>Sketch, not to scale. Red dot: the yard in Frankton.</figcaption>
+      </figure>
+      <div class="area__list">
+        <ul class="towns">
+          <li><span>Queenstown and Fernhill</span><span class="small">10 min</span></li>
+          <li><span>Frankton and Kelvin Heights</span><span class="small">Home base</span></li>
+          <li><span>Arthurs Point</span><span class="small">15 min</span></li>
+          <li><span>Lake Hayes and Shotover Country</span><span class="small">10 min</span></li>
+          <li><span>Arrowtown</span><span class="small">20 min</span></li>
+          <li><span>Jack's Point and Hanley's Farm</span><span class="small">15 min</span></li>
+          <li><span>Glenorchy, Wānaka</span><span class="small">By arrangement</span></li>
+        </ul>
+        <p>Holiday homes are fine with nobody home. Leave us a key or a code and we'll send photos at the end of each day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section band--paper2" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Get a quote</h2>
+      <p>Call or text Jono. A couple of photos of the house and the address is enough for him to come and walk round it.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000">Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd>7:30 am – 5:00 pm</dd></div>
+          <div><dt>Saturday</dt><dd>Quotes only, mornings</dd></div>
+          <div><dt>Quote back</dt><dd>Within 3 working days</dd></div>
+        </dl>
+      </div>
+      <form class="well form" id="quote" novalidate>
+        <h3>Quote request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job">
+              <option>Exterior house painting</option><option>Interior painting</option><option>Roof painting</option><option>Wallpapering</option><option>Deck or stain</option><option>Plaster repairs</option><option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">House size and anything we should know</label><textarea id="f-msg" name="message" placeholder="e.g. single-storey weatherboard, north side peeling, want it done before Christmas"></textarea></div>
+        <button class="btn" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Alpine Brush Painters, Queenstown · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Alpine Brush Painters is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Clearview Glass | Glazier in Wellington (sample site)</title>
+<meta name="description" content="Sample site: a made-up Wellington glazier, built to show the Cobalt style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(98.6% 0.005 250); --color-paper-2: oklch(96.2% 0.008 252); --color-paper-3: oklch(93% 0.011 252);
+  --color-ink: oklch(21% 0.028 262); --color-ink-2: oklch(36% 0.022 260); --color-muted: oklch(50% 0.018 258);
+  --color-rule: oklch(90% 0.009 252); --color-rule-2: oklch(83% 0.012 252);
+  --color-graphite: oklch(21% 0.024 262); --color-graphite-2: oklch(26.5% 0.026 262); --color-graphite-ink: oklch(93% 0.010 250); --color-graphite-muted: oklch(69% 0.022 256);
+  --color-accent: oklch(52% 0.19 258); --color-accent-2: oklch(76% 0.13 254); --color-accent-wash: oklch(95% 0.028 256); --color-accent-ink: oklch(98.6% 0.005 250); --color-focus: oklch(52% 0.19 258);
+  --color-accent-deep: oklch(43% 0.2 262); --color-accent-edge: oklch(39% 0.16 260);
+  --color-glyph-1: oklch(89% 0.025 254); --color-glyph-2: oklch(81% 0.045 255); --color-glyph-3: oklch(70% 0.085 256); --color-glyph-4: oklch(60% 0.13 257);
+  --color-graphite-glyph-1: oklch(33% 0.03 262); --color-graphite-glyph-2: oklch(41% 0.05 260); --color-graphite-glyph-3: oklch(53% 0.1 258);
+  --color-key-face: oklch(99.4% 0.003 250); --color-key-edge: oklch(80% 0.016 254);
+  --font-display: "Familjen Grotesk", system-ui, sans-serif; --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+  --radius-card: 8px; --radius-input: 6px; --radius-pill: 999px;
+  --cell-w: 8px; --cell-h: 16px; --cut: 8px; --cut-l: 16px;
+  --rule-hair: 1px; --shadow-card: 0 1px 2px oklch(21% 0.028 262 / 0.06);
+  --shadow-key: 0 3px 0 0 var(--color-key-edge), 0 6px 8px -4px oklch(21% 0.028 262 / 0.28), inset 0 1px 0 oklch(100% 0 0 / 0.9);
+  --shadow-key-accent: 0 3px 0 0 var(--color-accent-edge), 0 6px 8px -4px oklch(30% 0.12 260 / 0.45), inset 0 1px 0 oklch(100% 0 0 / 0.22);
+  --shadow-key-press: inset 0 1px 2px oklch(21% 0.028 262 / 0.14);
+  --tracking-display: -0.028em; --display-weight: 600;
+
+  --space-2xs: 0.25rem; --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1rem; --space-lg: 1.5rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.875rem; --text-md: 1rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --text-display-m: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --text-display-l: clamp(2.6rem, 1.4rem + 5vw, 5.5rem);
+  --dur-micro: 110ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.55 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration-color: var(--color-rule-2); text-underline-offset: 0.2em; }
+a:hover { text-decoration-color: var(--color-accent); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: var(--tracking-display); color: var(--color-ink); line-height: 1.02; margin: 0; font-variant-numeric: tabular-nums; }
+h2 { font-size: var(--text-display-m); }
+h3 { font-weight: 500; font-size: 1.25rem; letter-spacing: -0.012em; line-height: 1.2; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-display); color: var(--color-muted); letter-spacing: 0; }
+.mono { font-family: var(--font-outlier); font-size: 0.875rem; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); border-top: var(--rule-hair) solid var(--color-rule); }
+.section__head { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-md) var(--space-lg); margin-bottom: var(--space-xl); align-items: end; }
+.section__head h2 { grid-column: 1 / span 6; }
+.section__head p { grid-column: 8 / span 5; }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; padding-inline: 1rem;
+  background: var(--color-graphite); color: var(--color-graphite-ink); font: 500 0.8125rem/1.2 var(--font-display); text-align: center; }
+@media (max-width: 420px) { .sample { font-size: 0.75rem; } }
+
+/* keys */
+.key { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; border: var(--rule-hair) solid var(--color-rule-2); border-radius: var(--radius-input);
+  padding: 0 var(--space-lg); min-height: 48px; background: var(--color-key-face); color: var(--color-ink); font: 500 var(--text-md)/1 var(--font-display); text-decoration: none; cursor: pointer;
+  box-shadow: var(--shadow-key); transition: transform var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out); }
+.key:hover { transform: translateY(-1px); }
+.key:active { transform: translateY(3px); box-shadow: var(--shadow-key-press); }
+.key--primary { background: var(--color-accent); border-color: var(--color-accent-edge); color: var(--color-accent-ink); box-shadow: var(--shadow-key-accent); }
+.key svg { width: 1.1em; height: 1.1em; flex: none; }
+.keys { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+
+.cut { border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-paper); box-shadow: var(--shadow-card); }
+@supports (corner-shape: bevel) { .cut { border-radius: var(--cut-l) 4px var(--cut-l) 4px; corner-shape: bevel round bevel round; } }
+
+/* header */
+.top { border-bottom: var(--rule-hair) solid var(--color-rule); background: var(--color-paper); position: relative; z-index: 2; }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-sm); }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.25rem; height: 2.25rem; flex: none; }
+.brand b { display: block; font: 600 1.25rem/1.1 var(--font-display); letter-spacing: var(--tracking-display); }
+.brand small { display: block; font: 500 0.8125rem/1.3 var(--font-display); color: var(--color-muted); }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.key) { font: 500 var(--text-sm)/1 var(--font-display); text-decoration: none; }
+.nav a:not(.key):hover { text-decoration: underline; text-decoration-color: var(--color-accent); }
+.nav .key { min-height: 42px; padding-inline: var(--space-md); }
+@media (max-width: 900px) { .nav a:not(.key) { display: none; } }
+@media (max-width: 400px) { .nav .key .long { display: none; } }
+
+/* hero: field */
+.hero { position: relative; isolation: isolate; overflow: hidden; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; display: block; }
+.hero__in { padding-block: var(--space-3xl); display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-lg); }
+.hero__copy { grid-column: 1 / span 7; background: color-mix(in oklab, var(--color-paper) 82%, transparent); padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; margin-left: 0; }
+.hero h1 { font-size: var(--text-display-l); margin-block: var(--space-md) var(--space-lg); }
+.hero .lede { font-size: 1.125rem; max-width: 34rem; margin-bottom: var(--space-xl); }
+.hero .status { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-xl); margin-top: var(--space-xl); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); }
+.status .fig { font: 600 2.75rem/1 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); font-variant-numeric: tabular-nums; }
+.status div { display: flex; align-items: center; gap: 0.75rem; }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent); }
+.stars svg { width: 0.95rem; height: 0.95rem; }
+.field-key { position: absolute; right: var(--gutter); bottom: var(--space-md); font: 400 0.75rem/1.3 var(--font-outlier); color: var(--color-muted); background: var(--color-paper); padding: 2px 6px; }
+@media (max-width: 860px) { .hero__copy { grid-column: 1 / -1; padding-right: var(--space-md); } .field-key { display: none; } }
+
+/* services: the ledger */
+.ledger { width: 100%; border-collapse: collapse; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.ledger th, .ledger td { text-align: left; padding: var(--space-md) var(--space-md) var(--space-md) 0; border-bottom: var(--rule-hair) solid var(--color-rule); vertical-align: top; }
+.ledger thead th { font: 500 var(--text-sm)/1.3 var(--font-display); color: var(--color-muted); padding-block: var(--space-sm); }
+.ledger tbody th { font: 500 1.125rem/1.3 var(--font-display); color: var(--color-ink); letter-spacing: -0.01em; width: 26%; }
+.ledger td.mono { color: var(--color-ink); white-space: nowrap; width: 22%; }
+.ledger tr.hot { background: var(--color-accent-wash); }
+.ledger tr.hot th { padding-left: var(--space-sm); }
+.ledger .ic { display: inline-flex; width: 1.4rem; height: 1.4rem; vertical-align: -0.3rem; margin-right: 0.5rem; color: var(--color-accent); }
+@media (max-width: 760px) {
+  .ledger thead { display: none; }
+  .ledger tr { display: grid; grid-template-columns: 1fr; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+  .ledger th, .ledger td { border: 0; padding: 0.15rem 0; width: auto !important; }
+  .ledger td.mono { white-space: normal; color: var(--color-muted); }
+  .ledger tr.hot { padding-inline: var(--space-sm); }
+}
+
+/* feature: the glazing control */
+.feature { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.control { grid-column: 1 / span 7; padding: var(--space-xl) var(--space-lg); display: grid; gap: var(--space-lg); }
+.feature__photo { grid-column: 9 / span 4; margin: 0; }
+@media (max-width: 860px) { .control, .feature__photo { grid-column: 1 / -1; } }
+.tray { display: flex; flex-wrap: wrap; gap: var(--space-sm); background: var(--color-paper-3); padding: var(--space-sm); border-radius: var(--radius-input); box-shadow: inset 0 1px 2px oklch(21% 0.028 262 / 0.1); }
+.tray .key { min-height: 42px; padding-inline: var(--space-md); font-size: 0.9375rem; flex: 1 1 9rem; }
+.tray .key[aria-pressed="true"] { transform: translateY(3px); box-shadow: var(--shadow-key-press); background: var(--color-paper-2); color: var(--color-accent-deep); }
+.result { display: flex; align-items: baseline; gap: var(--space-md); flex-wrap: wrap; }
+.result .big { font: 600 clamp(4rem, 2.6rem + 6vw, 6.5rem)/0.9 var(--font-display); letter-spacing: -0.04em; color: var(--color-ink); font-variant-numeric: tabular-nums; }
+.result p { max-width: 18rem; }
+.meter { display: grid; grid-template-columns: repeat(50, minmax(0,1fr)); gap: 2px; font: 400 0.75rem/1 var(--font-outlier); }
+.meter span { display: block; height: 1.25rem; background: var(--color-paper-3); color: transparent; overflow: hidden; text-align: center; line-height: 1.25rem; }
+.meter span.on { background: var(--color-accent); }
+.meter span.base { background: var(--color-glyph-2); }
+.vals { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); border-top: var(--rule-hair) solid var(--color-rule-2); }
+.vals div { padding: var(--space-sm) var(--space-sm) 0 0; }
+.vals div + div { padding-left: var(--space-sm); border-left: var(--rule-hair) solid var(--color-rule); }
+.vals b { display: block; font: 600 1.5rem/1.1 var(--font-display); color: var(--color-ink); letter-spacing: -0.02em; }
+
+.photo { margin: 0; }
+.photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-card); border: var(--rule-hair) solid var(--color-rule); }
+.photo figcaption { margin-top: var(--space-sm); font: 500 var(--text-sm)/1.4 var(--font-display); color: var(--color-muted); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+/* graphite band: the broken-glass call-out as a ruler */
+.graphite { background: var(--color-graphite); color: var(--color-graphite-ink); }
+.graphite .wrap { padding-block: var(--space-3xl); }
+.graphite h2 { color: var(--color-graphite-ink); }
+.graphite .section__head p { color: var(--color-graphite-muted); }
+.ruler svg { width: 100%; height: auto; display: block; }
+.ruler svg.ruler-wide { display: block; } .ruler svg.ruler-narrow { display: none; }
+@media (max-width: 640px) { .ruler svg.ruler-wide { display: none; } .ruler svg.ruler-narrow { display: block; } }
+.graphite .note { margin-top: var(--space-lg); color: var(--color-graphite-muted); font: 400 0.8125rem/1.5 var(--font-outlier); }
+.graphite .note b { color: var(--color-accent-2); font-weight: 400; }
+.graphite .key { margin-top: var(--space-xl); }
+.graphite :focus-visible { outline-color: var(--color-accent-2); }
+
+/* work */
+.work { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--space-lg); }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.tally { grid-column: 1 / span 4; padding: var(--space-xl) var(--space-lg); display: grid; gap: var(--space-sm); }
+.tally .big { font: 600 clamp(5rem, 3.5rem + 6vw, 8rem)/0.88 var(--font-display); letter-spacing: -0.045em; color: var(--color-ink); }
+.quotes { grid-column: 6 / span 7; margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.quotes li { list-style: none; padding-block: var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: var(--space-sm); }
+.quotes blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-display); color: var(--color-muted); display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.quotes .who b { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .tally, .quotes { grid-column: 1 / -1; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; }
+.area__list { grid-column: 9 / span 4; }
+.towns { margin: var(--space-lg) 0 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font: 500 1rem/1.4 var(--font-display); }
+.towns .mono { color: var(--color-ink-2); white-space: nowrap; }
+.map text { paint-order: stroke; stroke: var(--color-paper); stroke-width: 5px; stroke-linejoin: round; }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: 600 var(--text-display-m)/1 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); text-decoration: none; font-variant-numeric: tabular-nums; }
+.contact__call .phone:hover { color: var(--color-accent-deep); }
+.hours { margin: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font: 500 1rem/1.4 var(--font-display); }
+.hours dd { margin: 0; text-align: right; }
+.form { grid-column: 7 / span 6; padding: var(--space-xl) var(--space-lg); display: grid; gap: var(--space-md); }
+.form h3 { font-size: 1.5rem; font-weight: 600; }
+.fld { display: grid; gap: 0.35rem; }
+.fld label { font: 500 var(--text-sm)/1.3 var(--font-display); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border: var(--rule-hair) solid var(--color-muted); border-radius: var(--radius-input); background: var(--color-paper); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 48px; }
+@supports (corner-shape: bevel) { input, select, textarea { border-radius: var(--cut) 3px var(--cut) 3px; corner-shape: bevel round bevel round; } }
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 1px; border-color: var(--color-focus); }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .key { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-display); color: var(--color-ink); min-height: 1.4em; }
+
+@media (max-width: 860px) {
+  .contact__call, .form { grid-column: 1 / -1; }
+  .hero__in, .feature, .reviews, .area, .contact, .section__head { grid-template-columns: minmax(0,1fr); }
+  .hero__in > *, .feature > *, .reviews > *, .area > *, .contact > *, .section__head > * { grid-column: 1 / -1 !important; }
+}
+
+footer { border-top: var(--rule-hair) solid var(--color-rule-2); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-display); color: var(--color-muted); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note">Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Clearview Glass, home">
+      <svg viewBox="0 0 36 36" aria-hidden="true">
+        <path d="M10 2H34V26L26 34H2V10Z" fill="var(--color-graphite)"/>
+        <path d="M9 9H27V27H9Z" fill="none" stroke="var(--color-graphite-ink)" stroke-width="1.6"/>
+        <path d="M18 9V27M9 18H27" stroke="var(--color-graphite-ink)" stroke-width="1.6"/>
+        <path d="M12 15L15 12M21 24L24 21" stroke="var(--color-accent-2)" stroke-width="1.6"/>
+      </svg>
+      <span><b>Clearview Glass</b><small>Wellington glazier · Ana</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#glazing">Double glazing</a>
+      <a href="#broken">Broken glass</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="key key--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap hero__in">
+    <div class="hero__copy">
+      <p class="label">Glazier · Wellington, Hutt Valley and Porirua</p>
+      <h1>Broken glass, boarded today. Replaced this week.</h1>
+      <p class="lede">Ana and her van cover greater Wellington: smashed panes, double glazing for old villas, shower screens, splashbacks, mirrors and window seals. Measured on site, cut to size, fitted by the person who measured it.</p>
+      <div class="keys">
+        <a class="key key--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Ana</a>
+        <a class="key" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="status">
+        <div><span class="fig">4.9</span><span><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><span class="label" style="display:block">from 49 Google reviews</span></span></div>
+        <div><span class="fig">2 h</span><span class="label">to board up a broken<br>window, on most callouts</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="field-key">field: cracked pane → resolved glazing</p>
+</section>
+
+<section class="section" id="services" style="border-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What Ana fits</h2>
+      <p>Homes and small shops. Every job starts with a measure on site; the glass is cut in Seaview and fitted by Ana.</p>
+    </div>
+    <table class="ledger">
+      <thead><tr><th scope="col">Service</th><th scope="col">What happens</th><th scope="col">Typical turnaround</th></tr></thead>
+      <tbody>
+        <tr class="hot"><th scope="row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M11 3l-2 6 5 2-3 5 2 5M14 11l7-2M9 9L3 12"/></svg>Broken glass repairs</th><td>Made safe and boarded the same day, new pane cut and fitted to match.</td><td class="mono">board: same day<br>glass: 2–4 days</td></tr>
+        <tr><th scope="row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M7 7h10v10H7z"/><path d="M3 3l4 4M21 3l-4 4M3 21l4-4M21 21l-4-4"/></svg>Double glazing retrofit</th><td>Insulated glass units fitted into your existing timber or aluminium frames.</td><td class="mono">measure → fit: 3 weeks</td></tr>
+        <tr><th scope="row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 3v18M4 3h9v18"/><path d="M16 6l4 1M16 10l4 1M16 14l4 1"/><path d="M13 12h-2"/></svg>Shower screens</th><td>Frameless and semi-frameless screens in 10 mm toughened glass, sealed to the tiles.</td><td class="mono">10 mm toughened<br>2 weeks</td></tr>
+        <tr><th scope="row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 15h20M2 15V7h20v8"/><path d="M7 11h.01M12 11h.01M17 11h.01" stroke-width="2.4" stroke-linecap="round"/><path d="M4 15v5M20 15v5"/></svg>Splashbacks</th><td>Back-painted glass in any colour, cut round sockets and fixed with clear silicone.</td><td class="mono">6 mm toughened<br>10 working days</td></tr>
+        <tr><th scope="row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 2h14v20H5z"/><path d="M9 6l-2 2M14 6l-6 6"/></svg>Mirrors</th><td>Wall mirrors for bathrooms, gyms and wardrobes, with polished edges.</td><td class="mono">cut to size<br>1 week</td></tr>
+        <tr><th scope="row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M6 6h12v12H6z" stroke-dasharray="2 2"/></svg>Window seals</th><td>Perished rubber and putty replaced so the rain and the southerly stay outside.</td><td class="mono">most homes: 1 day</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="glazing">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Retrofit double glazing, worked out</h2>
+      <p>Pick a glass type. The figure is the heat lost through the glass compared with the old single pane you have now.</p>
+    </div>
+    <div class="feature">
+      <div class="cut control">
+        <div class="tray" role="group" aria-label="Glass type">
+          <button class="key" type="button" data-u="5.6" aria-pressed="false">Single, as now</button>
+          <button class="key" type="button" data-u="2.9" aria-pressed="true">Double, clear</button>
+          <button class="key" type="button" data-u="1.9" aria-pressed="false">Double, low-E + argon</button>
+        </div>
+        <div class="result">
+          <span class="big" id="pct">48%</span>
+          <p class="label" id="pctNote">less heat lost through the glass than single glazing</p>
+        </div>
+        <div class="meter" id="meter" aria-hidden="true"></div>
+        <div class="vals">
+          <div><span class="label">Glass U-value</span><b id="uval">2.9</b><span class="mono">W/m²K</span></div>
+          <div><span class="label">Single pane</span><b>5.6</b><span class="mono">W/m²K</span></div>
+          <div><span class="label">Frames kept</span><b>Yes</b><span class="mono">timber or alu</span></div>
+        </div>
+        <p class="label">Meter: 50 cells = the heat a single pane lets out. Typical centre-of-glass values; your windows are measured on site.</p>
+      </div>
+      <figure class="photo feature__photo">
+        <img src="img/villa.jpg" width="960" height="640" loading="lazy" alt="A weatherboard house with an old sash window, a dog looking out">
+        <figcaption><span>Villa sash, ready for a retrofit unit</span><span class="mono">Mt Victoria</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="graphite" id="broken">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>A broken window, by the hour</h2>
+      <p>A typical weekday callout in the city. After hours, the board-up still happens the same night.</p>
+    </div>
+    <div class="ruler">
+      <svg class="ruler-wide" viewBox="0 0 1000 200" role="img" aria-labelledby="rT">
+        <title id="rT">Timeline: call at 0 hours, Ana on site by 1 hour, glass made safe and window boarded by 2 hours, measured for new glass; new pane fitted 2 to 4 days later.</title>
+        <g font-family="JetBrains Mono, monospace" font-size="13" fill="var(--color-graphite-muted)">
+          <path d="M20 120 H700" stroke="var(--color-graphite-ink)" stroke-width="1"/>
+          <path d="M700 120 H980" stroke="var(--color-graphite-muted)" stroke-width="1" stroke-dasharray="4 5"/>
+          <g stroke="var(--color-graphite-ink)">
+            <path d="M20 110v20M240 110v20M460 110v20M700 110v20M960 110v20"/>
+            <path d="M75 116v8M130 116v8M185 116v8M295 116v8M350 116v8M405 116v8M515 116v8M570 116v8M625 116v8"/>
+          </g>
+          <text x="20" y="152">0:00</text><text x="240" y="152">1:00</text><text x="460" y="152">2:00</text><text x="700" y="152">+2 days</text><text x="960" y="152" text-anchor="end">+4 days</text>
+          <!-- wait as a dimension line -->
+          <path d="M24 88 H236 M24 82v12 M236 82v12" stroke="var(--color-graphite-muted)"/>
+          <text x="130" y="78" text-anchor="middle">drive</text>
+          <path d="M704 88 H956 M704 82v12 M956 82v12" stroke="var(--color-graphite-muted)"/>
+          <text x="830" y="78" text-anchor="middle">glass cut to size</text>
+          <g font-family="Familjen Grotesk, sans-serif" font-weight="600" font-size="30" fill="var(--color-graphite-ink)" letter-spacing="-0.8">
+            <text x="20" y="44">Call</text><text x="240" y="44">On site</text><text x="460" y="44">Boarded</text><text x="960" y="44" text-anchor="end" fill="var(--color-accent-2)">Fitted</text>
+          </g>
+          <g fill="var(--color-accent-2)"><rect x="456" y="114" width="8" height="12"/><rect x="956" y="114" width="8" height="12"/></g>
+        </g>
+      </svg>
+      <svg class="ruler-narrow" viewBox="0 0 340 320" role="img" aria-labelledby="rT2">
+        <title id="rT2">Timeline: call, on site within 1 hour, boarded within 2 hours, new pane fitted 2 to 4 days later.</title>
+        <g font-family="JetBrains Mono, monospace" font-size="13" fill="var(--color-graphite-muted)">
+          <path d="M80 10 V220" stroke="var(--color-graphite-ink)"/>
+          <path d="M80 220 V310" stroke="var(--color-graphite-muted)" stroke-dasharray="4 5"/>
+          <g stroke="var(--color-graphite-ink)"><path d="M70 12h20M70 82h20M70 152h20M70 220h20M70 308h20"/></g>
+          <text x="62" y="17" text-anchor="end">0:00</text><text x="62" y="87" text-anchor="end">1:00</text><text x="62" y="157" text-anchor="end">2:00</text><text x="62" y="225" text-anchor="end">+2 d</text><text x="62" y="313" text-anchor="end">+4 d</text>
+          <g font-family="Familjen Grotesk, sans-serif" font-weight="600" font-size="26" fill="var(--color-graphite-ink)">
+            <text x="104" y="22">Call</text><text x="104" y="92">On site</text><text x="104" y="162">Boarded</text><text x="104" y="314" fill="var(--color-accent-2)">Fitted</text>
+          </g>
+          <text x="104" y="262">glass cut to size</text>
+          <rect x="76" y="148" width="8" height="8" fill="var(--color-accent-2)"/><rect x="76" y="304" width="8" height="8" fill="var(--color-accent-2)"/>
+        </g>
+      </svg>
+    </div>
+    <p class="note"><b>board_up</b> same day, 7 days a week · <b>new_pane</b> matched to the old: clear, obscure, laminated or toughened</p>
+    <a class="key key--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Broken window? Call 021 000 0000</a>
+  </div>
+</section>
+
+<section class="section" id="work" style="border-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent work</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="photo">
+        <img src="img/shower.jpg" width="1024" height="684" loading="lazy" alt="A bathroom with a vanity and a sliding glass shower door">
+        <figcaption><span>Sliding shower screen, Karori</span><span class="mono">10 mm</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/pane.jpg" width="1600" height="1066" loading="lazy" alt="Sunlight through a multi-pane window with leaves outside">
+        <figcaption><span>Six-pane window, seals renewed, Thorndon</span><span class="mono">6 panes</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/facade.jpg" width="1024" height="680" loading="lazy" alt="Workers on ropes outside a glass-fronted office building">
+        <figcaption><span>Shopfront and office glass, Te Aro</span><span class="mono">commercial</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="cut tally">
+        <span class="big">4.9</span>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <p>out of 5, from 49 Google reviews</p>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“A cricket ball went through our lounge window at 6 pm on a Sunday. Ana had it boarded by eight and the new pane in on Wednesday.”</blockquote>
+          <p class="who"><b>Rachel</b><span>Ngaio</span><span>· Broken glass</span></p>
+        </li>
+        <li>
+          <blockquote>“She retrofitted double glazing into our 1910 villa without touching the sashes. The front room doesn't run with condensation any more.”</blockquote>
+          <p class="who"><b>Sione</b><span>Mt Victoria</span><span>· Double glazing</span></p>
+        </li>
+        <li>
+          <blockquote>“Measured the shower to the millimetre on our out-of-square tiles. The frameless screen sits perfectly and doesn't leak.”</blockquote>
+          <p class="who"><b>Kate</b><span>Petone</span><span>· Shower screen</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where Ana works</h2>
+      <p>Based in Seaview. Wellington city, the Hutt Valley and Porirua. Board-ups anywhere in between.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 520" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area around Wellington Harbour: Wellington city on the south-west shore, Petone and Lower Hutt at the top of the harbour, Seaview on the east side, Porirua and Johnsonville to the north-west.</title>
+          <g class="map" font-family="Familjen Grotesk, sans-serif" font-weight="500" fill="var(--color-ink)">
+            <rect x="0" y="0" width="600" height="520" fill="var(--color-paper-2)"/>
+            <g stroke="var(--color-rule)" stroke-width="1"><path d="M0 130h600M0 260h600M0 390h600M150 0v520M300 0v520M450 0v520"/></g>
+            <!-- harbour -->
+            <path d="M250 300 C 240 250, 270 200, 320 190 C 370 182, 420 200, 430 240 C 440 280, 420 330, 410 380 C 404 420, 400 460, 396 520 L 352 520 C 352 470, 340 440, 320 420 C 300 400, 260 360, 250 300 Z" fill="var(--color-accent-wash)" stroke="var(--color-ink-2)" stroke-width="1.5"/>
+            <text x="335" y="290" font-size="15" fill="var(--color-ink-2)" text-anchor="middle">Wellington</text>
+            <text x="335" y="308" font-size="15" fill="var(--color-ink-2)" text-anchor="middle">Harbour</text>
+            <!-- Porirua harbour -->
+            <path d="M120 60 C 150 70, 160 100, 140 120 C 120 138, 96 120, 100 96 C 102 80, 108 66, 120 60 Z" fill="var(--color-accent-wash)" stroke="var(--color-ink-2)" stroke-width="1.5"/>
+            <!-- Hutt River -->
+            <path d="M560 20 C 520 60, 480 100, 450 140 S 400 180, 380 188" fill="none" stroke="var(--color-ink-2)" stroke-width="1.5"/>
+            <!-- motorway spine -->
+            <path d="M120 40 L 180 160 L 250 300" fill="none" stroke="var(--color-muted)" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <path d="M250 300 C 280 240, 330 200, 380 188" fill="none" stroke="var(--color-muted)" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <!-- service boundary as a cut panel outline -->
+            <path d="M80 20 H560 V420 L 520 460 H 80 Z" fill="none" stroke="var(--color-accent)" stroke-width="1.5"/>
+            <!-- towns -->
+            <g>
+              <rect x="236" y="324" width="12" height="12"/><text x="226" y="335" font-size="20" text-anchor="end" font-weight="600">Wellington</text>
+              <rect x="240" y="400" width="8" height="8"/><text x="230" y="408" font-size="15" text-anchor="end">Island Bay</text>
+              <rect x="436" y="360" width="8" height="8"/><text x="452" y="368" font-size="15">Eastbourne</text>
+              <rect x="350" y="176" width="8" height="8"/><text x="340" y="172" font-size="15" text-anchor="end">Petone</text>
+              <rect x="430" y="140" width="10" height="10"/><text x="448" y="150" font-size="18">Lower Hutt</text>
+              <rect x="510" y="56" width="8" height="8"/><text x="500" y="52" font-size="15" text-anchor="end">Upper Hutt</text>
+              <rect x="180" y="210" width="8" height="8"/><text x="170" y="218" font-size="15" text-anchor="end">Johnsonville</text>
+              <rect x="150" y="128" width="10" height="10"/><text x="168" y="138" font-size="18">Porirua</text>
+            </g>
+            <!-- base -->
+            <rect x="420" y="196" width="12" height="12" fill="var(--color-accent)"/>
+            <text x="440" y="207" font-size="15" fill="var(--color-accent-deep)">Seaview</text>
+            <g transform="translate(560 470)"><path d="M0 -20 L8 8 L0 2 L-8 8 Z" fill="var(--color-ink)"/><text x="0" y="28" font-size="14" text-anchor="middle">N</text></g>
+          </g>
+        </svg>
+        <p class="label" style="margin-top:.6rem">Sketch, not to scale. Cobalt square: the workshop in Seaview.</p>
+      </figure>
+      <div class="area__list">
+        <p>Wellington suburbs: Thorndon, Kelburn, Karori, Mt Victoria, Newtown, Island Bay, Miramar, Ngaio, Khandallah, Johnsonville and more.</p>
+        <ul class="towns">
+          <li><span>Lower Hutt</span><span class="mono">5 km</span></li>
+          <li><span>Petone</span><span class="mono">6 km</span></li>
+          <li><span>Wellington city</span><span class="mono">14 km</span></li>
+          <li><span>Porirua</span><span class="mono">22 km</span></li>
+          <li><span>Upper Hutt</span><span class="mono">24 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Get a measure</h2>
+      <p>Call for broken glass. For anything else, text a photo or send the form and Ana will book a measure.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="keys">
+          <a class="key key--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="key" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd>7:30 am – 5:00 pm</dd></div>
+          <div><dt>Broken glass</dt><dd>7 days, board-ups after hours</dd></div>
+          <div><dt>Quote back</dt><dd>Within 2 working days</dd></div>
+        </dl>
+      </div>
+      <form class="cut form" id="quote" novalidate>
+        <h3>Quote request</h3>
+        <div class="row2">
+          <div class="fld"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="fld"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="fld"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="fld"><label for="f-job">Job</label>
+            <select id="f-job" name="job">
+              <option>Broken glass repair</option><option>Double glazing retrofit</option><option>Shower screen</option><option>Splashback</option><option>Mirror</option><option>Window seals</option><option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="fld"><label for="f-msg">Size of the glass and anything we should know</label><textarea id="f-msg" name="message" placeholder="e.g. 4 sash windows, roughly 900 × 1200, timber frames"></textarea></div>
+        <button class="key key--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Clearview Glass, Wellington · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Clearview Glass is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+
+/* glazing control: result over a meter of fifty cells */
+(function () {
+  var meter = document.getElementById('meter'), cells = [];
+  for (var i = 0; i < 50; i++) { var s = document.createElement('span'); s.textContent = '·'; meter.appendChild(s); cells.push(s); }
+  var keys = document.querySelectorAll('.tray .key');
+  function set(u) {
+    var single = 5.6, frac = u / single, saved = Math.round((1 - frac) * 100), n = Math.round(frac * 50);
+    document.getElementById('pct').textContent = saved + '%';
+    document.getElementById('pctNote').textContent = saved === 0 ? 'this is the heat a single pane lets out now' : 'less heat lost through the glass than single glazing';
+    document.getElementById('uval').textContent = u.toFixed(1);
+    cells.forEach(function (c, i) { c.className = i < n ? (saved === 0 ? 'base' : 'on') : ''; });
+  }
+  keys.forEach(function (k) {
+    k.addEventListener('click', function () {
+      keys.forEach(function (o) { o.setAttribute('aria-pressed', o === k ? 'true' : 'false'); });
+      set(parseFloat(k.dataset.u));
+    });
+  });
+  set(2.9);
+})();
+
+/* the field: a cracked pane on the left resolving into ruled glazing on the right */
+(function () {
+  var cv = document.getElementById('field'), ctx = cv.getContext('2d');
+  var cs = getComputedStyle(document.documentElement);
+  var tints = ['--color-glyph-1', '--color-glyph-2', '--color-glyph-3', '--color-glyph-4', '--color-accent-deep'].map(function (v) { return cs.getPropertyValue(v).trim(); });
+  var ramp = ' .·:-+=*#%';
+  var CW = 8, CH = 16, cols = 0, rows = 0, dpr = 1, t = 0, last = 0, visible = true, px = -999, py = -999;
+  var cracks = [];
+  function seed() {
+    cracks = [];
+    var cx = cols * 0.62, cy = rows * 0.45;
+    for (var i = 0; i < 9; i++) cracks.push({ a: i / 9 * Math.PI * 2 + 0.3 * Math.sin(i * 7.1), len: 8 + (i * 13 % 17) });
+    cracks.cx = cx; cracks.cy = cy;
+  }
+  function size() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var r = cv.getBoundingClientRect();
+    cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.height * dpr);
+    cols = Math.ceil(r.width / CW); rows = Math.ceil(r.height / CH);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.font = '13px "JetBrains Mono", ui-monospace, monospace'; ctx.textBaseline = 'top';
+    seed();
+  }
+  function noise(x, y, z) {
+    return (Math.sin(x * 0.21 + z) + Math.sin(y * 0.37 - z * 0.7) + Math.sin((x + y) * 0.13 + z * 0.5)) / 3;
+  }
+  function crackDist(c, r) {
+    var dx = c - cracks.cx, dy = (r - cracks.cy) * 2, d = Math.sqrt(dx * dx + dy * dy), ang = Math.atan2(dy, dx), best = 99;
+    for (var i = 0; i < cracks.length; i++) {
+      var k = cracks[i]; if (d > k.len * 2.2) continue;
+      var da = Math.abs(((ang - k.a + Math.PI * 3) % (Math.PI * 2)) - Math.PI);
+      best = Math.min(best, da * d);
+    }
+    return { line: best, ring: Math.abs(d - 10) };
+  }
+  function draw() {
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    var narrow = cols < 110;
+    var paneW = 18, paneH = 9;
+    for (var r = 0; r < rows; r++) {
+      for (var c = 0; c < cols; c++) {
+        var x = c / cols;
+        var mask = narrow ? 0.18 + 0.5 * Math.max(0, x - 0.4) : Math.max(0, (x - 0.42) / 0.58);
+        if (mask <= 0.02) continue;
+        var v = 0;
+        if (x > 0.78 && !narrow) {
+          /* resolved: ruled panes, the frame dense, the glass calm */
+          var onFrame = (c % paneW === 0) || (r % paneH === 0);
+          v = onFrame ? 0.75 : 0.12 + 0.08 * noise(c, r, t * 0.6);
+        } else {
+          var cd = crackDist(c, r);
+          v = 0.25 + 0.3 * noise(c, r, t);
+          if (cd.line < 1.3) v = 0.95; else if (cd.line < 3) v = Math.max(v, 0.6);
+          if (cd.ring < 0.8) v = Math.max(v, 0.7);
+        }
+        var dx = c * CW - px, dy = r * CH - py, pd = Math.sqrt(dx * dx + dy * dy);
+        if (pd < 110) v += 0.35 * (1 - pd / 110);
+        v *= mask;
+        if (v < 0.08) continue;
+        var idx = Math.min(ramp.length - 1, Math.floor(v * ramp.length));
+        var tint = Math.min(4, Math.floor(v * 4.6));
+        ctx.fillStyle = tints[tint];
+        ctx.fillText(ramp[idx], c * CW, r * CH + 1);
+      }
+    }
+  }
+  function loop(ts) {
+    if (visible && ts - last > 33) { last = ts; t += 0.035; draw(); }
+    requestAnimationFrame(loop);
+  }
+  var hero = cv.parentElement;
+  hero.addEventListener('pointermove', function (e) { var r = cv.getBoundingClientRect(); px = e.clientX - r.left; py = e.clientY - r.top; });
+  hero.addEventListener('pointerleave', function () { px = py = -999; });
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(hero);
+  window.addEventListener('resize', size);
+  size(); draw();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { size(); draw(); });
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

@@ -94,10 +94,28 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:.95rem}
 footer{border-top:1px solid var(--line);background:var(--card);padding:40px 0 32px}
 .foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;margin-bottom:24px}
 .foot h3{font:700 .8rem "Source Sans 3",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 10px}
-.foot a{display:block;color:var(--muted);text-decoration:none;padding:3px 0}.foot a:hover{color:var(--green);text-decoration:underline}
+.foot a{display:block;color:var(--muted);text-decoration:none;padding:9px 0;min-height:40px}.foot a:hover{color:var(--green);text-decoration:underline}
 .foot-brand b{font:800 1.3rem "Bricolage Grotesque",sans-serif;color:var(--ink)}.foot-brand b span{color:var(--green)}.foot-brand p{margin:.4em 0 0}
 .fine{font-size:.85rem;color:var(--muted);margin:.5em 0 0;border-top:1px solid var(--line);padding-top:12px}.fine+.fine{border-top:0;padding-top:0}
 @media(max-width:720px){.claim{grid-template-columns:1fr}.foot{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+.work{box-shadow:0 10px 28px rgba(22,35,31,.08);transition:transform .25s,box-shadow .25s}
+.work:hover,.work:focus-visible{transform:translateY(-4px);box-shadow:0 18px 40px rgba(22,35,31,.14)}
+.work .bar{display:flex;align-items:center;gap:5px;padding:8px 10px;background:var(--green-2);border-bottom:1px solid var(--line)}
+.work .bar i{width:8px;height:8px;border-radius:50%;background:#c9d6cf}
+.work .bar em{flex:1;margin-left:6px;font:600 .72rem "Source Sans 3",sans-serif;font-style:normal;color:var(--muted);background:#fff;border-radius:6px;padding:2px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.work img{aspect-ratio:3/4;height:auto;object-fit:cover;object-position:50% 0;transition:object-position 7s ease-in-out}
+.work:hover img,.work:focus-visible img{object-position:50% 100%}
+.works.five{grid-template-columns:repeat(3,1fr);gap:28px}
+@media (max-width:820px){.works.five{grid-template-columns:repeat(2,1fr)}}
+.shead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.arrows{display:flex;gap:8px;flex:none}.arr{width:46px;height:46px;border-radius:50%;border:2px solid var(--green);background:var(--card);color:var(--green);font-size:1.2rem;cursor:pointer}.arr:hover{background:var(--green);color:#fff}
+.reel{overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;margin:18px -16px 0;padding:8px 16px 26px;outline:none}.reel::-webkit-scrollbar{display:none}
+.track{display:flex;gap:24px}
+.slide{flex:0 0 clamp(240px,27vw,330px);scroll-snap-align:start;transition:transform .35s,box-shadow .35s,opacity .35s}
+.slide.on{transform:translateY(-6px) scale(1.02);box-shadow:0 22px 44px rgba(22,35,31,.18)}
+.slide img{transition:object-position 3.3s ease-in-out}.slide.on img{object-position:50% 100%}
+.slide span:last-child{font-size:.9rem}
+@media(max-width:600px){.arrows{display:none}.slide{flex-basis:78vw}}
 </style>
 </head>
 <body>
@@ -157,12 +175,41 @@ footer{border-top:1px solid var(--line);background:var(--card);padding:40px 0 32
 
 <section class="alt" id="work"><div class="wrap">
  <h2>Sites I've built</h2>
+ <p class="lede">Tap one to open the live site. On a computer, hover to scroll through it.</p>
  <div class="works five">
-  <a class="work" href="https://dealprospect.com/" target="_blank" rel="noopener"><img src="work/dealprospect.jpg" width="800" height="500" loading="lazy" alt="DealProspect home page"><div><b>DealProspect</b><span>Businesses for sale across New Zealand and Australia.</span></div></a>
-  <a class="work" href="https://businessborrowing.co.nz/" target="_blank" rel="noopener"><img src="work/business-borrowing.jpg" width="800" height="500" loading="lazy" alt="Business Borrowing home page"><div><b>Business Borrowing</b><span>How much a company can borrow, and at what price.</span></div></a>
-  <a class="work" href="https://www.gobusinessvaluation.com/" target="_blank" rel="noopener"><img src="work/go-business-valuation.jpg" width="800" height="500" loading="lazy" alt="Go Business Valuation home page"><div><b>Go Business Valuation</b><span>A free asking price range for your business.</span></div></a>
-  <a class="work" href="https://clearledger.co.nz/" target="_blank" rel="noopener"><img src="work/clearledger.jpg" width="800" height="500" loading="lazy" alt="ClearLedger home page"><div><b>ClearLedger</b><span>Accounting for New Zealand businesses.</span></div></a>
-  <a class="work" href="https://aquilalens.com/" target="_blank" rel="noopener"><img src="work/aquilalens.jpg" width="800" height="500" loading="lazy" alt="AquilaLens home page"><div><b>AquilaLens</b><span>All of New Zealand's organisations in one place.</span></div></a>
+  <a class="work" href="https://dealprospect.com/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>dealprospect.com</em></span><img src="work/dealprospect-tall.jpg" width="640" height="2600" loading="lazy" alt="DealProspect home page"><div><b>DealProspect</b><span>Businesses for sale across New Zealand and Australia.</span></div></a>
+  <a class="work" href="https://clearledger.co.nz/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>clearledger.co.nz</em></span><img src="work/clearledger-tall.jpg" width="640" height="2600" loading="lazy" alt="ClearLedger home page"><div><b>ClearLedger</b><span>Accounting for New Zealand businesses.</span></div></a>
+  <a class="work" href="https://mowmatch.co.nz/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>mowmatch.co.nz</em></span><img src="work/mowmatch-tall.jpg" width="640" height="795" loading="lazy" alt="MowMatch home page"><div><b>MowMatch</b><span>Lawn mowing prices from local mowers.</span></div></a>
+  <a class="work" href="https://www.gobusinessvaluation.com/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>gobusinessvaluation.com</em></span><img src="work/go-business-valuation-tall.jpg" width="640" height="2600" loading="lazy" alt="Go Business Valuation home page"><div><b>Go Business Valuation</b><span>A free asking price range for your business.</span></div></a>
+  <a class="work" href="https://aquilalens.com/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>aquilalens.com</em></span><img src="work/aquilalens-tall.jpg" width="640" height="2600" loading="lazy" alt="AquilaLens home page"><div><b>AquilaLens</b><span>All of New Zealand's organisations in one place.</span></div></a>
+  <a class="work" href="https://businessborrowing.co.nz/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>businessborrowing.co.nz</em></span><img src="work/business-borrowing-tall.jpg" width="640" height="2600" loading="lazy" alt="Business Borrowing home page"><div><b>Business Borrowing</b><span>How much a company can borrow, and at what price.</span></div></a>
+ </div>
+</div></section>
+
+<section id="styles"><div class="wrap">
+ <div class="shead">
+  <div><h2>Some of our styles</h2>
+  <p class="lede">These are a few of them, shown on made-up businesses, and there are plenty more to choose from. Tap one to see it full size.</p></div>
+  <div class="arrows"><button type="button" class="arr" data-dir="-1" aria-label="Previous styles">&larr;</button><button type="button" class="arr" data-dir="1" aria-label="Next styles">&rarr;</button></div>
+ </div>
+ <div class="reel" tabindex="0" aria-label="Sample site styles">
+  <div class="track">
+   <a class="work slide" href="styles/concreter/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/concreter/tall.jpg" width="640" height="2600" loading="lazy" alt="Stonefield Concrete, a sample site in the Formwork style"><div><b>Formwork</b><span>Stonefield Concrete · Concreter, Hamilton</span></div></a>
+   <a class="work slide" href="styles/drainlayer/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/drainlayer/tall.jpg" width="640" height="2600" loading="lazy" alt="Clearway Drainage, a sample site in the Wayfind style"><div><b>Wayfind</b><span>Clearway Drainage · Drainlayer, Auckland</span></div></a>
+   <a class="work slide" href="styles/landscaper/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/landscaper/tall.jpg" width="640" height="2600" loading="lazy" alt="Kowhai Lane Landscapes, a sample site in the Garden style"><div><b>Garden</b><span>Kowhai Lane Landscapes · Landscaper, Nelson</span></div></a>
+   <a class="work slide" href="styles/electrician/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/electrician/tall.jpg" width="640" height="2600" loading="lazy" alt="Brightline Electrical, a sample site in the Blueprint style"><div><b>Blueprint</b><span>Brightline Electrical · Electrician, Tauranga</span></div></a>
+   <a class="work slide" href="styles/builder/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/builder/tall.jpg" width="640" height="2600" loading="lazy" alt="Harbourview Builders, a sample site in the Newsprint style"><div><b>Newsprint</b><span>Harbourview Builders · Builder, Christchurch</span></div></a>
+   <a class="work slide" href="styles/plumber/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/plumber/tall.jpg" width="640" height="2600" loading="lazy" alt="Pipe Dream Plumbing, a sample site in the Halftone style"><div><b>Halftone</b><span>Pipe Dream Plumbing · Plumber, Palmerston North</span></div></a>
+   <a class="work slide" href="styles/arborist/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/arborist/tall.jpg" width="640" height="2600" loading="lazy" alt="Canopy Tree Care, a sample site in the Squeeze style"><div><b>Squeeze</b><span>Canopy Tree Care · Arborist, Rotorua</span></div></a>
+   <a class="work slide" href="styles/chimney/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/chimney/tall.jpg" width="640" height="2600" loading="lazy" alt="Emberline Chimney Sweeps, a sample site in the Kiln style"><div><b>Kiln</b><span>Emberline Chimney Sweeps · Chimney sweep, Dunedin</span></div></a>
+   <a class="work slide" href="styles/tiler/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/tiler/tall.jpg" width="640" height="2600" loading="lazy" alt="Mosaic Bay Tiling, a sample site in the Loom style"><div><b>Loom</b><span>Mosaic Bay Tiling · Tiler, Napier</span></div></a>
+   <a class="work slide" href="styles/roofer/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/roofer/tall.jpg" width="640" height="2600" loading="lazy" alt="Southpeak Roofing, a sample site in the Sport style"><div><b>Sport</b><span>Southpeak Roofing · Roofer, Invercargill</span></div></a>
+   <a class="work slide" href="styles/cleaner/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/cleaner/tall.jpg" width="640" height="2600" loading="lazy" alt="Fresh Start Cleaning, a sample site in the Dose style"><div><b>Dose</b><span>Fresh Start Cleaning · House cleaner, Hamilton</span></div></a>
+   <a class="work slide" href="styles/welder/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/welder/tall.jpg" width="640" height="2600" loading="lazy" alt="Ironbark Engineering, a sample site in the Werkstatt style"><div><b>Werkstatt</b><span>Ironbark Engineering · Welder, New Plymouth</span></div></a>
+   <a class="work slide" href="styles/glazier/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/glazier/tall.jpg" width="640" height="2600" loading="lazy" alt="Clearview Glass, a sample site in the Cobalt style"><div><b>Cobalt</b><span>Clearview Glass · Glazier, Wellington</span></div></a>
+   <a class="work slide" href="styles/fencer/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/fencer/tall.jpg" width="640" height="2600" loading="lazy" alt="Totara Fencing, a sample site in the Hedgerow style"><div><b>Hedgerow</b><span>Totara Fencing · Fencer, Masterton</span></div></a>
+   <a class="work slide" href="styles/painter/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>sample</em></span><img src="styles/painter/tall.jpg" width="640" height="2600" loading="lazy" alt="Alpine Brush Painters, a sample site in the Solstice style"><div><b>Solstice</b><span>Alpine Brush Painters · Painter, Queenstown</span></div></a>
+  </div>
  </div>
 </div></section>
 
@@ -209,6 +256,17 @@ footer{border-top:1px solid var(--line);background:var(--card);padding:40px 0 32
  <p class="fine">Privacy: I only use what's public on your Google profile to build a mock-up. I don't sell or share your details, and I delete them if you say no. Visits and clicks on this site are counted without cookies.</p>
  <p class="fine">© 2026 SiteRefresh, a trading name of Llewellyn Ventures Limited (NZBN 9429051034597), New Zealand.</p>
 </div></footer>
+<script>
+(()=>{const r=document.querySelector('.reel');if(!r)return;const sl=[...r.querySelectorAll('.slide')];let i=0,hold=false,t;
+const step=()=>sl[1].offsetLeft-sl[0].offsetLeft;
+const go=n=>{i=(n+sl.length)%sl.length;r.scrollTo({left:sl[i].offsetLeft-sl[0].offsetLeft});sl.forEach((x,k)=>x.classList.toggle('on',k===i))};
+const tick=()=>{if(!hold&&r.getBoundingClientRect().top<innerHeight)go(i+1)};
+document.querySelectorAll('.arr').forEach(b=>b.onclick=()=>{go(i+ +b.dataset.dir);clearInterval(t);t=setInterval(tick,3500)});
+['mouseenter','focusin','touchstart'].forEach(e=>r.addEventListener(e,()=>hold=true,{passive:true}));
+['mouseleave','focusout'].forEach(e=>r.addEventListener(e,()=>hold=false));
+r.addEventListener('scroll',()=>{if(!hold)return;const n=Math.round(r.scrollLeft/step());if(n!==i){i=n;sl.forEach((x,k)=>x.classList.toggle('on',k===i))}},{passive:true});
+sl[0].classList.add('on');t=setInterval(tick,3500)})();
+</script>
 <script async src="https://siterefresh-hits.siterefresh-nz.workers.dev/h.js"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1174742f262842a7bc48958e4bed24c4"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

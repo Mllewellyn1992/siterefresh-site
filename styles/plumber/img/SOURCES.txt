@@ -1,0 +1,47 @@
+Photo sources for the Pipe Dream Plumbing style sample (made-up business).
+All images found via Openverse with license cc0 or pdm.
+
+tap-running.jpg
+  What: Chrome basin mixer, cold tap running into a white basin
+  Title: File:247 Home Rescue sink tap plumbing water running.jpg
+  Creator: 247homerescue
+  Source page: https://commons.wikimedia.org/w/index.php?curid=33348206
+  File: https://upload.wikimedia.org/wikipedia/commons/c/c9/247_Home_Rescue_sink_tap_plumbing_water_running.jpg
+  Licence: CC0 1.0 (via Openverse, wikimedia); no credit required
+  Edits: resized to max 1600px wide, slight colour/contrast lift, JPEG q80
+
+tap-drip.jpg
+  What: A dripping basin tap
+  Title: Tap water
+  Creator: unknown
+  Source page: https://www.rawpixel.com/image/6031360/tap-water-free-public-domain-cc0-photo
+  File: https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJ0YXBfYmF0aHJvb21fZHJvcF93YXRlci1pbWFnZS1reWJjbDdoai5qcGc.jpg
+  Licence: CC0 1.0 (via Openverse, rawpixel); no credit required
+  Edits: resized to max 1600px wide, slight colour/contrast lift, JPEG q80
+
+bathroom.jpg
+  What: Finished bathroom with freestanding bath and walk-in shower
+  Title: Bathroom in Luxury Home
+  Creator: Foto Miki Digital
+  Source page: https://www.flickr.com/photos/96511847@N04/10798221476
+  File: https://live.staticflickr.com/5522/10798221476_3895deec18_b.jpg
+  Licence: PDM 1.0 (via Openverse, flickr); no credit required
+  Edits: resized to max 1600px wide, slight colour/contrast lift, JPEG q80
+
+pipes.jpg
+  What: Stacked PVC drainage pipe
+  Title: Drainage Pipes
+  Creator: Tim Sullivan
+  Source page: https://stocksnap.io/photo/drainage-pipes-J7GDUQ3PHC
+  File: https://cdn.stocksnap.io/img-thumbs/960w/J7GDUQ3PHC.jpg
+  Licence: CC0 1.0 (via Openverse, stocksnap); no credit required
+  Edits: resized to max 1600px wide, slight colour/contrast lift, JPEG q80
+
+mixer.jpg
+  What: Single-lever basin mixer
+  Title: Free tap & water
+  Creator: unknown
+  Source page: https://www.rawpixel.com/image/5925021/free-tap-water-public-domain-cc0-photo
+  File: https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgxMTU5NTk2LWltYWdlLWt3dnk0d3FvLmpwZw.jpg
+  Licence: CC0 1.0 (via Openverse, rawpixel); no credit required
+  Edits: resized to max 1600px wide, slight colour/contrast lift, JPEG q80

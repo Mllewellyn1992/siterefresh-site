@@ -1,0 +1,30 @@
+Photos for the Ironbark Engineering sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Welder sparks metal construction (unknown)
+  Source:  https://www.rawpixel.com/image/9658158/welding
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL2ZsNTEzMjE1ODUwMzctaW1hZ2UuanBn.jpg
+  Licence: CC0 1.0
+  Note:    cropped square; converted to black and white (contrast up)
+
+workshop.jpg
+  Title:   Fabbro (fotokoci)
+  Source:  https://www.flickr.com/photos/124957377@N03/14798492503
+  File:    https://live.staticflickr.com/3887/14798492503_c6873148f7_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped square; converted to black and white (contrast up)
+
+gates.jpg
+  Title:   Metal farm gates (unknown)
+  Source:  https://www.rawpixel.com/image/6025345/metal-farm-gates-free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL2ZyZmFybV9nYXRlX21ldGFsX2dhdGUtaW1hZ2Uta3liYm5pZ2suanBn.jpg
+  Licence: CC0 1.0
+  Note:    cropped square; converted to black and white (contrast up)
+
+site.jpg
+  Title:   Free welder working construction site (unknown)
+  Source:  https://www.rawpixel.com/image/5902252/photo-image-public-domain-person-free
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3N2MTk3MTQ5LWltYWdlLWt3dnVoeTJkLmpwZw.jpg
+  Licence: CC0 1.0
+  Note:    cropped square to the right side; converted to black and white (contrast up)

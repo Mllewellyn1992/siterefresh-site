@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Mosaic Bay Tiling | Tiler in Napier (sample site)</title>
+<meta name="description" content="Sample site: a made-up Napier tiler, built to show the Loom style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Hanken+Grotesk:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(95.5% 0.014 85); --color-paper-2: oklch(92% 0.022 84); --color-paper-3: oklch(85% 0.032 80);
+  --color-ink: oklch(21% 0.012 60); --color-ink-2: oklch(31% 0.012 60); --color-muted: oklch(46% 0.014 62);
+  --color-rule: oklch(83% 0.022 84); --color-rule-ink: oklch(21% 0.012 60);
+  --color-accent: oklch(34% 0.115 267); --color-accent-2: oklch(43% 0.125 267); --color-accent-ink: oklch(95.5% 0.014 85); --color-focus: oklch(43% 0.15 267);
+  --font-display: "Libre Caslon Display", "Libre Caslon Text", ui-serif, Georgia, serif; --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: "DM Mono", ui-monospace, monospace;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-ink: 2px;
+  --shadow-card: none;
+  --tracking-display: -0.01em; --display-weight: 400;
+
+  --space-2xs: 0.25rem; --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1rem; --space-lg: 1.5rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6.5rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem; --text-title: 1.25rem;
+  --text-display-s: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+  --text-display-m: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  --text-display-l: clamp(2.75rem, 1.4rem + 5.4vw, 6rem);
+  --dur-short: 180ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.5 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); }
+h1, h2 { font-family: var(--font-display); font-weight: 400; letter-spacing: var(--tracking-display); line-height: 1.04; color: var(--color-ink); margin: 0; font-synthesis: none; }
+h2 { font-size: var(--text-display-m); }
+h3 { font: 500 var(--text-title)/1.25 var(--font-body); color: var(--color-ink); margin: 0; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.lead { color: var(--color-muted); font-size: 1.125rem; }
+.num { font-family: var(--font-outlier); font-variant-numeric: tabular-nums; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-md) var(--space-lg); margin-bottom: var(--space-xl); align-items: end; }
+.section__head h2 { grid-column: 1 / span 7; }
+.section__head p { grid-column: 8 / span 5; }
+@media (max-width: 860px) { .section__head > * { grid-column: 1 / -1 !important; } }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; padding-inline: 1rem;
+  background: var(--color-ink); color: var(--color-paper); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+@media (max-width: 420px) { .sample { font-size: 0.75rem; } }
+
+/* controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; min-height: 3rem; padding: var(--space-md) var(--space-lg);
+  font: 500 var(--text-sm)/1 var(--font-body); background: var(--color-accent); color: var(--color-accent-ink); text-decoration: none; border: 0; border-radius: 0; cursor: pointer;
+  transition: background-color var(--dur-short) var(--ease-out); }
+.btn:hover { background: var(--color-accent-2); }
+.btn svg { width: 1.1em; height: 1.1em; flex: none; }
+.link { font-weight: 500; padding-block: var(--space-2xs); border-bottom: 2px solid currentColor; text-decoration: none; color: var(--color-ink); display: inline-flex; align-items: center; gap: 0.5rem;
+  transition: border-color var(--dur-short) var(--ease-out); }
+.link:hover { border-color: var(--color-accent); }
+.link svg { width: 1.05em; height: 1.05em; }
+.pair { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md) var(--space-lg); }
+
+/* header */
+.top { border-bottom: var(--rule-ink) solid var(--color-rule-ink); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.5rem; height: 2.5rem; flex: none; }
+.brand b { display: block; font: 500 1.125rem/1.15 var(--font-body); }
+.brand small { display: block; font: 500 0.8125rem/1.3 var(--font-body); color: var(--color-muted); }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); text-decoration: none; padding-block: var(--space-2xs); border-bottom: 2px solid transparent; transition: border-color var(--dur-short) var(--ease-out); }
+.nav a:not(.btn):hover { border-color: var(--color-accent); }
+.nav .btn { min-height: 2.75rem; padding-inline: var(--space-md); }
+@media (max-width: 900px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 400px) { .nav .btn .long { display: none; } }
+
+/* hero: poster */
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-xl) var(--space-lg); align-items: end; }
+.hero__copy { grid-column: 1 / span 6; }
+.hero__photo { grid-column: 7 / span 6; }
+.hero h1 { font-size: var(--text-display-l); line-height: 1.0; margin-block: var(--space-md) var(--space-lg); }
+.hero .lead { max-width: 32rem; margin-bottom: var(--space-xl); }
+.score { display: flex; align-items: center; gap: var(--space-md); margin-top: var(--space-xl); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); max-width: 32rem; }
+.score .fig { font: 400 3rem/1 var(--font-display); color: var(--color-ink); letter-spacing: var(--tracking-display); }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent); }
+.stars svg { width: 1rem; height: 1rem; }
+@media (max-width: 860px) { .hero__copy, .hero__photo { grid-column: 1 / -1; } }
+
+.photo { margin: 0; }
+.photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; background: var(--color-paper-3); }
+.photo--tall img { aspect-ratio: 5 / 4; }
+.photo figcaption { margin-top: var(--space-sm); font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+/* services as ruled rows */
+.svc { margin: 0; padding: 0; border-top: var(--rule-ink) solid var(--color-rule-ink); }
+.svc li { list-style: none; display: grid; grid-template-columns: 3rem minmax(0, 4fr) minmax(0, 6fr) minmax(0, 3fr); gap: var(--space-md) var(--space-lg); align-items: baseline; padding-block: var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.svc .n { font: 400 0.875rem/1 var(--font-outlier); color: var(--color-muted); }
+.svc .spec { font: 400 0.875rem/1.4 var(--font-outlier); color: var(--color-ink-2); text-align: right; }
+@media (max-width: 760px) {
+  .svc li { grid-template-columns: 2.25rem minmax(0,1fr); gap: var(--space-xs) var(--space-sm); }
+  .svc li > p, .svc li > .spec { grid-column: 2; }
+  .svc .spec { text-align: left; }
+}
+
+/* feature band: paper-2, the bathroom as a pattern-book sheet */
+.band { background: var(--color-paper-2); }
+.feature { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.feature__sheet { grid-column: 1 / span 6; }
+.feature__photo { grid-column: 8 / span 5; }
+@media (max-width: 860px) { .feature__sheet, .feature__photo { grid-column: 1 / -1; } }
+.sheet { margin: 0; border-top: var(--rule-ink) solid var(--color-rule-ink); }
+.sheet div { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--space-md); padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); align-items: baseline; }
+.sheet dt { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.sheet dd { margin: 0; font: 500 1.125rem/1.35 var(--font-body); color: var(--color-ink); }
+.sheet dd .num { font-size: 0.9375rem; color: var(--color-ink-2); font-weight: 400; }
+.sheet .big dd { font: 400 var(--text-display-s)/1.04 var(--font-display); letter-spacing: var(--tracking-display); }
+
+/* time as a ruled scale */
+.scale { margin-top: var(--space-2xl); }
+.scale h3 { margin-bottom: var(--space-xs); }
+.scale svg { width: 100%; height: auto; display: block; margin-top: var(--space-md); }
+.scale .key { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); margin-top: var(--space-sm); }
+.scale .key span { display: inline-flex; align-items: center; gap: 0.5rem; }
+.scale .key i { display: inline-block; width: 1.5rem; height: 0.6rem; background: var(--color-paper-3); }
+.scale .key i.ind { height: 3px; background: var(--color-accent); }
+.scale svg.scale-wide { display: block; }
+.scale svg.scale-narrow { display: none; }
+@media (max-width: 640px) { .scale svg.scale-wide { display: none; } .scale svg.scale-narrow { display: block; } }
+
+/* work */
+.work { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space-lg); }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.tally { grid-column: 1 / span 4; background: var(--color-paper-3); padding: var(--space-xl) var(--space-lg); display: grid; gap: var(--space-sm); }
+.tally .big { font: 400 clamp(5rem, 3.5rem + 6vw, 8.5rem)/0.9 var(--font-display); color: var(--color-ink); letter-spacing: var(--tracking-display); }
+.tally p { color: var(--color-ink-2); }
+.quotes { grid-column: 6 / span 7; margin: 0; padding: 0; border-top: var(--rule-ink) solid var(--color-rule-ink); }
+.quotes li { list-style: none; padding-block: var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: var(--space-sm); }
+.quotes blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.quotes .who b { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .tally, .quotes { grid-column: 1 / -1; } }
+
+/* indigo band */
+.band--indigo { background: var(--color-accent); color: var(--color-accent-ink); }
+.band--indigo .wrap { padding-block: var(--space-3xl); display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-lg); align-items: end; }
+.band--indigo .statement { grid-column: 1 / span 8; font: 400 var(--text-display-m)/1.04 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-accent-ink); }
+.band--indigo .note { grid-column: 9 / span 4; display: grid; gap: var(--space-lg); justify-items: start; }
+.band--indigo .btn { background: var(--color-paper); color: var(--color-accent); }
+.band--indigo .btn:hover { background: var(--color-paper-2); }
+.band--indigo :focus-visible { outline-color: var(--color-accent-ink); }
+@media (max-width: 860px) { .band--indigo .statement, .band--indigo .note { grid-column: 1 / -1; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-paper-2); }
+.area__list { grid-column: 9 / span 4; }
+.towns { margin: var(--space-lg) 0 0; padding: 0; border-top: var(--rule-ink) solid var(--color-rule-ink); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+.towns .num { font-size: 0.9375rem; white-space: nowrap; }
+.map text { paint-order: stroke; stroke: var(--color-paper-2); stroke-width: 5px; stroke-linejoin: round; }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: 400 var(--text-display-m)/1 var(--font-display); color: var(--color-ink); text-decoration: none; letter-spacing: var(--tracking-display); }
+.hours { margin: 0; border-top: var(--rule-ink) solid var(--color-rule-ink); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 500; }
+.hours dd { margin: 0; text-align: right; }
+.form { grid-column: 7 / span 6; background: var(--color-paper-2); padding: var(--space-xl) var(--space-lg); display: grid; gap: var(--space-md); }
+.form h3 { font-size: 1.375rem; }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: 0; border: 1px solid var(--color-rule); background: var(--color-paper); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3rem; }
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 0; border-color: var(--color-focus); }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) {
+  .contact__call, .form { grid-column: 1 / -1; }
+  .hero__grid, .feature, .reviews, .area, .contact, .band--indigo .wrap, .section__head { grid-template-columns: minmax(0,1fr); }
+  .hero__grid > *, .feature > *, .reviews > *, .area > *, .contact > *, .band--indigo .wrap > * { grid-column: 1 / -1; }
+}
+
+footer { border-top: var(--rule-ink) solid var(--color-rule-ink); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note">Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Mosaic Bay Tiling, home">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <rect x="1" y="1" width="38" height="38" fill="var(--color-accent)"/>
+        <g fill="var(--color-accent-ink)">
+          <rect x="7" y="7" width="12" height="12"/><rect x="21" y="7" width="12" height="12" opacity=".45"/>
+          <rect x="7" y="21" width="12" height="12" opacity=".45"/><rect x="21" y="21" width="12" height="12"/>
+        </g>
+      </svg>
+      <span><b>Mosaic Bay Tiling</b><small>Napier tiler · Priya</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#bathroom">A bathroom, start to finish</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Tiler · Napier, Hastings and Hawke's Bay</p>
+      <h1>Tiles laid straight, sealed underneath.</h1>
+      <p class="lead">Priya tiles bathrooms, splashbacks, floors and courtyards across Napier and Hastings. She waterproofs before she tiles, sets out every room before the first tile goes down, and does the job herself from start to finish.</p>
+      <div class="pair">
+        <a class="btn" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Priya</a>
+        <a class="link" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo of the room</a>
+      </div>
+      <div class="score">
+        <span class="fig">5.0</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from 33 Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <figure class="photo photo--tall hero__photo">
+      <img src="img/bathroom.jpg" width="1024" height="932" alt="A bathroom with a freestanding bath, large dark floor tiles and a walk-in shower behind glass" fetchpriority="high">
+      <figcaption><span>Bathroom floor in 600 × 600 porcelain, Taradale</span><span>Sample photo</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What Priya tiles</h2>
+      <p class="lead">Homes, not shopfronts. One room at a time, measured and set out on site before a price is written.</p>
+    </div>
+    <ul class="svc">
+      <li><span class="n">01</span><h3>Bathroom tiling</h3><p>Floors, walls and showers, from a single wall to a full strip-out and retile.</p><span class="spec">Walls to ceiling</span></li>
+      <li><span class="n">02</span><h3>Kitchen splashbacks</h3><p>Subway, mosaic sheet or large format, cut neatly round sockets and the window reveal.</p><span class="spec">Usually 1 day</span></li>
+      <li><span class="n">03</span><h3>Floor tiling</h3><p>Kitchens, laundries and hallways, levelled first so the tiles sit flat and don't crack.</p><span class="spec">Up to 1200 × 600</span></li>
+      <li><span class="n">04</span><h3>Waterproofing</h3><p>A brushed-on membrane under every shower and wet floor, left to cure before tiling.</p><span class="spec">2 coats, 24 h cure</span></li>
+      <li><span class="n">05</span><h3>Outdoor tiles</h3><p>Courtyards, porches and pool surrounds in frost-rated porcelain with a non-slip finish.</p><span class="spec">R11 slip rating</span></li>
+      <li><span class="n">06</span><h3>Re-grouting</h3><p>Old, cracked or mouldy grout raked out and replaced, then sealed. Often saves a full retile.</p><span class="spec">Half a day for most showers</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band section" id="bathroom">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>A bathroom, start to finish</h2>
+      <p class="lead">The usual retile of a family bathroom, written out the way Priya writes it on the quote.</p>
+    </div>
+    <div class="feature">
+      <div class="feature__sheet">
+        <dl class="sheet">
+          <div><dt>Room</dt><dd>Family bathroom, shower over bath <span class="num">2.4 × 1.8 m</span></dd></div>
+          <div><dt>Strip-out</dt><dd>Old tiles and board off, walls checked for damp</dd></div>
+          <div><dt>Membrane</dt><dd>Two coats under the shower and across the floor <span class="num">150 mm up the walls</span></dd></div>
+          <div><dt>Floor tile</dt><dd>Matt porcelain <span class="num">600 × 600</span></dd></div>
+          <div><dt>Wall tile</dt><dd>Gloss ceramic, laid in a stack <span class="num">300 × 600</span></dd></div>
+          <div><dt>Grout</dt><dd>Epoxy in the shower, cement elsewhere <span class="num">2 mm joints</span></dd></div>
+          <div class="big"><dt>On site</dt><dd>8 working days</dd></div>
+        </dl>
+      </div>
+      <figure class="photo feature__photo">
+        <img src="img/floor.jpg" width="1024" height="680" loading="lazy" alt="An open kitchen and dining room with a grey slate-look tile floor">
+        <figcaption><span>Kitchen and dining floor, slate-look porcelain</span><span>42 m²</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="scale">
+      <h3>Eight working days, laid out</h3>
+      <p class="label">The bathroom is out of use from day 1. You can shower again from day 8.</p>
+      <svg class="scale-wide" viewBox="0 0 960 150" role="img" aria-labelledby="scT">
+        <title id="scT">Timeline over eight working days: strip-out day 1, membrane days 2 to 3, tiling days 4 to 6, grout and seal day 7, fittings back and shower usable day 8.</title>
+        <g font-family="DM Mono, monospace" font-size="13" fill="var(--color-muted)">
+          <path d="M20 96 H940" stroke="var(--color-ink)" stroke-width="1"/>
+          <g stroke="var(--color-ink)" stroke-width="1">
+            <path d="M20 90v12M135 90v12M250 90v12M365 90v12M480 90v12M595 90v12M710 90v12M825 90v12M940 90v12"/>
+          </g>
+          <text x="77" y="124" text-anchor="middle">Day 1</text><text x="192" y="124" text-anchor="middle">2</text><text x="307" y="124" text-anchor="middle">3</text><text x="422" y="124" text-anchor="middle">4</text>
+          <text x="537" y="124" text-anchor="middle">5</text><text x="652" y="124" text-anchor="middle">6</text><text x="767" y="124" text-anchor="middle">7</text><text x="882" y="124" text-anchor="middle">8</text>
+          <rect x="22" y="62" width="111" height="26" fill="var(--color-paper-3)"/>
+          <rect x="137" y="62" width="226" height="26" fill="var(--color-paper-3)"/>
+          <rect x="367" y="62" width="341" height="26" fill="var(--color-paper-3)"/>
+          <rect x="712" y="62" width="111" height="26" fill="var(--color-paper-3)"/>
+          <path d="M827 75 H940" stroke="var(--color-accent)" stroke-width="4"/>
+          <g font-family="Hanken Grotesk, sans-serif" font-weight="500" font-size="14" fill="var(--color-ink)">
+            <text x="22" y="50">Strip-out</text><text x="137" y="50">Membrane, cure</text><text x="367" y="50">Floor, then walls</text><text x="712" y="50">Grout, seal</text>
+            <text x="827" y="50" fill="var(--color-accent)">Shower again</text>
+          </g>
+        </g>
+      </svg>
+      <svg class="scale-narrow" viewBox="0 0 340 300" role="img" aria-labelledby="scT2">
+        <title id="scT2">Timeline over eight working days: strip-out day 1, membrane days 2 to 3, tiling days 4 to 6, grout and seal day 7, shower usable day 8.</title>
+        <g font-family="DM Mono, monospace" font-size="13" fill="var(--color-muted)">
+          <path d="M64 10 V290" stroke="var(--color-ink)"/>
+          <g stroke="var(--color-ink)"><path d="M58 10h12M58 45h12M58 80h12M58 115h12M58 150h12M58 185h12M58 220h12M58 255h12M58 290h12"/></g>
+          <text x="50" y="32" text-anchor="end">D1</text><text x="50" y="67" text-anchor="end">2</text><text x="50" y="102" text-anchor="end">3</text><text x="50" y="137" text-anchor="end">4</text>
+          <text x="50" y="172" text-anchor="end">5</text><text x="50" y="207" text-anchor="end">6</text><text x="50" y="242" text-anchor="end">7</text><text x="50" y="277" text-anchor="end">8</text>
+          <rect x="74" y="12" width="22" height="31" fill="var(--color-paper-3)"/>
+          <rect x="74" y="47" width="22" height="66" fill="var(--color-paper-3)"/>
+          <rect x="74" y="117" width="22" height="101" fill="var(--color-paper-3)"/>
+          <rect x="74" y="222" width="22" height="31" fill="var(--color-paper-3)"/>
+          <path d="M85 257 V290" stroke="var(--color-accent)" stroke-width="4"/>
+          <g font-family="Hanken Grotesk, sans-serif" font-weight="500" font-size="15" fill="var(--color-ink)">
+            <text x="110" y="32">Strip-out</text><text x="110" y="85">Membrane, cure</text><text x="110" y="172">Floor, then walls</text><text x="110" y="242">Grout, seal</text>
+            <text x="110" y="277" fill="var(--color-accent)">Shower again</text>
+          </g>
+        </g>
+      </svg>
+      <div class="key label"><span><i></i>Priya on site</span><span><i class="ind"></i>Room back in use</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent rooms</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="photo">
+        <img src="img/splashback.jpg" width="1024" height="683" loading="lazy" alt="A kitchen bench under a wide window with a strip of glass mosaic splashback tiles">
+        <figcaption><span>Glass mosaic splashback, Ahuriri</span><span>3.2 m run</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/courtyard.jpg" width="1024" height="767" loading="lazy" alt="A courtyard laid with large brown outdoor tiles, a table and orange chairs under a tree">
+        <figcaption><span>Courtyard in outdoor porcelain, Havelock North</span><span>28 m²</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band--indigo">
+  <div class="wrap">
+    <p class="statement">The membrane goes on first, every time.</p>
+    <div class="note">
+      <p>Most failed showers in Hawke's Bay leak under the tiles, not through them. Priya photographs the membrane before she tiles over it, and you get the photos with the invoice.</p>
+      <a class="btn" href="#contact">Ask for a measure</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="tally">
+        <span class="big">5.0</span>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <p>out of 5, from 33 Google reviews</p>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Priya set out the whole bathroom with a pencil and a level before a single tile went on. The lines meet perfectly at the corner of the shower. Eight days, as she said.”</blockquote>
+          <p class="who"><b>Megan</b><span>Taradale</span><span>· Bathroom retile</span></p>
+        </li>
+        <li>
+          <blockquote>“Our shower grout had gone black. She raked it all out, regrouted and sealed it in an afternoon. Looks new, and we didn't have to rip anything out.”</blockquote>
+          <p class="who"><b>Tom</b><span>Marewa</span><span>· Re-grouting</span></p>
+        </li>
+        <li>
+          <blockquote>“Tiled our back courtyard in a non-slip porcelain. It's level, the water runs off to the drain, and she cleaned up so well you'd never know she'd been.”</blockquote>
+          <p class="who"><b>Hemi</b><span>Havelock North</span><span>· Outdoor tiles</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where Priya works</h2>
+      <p class="lead">Based in Onekawa. All of Napier and Hastings, and the towns in between.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 480" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area along Hawke Bay: Bay View in the north, Napier and Ahuriri on the coast, Taradale inland, Clive, Hastings and Havelock North to the south.</title>
+          <g class="map" font-family="Hanken Grotesk, sans-serif" font-weight="500" fill="var(--color-ink)">
+            <!-- sea: Hawke Bay to the east -->
+            <path d="M600 0 H420 C 400 60, 380 110, 392 150 C 402 182, 418 196, 412 230 C 404 280, 430 330, 470 380 C 500 420, 540 450, 600 480 Z" fill="var(--color-paper-3)"/>
+            <path d="M420 0 C 400 60, 380 110, 392 150 C 402 182, 418 196, 412 230 C 404 280, 430 330, 470 380 C 500 420, 540 450, 600 480" fill="none" stroke="var(--color-ink)" stroke-width="2"/>
+            <text x="500" y="200" font-size="18" fill="var(--color-ink-2)">Hawke Bay</text>
+            <!-- Bluff Hill knob -->
+            <path d="M392 150 c 14 -6 26 2 22 16" fill="none" stroke="var(--color-ink)" stroke-width="2"/>
+            <!-- Tutaekuri river -->
+            <path d="M40 260 C 120 250, 200 280, 270 280 S 380 300, 426 300" fill="none" stroke="var(--color-ink)" stroke-width="1.5" stroke-dasharray="6 5"/>
+            <text x="70" y="244" font-size="14" fill="var(--color-muted)">Tutaekuri River</text>
+            <!-- service ring -->
+            <circle cx="350" cy="250" r="190" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
+            <!-- base -->
+            <rect x="350" y="196" width="14" height="14" fill="var(--color-accent)"/>
+            <text x="300" y="230" font-size="14" fill="var(--color-accent)">Onekawa</text>
+            <!-- towns -->
+            <g>
+              <rect x="366" y="160" width="10" height="10"/><text x="300" y="166" font-size="20" text-anchor="end">Napier</text>
+              <rect x="350" y="128" width="8" height="8"/><text x="340" y="136" font-size="16" text-anchor="end">Ahuriri</text>
+              <rect x="340" y="40" width="8" height="8"/><text x="330" y="48" font-size="16" text-anchor="end">Bay View</text>
+              <rect x="276" y="240" width="8" height="8"/><text x="266" y="248" font-size="16" text-anchor="end">Taradale</text>
+              <rect x="404" y="318" width="8" height="8"/><text x="420" y="328" font-size="16">Clive</text>
+              <rect x="310" y="350" width="10" height="10"/><text x="300" y="362" font-size="20" text-anchor="end">Hastings</text>
+              <rect x="338" y="404" width="8" height="8"/><text x="356" y="414" font-size="16">Havelock North</text>
+            </g>
+            <g transform="translate(560 40)"><path d="M0 -20 L8 8 L0 2 L-8 8 Z" fill="var(--color-ink)"/><text x="0" y="28" font-size="14" text-anchor="middle">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Sketch, not to scale. Indigo square: Priya's base in Onekawa.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Napier suburbs: Ahuriri, Bluff Hill, Marewa, Onekawa, Tamatea, Greenmeadows, Taradale, Pirimai, Westshore and more.</p>
+        <ul class="towns">
+          <li><span>Napier</span><span class="num">0–8 km</span></li>
+          <li><span>Taradale</span><span class="num">6 km</span></li>
+          <li><span>Bay View</span><span class="num">12 km</span></li>
+          <li><span>Clive</span><span class="num">13 km</span></li>
+          <li><span>Hastings</span><span class="num">19 km</span></li>
+          <li><span>Havelock North</span><span class="num">23 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Get a measure</h2>
+      <p class="lead">Call or text Priya with a photo of the room. She'll come and measure, then send a written quote.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="pair">
+          <a class="btn" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="link" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd>7:30 am – 4:30 pm</dd></div>
+          <div><dt>Saturday</dt><dd>Measures by arrangement</dd></div>
+          <div><dt>Quote back</dt><dd>Within 3 working days</dd></div>
+        </dl>
+      </div>
+      <form class="form" id="quote" novalidate>
+        <h3>Quote request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job">
+              <option>Bathroom tiling</option><option>Kitchen splashback</option><option>Floor tiling</option><option>Waterproofing</option><option>Outdoor tiles</option><option>Re-grouting</option><option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Room size and anything we should know</label><textarea id="f-msg" name="message" placeholder="e.g. bathroom about 2.4 m by 1.8 m, tiles already chosen"></textarea></div>
+        <button class="btn" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Mosaic Bay Tiling, Napier · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Mosaic Bay Tiling is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+</body>
+</html>

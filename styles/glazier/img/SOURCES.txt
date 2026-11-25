@@ -1,0 +1,30 @@
+Photos for the Clearview Glass sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was resized to at most 1600 px wide, turned into a graphite-to-paper duotone (Cobalt photo treatment), saved as JPEG quality 80.
+
+shower.jpg
+  Title:   Modern bathroom with glass shower
+  Source:  https://www.rawpixel.com/image/6077486/dsc09616
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZmwzOTQ5MTU1ODA0MC1pbWFnZS1reWNqMzdydy5qcGc.jpg
+  Licence: CC0 1.0
+  Note:    duotone
+
+villa.jpg
+  Title:   House Window (Multa Media)
+  Source:  https://stocksnap.io/photo/house-window-V5XHHGHGCZ
+  File:    https://cdn.stocksnap.io/img-thumbs/960w/V5XHHGHGCZ.jpg
+  Licence: CC0 1.0
+  Note:    duotone
+
+facade.jpg
+  Title:   Free skyscraper window cleaning services
+  Source:  https://www.rawpixel.com/image/5906435/photo-image-public-domain-blue-people
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4NzE0NjE4LWltYWdlLWt3dnY1ajY2LmpwZw.jpg
+  Licence: CC0 1.0
+  Note:    duotone
+
+pane.jpg
+  Title:   Sunlight shining through a dusty window pane, revealing green leaves of a plant outside. Warm light creates a hazy, atmospheric glow on the glass. (Elena Zheng)
+  Source:  https://wordpress.org/photos/photo/42369d6ba1/
+  File:    https://pd.w.org/2026/04/42369d6ba140b2404.46641799-2048x1365.jpg
+  Licence: CC0 1.0
+  Note:    duotone

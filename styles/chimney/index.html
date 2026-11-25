@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Emberline Chimney Sweeps · Dunedin</title>
+<meta name="description" content="Sample site: chimney and flue sweeping, wood burner installs and servicing in Dunedin. Made-up business to show the Kiln style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Geist:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(13% 0.012 40); --color-paper-2: oklch(17.5% 0.016 40); --color-paper-3: oklch(22% 0.018 40);
+  --color-ink: oklch(94% 0.02 80); --color-ink-2: oklch(84% 0.025 70); --color-muted: oklch(72% 0.03 60);
+  --color-rule: oklch(96% 0.01 80 / 0.12);
+  --color-accent: oklch(70% 0.2 45); --color-accent-ink: oklch(14% 0.02 40); --color-focus: oklch(76% 0.19 56);
+  --heat-0: oklch(12% 0.012 40); --heat-1: oklch(22% 0.07 22); --heat-2: oklch(40% 0.16 27); --heat-3: oklch(60% 0.21 36);
+  --heat-4: oklch(76% 0.19 56); --heat-5: oklch(89% 0.14 78); --heat-6: oklch(98% 0.04 95);
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif; --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 28px; --radius-well: 16px; --radius-pill: 999px; --rule-hair: 1px;
+  --shadow-card: 0 50px 90px -30px oklch(8% 0.01 40 / 0.5);
+  --tracking-display: -0.02em; --display-weight: 500;
+  --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 20px; --space-lg: 28px; --space-xl: 48px; --space-2xl: clamp(64px, 10vw, 128px);
+  --text-display: clamp(2.6rem, 6.4vw, 5.6rem); --text-h2: clamp(2rem, 4.2vw, 3.4rem); --text-h3: clamp(1.35rem, 2vw, 1.6rem);
+  --dur-short: 180ms; --dur-long: 900ms; --ease-out: cubic-bezier(.2, .7, .2, 1);
+  --wrap: 1200px; --gutter: clamp(16px, 4vw, 40px); --banner-h: 32px;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--banner-h) + 72px); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: 17px; line-height: 1.55; overflow-x: hidden; padding-top: var(--banner-h); -webkit-font-smoothing: antialiased; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+::selection { background: color-mix(in oklab, var(--color-accent) 35%, transparent); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); line-height: 1.04; letter-spacing: var(--tracking-display); margin: 0; color: var(--color-ink); }
+h1 { font-size: var(--text-display); line-height: 1.0; }
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); letter-spacing: -0.01em; }
+p { margin: 0; }
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.label { font-size: 14px; font-weight: 500; color: var(--color-muted); }
+.lede { font-size: clamp(17px, 1.5vw, 19px); color: var(--color-ink-2); max-width: 34em; }
+.figure { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: -0.03em; font-variant-numeric: lining-nums tabular-nums; line-height: 1; }
+
+/* sample banner */
+.sample { position: fixed; inset: 0 0 auto 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; padding: 0 12px; background: var(--color-paper-3); border-bottom: var(--rule-hair) solid var(--color-rule); font-size: 13px; font-weight: 500; color: var(--color-ink-2); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* header */
+.top { position: sticky; top: var(--banner-h); z-index: 40; background: color-mix(in oklab, var(--color-paper) 92%, transparent); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); min-height: 68px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand svg { width: 34px; height: 34px; flex: none; }
+.brand b { font-family: var(--font-display); font-weight: 500; font-size: 22px; letter-spacing: -0.02em; line-height: 1; }
+.brand small { display: block; font-size: 12px; font-weight: 500; color: var(--color-muted); margin-top: 3px; letter-spacing: 0; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a.link { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--color-ink-2); transition: color var(--dur-short) var(--ease-out); }
+.nav a.link:hover { color: var(--color-ink); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 var(--space-lg); border-radius: var(--radius-pill); font: 500 16px/1 var(--font-body); text-decoration: none; border: 0; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out); white-space: nowrap; }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
+.btn--primary:hover { background: oklch(74% 0.19 50); }
+.btn--ghost { background: transparent; color: var(--color-ink); box-shadow: inset 0 0 0 var(--rule-hair) var(--color-rule); }
+.btn--ghost:hover { background: var(--color-paper-2); box-shadow: inset 0 0 0 var(--rule-hair) oklch(96% 0.01 80 / 0.22); }
+.btn--sm { min-height: 42px; padding: 0 18px; font-size: 15px; }
+.pair { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+/* photos */
+.photo { position: relative; overflow: hidden; border-radius: min(2.4vw, var(--radius-card)); box-shadow: var(--shadow-card); background: var(--color-paper-2); }
+.photo::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 var(--rule-hair) color-mix(in oklab, var(--color-ink) 8%, transparent); pointer-events: none; }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.scrim { position: absolute; inset: 0; background: linear-gradient(to top, color-mix(in oklab, var(--color-paper) 65%, transparent), transparent 55%); }
+.caption { position: absolute; left: var(--space-md); right: var(--space-md); bottom: var(--space-md); font-size: 14px; font-weight: 500; color: var(--color-ink-2); }
+
+/* hero */
+.hero { padding: clamp(40px, 7vw, 96px) 0 var(--space-2xl); }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.hero h1 { margin: var(--space-md) 0 var(--space-lg); max-width: 9.5em; }
+.hero .lede { margin-bottom: var(--space-xl); }
+.hero .photo { aspect-ratio: 4 / 4.4; }
+.hero .photo img { object-position: 42% 50%; }
+.rating { display: flex; align-items: center; gap: var(--space-md); margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.rating .figure { font-size: 56px; }
+.stars { display: flex; gap: 3px; margin-bottom: 4px; }
+.stars svg { width: 16px; height: 16px; }
+
+/* section heads */
+section { position: relative; }
+.head { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: end; margin-bottom: var(--space-xl); }
+.head .label { margin-bottom: var(--space-sm); }
+.head p.lede { justify-self: end; }
+
+/* services: rows like a firing schedule */
+.services { padding: 0 0 var(--space-2xl); }
+.rows { border-top: var(--rule-hair) solid var(--color-rule); }
+.row { display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, 1.6fr) 120px; gap: var(--space-lg); align-items: center; padding: var(--space-lg) 0; border-bottom: var(--rule-hair) solid var(--color-rule); transition: background-color var(--dur-long) var(--ease-out); }
+.row:hover { background: color-mix(in oklab, var(--color-paper-2) 60%, transparent); }
+.row .icon { width: 48px; height: 48px; color: var(--color-ink-2); }
+.row p { color: var(--color-ink-2); font-size: 16px; }
+.row .time { text-align: right; }
+.row .time .figure { font-size: 34px; display: block; }
+.row .time .label { font-size: 13px; }
+
+/* flue temperature band */
+.band { background: var(--color-paper-2); border-top: var(--rule-hair) solid var(--color-rule); border-bottom: var(--rule-hair) solid var(--color-rule); padding: var(--space-2xl) 0; }
+.flue { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(32px, 5vw, 80px); align-items: start; }
+.flue h2 { margin: var(--space-sm) 0 var(--space-lg); }
+.temps { margin-top: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
+.temp { display: grid; grid-template-columns: 34px 168px 1fr; gap: var(--space-md); align-items: baseline; padding: var(--space-md) 0; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.temp i { display: block; width: 34px; height: 6px; border-radius: 3px; transform: translateY(-4px); }
+.temp .figure { font-size: 28px; white-space: nowrap; }
+.temp p { font-size: 15px; color: var(--color-ink-2); }
+.chart { background: var(--color-paper); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-well); padding: var(--space-lg) var(--space-lg) var(--space-md); }
+.chart-top { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-md); margin-bottom: var(--space-md); }
+.chart-top .figure { font-size: clamp(44px, 6vw, 72px); }
+.chart svg { width: 100%; height: auto; overflow: visible; }
+.chart svg text { font-family: var(--font-body); font-size: 12px; font-weight: 500; fill: var(--color-muted); }
+#curveClip rect { transition: width 2600ms var(--ease-out); }
+.chart .live { opacity: 0; transition: opacity var(--dur-long) var(--ease-out) 2200ms; }
+.chart.on .live { opacity: 1; }
+
+/* photo pair */
+.pair-photos { padding: var(--space-2xl) 0 0; }
+.pair-photos .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-lg); }
+.pair-photos .photo { aspect-ratio: 16 / 10; }
+.pair-photos .photo.tall { aspect-ratio: auto; }
+.note { display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-lg); }
+.note .photo { flex: 1; min-height: 220px; }
+
+/* price band */
+.price { margin-top: var(--space-2xl); background: var(--color-paper-2); border-top: var(--rule-hair) solid var(--color-rule); border-bottom: var(--rule-hair) solid var(--color-rule); padding: var(--space-xl) 0; }
+.price .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-lg); }
+.price .figure { font-size: clamp(64px, 9vw, 120px); }
+.price .figure span { font-size: 0.42em; letter-spacing: -0.01em; margin-right: 4px; vertical-align: 0.9em; }
+.price .what { display: flex; align-items: center; gap: clamp(20px, 4vw, 48px); flex-wrap: wrap; }
+.price .what p { max-width: 22em; color: var(--color-ink-2); }
+
+/* reviews */
+.reviews { padding: var(--space-2xl) 0; }
+.score { display: flex; align-items: flex-end; gap: var(--space-md); }
+.score .figure { font-size: clamp(88px, 12vw, 160px); }
+.score .label { padding-bottom: 14px; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+.well { background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-well); }
+.review { padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-md); }
+.review blockquote { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 21px; line-height: 1.3; letter-spacing: -0.01em; }
+.review footer { margin-top: auto; display: flex; justify-content: space-between; gap: var(--space-sm); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); }
+.review footer b { font-weight: 500; }
+
+/* area */
+.area { padding: 0 0 var(--space-2xl); }
+.area .wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
+.area h2 { margin: var(--space-sm) 0 var(--space-lg); }
+.towns { margin: var(--space-xl) 0 0; padding: 0; list-style: none; columns: 2; column-gap: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.towns li { break-inside: avoid; padding: 10px 0; border-bottom: var(--rule-hair) solid var(--color-rule); display: flex; justify-content: space-between; gap: 8px; font-size: 16px; }
+.towns li span { color: var(--color-muted); font-size: 14px; font-weight: 500; }
+.map { padding: var(--space-md); }
+.map svg { width: 100%; height: auto; }
+.map svg text { font-family: var(--font-body); font-size: 14px; font-weight: 500; fill: var(--color-ink-2); }
+.map svg text.sea { fill: var(--color-muted); font-size: 12px; letter-spacing: 0.04em; }
+
+/* statement strip */
+.strip { padding: 0 0 var(--space-2xl); }
+.strip .wrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.strip .photo { aspect-ratio: 3 / 2; }
+.say h2 { font-size: clamp(2rem, 4.2vw, 3.4rem); margin-bottom: var(--space-md); }
+@media (max-width: 960px) { .strip .wrap { grid-template-columns: 1fr; } }
+
+/* contact */
+.contact { padding: 0 0 var(--space-2xl); }
+.contact .shell { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(32px, 5vw, 72px); padding-top: var(--space-2xl); border-top: var(--rule-hair) solid var(--color-rule); }
+.contact h2 { margin: var(--space-sm) 0 var(--space-lg); }
+.phone { display: block; margin: var(--space-xl) 0 var(--space-lg); text-decoration: none; }
+.phone .figure { font-size: clamp(44px, 6vw, 72px); }
+.hours { margin-top: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
+.hours div { display: flex; justify-content: space-between; gap: var(--space-md); padding: 10px 0; border-bottom: var(--rule-hair) solid var(--color-rule); font-size: 15px; }
+.hours div span:first-child { color: var(--color-muted); font-weight: 500; }
+form { padding: clamp(20px, 3vw, 36px); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+form .full { grid-column: 1 / -1; }
+label.f { display: grid; gap: 6px; font-size: 14px; font-weight: 500; color: var(--color-muted); min-width: 0; }
+.input { width: 100%; min-height: 50px; padding: 12px 16px; background: var(--color-paper); color: var(--color-ink); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-well); font: 400 16px/1.4 var(--font-body); transition: border-color var(--dur-short) var(--ease-out); appearance: none; -webkit-appearance: none; }
+.input:hover { border-color: oklch(96% 0.01 80 / 0.22); }
+.input:focus { outline: 2px solid var(--color-focus); outline-offset: 1px; }
+textarea.input { min-height: 110px; resize: vertical; }
+select.input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%23d9cdb8' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+select.input option { background: #1d1714; }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md); justify-content: space-between; }
+.form-foot .label { font-size: 13px; }
+.sent { display: none; grid-column: 1 / -1; padding: 14px 16px; border-radius: var(--radius-well); border: var(--rule-hair) solid var(--color-rule); background: var(--color-paper); color: var(--color-ink-2); font-size: 15px; }
+form.done .sent { display: block; }
+
+/* footer */
+.foot { border-top: var(--rule-hair) solid var(--color-rule); padding: var(--space-xl) 0 calc(var(--space-xl) + 70px); }
+.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-md); align-items: center; }
+.foot p { font-size: 14px; color: var(--color-muted); }
+
+/* sticky mobile call bar */
+.callbar { display: none; }
+
+/* motion: slow, thermal */
+.js .rise { opacity: 0; transform: translateY(14px); transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out); }
+.js .rise.in { opacity: 1; transform: none; }
+.js .rise.d1 { transition-delay: 120ms; } .js .rise.d2 { transition-delay: 240ms; }
+
+@media (max-width: 960px) {
+  .hero .wrap, .flue, .area .wrap, .contact .shell, .pair-photos .wrap { grid-template-columns: 1fr; }
+  .hero .photo { aspect-ratio: 4 / 3.4; }
+  .head { grid-template-columns: 1fr; gap: var(--space-md); }
+  .head p.lede { justify-self: start; }
+  .cards { grid-template-columns: 1fr; }
+  .note .photo { min-height: 0; aspect-ratio: 16 / 10; flex: none; }
+}
+@media (max-width: 760px) {
+  .nav a.link { display: none; }
+  .row { grid-template-columns: 40px minmax(0, 1fr) auto; grid-template-areas: "i h t" "i p p"; gap: 6px var(--space-md); align-items: start; }
+  .row .icon { width: 36px; height: 36px; grid-area: i; }
+  .row h3 { grid-area: h; align-self: center; }
+  .row p { grid-area: p; }
+  .row .time { grid-area: t; }
+  .row .time .figure { font-size: 26px; }
+  .temp { grid-template-columns: 28px 1fr; gap: 4px var(--space-sm); }
+  .temp i { width: 28px; }
+  .temp .figure { font-size: 24px; }
+  .temp p { grid-column: 2; }
+  .map svg text { font-size: 19px; }
+  .map svg text.sea { font-size: 15px; }
+  .map svg text.big { font-size: 22px; }
+  .chart { padding: var(--space-md) var(--space-sm) var(--space-sm); }
+  .chart-top { flex-direction: column; gap: 4px; padding: 0 var(--space-xs); }
+  form { grid-template-columns: 1fr; }
+  .towns { columns: 1; }
+  .callbar { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: color-mix(in oklab, var(--color-paper) 94%, transparent); border-top: var(--rule-hair) solid var(--color-rule); }
+  .callbar .btn { padding: 0 12px; }
+}
+@media (max-width: 400px) {
+  .brand small { display: none; }
+  .top .btn--sm { padding: 0 14px; }
+  .sample { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="sample" role="note">Sample site — made-up business to show this style</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Emberline Chimney Sweeps, home">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 26 20 13l16 13"/>
+        <path d="M26 18V8h6v15"/>
+        <path d="M24.5 8h9"/>
+        <path d="M8 23v13h24V23"/>
+        <path d="M17 36v-6a3 3 0 0 1 6 0v6"/>
+        <path d="M29 5.5c-1.4-1.1-.2-2.6.6-3.5" opacity=".55"/>
+      </svg>
+      <span><b>Emberline</b><small>Chimney sweeps · Dunedin</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="link" href="#services">Services</a>
+      <a class="link" href="#flue">Burning well</a>
+      <a class="link" href="#reviews">Reviews</a>
+      <a class="link" href="#area">Area</a>
+      <a class="btn btn--primary btn--sm" href="tel:0210000000">Call Josh</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="label rise">Chimney sweep and fire installer · Dunedin and around</p>
+        <h1 class="rise d1">A clean flue before the first cold night.</h1>
+        <p class="lede rise d2">Josh sweeps chimneys and flues, installs and services wood burners, and signs the insurance certificate on the day. Dust sheets down, done in about an hour.</p>
+        <div class="pair rise d2">
+          <a class="btn btn--primary" href="tel:0210000000">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5h3l1.5 4-2 1.3a9 9 0 0 0 5.2 5.2L13.5 11l4 1.5v3a2 2 0 0 1-2 2A14 14 0 0 1 2.5 4.5a2 2 0 0 1 2-2Z"/></svg>
+            Call 021 000 0000
+          </a>
+          <a class="btn btn--ghost" href="#quote">Get a quote</a>
+        </div>
+        <div class="rating rise d2">
+          <span class="figure">4.9</span>
+          <div>
+            <div class="stars" aria-hidden="true">
+              <svg viewBox="0 0 16 16"><path d="m8 1.2 2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.5l-4.2 2.3 1-4.6L1.3 6l4.7-.5Z" fill="var(--color-ink)"/></svg>
+              <svg viewBox="0 0 16 16"><path d="m8 1.2 2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.5l-4.2 2.3 1-4.6L1.3 6l4.7-.5Z" fill="var(--color-ink)"/></svg>
+              <svg viewBox="0 0 16 16"><path d="m8 1.2 2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.5l-4.2 2.3 1-4.6L1.3 6l4.7-.5Z" fill="var(--color-ink)"/></svg>
+              <svg viewBox="0 0 16 16"><path d="m8 1.2 2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.5l-4.2 2.3 1-4.6L1.3 6l4.7-.5Z" fill="var(--color-ink)"/></svg>
+              <svg viewBox="0 0 16 16"><path d="m8 1.2 2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.5l-4.2 2.3 1-4.6L1.3 6l4.7-.5Z" fill="var(--color-ink)"/></svg>
+            </div>
+            <p class="label">From 47 Google reviews</p>
+          </div>
+        </div>
+      </div>
+      <figure class="photo rise d1" style="margin:0">
+        <img src="img/burner-door.jpg" alt="Wood burner with its door open, split logs alight in the firebox" width="1024" height="767" fetchpriority="high">
+        <div class="scrim"></div>
+        <figcaption class="caption">A burner drawing well after its autumn sweep</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="label rise">Services</p>
+          <h2 class="rise">The flue, the burner and the paperwork.</h2>
+        </div>
+        <p class="lede rise">Every job ends with a written note on the flue's condition. Times are for a typical single-storey house.</p>
+      </div>
+      <div class="rows">
+        <article class="row rise">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M24 4v26"/><path d="M24 30v14"/>
+            <path d="M16 18l8 4 8-4M15 23l9 4 9-4M16 28l8 3 8-3"/>
+            <path d="M14 14l10 5 10-5"/>
+          </svg>
+          <h3>Chimney and flue sweep</h3>
+          <p>Rods and brushes from the firebox up, soot vacuumed, baffle cleaned, cowl checked.</p>
+          <div class="time"><span class="figure">1 h</span><span class="label">on site</span></div>
+        </article>
+        <article class="row rise">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 4h6v12h-6z"/><rect x="10" y="16" width="28" height="24" rx="2"/>
+            <rect x="16" y="22" width="16" height="12" rx="1"/><path d="M20 32c0-3 4-4 2-7 3 1 5 4 4 7"/>
+            <path d="M13 40v4M35 40v4"/>
+          </svg>
+          <h3>Wood burner installs</h3>
+          <p>Consent-compliant burners for Dunedin's clean air rules: hearth, flue kit, building consent and code compliance handled.</p>
+          <div class="time"><span class="figure">1 day</span><span class="label">fit-out</span></div>
+        </article>
+        <article class="row rise">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="24" cy="26" r="14"/><path d="M24 26l7-6"/><path d="M14 26h2M32 26h2M24 16v2"/><path d="M17 19l1.4 1.4M31 19l-1.4 1.4"/>
+            <path d="M20 4h8M24 4v8"/>
+          </svg>
+          <h3>Burner servicing</h3>
+          <p>Door seals and rope, glass, firebricks, baffle and air controls. Small parts carried in the van.</p>
+          <div class="time"><span class="figure">1.5 h</span><span class="label">typical</span></div>
+        </article>
+        <article class="row rise">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 4v40M30 4v40"/><circle cx="24" cy="22" r="6"/><path d="M28.3 26.3 35 33"/><path d="M18 12h12M18 36h12" opacity=".5"/>
+          </svg>
+          <h3>Flue inspections</h3>
+          <p>Camera up the flue for cracks, gaps and tar. Useful before buying a house or relighting an old fire.</p>
+          <div class="time"><span class="figure">45 min</span><span class="label">with photos</span></div>
+        </article>
+        <article class="row rise">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 14h24l-4-6H16z"/><path d="M16 14v12h16V14"/><path d="M20 14v12M24 14v12M28 14v12M16 20h16"/><path d="M20 26v18h8V26"/>
+          </svg>
+          <h3>Bird guards and cowls</h3>
+          <p>Mesh guards to keep starlings and their nests out of the flue. Fitted on the roof while we're up there.</p>
+          <div class="time"><span class="figure">30 min</span><span class="label">add-on</span></div>
+        </article>
+        <article class="row rise">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 4h18l8 8v24H12z"/><path d="M30 4v8h8"/><path d="M17 18h14M17 23h14M17 28h8"/><circle cx="31" cy="37" r="5"/><path d="M28.5 41.5 27 46l4-2 4 2-1.5-4.5"/>
+          </svg>
+          <h3>Insurance certificates</h3>
+          <p>Signed sweep certificate for your insurer, emailed the same day with photos of the flue.</p>
+          <div class="time"><span class="figure">Same day</span><span class="label">by email</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="flue">
+    <div class="wrap flue">
+      <div>
+        <p class="label rise">Burning well</p>
+        <h2 class="rise">Below 120°C, smoke turns to tar in the flue.</h2>
+        <p class="lede rise">A slow, smouldering fire keeps the flue cool, and creosote builds where it's coolest. A hot first half-hour keeps it clean between sweeps.</p>
+        <div class="temps">
+          <div class="temp rise"><i style="background:var(--heat-2)"></i><span class="figure">&lt; 120°C</span><p>Creosote zone. Tar forms; the flue blackens and narrows.</p></div>
+          <div class="temp rise"><i style="background:var(--heat-3)"></i><span class="figure">150–250°C</span><p>A clean burn. Aim to sit here once the fire is going.</p></div>
+          <div class="temp rise"><i style="background:var(--heat-4)"></i><span class="figure">250–400°C</span><p>Hot start. Fine for the first 20 minutes, then turn it down.</p></div>
+          <div class="temp rise"><i style="background:var(--heat-5)"></i><span class="figure">&gt; 400°C</span><p>Overfiring. Close the air off; it warps baffles and cracks glass.</p></div>
+        </div>
+      </div>
+      <div class="chart rise" id="chart">
+        <div class="chart-top">
+          <div>
+            <p class="label">Flue gas, one evening's fire</p>
+            <p class="label" style="color:var(--color-ink-2)">Logged on a magnetic flue thermometer</p>
+          </div>
+          <span class="figure" id="peak">310°C</span>
+        </div>
+        <svg viewBox="0 0 560 320" role="img" aria-label="Flue temperature over three hours: rises to about 310°C in the first 25 minutes, settles near 200°C, then drops below 120°C as the fire burns down.">
+          <defs><clipPath id="curveClip"><rect x="0" y="0" width="0" height="320"/></clipPath></defs>
+          <g id="grid" stroke="var(--color-rule)" stroke-width="1"></g>
+          <g id="ticks"></g>
+          <g id="curve" clip-path="url(#curveClip)" fill="none" stroke-width="3" stroke-linecap="round"></g>
+          <g class="live" id="live"></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="pair-photos">
+    <div class="wrap">
+      <figure class="photo rise" style="margin:0">
+        <img src="img/embers.jpg" alt="Charred logs on a bed of glowing embers" width="1600" height="1066" loading="lazy">
+        <div class="scrim"></div>
+        <figcaption class="caption">Dry wood, burned hot: the cheapest flue care there is</figcaption>
+      </figure>
+      <div class="note">
+        <div class="rise">
+          <p class="label">Before winter</p>
+          <h3 style="margin-top:10px">Book in March or April and you skip the June queue.</h3>
+        </div>
+        <figure class="photo rise d1" style="margin:0">
+          <img src="img/chimney-pots.jpg" alt="Old stone chimney stack with three clay pots against a cloudy sky" width="1600" height="1200" loading="lazy" style="object-position:50% 40%">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="price" aria-label="Sweep price">
+    <div class="wrap">
+      <div class="what">
+        <span class="figure"><span>$</span>189</span>
+        <p>Standard sweep of a single flue, certificate included. Second flue on the same visit $90.</p>
+      </div>
+      <a class="btn btn--primary" href="#quote">Book a sweep</a>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="label rise">Reviews</p>
+          <div class="score rise"><span class="figure">4.9</span><span class="label">out of 5 · 47 Google reviews</span></div>
+        </div>
+        <p class="lede rise">What people in Dunedin say after Josh has been through.</p>
+      </div>
+      <div class="cards">
+        <article class="well review rise">
+          <blockquote>“Turned up at 8 sharp, sheets down, gone by nine. Not a speck of soot on the carpet and the fire draws like new.”</blockquote>
+          <footer><b>Hannah</b><span class="label">Mornington</span></footer>
+        </article>
+        <article class="well review rise d1">
+          <blockquote>“Found a cracked liner the last sweep missed. Showed me the photos, quoted it fairly and fixed it that week.”</blockquote>
+          <footer><b>Graeme</b><span class="label">Mosgiel</span></footer>
+        </article>
+        <article class="well review rise d2">
+          <blockquote>“Put in our new burner and sorted the consent paperwork. Warmest winter we've had in this old villa.”</blockquote>
+          <footer><b>Aroha</b><span class="label">Roslyn</span></footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="area">
+    <div class="wrap">
+      <div>
+        <p class="label rise">Service area</p>
+        <h2 class="rise">From Waikouaiti to Brighton, and out to Outram.</h2>
+        <p class="lede rise">Based in Dunedin. No travel charge inside the city; a small fee past the 30-minute ring.</p>
+        <ul class="towns rise">
+          <li>Dunedin city <span>no charge</span></li>
+          <li>Mosgiel <span>no charge</span></li>
+          <li>Port Chalmers <span>no charge</span></li>
+          <li>Otago Peninsula <span>no charge</span></li>
+          <li>Brighton <span>+ $25</span></li>
+          <li>Outram <span>+ $25</span></li>
+          <li>Waitati <span>+ $25</span></li>
+          <li>Waikouaiti <span>+ $40</span></li>
+        </ul>
+      </div>
+      <div class="well map rise d1">
+        <svg viewBox="80 20 440 400" role="img" aria-label="Sketch of the Dunedin area: the harbour running north-east to the heads, the Otago Peninsula, and towns served, with rings at 15 and 30 minutes' drive.">
+          <!-- land -->
+          <path d="M0 0H452L448 40 444 82 440 120 436 150 432 162 446 170 468 186 474 212 462 240 440 268 408 290 372 302 336 314 304 324 270 340 236 362 204 384 176 404 140 428 110 460H0Z" fill="var(--color-paper-3)"/>
+          <!-- harbour -->
+          <path d="M433 162C418 172 402 182 388 194 372 208 356 222 340 238 326 252 312 264 298 272 296 276 300 279 304 278 318 272 334 262 350 250 368 236 386 222 404 206 420 192 434 180 446 170Z" fill="var(--color-paper-2)"/>
+          <!-- coast + harbour edge -->
+          <path d="M452 0 448 40 444 82 440 120 436 150 432 162M446 170 468 186 474 212 462 240 440 268 408 290 372 302 336 314 304 324 270 340 236 362 204 384 176 404 140 428 110 460" fill="none" stroke="oklch(96% 0.01 80 / 0.35)" stroke-width="1.2"/>
+          <path d="M433 162C418 172 402 182 388 194 372 208 356 222 340 238 326 252 312 264 298 272 296 276 300 279 304 278 318 272 334 262 350 250 368 236 386 222 404 206 420 192 434 180 446 170" fill="none" stroke="oklch(96% 0.01 80 / 0.22)" stroke-width="1"/>
+          <!-- hills -->
+          <g fill="none" stroke="var(--color-rule)" stroke-width="1">
+            <path d="M120 150c30-26 70-30 100-8M150 120c26-20 56-20 80 0M330 120c24-18 50-18 70 0"/>
+            <path d="M380 270c20-14 42-16 60-4"/>
+          </g>
+          <!-- drive rings -->
+          <g fill="none" stroke="oklch(96% 0.01 80 / 0.2)" stroke-width="1" stroke-dasharray="3 6">
+            <circle cx="300" cy="276" r="110"/>
+            <circle cx="300" cy="276" r="215"/>
+          </g>
+          <text x="300" y="160" text-anchor="middle" class="sea">15 MIN</text>
+          <text x="236" y="72" text-anchor="middle" class="sea">30 MIN</text>
+          <!-- road -->
+          <path d="M140 292C180 298 220 298 262 284 280 280 292 278 300 276 320 250 340 210 360 170 380 130 410 80 440 40" fill="none" stroke="oklch(96% 0.01 80 / 0.16)" stroke-width="2"/>
+          <!-- towns -->
+          <g fill="var(--color-ink)">
+            <circle cx="440" cy="40" r="3.5"/><circle cx="402" cy="110" r="3.5"/><circle cx="368" cy="206" r="3.5"/>
+            <circle cx="386" cy="236" r="3.5"/><circle cx="212" cy="300" r="3.5"/><circle cx="140" cy="292" r="3.5"/>
+            <circle cx="206" cy="374" r="3.5"/>
+          </g>
+          <circle cx="300" cy="276" r="7" fill="var(--color-accent)"/>
+          <circle cx="300" cy="276" r="13" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity=".6"/>
+          <text x="428" y="45" text-anchor="end">Waikouaiti</text>
+          <text x="390" y="115" text-anchor="end">Waitati</text>
+          <text x="356" y="201" text-anchor="end">Port Chalmers</text>
+          <text x="394" y="258">Portobello</text>
+          <text x="212" y="324" text-anchor="middle">Mosgiel</text>
+          <text x="140" y="280" text-anchor="middle">Outram</text>
+          <text x="218" y="392">Brighton</text>
+          <text x="312" y="302" class="big" style="font-size:16px;fill:var(--color-ink)">Dunedin</text>
+          <text x="452" y="356" class="sea">PACIFIC</text>
+          </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="How often to sweep">
+    <div class="wrap">
+      <div class="say rise">
+        <h2>One sweep a year. Two if the fire is lit every night.</h2>
+        <p class="label">NZ insurers usually ask for a sweep every 12 months.</p>
+      </div>
+      <figure class="photo rise d1" style="margin:0">
+        <img src="img/grate.jpg" alt="Logs burning in an open fire grate in a dark room" width="1024" height="683" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <section class="contact" id="quote">
+    <div class="wrap">
+      <div class="shell">
+        <div>
+          <p class="label rise">Contact</p>
+          <h2 class="rise">Call, text, or send the details.</h2>
+          <p class="lede rise">Josh is on the roof most days. Texts get a reply between jobs, usually within the hour.</p>
+          <a class="phone rise" href="tel:0210000000"><span class="figure">021 000 0000</span></a>
+          <div class="pair rise">
+            <a class="btn btn--primary" href="tel:0210000000">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5h3l1.5 4-2 1.3a9 9 0 0 0 5.2 5.2L13.5 11l4 1.5v3a2 2 0 0 1-2 2A14 14 0 0 1 2.5 4.5a2 2 0 0 1 2-2Z"/></svg>
+              Call Josh
+            </a>
+            <a class="btn btn--ghost" href="sms:0210000000">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4.5h14v9H8l-4 3v-3H3z"/></svg>
+              Send a text
+            </a>
+          </div>
+          <div class="hours rise">
+            <div><span>Mon – Fri</span><span>7:30 am – 5 pm</span></div>
+            <div><span>Saturday</span><span>8 am – 12 pm, autumn only</span></div>
+            <div><span>Sunday</span><span>Closed</span></div>
+          </div>
+        </div>
+        <form class="well rise d1" id="form" novalidate>
+          <label class="f">Name<input class="input" name="name" autocomplete="name"></label>
+          <label class="f">Phone<input class="input" name="phone" type="tel" autocomplete="tel"></label>
+          <label class="f">Suburb<input class="input" name="suburb" autocomplete="address-level2"></label>
+          <label class="f">Job
+            <select class="input" name="job">
+              <option>Chimney or flue sweep</option>
+              <option>New wood burner</option>
+              <option>Burner service</option>
+              <option>Flue inspection</option>
+              <option>Bird guard or cowl</option>
+              <option>Insurance certificate</option>
+            </select>
+          </label>
+          <label class="f full">Anything we should know<textarea class="input" name="msg" placeholder="Burner make, two storeys, steep roof, last swept…"></textarea></label>
+          <div class="form-foot full">
+            <p class="label">Quotes are free. We reply by text.</p>
+            <button class="btn btn--primary" type="submit">Ask for a quote</button>
+          </div>
+          <p class="sent" role="status">Thanks. This is a sample site, so nothing was sent.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 26 20 13l16 13"/><path d="M26 18V8h6v15"/><path d="M24.5 8h9"/><path d="M8 23v13h24V23"/><path d="M17 36v-6a3 3 0 0 1 6 0v6"/></svg>
+      <span><b>Emberline</b><small>Chimney sweeps · Dunedin</small></span>
+    </a>
+    <p>Made-up business. A style sample from siterefresh.co.nz.</p>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn--primary" href="tel:0210000000">Call</a>
+  <a class="btn btn--ghost" href="sms:0210000000">Text</a>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+(function () {
+  // flue temperature curve: minutes 0-180, degrees 0-400
+  var svg = document.querySelector('#chart svg');
+  var X0 = 44, X1 = 548, Y0 = 286, Y1 = 14, TMAX = 400, MMAX = 180;
+  var x = function (m) { return X0 + (X1 - X0) * m / MMAX; };
+  var y = function (t) { return Y0 - (Y0 - Y1) * t / TMAX; };
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(name, attrs, parent) { var e = document.createElementNS(NS, name); for (var k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; }
+  var grid = svg.querySelector('#grid'), ticks = svg.querySelector('#ticks');
+  [0, 100, 200, 300, 400].forEach(function (t) {
+    el('line', { x1: X0, x2: X1, y1: y(t), y2: y(t) }, grid);
+    el('text', { x: X0 - 8, y: y(t) + 4, 'text-anchor': 'end' }, ticks).textContent = t + '°';
+  });
+  [0, 30, 60, 90, 120, 150, 180].forEach(function (m) {
+    el('text', { x: x(m), y: Y0 + 22, 'text-anchor': 'middle' }, ticks).textContent = m === 0 ? 'Light' : (m % 60 === 0 ? (m / 60) + ' h' : m + 'm');
+  });
+  // shape of a well-run evening fire
+  var pts = [[0,18],[5,70],[10,160],[15,240],[20,290],[25,310],[30,296],[40,250],[50,215],[60,205],[70,212],[80,200],[90,190],[100,196],[110,182],[120,168],[130,150],[140,132],[150,116],[160,100],[170,86],[180,74]];
+  function smooth(m) { // catmull-rom through pts
+    for (var i = 0; i < pts.length - 1; i++) {
+      if (m <= pts[i + 1][0]) {
+        var p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(pts.length - 1, i + 2)];
+        var s = (m - p1[0]) / (p2[0] - p1[0]), s2 = s * s, s3 = s2 * s;
+        return 0.5 * ((2 * p1[1]) + (-p0[1] + p2[1]) * s + (2 * p0[1] - 5 * p1[1] + 4 * p2[1] - p3[1]) * s2 + (-p0[1] + 3 * p1[1] - 3 * p2[1] + p3[1]) * s3);
+      }
+    }
+    return pts[pts.length - 1][1];
+  }
+  function step(t) { return t < 120 ? 'var(--heat-2)' : t < 250 ? 'var(--heat-3)' : t < 400 ? 'var(--heat-4)' : 'var(--heat-5)'; }
+  var curve = svg.querySelector('#curve');
+  var run = null, prev = null;
+  for (var m = 0; m <= MMAX; m += 1) {
+    var t = smooth(m), c = step(t), p = x(m).toFixed(1) + ' ' + y(t).toFixed(1);
+    if (!run || run.c !== c) { if (run) curve.appendChild(run.path); run = { c: c, d: 'M' + (prev || p), path: document.createElementNS(NS, 'path') }; run.path.setAttribute('stroke', c); }
+    run.d += ' L' + p; run.path.setAttribute('d', run.d); prev = p;
+  }
+  curve.appendChild(run.path);
+  // creosote threshold
+  el('line', { x1: X0, x2: X1, y1: y(120), y2: y(120), stroke: 'oklch(96% 0.01 80 / 0.3)', 'stroke-dasharray': '4 5' }, grid);
+  el('text', { x: X1, y: y(120) - 8, 'text-anchor': 'end' }, ticks).textContent = '120° creosote line';
+  // the live point: peak
+  var live = svg.querySelector('#live');
+  el('line', { x1: x(25), x2: x(25), y1: y(310) + 8, y2: Y0, stroke: 'var(--color-rule)' }, live);
+  el('circle', { cx: x(25), cy: y(310), r: 6, fill: 'var(--color-accent)' }, live);
+
+  var chart = document.getElementById('chart'), clip = svg.querySelector('#curveClip rect');
+  function draw() { chart.classList.add('on'); clip.setAttribute('width', 560); clip.style.width = '560px'; }
+
+  // reveal on scroll
+  var items = document.querySelectorAll('.rise');
+  if (!('IntersectionObserver' in window)) { items.forEach(function (i) { i.classList.add('in'); }); draw(); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); if (e.target === chart) draw(); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  items.forEach(function (i) { io.observe(i); });
+
+  document.getElementById('form').addEventListener('submit', function (ev) { ev.preventDefault(); this.classList.add('done'); });
+})();
+</script>
+</body>
+</html>

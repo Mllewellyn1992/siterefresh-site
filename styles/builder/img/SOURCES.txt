@@ -1,0 +1,29 @@
+Photos for the Harbourview Builders sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was converted to black and white (contrast up), resized to at most 1600 px wide and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   House framing
+  Source:  https://commons.wikimedia.org/w/index.php?curid=145248931 (Wikideas1)
+  File:    https://upload.wikimedia.org/wikipedia/commons/6/64/House_framing.jpg (1280 px thumbnail)
+  Licence: CC0 1.0
+
+decking.jpg
+  Title:   contractor working wooden deck Pokhara
+  Source:  https://www.rawpixel.com/image/3283094/free-photo-image-plywood-carpenter-cartentry
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxNjgxNTMyLXdpa2ltZWRpYS1pbWFnZS1rb3diOTZ3OS5qcGc.jpg
+  Licence: CC0 1.0
+  Note:    cropped square
+
+piles.jpg
+  Title:   Day 119 deck construction continues
+  Source:  https://www.flickr.com/photos/134468672@N06/47702268322 (terri_bateman)
+  File:    https://live.staticflickr.com/65535/47702268322_4b4c603502_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped square from the lower part of the frame
+
+cladding.jpg
+  Title:   Weatherboarded House
+  Source:  https://www.flickr.com/photos/89918055@N05/51400553838 (John K Thorne)
+  File:    https://live.staticflickr.com/65535/51400553838_da33ac9bf6_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped square, leaving out the photographer's name printed in the bottom-right corner

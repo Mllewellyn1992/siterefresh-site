@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Pipe Dream Plumbing | Plumber in Palmerston North</title>
+<meta name="description" content="Sample site in the Halftone style: Pipe Dream Plumbing, a made-up plumber in Palmerston North.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ultra&family=Chivo:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(96.2% 0.032 94); --color-paper-2: oklch(92.6% 0.046 92); --color-paper-3: oklch(87.5% 0.058 90);
+  --color-ink: oklch(23% 0.040 38); --color-ink-2: oklch(33% 0.045 40); --color-muted: oklch(44% 0.048 44);
+  --color-rule: oklch(82% 0.042 82);
+  --color-accent: oklch(54.5% 0.215 33); --color-accent-deep: oklch(46% 0.19 31); --color-accent-ink: oklch(97% 0.022 94); --color-focus: oklch(46% 0.19 31);
+  --color-dot: var(--color-accent); --halftone-size: 12px; --halftone-dot: 3px;
+  --font-display: "Ultra", ui-serif, Georgia, serif; --font-body: "Chivo", ui-sans-serif, sans-serif;
+  --radius-card: 0; --radius-input: 3px; --radius-pill: 999px; --rule-hair: 1px; --rule-bar: 3px;
+  --shadow-card: none;
+  --tracking-display: 0.005em; --display-weight: 400;
+  --space-xs: 4px; --space-sm: 8px; --space-md: 14px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 72px;
+  --text-sm: 15px; --text-body: 17px;
+  --dur-short: 140ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 1180px; --gutter: clamp(16px, 4vw, 40px);
+  --banner-h: 34px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 12px); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.55 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+img, svg { display: block; max-width: 100%; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); line-height: 1.08; letter-spacing: var(--tracking-display); color: var(--color-ink); margin: 0; }
+p { margin: 0; }
+a { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+::selection { background: color-mix(in oklab, var(--color-accent) 30%, transparent); }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+
+/* sample banner */
+.sample { position: fixed; inset: 0 0 auto 0; height: var(--banner-h); z-index: 50; background: var(--color-ink); color: var(--color-accent-ink); font: 500 13px/var(--banner-h) var(--font-body); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 12px; }
+
+/* header */
+.top { border-bottom: var(--rule-bar) solid var(--color-ink); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-top: 18px; padding-bottom: 18px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--color-ink); min-width: 0; }
+.brand svg { width: 46px; height: 46px; flex: none; }
+.brand > span { min-width: 0; }
+.brand b { display: block; font: 400 clamp(20px, 3vw, 26px)/1.08 var(--font-display); }
+.brand small { display: block; font: 500 13px/1.3 var(--font-body); color: var(--color-muted); margin-top: 3px; }
+.top-call { display: flex; align-items: center; gap: var(--space-lg); flex: none; }
+.top-call .num { font-weight: 700; white-space: nowrap; }
+.top-call .btn { white-space: nowrap; flex: none; }
+
+/* controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: var(--space-md) var(--space-lg); border-radius: var(--radius-input); font: 700 var(--text-sm)/1.2 var(--font-body); background: var(--color-accent); color: var(--color-accent-ink); text-decoration: none; border: 0; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out); }
+.btn:hover { background: var(--color-accent-deep); }
+.btn svg { width: 18px; height: 18px; }
+.btn--secondary { background: none; color: var(--color-ink); padding: var(--space-md) 0 var(--space-xs); border-radius: 0; border-bottom: var(--rule-bar) solid var(--color-accent); transition: border-color var(--dur-short) var(--ease-out); }
+.btn--secondary:hover { background: none; border-color: var(--color-accent-deep); }
+.btn--cream { background: var(--color-accent-ink); color: var(--color-ink); }
+.btn--cream:hover { background: var(--color-paper-3); }
+
+/* hero */
+.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: var(--space-xl); align-items: start; padding-top: var(--space-2xl); padding-bottom: var(--space-xl); }
+.hero h1 { font-size: clamp(40px, 5.6vw, 72px); }
+.hero .lede { font-size: 19px; margin-top: var(--space-lg); max-width: 34ch; }
+.hero .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); margin-top: var(--space-xl); }
+.facts { margin-top: var(--space-xl); border-top: var(--rule-bar) solid var(--color-ink); display: grid; grid-template-columns: repeat(3, 1fr); }
+.facts div { padding: var(--space-md) var(--space-md) var(--space-md) 0; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.facts b { display: block; color: var(--color-ink); font: 400 20px/1.1 var(--font-display); }
+.facts span { font: 500 14px/1.35 var(--font-body); color: var(--color-muted); }
+
+figure { margin: 0; }
+.photo { width: 100%; height: auto; outline: var(--rule-hair) solid var(--color-ink); outline-offset: calc(-1 * var(--rule-hair)); background: var(--color-paper-3); }
+figcaption { font: 500 14px/1.4 var(--font-body); color: var(--color-muted); margin-top: 10px; }
+.hero figure .photo { aspect-ratio: 4 / 3.4; object-fit: cover; object-position: 38% 50%; }
+
+/* pipe art */
+.pipeline { margin: var(--space-lg) 0 0; }
+.pipeline svg { width: 100%; height: auto; }
+
+/* poster */
+.poster-row { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 0 var(--space-xl); padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
+.poster { font: 400 clamp(150px, 22vw, 300px)/0.9 var(--font-display); letter-spacing: -0.02em; color: var(--color-accent); font-variant-numeric: tabular-nums; margin: 0; }
+.poster-side { padding-bottom: 18px; max-width: 520px; }
+.poster-side h2 { font-size: clamp(28px, 3.6vw, 44px); }
+.stars { display: flex; gap: 6px; margin-top: 14px; }
+.stars svg { width: 26px; height: 26px; }
+.poster-side p { margin-top: 12px; }
+
+/* sections */
+section { padding: var(--space-2xl) 0; }
+.sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-lg); flex-wrap: wrap; margin-bottom: var(--space-lg); }
+.sec-head h2 { font-size: clamp(32px, 4.4vw, 54px); }
+.sec-head p { max-width: 42ch; }
+
+/* label panel */
+.panel { border-top: var(--rule-bar) solid var(--color-ink); margin: 0; padding: 0; list-style: none; }
+.panel li { display: grid; grid-template-columns: 56px 1fr auto; gap: var(--space-lg); align-items: center; padding: 20px 0; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.panel .ico { width: 56px; height: 56px; }
+.panel h3 { font: 700 19px/1.3 var(--font-body); color: var(--color-ink); }
+.panel p { font-size: 16px; margin-top: 2px; }
+.panel .val { font: 400 clamp(20px, 2.4vw, 28px)/1.08 var(--font-display); color: var(--color-ink); text-align: right; white-space: nowrap; }
+
+.strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-top: var(--space-xl); }
+.strip .photo { aspect-ratio: 4 / 3; object-fit: cover; }
+
+/* ink band with screen */
+.band-ink { background: var(--color-ink); color: var(--color-accent-ink); position: relative; isolation: isolate; overflow: hidden; }
+.band-ink::before { content: ""; position: absolute; inset: 0 0 0 55%; z-index: -1; pointer-events: none;
+  background: radial-gradient(var(--color-dot) var(--halftone-dot), transparent calc(var(--halftone-dot) + 0.5px)) 0 0 / var(--halftone-size) var(--halftone-size);
+  -webkit-mask: linear-gradient(100deg, transparent 15%, #000 92%); mask: linear-gradient(100deg, transparent 15%, #000 92%); }
+.band-ink .wrap { position: relative; }
+.band-ink h2 { color: var(--color-accent-ink); font-size: clamp(34px, 5.2vw, 66px); max-width: 15ch; }
+.band-ink ul { list-style: none; padding: 0; margin: var(--space-xl) 0 0; max-width: 560px; border-top: var(--rule-bar) solid var(--color-accent-ink); }
+.band-ink li { display: grid; grid-template-columns: 1fr auto; gap: var(--space-md); padding: 14px 0; border-bottom: var(--rule-hair) solid color-mix(in oklab, var(--color-accent-ink) 25%, transparent); }
+.band-ink li b { font-weight: 700; }
+.band-ink li span { font: 400 19px/1.1 var(--font-display); }
+.band-ink .copy { max-width: 560px; }
+.band-ink a { color: var(--color-accent-ink); }
+
+/* reviews */
+.well { border: var(--rule-bar) solid var(--color-ink); background: var(--color-paper-2); }
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); }
+.review { padding: var(--space-xl) var(--space-lg); }
+.review + .review { border-left: var(--rule-hair) solid var(--color-rule); }
+.review .stars svg { width: 18px; height: 18px; }
+.review blockquote { margin: 16px 0 0; font-size: 17px; color: var(--color-ink-2); }
+.review cite { display: block; margin-top: 16px; font: 700 15px/1.3 var(--font-body); font-style: normal; color: var(--color-ink); }
+.review cite span { font-weight: 500; color: var(--color-muted); }
+
+/* area */
+.area { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--space-xl); align-items: start; }
+.area .panel li { grid-template-columns: 1fr auto; padding: 12px 0; }
+.area .panel b { color: var(--color-ink); font-weight: 700; }
+.area .panel span { font: 500 15px/1.3 var(--font-body); color: var(--color-muted); text-align: right; }
+.map { padding: var(--space-md); }
+.map svg { width: 100%; height: auto; }
+
+/* contact: spot band */
+.band-spot { background: var(--color-accent); color: var(--color-accent-ink); }
+.band-spot h2 { color: var(--color-accent-ink); font-size: clamp(38px, 6vw, 76px); }
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: start; }
+.contact .lede { margin-top: var(--space-lg); font-size: 19px; max-width: 32ch; }
+.contact .actions { display: flex; flex-wrap: wrap; gap: var(--space-md); margin-top: var(--space-xl); }
+.contact .hours { margin-top: var(--space-xl); border-top: var(--rule-bar) solid var(--color-accent-ink); max-width: 420px; }
+.contact .hours div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: var(--rule-hair) solid color-mix(in oklab, var(--color-accent-ink) 35%, transparent); font-size: 16px; }
+.contact .hours b { font-weight: 700; }
+form { display: grid; gap: var(--space-md); }
+form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+form label { display: grid; gap: 6px; font: 500 15px/1.3 var(--font-body); }
+input, select, textarea { width: 100%; font: 400 16px/1.4 var(--font-body); color: var(--color-ink); background: var(--color-accent-ink); border: var(--rule-hair) solid var(--color-ink); border-radius: var(--radius-input); padding: 12px 12px; }
+textarea { min-height: 110px; resize: vertical; }
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--color-ink); outline-offset: 2px; }
+.form-note { font: 500 15px/1.4 var(--font-body); min-height: 1.4em; }
+.contact .btn--cream { justify-self: start; }
+
+footer { padding: var(--space-xl) 0; border-top: var(--rule-bar) solid var(--color-ink); font-size: 15px; }
+footer .wrap { display: flex; justify-content: space-between; gap: var(--space-lg); flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .hero .wrap, .area, .contact { grid-template-columns: 1fr; }
+  .hero .wrap { padding-top: var(--space-xl); }
+  .reviews { grid-template-columns: 1fr; }
+  .review + .review { border-left: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+  .strip { grid-template-columns: 1fr 1fr; }
+  section { padding: 56px 0; }
+  .band-ink::before { inset: 0 0 0 62%; }
+}
+@media (max-width: 600px) {
+  .top-call .num { display: none; }
+  .brand svg { width: 38px; height: 38px; }
+  .facts { grid-template-columns: 1fr; }
+  .facts div { padding-right: 0; }
+  .panel li { grid-template-columns: 44px 1fr; gap: 14px; }
+  .panel .ico { width: 44px; height: 44px; }
+  .panel .val { grid-column: 2; text-align: left; white-space: normal; font-size: 20px; }
+  .strip { gap: var(--space-md); }
+  form .row2 { grid-template-columns: 1fr; }
+  .sample { font-size: 12px; }
+  .poster-side { padding-bottom: 0; }
+  .band-ink { padding-bottom: 150px; }
+  .band-ink::before { inset: auto 0 0 0; height: 110px; -webkit-mask: linear-gradient(90deg, transparent 5%, #000 95%); mask: linear-gradient(90deg, transparent 5%, #000 95%); }
+  .top-call .btn { padding: 12px 14px; }
+  .brand b { font-size: 18px; }
+  .brand small { font-size: 12px; }
+  .brand { gap: 10px; }
+  .map { padding: 8px; }
+  .map svg text { font-size: 19px; }
+}
+</style>
+</head>
+<body>
+
+<div class="sample" role="note">Sample site — made-up business to show this style</div>
+
+<!-- shared icon symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z" fill="currentColor"/></symbol>
+    <symbol id="phone" viewBox="0 0 24 24"><path d="M6.6 3h3l1.6 4.4-2.1 1.5a12 12 0 0 0 6 6l1.5-2.1L21 14.4v3A2.6 2.6 0 0 1 18.4 20 15.4 15.4 0 0 1 4 5.6 2.6 2.6 0 0 1 6.6 3z" fill="currentColor"/></symbol>
+    <symbol id="sms" viewBox="0 0 24 24"><path d="M3 5h18v11H9l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="8" cy="10.5" r="1.3" fill="currentColor"/><circle cx="12" cy="10.5" r="1.3" fill="currentColor"/><circle cx="16" cy="10.5" r="1.3" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Pipe Dream Plumbing, home">
+      <!-- logo: a pipe elbow with a drip -->
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="45" height="45" fill="none" stroke="var(--color-ink)" stroke-width="3"/>
+        <path d="M8 15h16a9 9 0 0 1 9 9v10" fill="none" stroke="var(--color-ink)" stroke-width="6"/>
+        <path d="M7 10.5v9M28.5 34h9" stroke="var(--color-ink)" stroke-width="3"/>
+        <path d="M33 38.5c-2 3-3 4.4-3 5.6a3 3 0 0 0 6 0c0-1.2-1-2.6-3-5.6z" fill="var(--color-accent)"/>
+      </svg>
+      <span><b>Pipe Dream Plumbing</b><small>Tom &middot; Palmerston North</small></span>
+    </a>
+    <div class="top-call">
+      <a class="num" href="tel:+64210000000">021 000 0000</a>
+      <a class="btn" href="tel:+64210000000"><svg aria-hidden="true"><use href="#phone"/></svg>Call Tom</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Blocked, leaking or gone cold? Tom&rsquo;s on his way.</h1>
+        <p class="lede">Your local Palmy plumber and gasfitter. Drains cleared, cylinders swapped and leaks found, with the price agreed before any work starts.</p>
+        <div class="actions">
+          <a class="btn" href="tel:+64210000000"><svg aria-hidden="true"><use href="#phone"/></svg>Call 021 000 0000</a>
+          <a class="btn btn--secondary" href="#quote">Get a free quote</a>
+        </div>
+        <div class="facts">
+          <div><b>Same day</b><span>for blocked drains and no hot water</span></div>
+          <div><b>Certified</b><span>plumber and gasfitter</span></div>
+          <div><b>Fixed price</b><span>agreed before we start</span></div>
+        </div>
+      </div>
+      <figure>
+        <img class="photo" src="img/tap-running.jpg" width="1600" height="900" alt="Chrome basin mixer running clean water into a white basin">
+        <figcaption>A basin mixer running clear again, after a new washer and cartridge.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- pipe run with a wrench on the joint -->
+  <div class="pipeline wrap" aria-hidden="true">
+    <svg viewBox="0 0 1100 160" preserveAspectRatio="xMidYMid meet">
+      <g fill="none" stroke="var(--color-ink)" stroke-width="3">
+        <path d="M0 48h420M0 72h420"/>
+        <rect x="420" y="38" width="22" height="44" fill="var(--color-paper)"/>
+        <path d="M442 48h300M442 72h300"/>
+        <rect x="742" y="38" width="22" height="44" fill="var(--color-paper)"/>
+        <path d="M764 48h140a40 40 0 0 1 40 40v24M764 72h140a16 16 0 0 1 16 16v24"/>
+        <path d="M150 48v-20M174 48v-20M140 28h44" />
+        <circle cx="162" cy="16" r="12" fill="var(--color-paper)"/>
+        <path d="M152 16h20M162 6v20"/>
+      </g>
+      <circle cx="162" cy="16" r="12" fill="var(--color-accent)"/>
+      <path d="M152 16h20M162 6v20" stroke="var(--color-accent-ink)" stroke-width="3"/>
+      <!-- wrench -->
+      <!-- open-ended spanner resting on the pipe -->
+      <g transform="translate(600 22) rotate(-6)">
+        <rect x="-62" y="-6" width="124" height="12" rx="6" fill="var(--color-ink)"/>
+        <circle cx="-70" cy="0" r="17" fill="var(--color-ink)"/>
+        <circle cx="70" cy="0" r="17" fill="var(--color-ink)"/>
+        <path d="M-90 -7h18l4 7-4 7h-18z" fill="var(--color-paper)"/>
+        <path d="M90 -7h-18l-4 7 4 7h18z" fill="var(--color-paper)"/>
+        <rect x="-36" y="-2" width="72" height="4" rx="2" fill="var(--color-accent)"/>
+      </g>
+      <!-- drip -->
+      <path d="M932 128c-5 7-7 10-7 13a7 7 0 0 0 14 0c0-3-2-6-7-13z" fill="var(--color-accent)"/>
+    </svg>
+  </div>
+
+  <div class="wrap poster-row">
+    <p class="poster" aria-label="Rated 4.8 out of 5">4.8</p>
+    <div class="poster-side">
+      <h2>stars from 64 Palmy reviews</h2>
+      <div class="stars" style="color:var(--color-accent)" aria-hidden="true">
+        <svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg>
+      </div>
+      <p>Most of them say the same thing: he turned up when he said he would.</p>
+    </div>
+  </div>
+
+  <section id="services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="svc-h">What Tom fixes</h2>
+        <p>Homes, rentals and small shops across Palmerston North and the Manawat&#363;. One van, one plumber you get to know.</p>
+      </div>
+      <ul class="panel">
+        <li>
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><g fill="none" stroke="var(--color-ink)" stroke-width="3"><path d="M6 10h16v22a6 6 0 0 0 6 6h22"/><path d="M14 10v22a14 14 0 0 0 14 14h22"/><path d="M4 6h20M50 34v16"/></g><path d="M36 20a5 5 0 1 1-5-5" fill="none" stroke="var(--color-accent)" stroke-width="3"/></svg>
+          <div><h3>Blocked drains</h3><p>Sinks, showers, toilets and gully traps. Cleared with a jetter, checked with a camera.</p></div>
+          <span class="val">Same day</span>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><g fill="none" stroke="var(--color-ink)" stroke-width="3"><rect x="14" y="6" width="28" height="42" rx="14" ry="6"/><path d="M20 4v-2M36 4v-2M14 40h28M24 48v6M32 48v6"/></g><path d="M28 34c-4-4-4-8 0-14 1 4 5 5 5 9a5 5 0 0 1-5 5z" fill="var(--color-accent)"/></svg>
+          <div><h3>Hot water cylinders</h3><p>Electric, gas and heat-pump cylinders. Repairs, swaps and valve replacements.</p></div>
+          <span class="val">Next-day swap</span>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><g fill="none" stroke="var(--color-ink)" stroke-width="3"><path d="M2 16h52M2 28h52"/><rect x="22" y="12" width="12" height="20" fill="var(--color-paper)"/></g><path d="M28 36c-3 5-5 8-5 10a5 5 0 0 0 10 0c0-2-2-5-5-10z" fill="var(--color-accent)"/></svg>
+          <div><h3>Leaks</h3><p>Dripping taps, burst pipes and the damp patch nobody can explain. Found and fixed.</p></div>
+          <span class="val">Found fast</span>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><g fill="none" stroke="var(--color-ink)" stroke-width="3"><path d="M4 28h48v4a12 12 0 0 1-12 12H16A12 12 0 0 1 4 32z"/><path d="M12 28V12a6 6 0 0 1 12 0M14 44l-3 6M42 44l3 6"/></g><path d="M18 16h12" stroke="var(--color-accent)" stroke-width="3"/></svg>
+          <div><h3>Bathroom renovations</h3><p>New showers, vanities and toilets. Tom runs the job and lines up the tiler.</p></div>
+          <span class="val">Start to finish</span>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><g fill="none" stroke="var(--color-ink)" stroke-width="3"><path d="M28 52c-11 0-18-7-18-17 0-10 8-15 10-26 6 4 8 10 8 14 3-2 4-5 4-8 7 6 14 12 14 21 0 9-7 16-18 16z"/></g><path d="M28 50c-5 0-8-3-8-8 0-4 4-7 6-12 3 4 10 7 10 12 0 5-3 8-8 8z" fill="var(--color-accent)"/></svg>
+          <div><h3>Gas fitting</h3><p>Gas hobs, califonts and bottle changeovers. Certified and signed off.</p></div>
+          <span class="val">Certified</span>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><g fill="none" stroke="var(--color-ink)" stroke-width="3"><path d="M6 26L28 6l22 20M12 22v28h32V22"/><path d="M20 36l6 6 12-12"/></g><rect x="22" y="44" width="12" height="6" fill="var(--color-accent)"/></svg>
+          <div><h3>Landlord maintenance</h3><p>Rental call-outs, tenant changeovers and photos with every invoice.</p></div>
+          <span class="val">Photos sent</span>
+        </li>
+      </ul>
+
+      <div class="strip">
+        <figure><img class="photo" src="img/tap-drip.jpg" width="1024" height="801" alt="A dripping chrome basin tap" loading="lazy"><figcaption>A dripping tap. About 30 litres a day.</figcaption></figure>
+        <figure><img class="photo" src="img/mixer.jpg" width="1024" height="683" alt="New single-lever basin mixer" loading="lazy"><figcaption>A new single-lever basin mixer.</figcaption></figure>
+        <figure><img class="photo" src="img/pipes.jpg" width="960" height="636" alt="Stacked PVC drainage pipe" loading="lazy"><figcaption>PVC drainage pipe, ready for a new run.</figcaption></figure>
+        <figure><img class="photo" src="img/bathroom.jpg" width="1024" height="717" alt="Finished bathroom with freestanding bath and glass shower" loading="lazy"><figcaption>Freestanding bath and walk-in shower.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-ink" aria-labelledby="price-h">
+    <div class="wrap">
+      <div class="copy">
+        <h2 id="price-h">The price is agreed before the spanner comes out.</h2>
+        <ul>
+          <li><b>Call-out inside Palmy</b><span>Fixed fee</span></li>
+          <li><b>Quote in writing</b><span>Before work</span></li>
+          <li><b>Workmanship guarantee</b><span>12 months</span></li>
+          <li><b>Mess left behind</b><span>None</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" aria-labelledby="rev-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="rev-h">What Palmy says</h2>
+        <p class="label">4.8 from 64 Google reviews</p>
+      </div>
+      <div class="well reviews">
+        <div class="review">
+          <div class="stars" style="color:var(--color-accent-deep)" aria-label="5 stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></div>
+          <blockquote>Cylinder died on a Sunday night. Tom had a new one in by Monday lunchtime and took the old one away. Fair price, no fuss.</blockquote>
+          <cite>Kirsty <span>&middot; Kelvin Grove</span></cite>
+        </div>
+        <div class="review">
+          <div class="stars" style="color:var(--color-accent-deep)" aria-label="5 stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></div>
+          <blockquote>Kitchen drain had been slow for months. Twenty minutes with the jetter and it runs like new. He even showed me what was in there.</blockquote>
+          <cite>Raj <span>&middot; Awapuni</span></cite>
+        </div>
+        <div class="review">
+          <div class="stars" style="color:var(--color-accent-deep)" aria-label="5 stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></div>
+          <blockquote>We have four rentals and Tom looks after all of them. Photos and the invoice the same day, so the tenants and I both know what was done.</blockquote>
+          <cite>Glenda <span>&middot; Milson</span></cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="area" aria-labelledby="area-h" style="padding-top:0">
+    <div class="wrap area">
+      <div>
+        <div class="sec-head"><h2 id="area-h">Where Tom works</h2></div>
+        <p>All of Palmerston North, plus the towns around it. Out-of-town jobs are booked on set days to keep the travel cost down.</p>
+        <ul class="panel" style="margin-top:var(--space-lg)">
+          <li><b>Palmerston North city</b><span>Every suburb</span></li>
+          <li><b>Fitzherbert, Aokautere</b><span>Every day</span></li>
+          <li><b>Ashhurst, Bunnythorpe</b><span>Tue &amp; Thu</span></li>
+          <li><b>Feilding</b><span>Wed &amp; Fri</span></li>
+          <li><b>Linton, Longburn</b><span>On request</span></li>
+        </ul>
+      </div>
+      <figure class="well map">
+        <svg viewBox="0 0 600 460" role="img" aria-label="Simple drawing of Palmerston North and nearby towns, with the Manawatu River running past the south-east of the city">
+          <title>Pipe Dream Plumbing service area</title>
+          <!-- roads -->
+          <g fill="none" stroke="var(--color-rule)" stroke-width="3">
+            <path d="M300 230L120 80M300 230L260 70M300 230L540 70M300 230L170 410M300 230L60 300M300 230L360 330L440 360"/>
+          </g>
+          <!-- city grid block -->
+          <g fill="none" stroke="var(--color-ink)" stroke-width="1" opacity=".55">
+            <path d="M200 170h190M200 200h200M195 230h210M200 260h190M215 290h150M230 150v160M265 145v170M300 140v170M335 145v160M370 150v150"/>
+          </g>
+          <!-- river: two banks -->
+          <g fill="none" stroke="var(--color-ink)" stroke-width="3">
+            <path d="M600 60C540 110 500 180 455 240S380 330 300 345S160 370 90 400S20 440 0 450"/>
+            <path d="M600 80C548 126 512 192 467 252S388 346 304 360S166 384 96 414S28 452 10 460"/>
+          </g>
+          <text x="190" y="352" font-family="Chivo, sans-serif" font-weight="500" font-size="15" fill="var(--color-muted)" transform="rotate(-11 190 352)">Manawat&#363; River</text>
+          <!-- the Square -->
+          <rect x="290" y="220" width="20" height="20" fill="var(--color-ink)"/>
+          <text x="284" y="264" text-anchor="end" font-family="Ultra, serif" font-size="22" fill="var(--color-ink)" stroke="var(--color-paper-2)" stroke-width="6" paint-order="stroke">Palmy</text>
+          <!-- suburbs -->
+          <g fill="var(--color-ink)" font-family="Chivo, sans-serif" font-weight="500" font-size="15" stroke="var(--color-paper-2)" stroke-width="5" paint-order="stroke">
+            <circle cx="340" cy="150" r="5"/><text x="350" y="146">Milson</text>
+            <circle cx="405" cy="175" r="5"/><text x="415" y="172">Kelvin Grove</text>
+            <circle cx="370" cy="215" r="5"/><text x="380" y="212">Terrace End</text>
+            <circle cx="215" cy="190" r="5"/><text x="140" y="184">Cloverlea</text>
+            <circle cx="225" cy="295" r="5"/><text x="150" y="300">Awapuni</text>
+            <circle cx="365" cy="380" r="5"/><text x="355" y="400" text-anchor="end">Fitzherbert</text>
+            <circle cx="470" cy="370" r="5"/><text x="482" y="376">Aokautere</text>
+            <circle cx="260" cy="70" r="5"/><text x="232" y="56">Bunnythorpe</text>
+            <circle cx="120" cy="80" r="5"/><text x="96" y="70">Feilding</text>
+            <circle cx="545" cy="66" r="5"/><text x="474" y="40">Ashhurst</text>
+            <circle cx="170" cy="410" r="5"/><text x="86" y="440">Linton</text>
+            <circle cx="60" cy="300" r="5"/><text x="36" y="326">Longburn</text>
+          </g>
+          <!-- Tom's base -->
+          <g transform="translate(395 262)">
+            <path d="M0 0c-9-12-14-18-14-24a14 14 0 0 1 28 0c0 6-5 12-14 24z" fill="var(--color-accent)"/>
+            <circle cx="0" cy="-24" r="5" fill="var(--color-accent-ink)"/>
+          </g>
+          <g transform="translate(34 44) scale(.75)"><path d="M0 0c-9-12-14-18-14-24a14 14 0 0 1 28 0c0 6-5 12-14 24z" fill="var(--color-accent)"/><circle cx="0" cy="-24" r="5" fill="var(--color-accent-ink)"/></g>
+          <text x="52" y="34" font-family="Chivo, sans-serif" font-weight="700" font-size="15" fill="var(--color-ink)">Tom&rsquo;s van, Hokowhitu</text>
+          <!-- compass -->
+          <g transform="translate(560 420)" fill="none" stroke="var(--color-ink)" stroke-width="3"><path d="M0 18V-14M-8 -6L0 -16L8 -6"/></g>
+          <text x="553" y="456" font-family="Chivo, sans-serif" font-weight="700" font-size="14" fill="var(--color-ink)">N</text>
+        </svg>
+        <figcaption>Not to scale. Palmerston North, the river and the towns Tom covers.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="quote" class="band-spot" aria-labelledby="contact-h">
+    <div class="wrap contact">
+      <div>
+        <h2 id="contact-h">Call Tom. Or flick him a text.</h2>
+        <p class="lede">If he&rsquo;s under a house he&rsquo;ll ring you back within the hour. Emergencies get answered any time.</p>
+        <div class="actions">
+          <a class="btn btn--cream" href="tel:+64210000000"><svg aria-hidden="true"><use href="#phone"/></svg>Call 021 000 0000</a>
+          <a class="btn btn--cream" href="sms:+64210000000"><svg aria-hidden="true"><use href="#sms"/></svg>Text Tom</a>
+        </div>
+        <div class="hours">
+          <div><b>Mon to Fri</b><span>7am to 5:30pm</span></div>
+          <div><b>Saturday</b><span>8am to 12pm</span></div>
+          <div><b>Burst pipe, no water</b><span>Any time</span></div>
+        </div>
+      </div>
+      <form id="quote-form" novalidate>
+        <div class="row2">
+          <label>Your name<input name="name" autocomplete="name"></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+        </div>
+        <div class="row2">
+          <label>Suburb<input name="suburb" autocomplete="address-level2"></label>
+          <label>What&rsquo;s the job?
+            <select name="job">
+              <option>Blocked drain</option><option>Hot water cylinder</option><option>Leak</option><option>Bathroom renovation</option><option>Gas fitting</option><option>Rental maintenance</option><option>Something else</option>
+            </select>
+          </label>
+        </div>
+        <label>Tell Tom a bit more<textarea name="details" placeholder="e.g. shower draining slowly, two-storey house in Roslyn"></textarea></label>
+        <button class="btn btn--cream" type="submit">Ask for a quote</button>
+        <p class="form-note" id="form-note" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b style="color:var(--color-ink)">Pipe Dream Plumbing</b> &middot; Palmerston North &middot; <a href="tel:+64210000000">021 000 0000</a></span>
+    <span class="label">Sample site. Pipe Dream Plumbing is made up.</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('form-note').textContent = 'This is a sample site, so the form does not send. On a real site this goes straight to Tom’s phone.';
+});
+</script>
+</body>
+</html>

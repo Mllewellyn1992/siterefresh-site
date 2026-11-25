@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Stonefield Concrete | Concreter in Hamilton (sample site)</title>
+<meta name="description" content="Sample site: a made-up Hamilton concreter, built to show the Formwork style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Archivo:wght@400;500&family=Archivo+Narrow:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(74% 0.008 80); --color-paper-2: oklch(69% 0.009 80); --color-paper-3: oklch(64% 0.01 80);
+  --color-plate: oklch(82% 0.007 80); --color-plate-ink: oklch(95% 0.006 80);
+  --color-ink: oklch(18% 0.005 270); --color-ink-2: oklch(28% 0.006 80); --color-muted: oklch(31.5% 0.008 80);
+  --color-rule: oklch(64% 0.01 80);
+  --color-accent: oklch(66% 0.21 38); --color-accent-ink: oklch(18% 0.005 270); --color-focus: oklch(42% 0.15 38);
+  --color-accent-deep: oklch(48% 0.17 38);
+  --texture-opacity: 0.05;
+  --font-display: "Oswald", ui-sans-serif, sans-serif; --font-body: "Archivo", ui-sans-serif, sans-serif;
+  --font-outlier: "Archivo Narrow", ui-sans-serif, sans-serif;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 3px;
+  --shadow-card: 6px 6px 0 var(--color-ink);
+  --tracking-display: -0.005em; --display-weight: 700;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+  --text-display-m: clamp(2.25rem, 1.4rem + 3.6vw, 4rem);
+  --text-display-l: clamp(3rem, 1.6rem + 5.6vw, 6.25rem);
+  --dur-micro: 120ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body {
+  margin: 0; background: var(--color-paper); color: var(--color-ink-2);
+  font: 400 var(--text-body)/1.5 var(--font-body);
+  padding-top: var(--banner-h); overflow-x: hidden;
+}
+/* the grain: multiplied across the whole pour */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  opacity: var(--texture-opacity); mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.6 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body > * { position: relative; z-index: 1; }
+::selection { background: color-mix(in oklab, var(--color-accent) 35%, transparent); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { color: var(--color-accent-deep); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+
+h1, h2, h3 {
+  font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+  letter-spacing: var(--tracking-display); color: var(--color-ink); line-height: 1.02; margin: 0;
+}
+h2 { font-size: var(--text-display-m); }
+h3 { font-size: 1.375rem; line-height: 1.05; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.fig { font-family: var(--font-outlier); font-weight: 500; font-variant-numeric: tabular-nums; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { border-top: var(--rule-bar) solid var(--color-ink); padding-top: var(--space-md); margin-bottom: var(--space-xl);
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 34rem; }
+
+/* sample banner */
+.sample {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h);
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem;
+  background: var(--color-ink); color: var(--color-plate-ink);
+  font: 500 0.8125rem/1.2 var(--font-body); text-align: center;
+}
+.sample b { font-family: var(--font-display); text-transform: uppercase; color: var(--color-accent); font-weight: 700; letter-spacing: 0; }
+
+/* controls */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  border-radius: 0; border: 0; cursor: pointer; text-decoration: none;
+  padding: var(--space-sm) var(--space-xl); min-height: 3rem;
+  font: 700 1.0625rem/1.2 var(--font-display); text-transform: uppercase; letter-spacing: 0;
+}
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); box-shadow: 0 3px 0 var(--color-accent-deep);
+  transition: translate var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out); }
+.btn--primary:hover { color: var(--color-accent-ink); }
+.btn--primary:active { translate: 0 3px; box-shadow: 0 0 0 var(--color-accent-deep); }
+.btn--secondary { background: var(--color-paper-2); color: var(--color-ink); border: 2px solid var(--color-ink);
+  box-shadow: inset 0 2px 3px color-mix(in oklab, var(--color-ink) 30%, transparent);
+  transition: box-shadow var(--dur-micro) var(--ease-out); }
+.btn--secondary:hover { color: var(--color-ink); }
+.btn--secondary:active { box-shadow: inset 0 4px 5px color-mix(in oklab, var(--color-ink) 40%, transparent); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+/* header */
+.top { border-bottom: var(--rule-hair) solid var(--color-paper-3); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.4rem; height: 2.4rem; flex: none; }
+.brand span { font: 700 1.5rem/0.95 var(--font-display); text-transform: uppercase; letter-spacing: var(--tracking-display); }
+.brand small { display: block; font: 500 0.8125rem/1.3 var(--font-body); text-transform: none; color: var(--color-muted); letter-spacing: 0; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); text-decoration: none; }
+.nav a:not(.btn):hover { text-decoration: underline; }
+.nav .btn { padding-inline: var(--space-md); min-height: 2.75rem; }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1.3rem; } }
+
+/* hero: poster */
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: start; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero__photo { grid-column: 8 / span 5; margin-top: var(--space-md); }
+.hero h1 { font-size: var(--text-display-l); line-height: 0.98; margin-block: var(--space-md) var(--space-lg); }
+.hero h1 em { font-style: normal; }
+.hero__lede { font-size: 1.125rem; max-width: 33rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 0.75rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-paper-3); max-width: 33rem; }
+.rating .fig { font-size: 2.25rem; line-height: 1; color: var(--color-ink); }
+.rating .stars { display: flex; gap: 2px; }
+.rating .stars svg { width: 1.05rem; height: 1.05rem; }
+@media (max-width: 860px) {
+  .hero__copy, .hero__photo { grid-column: 1 / -1; }
+}
+
+/* photographs: square frame, b&w, caption below */
+.photo { margin: 0; }
+.photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; outline: 2px solid var(--color-ink); outline-offset: -2px; background: var(--color-paper-3); }
+.photo--wide img { aspect-ratio: 4 / 3; }
+.photo figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); margin-top: 0.6rem; display: flex; justify-content: space-between; gap: 1rem; }
+
+/* services */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--rule-hair) solid var(--color-paper-3); }
+.svc li { list-style: none; padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; border-bottom: var(--rule-hair) solid var(--color-paper-3); display: grid; gap: 0.6rem; align-content: start; }
+.svc li + li { padding-left: var(--space-lg); }
+.svc li:nth-child(3n+1) { padding-left: 0; }
+.svc li:not(:nth-child(3n)) { border-right: var(--rule-hair) solid var(--color-paper-3); }
+.svc svg { width: 3.25rem; height: 3.25rem; color: var(--color-ink); margin-bottom: 0.35rem; }
+.svc .fig { color: var(--color-ink); font-size: 1rem; }
+ul.svc { margin: 0; padding: 0; }
+.photo figcaption .fig { white-space: nowrap; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+@media (max-width: 860px) {
+  .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svc li, .svc li + li { padding: var(--space-lg) var(--space-md) var(--space-lg) 0; border-right: 0 !important; }
+  .svc li:nth-child(even) { padding-left: var(--space-md); border-left: var(--rule-hair) solid var(--color-paper-3); }
+}
+@media (max-width: 560px) {
+  .svc { grid-template-columns: 1fr; }
+  .svc li, .svc li + li, .svc li:nth-child(even) { padding: var(--space-lg) 0; border-left: 0; }
+  .svc li { grid-template-columns: 3.25rem 1fr; column-gap: var(--space-md); }
+  .svc li svg { grid-row: span 3; }
+}
+
+/* band: darker pour, build-up section + pour sequence */
+.band--cast { position: relative; isolation: isolate; background: var(--color-paper-2); }
+.build { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg) var(--space-xl); align-items: start; }
+.build__draw { grid-column: 1 / span 7; }
+.build__photo { grid-column: 8 / span 5; }
+.build__draw svg { width: 100%; height: auto; display: block; }
+@media (max-width: 860px) { .build__draw, .build__photo { grid-column: 1 / -1; } }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: var(--rule-bar) solid var(--color-ink); margin-top: var(--space-2xl); }
+.steps li { list-style: none; padding: var(--space-md) var(--space-md) 0; display: grid; gap: 0.35rem; align-content: start; }
+.steps li:first-child { padding-left: 0; }
+.steps li + li { border-left: var(--rule-hair) solid var(--color-paper-3); }
+.steps .n { font: 700 var(--text-display-s)/1 var(--font-display); color: var(--color-ink); }
+.steps h3 { font-size: 1.25rem; }
+@media (max-width: 760px) {
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-lg); }
+  .steps li:nth-child(3) { padding-left: 0; border-left: 0; }
+}
+ol.steps { padding: 0; margin-bottom: 0; }
+
+/* ink band statement */
+.band--ink { background: var(--color-ink); color: var(--color-plate-ink); position: relative; isolation: isolate; }
+.band--ink::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07; mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.6 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.band--ink .wrap { padding-block: var(--space-3xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: end; }
+.statement { grid-column: 1 / span 8; font: 700 var(--text-display-l)/0.98 var(--font-display); text-transform: uppercase; color: var(--color-plate-ink); letter-spacing: var(--tracking-display); margin: 0; }
+.band--ink .note { grid-column: 9 / span 4; color: var(--color-plate-ink); }
+@media (max-width: 860px) { .statement, .band--ink .note { grid-column: 1 / -1; } }
+
+/* recent pours */
+.pours { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+@media (max-width: 760px) { .pours { grid-template-columns: 1fr; } }
+
+/* reviews: figure cast as a plate + hairline quotes */
+.card { background: var(--color-plate); border: var(--rule-bar) solid var(--color-ink); box-shadow: var(--shadow-card); border-radius: 0; }
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.plate { grid-column: 1 / span 5; padding: var(--space-lg); display: grid; gap: var(--space-sm); }
+.plate .big { font: 700 clamp(8rem, 5rem + 12vw, 15rem)/0.82 var(--font-display); color: var(--color-ink); letter-spacing: -0.01em; }
+.plate .big span { color: var(--color-accent-deep); }
+.plate .unit { font: 500 1.125rem/1.35 var(--font-body); color: var(--color-ink-2); }
+.plate .unit b { font-family: var(--font-outlier); font-weight: 500; color: var(--color-ink); }
+.quotes { grid-column: 6 / span 7; margin: 0; padding: 0; }
+.quotes li { list-style: none; padding-block: var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-paper-3); display: grid; gap: 0.6rem; }
+.quotes li:first-child { padding-top: 0; }
+.quotes blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink-2); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+.quotes .who b { color: var(--color-ink); font-weight: 500; }
+.stars { display: inline-flex; gap: 2px; }
+.stars svg { width: 0.95rem; height: 0.95rem; }
+@media (max-width: 860px) { .plate, .quotes { grid-column: 1 / -1; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-plate); outline: 2px solid var(--color-ink); outline-offset: -2px; }
+.area__list { grid-column: 8 / span 5; }
+.map text { paint-order: stroke; stroke: var(--color-plate); stroke-width: 5px; stroke-linejoin: round; }
+.map text.on-ink { stroke: none; }
+.towns { margin: var(--space-md) 0 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-paper-3); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+.towns .fig { color: var(--color-ink-2); white-space: nowrap; }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: 700 var(--text-display-m)/1 var(--font-display); color: var(--color-ink); text-decoration: none; letter-spacing: 0; }
+.contact__call .phone:hover { color: var(--color-accent-deep); }
+.hours { margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid var(--color-paper-3); }
+.hours dt { color: var(--color-ink); font-weight: 500; }
+.hours dd { margin: 0; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg); display: grid; gap: var(--space-md); }
+.form h3 { font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.35rem; }
+.field label, .field legend { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea {
+  width: 100%; border-radius: 0; border: 2px solid var(--color-ink); background: var(--color-paper);
+  box-shadow: inset 0 2px 3px color-mix(in oklab, var(--color-ink) 30%, transparent);
+  font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3rem;
+}
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact__call, .form { grid-column: 1 / -1; } }
+
+@media (max-width: 860px) {
+  .hero__grid, .build, .reviews, .area, .contact, .band--ink .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hero__grid > *, .build > *, .reviews > *, .area > *, .contact > *, .band--ink .wrap > * { grid-column: 1 / -1; }
+}
+
+footer { border-top: var(--rule-bar) solid var(--color-ink); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<!-- inline symbol set: our own drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2.2"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Stonefield Concrete, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="2" y="2" width="44" height="44" fill="var(--color-ink)"/>
+        <path d="M10 33h28" stroke="var(--color-plate-ink)" stroke-width="3"/>
+        <path d="M10 26h28v7H10z" fill="var(--color-plate-ink)"/>
+        <path d="M17 26V13h14v13" fill="none" stroke="var(--color-plate-ink)" stroke-width="3" stroke-linejoin="miter"/>
+        <path d="M14 40h20" stroke="var(--color-accent)" stroke-width="3"/>
+      </svg>
+      <span>Stonefield Concrete<small>Hamilton concreter · Dave &amp; crew</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#how">How we pour</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Concreter · Hamilton and the Waikato · Est. 2009</p>
+      <h1>Driveways, paths and slabs. Poured <em>once.</em></h1>
+      <p class="hero__lede">Dave and a crew of three pour driveways, paths, exposed aggregate and house slabs across Hamilton. Free measure on site, a written price within 2 days, and the same crew from boxing to the final cut.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Dave</a>
+        <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="fig">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from <span class="fig">38</span> Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <figure class="photo hero__photo">
+      <img src="img/hero.jpg" width="1200" height="1200" alt="A worker pulling a float across a freshly poured house slab, boxing and mesh beside him" fetchpriority="high">
+      <figcaption><span>House slab, screeded the day it was poured</span><span class="fig">110 m²</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we pour</h2>
+      <p>Residential work from a single path to a full house slab. Every job is measured by Dave, priced in writing, and boxed, poured and finished by the same crew.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M6 18L26 6l20 12"/><path d="M11 15v9M41 15v9"/>
+          <path d="M18 47l3-23h10l3 23"/><path d="M26 28v4M26 37v5"/><path d="M4 47h44"/>
+        </svg>
+        <h3>Driveways</h3>
+        <p>Plain grey or coloured, with sawn joints and a broom or float finish.</p>
+        <p class="fig">125 mm on 150 mm basecourse</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M20 48l4-44M32 48l-4-44"/><path d="M21 37h10M22.5 24h7M23.6 13h4.8"/>
+          <path d="M6 48h40"/>
+        </svg>
+        <h3>Paths</h3>
+        <p>Front paths, side paths and clothesline pads, laid to fall away from the house.</p>
+        <p class="fig">75–100 mm, 1:100 fall</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+          <rect x="5" y="5" width="42" height="42"/>
+          <circle cx="15" cy="15" r="3" fill="currentColor" stroke="none"/><circle cx="27" cy="13" r="2.2" fill="currentColor" stroke="none"/><circle cx="38" cy="17" r="3.2" fill="currentColor" stroke="none"/>
+          <circle cx="20" cy="26" r="2.4" fill="currentColor" stroke="none"/><circle cx="32" cy="27" r="3" fill="currentColor" stroke="none"/><circle cx="12" cy="36" r="2.6" fill="currentColor" stroke="none"/>
+          <circle cx="25" cy="38" r="3.2" fill="currentColor" stroke="none"/><circle cx="38" cy="38" r="2.2" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3>Exposed aggregate</h3>
+        <p>Washed to show the stone, sealed after cure. Pick from 6 local stone mixes.</p>
+        <p class="fig">Washed at 4–8 hours, sealed at 28 days</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M10 32V19L26 7l16 12v13"/><path d="M4 32h44v8H4z"/><path d="M8 40v6M44 40v6"/><path d="M22 32v-9h8v9"/>
+        </svg>
+        <h3>House slabs</h3>
+        <p>Raft and rib slabs for new builds and extensions, poured to the engineer's plan.</p>
+        <p class="fig">Pre-pour check booked with council</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M14 6v36h26"/><path d="M14 42h-8"/><path d="M19 6v31h21"/>
+          <path d="M19 14c6 1 9 0 14 2s8 0 13 2" /><path d="M40 37v-9" stroke-dasharray="3 3"/>
+          <path d="M6 48h40"/>
+        </svg>
+        <h3>Retaining walls</h3>
+        <p>Poured and block-fill walls with drainage behind, for banks and level lawns.</p>
+        <p class="fig">Up to 1.5 m without consent</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+          <circle cx="22" cy="22" r="15"/><circle cx="22" cy="22" r="4"/>
+          <path d="M22 4v4M22 36v4M4 22h4M36 22h4M9.3 9.3l2.8 2.8M31.9 31.9l2.8 2.8M9.3 34.7l2.8-2.8M31.9 12.1l2.8-2.8"/>
+          <path d="M4 48h44"/><path d="M30 44h14"/>
+        </svg>
+        <h3>Concrete cutting</h3>
+        <p>Control joints, trenching for drains and cutting out cracked panels to re-pour.</p>
+        <p class="fig">Cuts to 150 mm deep</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band--cast section" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How a driveway goes in</h2>
+      <p>Most driveways are dug, boxed and poured inside a week. You can walk on it after 2 days and drive on it after 7.</p>
+    </div>
+    <div class="build">
+      <figure class="build__draw" style="margin:0">
+        <svg viewBox="0 0 640 380" role="img" aria-labelledby="secT">
+          <title id="secT">Section through a Stonefield driveway: 125 mm of concrete on mesh, over 150 mm of compacted basecourse, on firm subgrade, laid to a 1 in 100 fall.</title>
+          <g font-family="Archivo Narrow, sans-serif" font-weight="500" font-size="15" fill="var(--color-ink)">
+            <!-- layers (plain bands, labelled; the photo shows the concrete itself) -->
+            <path d="M60 110 L520 128 L520 178 L60 160 Z" fill="var(--color-plate)" stroke="var(--color-ink)" stroke-width="3"/>
+            <path d="M60 160 L520 178 L520 238 L60 220 Z" fill="var(--color-paper)" stroke="var(--color-ink)" stroke-width="2"/>
+            <path d="M60 220 L520 238 L520 300 L60 300 Z" fill="var(--color-paper-3)" stroke="var(--color-ink)" stroke-width="2"/>
+            <!-- mesh line -->
+            <path d="M60 140 L520 158" stroke="var(--color-ink)" stroke-width="2" stroke-dasharray="10 6"/>
+            <!-- boxing -->
+            <path d="M48 96 v74 M532 114 v74" stroke="var(--color-ink)" stroke-width="5"/>
+            <!-- fall arrow -->
+            <path d="M120 78 L420 90" stroke="var(--color-ink)" stroke-width="2"/>
+            <path d="M420 90 l-12 -7 m12 7 l-13 5" stroke="var(--color-ink)" stroke-width="2" fill="none"/>
+            <text x="190" y="70">Fall away from house 1:100</text>
+            <!-- dimension lines -->
+            <g stroke="var(--color-ink)" stroke-width="1.5">
+              <path d="M560 128 v50 M552 128 h16 M552 178 h16"/>
+              <path d="M560 178 v60 M552 238 h16"/>
+            </g>
+            <text x="578" y="158" font-size="18">125</text><text x="578" y="176" font-size="12">mm</text>
+            <text x="578" y="213" font-size="18">150</text><text x="578" y="231" font-size="12">mm</text>
+            <!-- leaders -->
+            <g stroke="var(--color-ink)" stroke-width="1.5" fill="var(--color-ink)">
+              <path d="M150 128 v-0"/><circle cx="150" cy="134" r="3.5"/><path d="M150 134 L150 335"/>
+              <circle cx="300" cy="149" r="3.5" fill="var(--color-accent)" stroke="var(--color-ink)"/><path d="M300 149 L300 335"/>
+              <circle cx="420" cy="214" r="3.5"/><path d="M420 214 L420 335"/>
+            </g>
+            <text x="78" y="358">Concrete, 25 MPa</text>
+            <text x="250" y="358">Mesh on chairs</text>
+            <text x="370" y="358">GAP 40 basecourse</text>
+            <text x="76" y="290" font-size="13" fill="var(--color-ink-2)">Firm subgrade, scala-tested</text>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Section through a standard driveway. Drawing not to scale.</figcaption>
+      </figure>
+      <figure class="photo build__photo">
+        <img src="img/aggregate.jpg" width="1200" height="1200" loading="lazy" alt="Close-up of an exposed aggregate surface, river stones set in concrete">
+        <figcaption><span>Exposed aggregate, washed and sealed</span><span class="fig">10 mm stone</span></figcaption>
+      </figure>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><h3>Measure</h3><p>Dave walks the site, checks levels and drainage. Free, about 30 minutes.</p></li>
+      <li><span class="n">02</span><h3>Box</h3><p>Dig out, compact basecourse, set boxing and mesh. Usually 1–2 days.</p></li>
+      <li><span class="n">03</span><h3>Pour</h3><p>Truck booked for the morning, finished by the afternoon.</p></li>
+      <li><span class="n">04</span><h3>Cut</h3><p>Joints sawn within 24 hours so cracks land where we want them.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent pours</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="pours">
+      <figure class="photo">
+        <img src="img/foundation.jpg" width="1200" height="1200" loading="lazy" alt="Looking down on a house foundation, boxed with steel in place, ready for the pour">
+        <figcaption><span>Rib slab boxed and ready, Flagstaff</span><span class="fig">186 m²</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/driveway.jpg" width="1200" height="1200" loading="lazy" alt="Concrete apron with sawn joints in front of three roller doors">
+        <figcaption><span>Garage apron with sawn joints, Te Rapa</span><span class="fig">42 m²</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/patterned.jpg" width="1200" height="1200" loading="lazy" alt="A patterned concrete driveway leading to a roller door between brick walls">
+        <figcaption><span>Patterned driveway, Hillcrest</span><span class="fig">38 m²</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band--ink">
+  <div class="wrap">
+    <p class="statement">One crew. One pour. No surprises on the invoice.</p>
+    <p class="note">The price Dave writes down is the price you pay, unless you change the job. If the ground isn't what we expected, you hear about it before we dig further, not after.</p>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="card plate">
+        <span class="big">4<span>.</span>9</span>
+        <p class="unit">out of 5, from <b>38</b> Google reviews</p>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Dave quoted on the Tuesday, had the old driveway broken out the next week and the new one poured by Friday. Joints are dead straight and the water runs off now instead of pooling by the garage.”</blockquote>
+          <p class="who"><b>Karen</b><span>Rototuna</span><span>· Driveway</span></p>
+        </li>
+        <li>
+          <blockquote>“Poured the slab for our extension. Turned up on time, sorted the council inspection with the builder and left the site tidier than they found it.”</blockquote>
+          <p class="who"><b>Mitch</b><span>Hillcrest</span><span>· House slab</span></p>
+        </li>
+        <li>
+          <blockquote>“We wanted exposed aggregate but didn't know which stone. He brought samples round on a Saturday. The finished path looks great and the price didn't move.”</blockquote>
+          <p class="who"><b>Anaru</b><span>Cambridge</span><span>· Exposed aggregate path</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we pour</h2>
+      <p>Based in Frankton. All of Hamilton plus towns within about 30 km. Further out for slabs and bigger jobs, by arrangement.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 520" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Hamilton in the middle with a 30 km ring taking in Ngāruawāhia, Morrinsville, Cambridge and Te Awamutu.</title>
+          <g font-family="Archivo, sans-serif" font-weight="500" fill="var(--color-ink)" class="map">
+            <!-- grid ticks -->
+            <g stroke="var(--color-paper-3)" stroke-width="1">
+              <path d="M0 130h600M0 260h600M0 390h600M150 0v520M300 0v520M450 0v520"/>
+            </g>
+            <!-- Waikato River: from the south-east, through Hamilton, out to the north -->
+            <path d="M560 470 C 500 440, 470 400, 420 380 S 340 340, 320 300 S 300 250, 290 220 S 250 160, 240 120 S 215 60, 200 0" fill="none" stroke="var(--color-ink)" stroke-width="5" stroke-linecap="butt"/>
+            <text x="440" y="420" font-size="16" transform="rotate(28 440 420)">Waikato River</text>
+            <!-- Waipā joining at Ngāruawāhia -->
+            <path d="M130 520 C 150 430, 170 380, 190 300 S 220 170, 234 134" fill="none" stroke="var(--color-ink)" stroke-width="2.5"/>
+            <text x="120" y="455" font-size="15" transform="rotate(-72 120 455)">Waipā River</text>
+            <!-- 30 km ring -->
+            <circle cx="300" cy="265" r="205" fill="none" stroke="var(--color-ink)" stroke-width="2" stroke-dasharray="8 7"/>
+            <text x="388" y="66" font-size="16" fill="var(--color-ink-2)">30 km</text>
+            <!-- Hamilton: the city block -->
+            <rect x="250" y="222" width="102" height="84" fill="var(--color-ink)"/>
+            <text x="301" y="270" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="22" fill="var(--color-plate-ink)" class="on-ink">HAMILTON</text>
+            <!-- base -->
+            <circle cx="270" cy="292" r="6" fill="var(--color-accent)" stroke="var(--color-plate-ink)" stroke-width="2"/>
+            <!-- towns -->
+            <g>
+              <rect x="226" y="122" width="12" height="12"/><text x="246" y="133" font-size="20">Ngāruawāhia</text>
+              <rect x="452" y="190" width="12" height="12"/><text x="458" y="182" font-size="20" text-anchor="middle">Morrinsville</text>
+              <rect x="412" y="364" width="12" height="12"/><text x="432" y="375" font-size="20">Cambridge</text>
+              <rect x="248" y="432" width="12" height="12"/><text x="268" y="443" font-size="20">Te Awamutu</text>
+              <rect x="207" y="22" width="10" height="10" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="224" y="32" font-size="17" fill="var(--color-ink-2)">Huntly, by arrangement</text>
+              <rect x="22" y="250" width="10" height="10" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="22" y="282" font-size="17" fill="var(--color-ink-2)">Raglan,</text><text x="22" y="302" font-size="17" fill="var(--color-ink-2)">by arrangement</text>
+            </g>
+            <!-- north -->
+            <g transform="translate(548 40)"><path d="M0 -22 L9 8 L0 2 L-9 8 Z" fill="var(--color-ink)"/><text x="0" y="28" font-size="16" text-anchor="middle">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Sketch, not to scale. Orange dot: the yard in Frankton.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Hamilton suburbs: Rototuna, Flagstaff, Huntington, Chartwell, Hillcrest, Silverdale, Dinsdale, Frankton, Nawton, Te Rapa, Glenview, Melville, Hamilton East and more.</p>
+        <ul class="towns">
+          <li><span>Hamilton</span><span class="fig">0–15 km</span></li>
+          <li><span>Ngāruawāhia</span><span class="fig">19 km</span></li>
+          <li><span>Cambridge</span><span class="fig">22 km</span></li>
+          <li><span>Te Awamutu</span><span class="fig">27 km</span></li>
+          <li><span>Morrinsville</span><span class="fig">31 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Get a price</h2>
+      <p>Call or text Dave. Send a photo of the area and a rough size and he'll come and measure.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd class="fig">7:00 am – 5:30 pm</dd></div>
+          <div><dt>Saturday</dt><dd class="fig">Quotes only, 8:00 am – 12:00 pm</dd></div>
+          <div><dt>Quote back</dt><dd class="fig">Within 2 working days</dd></div>
+        </dl>
+      </div>
+      <form class="card form" id="quote" novalidate>
+        <h3>Quote request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job">
+              <option>Driveway</option><option>Path</option><option>Exposed aggregate</option><option>House slab</option><option>Retaining wall</option><option>Concrete cutting</option><option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Rough size and anything we should know</label><textarea id="f-msg" name="message" placeholder="e.g. about 6 m by 10 m, old driveway to break out"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Stonefield Concrete, Hamilton · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Stonefield Concrete is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+</body>
+</html>

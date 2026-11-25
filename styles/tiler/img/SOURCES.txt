@@ -1,0 +1,30 @@
+Photos for the Mosaic Bay Tiling sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was resized to at most 1600 px wide, saturation down 12%, contrast down 4% (Loom photo treatment), saved as JPEG quality 80.
+
+bathroom.jpg
+  Title:   Modern bathroom interior
+  Source:  https://www.rawpixel.com/image/6042774/photo-image-public-domain-house-home
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL2ZsMzcxMzIyNzk4NDItaW1hZ2Uta3liZWpzb3UuanBn.jpg
+  Licence: CC0 1.0
+  Note:    colour softened only
+
+splashback.jpg
+  Title:   Free modern kitchen image
+  Source:  https://www.rawpixel.com/image/5924472/photo-image-public-domain-kitchen-room
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgxMjczNjA2LWltYWdlLWt3dnkxNnlmLmpwZw.jpg
+  Licence: CC0 1.0
+  Note:    colour softened only
+
+floor.jpg
+  Title:   Free modern kitchen image
+  Source:  https://www.rawpixel.com/image/5922237/photo-image-public-domain-house-kitchen
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHg2MzMxNDUtaW1hZ2Uta3d2eGwycGMuanBn.jpg
+  Licence: CC0 1.0
+  Note:    colour softened only
+
+courtyard.jpg
+  Title:   None
+  Source:  https://www.rawpixel.com/image/5949047/free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHg1OTg4NjctaW1hZ2Uta3d5cDRsaHcuanBn.jpg
+  Licence: CC0 1.0
+  Note:    colour softened only

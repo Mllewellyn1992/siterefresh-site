@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Southpeak Roofing | Roofer in Invercargill (sample site)</title>
+<meta name="description" content="Sample site: a made-up Invercargill roofer, built to show the Sport style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@800&family=Albert+Sans:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(98% 0.005 250); --color-paper-2: oklch(95% 0.006 250); --color-paper-3: oklch(91.5% 0.007 250);
+  --color-ink: oklch(16% 0.080 260); --color-ink-2: oklch(22% 0.060 258); --color-muted: oklch(50% 0.020 250);
+  --color-rule: oklch(78% 0.008 250); --color-rule-2: oklch(36% 0.060 255);
+  --color-accent: oklch(88% 0.200 120); --color-accent-ink: oklch(16% 0.080 260); --color-accent-deep: oklch(58% 0.145 125);
+  --color-focus: oklch(58% 0.145 125); --color-slot: oklch(76% 0.07 258);
+  --font-display: "Saira Condensed", "Arial Narrow", sans-serif; --font-body: "Albert Sans", ui-sans-serif, sans-serif;
+  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+  --radius-card: 4px; --radius-pill: 4px; --rule-hair: 1px; --rule-bar: 2px;
+  --shadow-card: none;
+  --tracking-display: -0.015em; --display-weight: 800;
+
+  --space-xs: 0.4rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem; --text-md: 1.125rem; --text-2xl: 1.5rem;
+  --text-display-s: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+  --text-display-m: clamp(2.5rem, 1.6rem + 3.8vw, 4.5rem);
+  --text-display-l: clamp(3rem, 1.4rem + 7vw, 8rem);
+  --text-display: clamp(3.5rem, 2rem + 6vw, 7rem);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body {
+  margin: 0; background: var(--color-paper); color: var(--color-ink-2);
+  font: 400 var(--text-body)/1.55 var(--font-body);
+  padding-top: var(--banner-h); overflow-x: hidden;
+}
+::selection { background: var(--color-accent); color: var(--color-ink); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 0.2em; transition: text-decoration-color 140ms ease-out; }
+a:hover { text-decoration-color: var(--color-accent-deep); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); text-transform: uppercase; line-height: 1.02; color: var(--color-ink); margin: 0; }
+h2 { font-size: var(--text-display-m); }
+h3 { font-size: 1.5rem; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.time { font: 500 1.0625rem/1.2 var(--font-outlier); font-variant-numeric: tabular-nums; color: var(--color-ink); }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.rule { border: 0; border-top: var(--rule-bar) solid var(--color-rule-2); margin: 0; }
+.section__head { border-top: var(--rule-bar) solid var(--color-rule-2); padding-top: var(--space-md); margin-bottom: var(--space-xl);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-sm) var(--space-lg); align-items: end; }
+.section__head h2 { grid-column: 1 / span 7; }
+.section__head p { grid-column: 8 / span 5; }
+@media (max-width: 860px) { .section__head h2, .section__head p { grid-column: 1 / -1; } }
+
+/* sample banner */
+.sample {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h);
+  display: flex; align-items: center; justify-content: center; padding-inline: 1rem;
+  background: var(--color-ink); color: var(--color-paper);
+  font: 500 0.8125rem/1.2 var(--font-body); text-align: center;
+}
+
+/* controls */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+  border: var(--rule-bar) solid transparent; border-radius: var(--radius-card); cursor: pointer; text-decoration: none;
+  padding: var(--space-sm) var(--space-lg); min-height: 3rem;
+  font: var(--display-weight) var(--text-md)/1.25 var(--font-display); text-transform: uppercase; letter-spacing: 0;
+}
+.btn svg { width: 1.1em; height: 1.1em; flex: none; }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
+.btn--secondary { border-color: var(--color-ink); color: var(--color-ink); background: transparent; }
+.btn--secondary:hover { background: var(--color-paper-2); }
+.btn--on-dark { border-color: var(--color-paper); color: var(--color-paper); }
+.btn--on-dark:hover { background: color-mix(in oklab, var(--color-paper) 10%, transparent); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+/* header */
+.top { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-sm); }
+.brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.6rem; height: 2.6rem; flex: none; }
+.brand span { font: var(--display-weight) 1.6rem/0.95 var(--font-display); text-transform: uppercase; letter-spacing: var(--tracking-display); }
+.brand small { display: block; font: 500 0.8125rem/1.3 var(--font-body); text-transform: none; color: var(--color-muted); letter-spacing: 0; margin-top: 0.15rem; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); text-decoration-thickness: 2px; }
+.nav .btn { padding-inline: var(--space-md); min-height: 2.75rem; }
+@media (max-width: 900px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1.35rem; } }
+
+/* hero: poster */
+.hero { padding-top: var(--space-lg); }
+.poster { position: relative; border-radius: var(--radius-card); overflow: hidden; isolation: isolate; min-height: 34rem; display: grid; align-items: end; }
+.poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.poster::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, color-mix(in oklab, var(--color-ink) 82%, transparent) 0%, color-mix(in oklab, var(--color-ink) 60%, transparent) 50%, color-mix(in oklab, var(--color-ink) 20%, transparent) 100%); }
+.poster::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius-card); outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; pointer-events: none; }
+.poster__copy { padding: var(--space-xl); color: var(--color-paper); max-width: 52rem; display: grid; gap: var(--space-md); }
+.poster__copy .label { color: color-mix(in oklab, var(--color-paper) 82%, transparent); }
+.poster h1 { color: var(--color-paper); font-size: var(--text-display-l); line-height: 0.92; }
+.poster__lede { font-size: 1.125rem; max-width: 36rem; }
+.poster .corner { position: absolute; top: var(--space-md); right: var(--space-md); background: var(--color-accent); color: var(--color-accent-ink); border-radius: var(--radius-card); padding: 0.55rem 0.8rem; display: grid; gap: 0.1rem; text-align: right; }
+.poster .corner b { font: var(--display-weight) 2.25rem/0.9 var(--font-display); font-variant-numeric: tabular-nums; }
+.poster .corner span { font: 500 0.8125rem/1.2 var(--font-body); }
+@media (max-width: 640px) {
+  .poster { min-height: 38rem; }
+  .poster__copy { padding: var(--space-md); }
+  .poster .corner b { font-size: 1.75rem; }
+}
+
+/* figures */
+.figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: var(--rule-bar) solid var(--color-rule-2); margin-top: var(--space-xl); }
+.figs > div { padding: var(--space-md) var(--space-md) 0; display: grid; gap: 0.35rem; align-content: start; }
+.figs > div:first-child { padding-left: 0; }
+.figs > div + div { border-left: var(--rule-hair) solid var(--color-rule); }
+.figs b { font: var(--display-weight) var(--text-display-s)/0.9 var(--font-display); color: var(--color-ink); font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-display); }
+.figs .hi b { background: var(--color-accent); color: var(--color-accent-ink); border-radius: var(--radius-card); padding: 0.1em 0.18em 0.02em; justify-self: start; }
+@media (max-width: 760px) {
+  .figs { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-lg); }
+  .figs > div:nth-child(3) { padding-left: 0; border-left: 0; }
+}
+
+/* services sheet */
+.sheet { width: 100%; border-collapse: collapse; border-block: var(--rule-bar) solid var(--color-rule-2); }
+.sheet th { text-align: left; font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); padding: 0.7rem var(--space-md) 0.7rem 0; }
+.sheet td { border-top: var(--rule-hair) solid var(--color-rule); padding: var(--space-md) var(--space-md) var(--space-md) 0; vertical-align: baseline; }
+.sheet tbody tr { transition: background-color 140ms ease-out; }
+.sheet tbody tr:hover { background: var(--color-paper-2); }
+.sheet .no { width: 3.5rem; font: 500 1rem/1 var(--font-outlier); color: var(--color-muted); }
+.sheet h3 { font-size: 1.75rem; }
+.sheet .spec { text-align: right; white-space: nowrap; padding-right: 0; }
+.sheet td:nth-child(3) { max-width: 34rem; }
+@media (max-width: 760px) {
+  .sheet thead { display: none; }
+  .sheet tr { display: grid; grid-template-columns: 3rem minmax(0, 1fr) auto; column-gap: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); padding-block: var(--space-md); }
+  .sheet tbody tr:first-child { border-top: 0; }
+  .sheet td { border: 0; padding: 0; }
+  .sheet td:nth-child(3) { grid-column: 2 / -1; grid-row: 2; margin-top: 0.35rem; }
+  .sheet h3 { font-size: 1.5rem; }
+}
+
+/* ink band: rain off your roof */
+.band { background: var(--color-ink); color: var(--color-paper); }
+.band .wrap { padding-block: var(--space-3xl); }
+.band h2 { color: var(--color-paper); font-size: var(--text-display-s); }
+.band .label { color: color-mix(in oklab, var(--color-paper) 70%, transparent); }
+.rain { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.rain__ctrl { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.rain__out { grid-column: 6 / span 7; }
+@media (max-width: 860px) { .rain__ctrl, .rain__out { grid-column: 1 / -1; } }
+.area-read { display: flex; align-items: baseline; gap: 0.5rem; }
+.area-read output { font: 500 clamp(3.5rem, 2rem + 6vw, 6rem)/0.9 var(--font-outlier); font-variant-numeric: tabular-nums; color: var(--color-paper); }
+.area-read span { font: 500 1.25rem/1 var(--font-body); }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 2.75rem; background: transparent; cursor: pointer; }
+input[type=range]::-webkit-slider-runnable-track { height: 2px; background: var(--color-slot); }
+input[type=range]::-moz-range-track { height: 2px; background: var(--color-slot); }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 1.5rem; height: 1.5rem; margin-top: -0.7rem; border-radius: var(--radius-card); background: var(--color-accent); border: 2px solid var(--color-ink); }
+input[type=range]::-moz-range-thumb { width: 1.5rem; height: 1.5rem; border-radius: var(--radius-card); background: var(--color-accent); border: 2px solid var(--color-ink); }
+.presets { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+.presets button { font: 500 var(--text-sm)/1 var(--font-body); color: var(--color-paper); background: transparent; border: 1px solid var(--color-slot); border-radius: var(--radius-card); padding: 0.6rem 0.75rem; cursor: pointer; min-height: 2.5rem; }
+.presets button[aria-pressed=true] { background: var(--color-paper); color: var(--color-ink); border-color: var(--color-paper); }
+.months { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: var(--rule-bar) solid var(--color-slot); }
+.months div { padding: 0.75rem 0.75rem 0.75rem 0; border-bottom: var(--rule-hair) solid color-mix(in oklab, var(--color-slot) 45%, transparent); display: grid; gap: 0.2rem; }
+.months div:not(:nth-child(4n+1)) { padding-left: 0.75rem; border-left: var(--rule-hair) solid color-mix(in oklab, var(--color-slot) 45%, transparent); }
+.months .m { font: 500 0.8125rem/1.2 var(--font-body); color: color-mix(in oklab, var(--color-paper) 70%, transparent); }
+.months .v { font: 500 1.125rem/1.2 var(--font-outlier); font-variant-numeric: tabular-nums; color: var(--color-paper); }
+.months .total { grid-column: 1 / -1; background: var(--color-accent); color: var(--color-accent-ink); border-radius: var(--radius-card); margin-top: 0.75rem; padding: 0.85rem 1rem !important; border: 0 !important; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.months .total .m { color: var(--color-accent-ink); font-size: var(--text-sm); }
+.months .total .v { color: var(--color-accent-ink); font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem); }
+@media (max-width: 480px) {
+  .months { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .months div:nth-child(n) { padding-left: 0.75rem; border-left: var(--rule-hair) solid color-mix(in oklab, var(--color-slot) 45%, transparent); }
+  .months div:nth-child(3n+1) { padding-left: 0; border-left: 0; }
+  .months .v { font-size: 1rem; }
+}
+.rain__photo { margin: 0 0 var(--space-lg); position: relative; }
+.rain__photo img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; border-radius: var(--radius-card); }
+.rain__photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: var(--space-md); border-radius: 0 0 var(--radius-card) var(--radius-card);
+  background: linear-gradient(to top, color-mix(in oklab, var(--color-ink) 75%, transparent), transparent); color: var(--color-paper); font: 500 var(--text-sm)/1.3 var(--font-body); }
+
+/* stages */
+.stages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: var(--rule-bar) solid var(--color-rule-2); margin: 0; padding: 0; }
+.stages li { list-style: none; padding: var(--space-md) var(--space-md) var(--space-md); display: grid; gap: 0.4rem; align-content: start; border-radius: 0 0 var(--radius-card) var(--radius-card); }
+.stages li + li { border-left: var(--rule-hair) solid var(--color-rule); }
+.stages .n { font: var(--display-weight) var(--text-display-s)/0.9 var(--font-display); color: var(--color-ink); }
+.stages h3 { font-size: 1.5rem; }
+.stages .live { background: var(--color-accent); color: var(--color-accent-ink); }
+.stages .live + li { border-left-color: transparent; }
+.stages .time { margin-top: 0.3rem; }
+@media (max-width: 760px) {
+  .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stages li:nth-child(3) { border-left: 0; }
+  .stages li:nth-child(n+3) { border-top: var(--rule-hair) solid var(--color-rule); }
+}
+
+/* recent work */
+.work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+.work figure { margin: 0; }
+.photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-card); outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; background: var(--color-paper-3); }
+.work figcaption { display: flex; justify-content: space-between; gap: 1rem; padding-top: 0.6rem; border-top: var(--rule-hair) solid var(--color-rule); margin-top: 0.6rem; }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.score { grid-column: 1 / span 4; background: var(--color-paper-2); border-top: var(--rule-bar) solid var(--color-rule-2); padding: var(--space-lg); display: grid; gap: var(--space-sm); }
+.score b { font: var(--display-weight) var(--text-display)/0.85 var(--font-display); color: var(--color-ink); font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-display); }
+.score .stars { display: flex; gap: 3px; color: var(--color-ink); }
+.score .stars svg { width: 1.2rem; height: 1.2rem; }
+.quotes { grid-column: 5 / span 8; margin: 0; padding: 0; border-block: var(--rule-bar) solid var(--color-rule-2); }
+.quotes li { list-style: none; padding: var(--space-lg) var(--space-md); display: grid; gap: 0.6rem; transition: background-color 140ms ease-out; }
+.quotes li + li { border-top: var(--rule-hair) solid var(--color-rule); }
+.quotes li:hover { background: var(--color-paper-2); }
+.quotes blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink-2); }
+.quotes .who { display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; align-items: baseline; }
+.quotes .who b { font: var(--display-weight) 1.25rem/1 var(--font-display); text-transform: uppercase; color: var(--color-ink); letter-spacing: 0; }
+@media (max-width: 860px) { .score, .quotes { grid-column: 1 / -1; } .quotes li { padding-inline: 0; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-paper-2); border-radius: var(--radius-card); }
+.area__list { grid-column: 8 / span 5; display: grid; gap: var(--space-md); }
+.map text { paint-order: stroke; stroke: var(--color-paper-2); stroke-width: 5px; stroke-linejoin: round; }
+.towns { margin: 0; padding: 0; border-block: var(--rule-bar) solid var(--color-rule-2); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li:last-child { border-bottom: 0; }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: var(--display-weight) var(--text-display-m)/1 var(--font-display); color: var(--color-ink); letter-spacing: var(--tracking-display); }
+.hours { margin: 0; padding: 0; border-block: var(--rule-bar) solid var(--color-rule-2); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; }
+.hours div + div { border-top: var(--rule-hair) solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 500; }
+.hours dd { margin: 0; text-align: right; }
+.form { grid-column: 7 / span 6; background: var(--color-paper-2); border-top: var(--rule-bar) solid var(--color-rule-2); padding: var(--space-lg); display: grid; gap: var(--space-md); }
+.form h3 { font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.3rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+.form input, .form select, .form textarea {
+  width: 100%; border-radius: var(--radius-card); border: 1px solid var(--color-rule); background: var(--color-paper);
+  font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.65rem 0.75rem; min-height: 2.9rem;
+}
+.form input:focus-visible, .form select:focus-visible, .form textarea:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 0; border-color: var(--color-ink); }
+.form textarea { min-height: 6.5rem; resize: vertical; }
+.form select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact__call, .form { grid-column: 1 / -1; } }
+
+@media (max-width: 860px) {
+  .rain, .reviews, .area, .contact { grid-template-columns: minmax(0, 1fr); }
+  .rain > *, .reviews > *, .area > *, .contact > * { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .section { padding-block: var(--space-2xl); } .band .wrap { padding-block: var(--space-2xl); } }
+
+footer { border-top: var(--rule-bar) solid var(--color-rule-2); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note">Sample site — made-up business to show this style</div>
+
+<!-- our own drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2.2"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Southpeak Roofing, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="1" y="1" width="46" height="46" rx="4" fill="var(--color-ink)"/>
+        <path d="M7 33 L24 13 L41 33" fill="none" stroke="var(--color-paper)" stroke-width="4" stroke-linejoin="miter"/>
+        <path d="M13 33v6M19 33v6M25 33v6M31 33v6M37 33v6" stroke="var(--color-paper)" stroke-width="2"/>
+        <rect x="30" y="7" width="10" height="7" rx="1.5" fill="var(--color-accent)"/>
+      </svg>
+      <span>Southpeak Roofing<small>Invercargill roofer · Liam and crew</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#rain">Rain check</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="poster">
+      <img src="img/hero.jpg" width="1280" height="960" alt="Looking down on a house with a new dark long-run metal roof, hips and valleys finished, a tree on the lawn beside it" fetchpriority="high">
+      <div class="corner" aria-label="Rated 4.8 from 36 Google reviews"><b>4.8</b><span>36 Google reviews</span></div>
+      <div class="poster__copy">
+        <p class="label">Roofer · Invercargill and Southland</p>
+        <h1>Roofs built for a southerly.</h1>
+        <p class="poster__lede">Liam and a crew of three re-roof, repair and paint roofs across Invercargill. Long-run iron, spouting and moss treatment, with a free look on the roof and a written quote inside 2 days.</p>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Liam</a>
+          <a class="btn btn--secondary btn--on-dark" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+        </div>
+      </div>
+    </div>
+    <div class="figs" aria-label="Southpeak Roofing in figures">
+      <div><b>4.8</b><span class="label">Google rating</span></div>
+      <div><b>36</b><span class="label">Google reviews</span></div>
+      <div><b>14</b><span class="label">years on Southland roofs</span></div>
+      <div><b>48 h</b><span class="label">to a written quote</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we do</h2>
+      <p>Houses, sheds and small commercial roofs. Every job gets a look on the roof first, a written quote, and the same crew from strip-off to clean-up.</p>
+    </div>
+    <table class="sheet">
+      <thead><tr><th scope="col">No.</th><th scope="col">Job</th><th scope="col">What it covers</th><th scope="col" class="spec">Usual time</th></tr></thead>
+      <tbody>
+        <tr><td class="no">01</td><td><h3>Re-roofing</h3></td><td>Old iron or tiles off, new underlay, new long-run on, flashings and ridges finished. Weather-tight every night.</td><td class="spec time">2–4 days</td></tr>
+        <tr><td class="no">02</td><td><h3>Roof repairs</h3></td><td>Leaks, lifted sheets, loose screws, rusted flashings and the damage after a big southerly.</td><td class="spec time">Same week</td></tr>
+        <tr><td class="no">03</td><td><h3>Spouting</h3></td><td>Continuous spouting and downpipes rolled on site, plus cleaning and re-fixing what you have.</td><td class="spec time">1 day</td></tr>
+        <tr><td class="no">04</td><td><h3>Long-run iron</h3></td><td>Corrugate or trapezoidal profiles, one sheet ridge to spouting, in the colour you pick.</td><td class="spec time">0.40 / 0.55 mm</td></tr>
+        <tr><td class="no">05</td><td><h3>Roof painting</h3></td><td>Water-blasted, rust spots treated, primed and two top coats. Iron with life left in it, kept going.</td><td class="spec time">3–5 days</td></tr>
+        <tr><td class="no">06</td><td><h3>Moss treatment</h3></td><td>Moss and lichen killed and washed off, south faces first. Worth doing before you paint.</td><td class="spec time">1 visit</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="band" id="rain" aria-labelledby="rainT">
+  <div class="wrap">
+    <figure class="rain__photo">
+      <img src="img/rain.jpg" width="1280" height="832" loading="lazy" alt="Heavy rain bouncing off a sheet roof">
+      <figcaption>An ordinary Tuesday in Invercargill.</figcaption>
+    </figure>
+    <div class="rain">
+      <div class="rain__ctrl">
+        <h2 id="rainT">How much rain your roof takes</h2>
+        <p>Invercargill gets about 1,100 mm of rain a year. Every litre of it has to run off your roof, along your spouting and down a pipe. Set your roof size and see what that means, month by month.</p>
+        <div>
+          <label class="label" for="roofArea">Roof area</label>
+          <div class="area-read"><output id="areaOut" for="roofArea">180</output><span>m²</span></div>
+          <input id="roofArea" type="range" min="60" max="400" step="10" value="180">
+        </div>
+        <div class="presets" role="group" aria-label="Typical roof sizes">
+          <button type="button" data-a="100" aria-pressed="false">Unit, 100 m²</button>
+          <button type="button" data-a="180" aria-pressed="true">House, 180 m²</button>
+          <button type="button" data-a="300" aria-pressed="false">Big house, 300 m²</button>
+        </div>
+      </div>
+      <div class="rain__out">
+        <p class="label" style="margin-bottom:.6rem">Litres off your roof, by month</p>
+        <div class="months" id="months" aria-live="polite"></div>
+        <p class="label" style="margin-top:.8rem">Rainfall is a rounded long-run average for Invercargill. Your roof, your spouting: if it overflows, it's undersized or blocked. Liam will tell you which.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How a re-roof runs</h2>
+      <p>A standard house is stripped and re-roofed in 2 to 4 days. You stay in the house; the roof is closed in every night.</p>
+    </div>
+    <ol class="stages">
+      <li class="live"><span class="n">01</span><h3>Look</h3><p>Liam gets on the roof, checks the iron, the framing and the spouting. Free.</p><span class="time">30 min</span></li>
+      <li><span class="n">02</span><h3>Quote</h3><p>A written price with the profile, gauge and colour named. No surprises later.</p><span class="time">48 h</span></li>
+      <li><span class="n">03</span><h3>Strip and sheet</h3><p>Old roof off one side at a time, new underlay down, new long-run screwed on.</p><span class="time">2–3 days</span></li>
+      <li><span class="n">04</span><h3>Flash and finish</h3><p>Ridges, flashings and spouting on, every offcut and screw picked up.</p><span class="time">1 day</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent roofs</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure>
+        <img class="photo" src="img/reroof.jpg" width="960" height="720" loading="lazy" alt="Aerial view of a two-storey house with a new dark metal roof over several wings">
+        <figcaption><span class="label">Re-roof, Waikiwi</span><span class="time">260 m²</span></figcaption>
+      </figure>
+      <figure>
+        <img class="photo" src="img/spouting.jpg" width="1024" height="768" loading="lazy" alt="A roofer on a ladder clearing leaves out of the spouting of a brick house">
+        <figcaption><span class="label">Spouting cleared, Otatara</span><span class="time">42 m</span></figcaption>
+      </figure>
+      <figure>
+        <img class="photo" src="img/rust.jpg" width="1024" height="683" loading="lazy" alt="Close-up of old corrugated iron with rust coming through the paint">
+        <figcaption><span class="label">Before painting, Bluff</span><span class="time">2 coats</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="score">
+        <b>4.8</b>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <p>out of 5, from <span class="time">36</span> Google reviews</p>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Roof had leaked over the hallway for two winters. Liam found a rusted-through flashing in 10 minutes, replaced it the same week and the ceiling's been dry since.”</blockquote>
+          <p class="who"><b>Shona</b><span class="label">Gladstone · Roof repair</span></p>
+        </li>
+        <li>
+          <blockquote>“Full re-roof on our villa, old iron off and new long-run on in three days. They sheeted it over every night even though the forecast was fine. Tidy job.”</blockquote>
+          <p class="who"><b>Rewi</b><span class="label">Windsor · Re-roofing</span></p>
+        </li>
+        <li>
+          <blockquote>“Had the moss treated in autumn and the roof painted in summer. He told us straight that the iron had another 15 years in it, so no need for a new roof.”</blockquote>
+          <p class="who"><b>Kirsty</b><span class="label">Otatara · Moss and painting</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we work</h2>
+      <p>Based in Invercargill. The whole city plus towns within about 40 km. Gore and further out for bigger jobs, by arrangement.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 480" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Invercargill near the south coast, with Otatara across the estuary, Bluff to the south, Riverton to the west, Winton to the north and Edendale to the east, inside a 40 km ring.</title>
+          <g class="map" font-family="Albert Sans, sans-serif" font-weight="500" fill="var(--color-ink)">
+            <!-- sea: Foveaux Strait -->
+            <path d="M0 380 C 40 372, 70 360, 100 362 C 130 364, 150 380, 190 384 C 230 388, 250 372, 280 366 C 300 362, 312 372, 318 392 C 322 410, 330 432, 348 440 C 362 446, 372 430, 380 412 C 392 392, 420 392, 460 398 C 510 405, 560 400, 600 392 L600 480 L0 480 Z" fill="var(--color-paper-3)"/>
+            <path d="M0 380 C 40 372, 70 360, 100 362 C 130 364, 150 380, 190 384 C 230 388, 250 372, 280 366 C 300 362, 312 372, 318 392 C 322 410, 330 432, 348 440 C 362 446, 372 430, 380 412 C 392 392, 420 392, 460 398 C 510 405, 560 400, 600 392" fill="none" stroke="var(--color-ink)" stroke-width="2"/>
+            <!-- New River Estuary -->
+            <path d="M262 368 C 252 340, 262 318, 290 304 C 304 298, 312 312, 304 332 C 298 348, 292 360, 284 366 Z" fill="var(--color-paper-3)" stroke="var(--color-ink)" stroke-width="1.5"/>
+            <text x="164" y="430" font-size="15" fill="var(--color-ink-2)">Foveaux Strait</text>
+            <!-- rivers -->
+            <path d="M232 0 C 236 70, 248 130, 262 190 C 274 240, 282 270, 290 304" fill="none" stroke="var(--color-ink)" stroke-width="2.5"/>
+            <text x="214" y="196" font-size="14" fill="var(--color-ink-2)" transform="rotate(76 214 196)">Ōreti River</text>
+            <path d="M600 160 C 540 210, 500 250, 470 300 C 450 336, 440 370, 436 394" fill="none" stroke="var(--color-ink)" stroke-width="2.5"/>
+            <text x="508" y="226" font-size="14" fill="var(--color-ink-2)" transform="rotate(-48 508 226)">Mataura River</text>
+            <!-- 40 km ring -->
+            <circle cx="320" cy="290" r="200" fill="none" stroke="var(--color-rule-2)" stroke-width="1.5" stroke-dasharray="7 6"/>
+            <text x="404" y="104" font-size="14" fill="var(--color-ink-2)">40 km</text>
+            <!-- Invercargill -->
+            <rect x="300" y="262" width="138" height="44" rx="4" fill="var(--color-ink)"/>
+            <text x="369" y="292" text-anchor="middle" font-family="Saira Condensed, sans-serif" font-weight="800" font-size="22" fill="var(--color-paper)" style="stroke:none">INVERCARGILL</text>
+            <rect x="314" y="296" width="12" height="12" rx="2" fill="var(--color-accent)" stroke="var(--color-ink)" stroke-width="2"/>
+            <!-- towns -->
+            <g font-size="17">
+              <rect x="258" y="292" width="10" height="10"/><text x="196" y="324">Otatara</text>
+              <rect x="340" y="426" width="10" height="10"/><text x="356" y="456">Bluff</text>
+              <rect x="128" y="352" width="10" height="10"/><text x="104" y="344">Riverton</text>
+              <rect x="252" y="118" width="10" height="10"/><text x="268" y="128">Winton</text>
+              <rect x="470" y="326" width="10" height="10"/><text x="486" y="336">Edendale</text>
+              <rect x="540" y="40" width="9" height="9" fill="none" stroke="var(--color-ink)" stroke-width="1.5"/><text x="530" y="34" font-size="15" text-anchor="end" fill="var(--color-ink-2)">Gore, by arrangement</text>
+            </g>
+            <!-- north -->
+            <g transform="translate(46 60)"><path d="M0 -20 L8 6 L0 1 L-8 6 Z" fill="var(--color-ink)"/><text x="0" y="26" font-size="14" text-anchor="middle">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Sketch, not to scale. Volt square: the yard in Invercargill.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>City suburbs: Waikiwi, Grasmere, Gladstone, Windsor, Richmond, Hawthorndale, Kew, Appleby, Georgetown, Strathern and Heidelberg.</p>
+        <ul class="towns">
+          <li><span>Invercargill</span><span class="time">0–10 km</span></li>
+          <li><span>Otatara</span><span class="time">8 km</span></li>
+          <li><span>Bluff</span><span class="time">27 km</span></li>
+          <li><span>Winton</span><span class="time">31 km</span></li>
+          <li><span>Edendale</span><span class="time">34 km</span></li>
+          <li><span>Riverton</span><span class="time">38 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Get a roof quote</h2>
+      <p>Call or text Liam. A photo of the roof from the street helps; he'll come and get up on it.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd><span class="time">7:00–5:30</span></dd></div>
+          <div><dt>Saturday</dt><dd><span class="time">8:00–12:00</span>, urgent leaks</dd></div>
+          <div><dt>Quote back</dt><dd>Within <span class="time">48 h</span></dd></div>
+        </dl>
+      </div>
+      <form class="form" id="quote" novalidate>
+        <h3>Quote request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job">
+              <option>Re-roofing</option><option>Roof repair or leak</option><option>Spouting</option><option>Long-run iron</option><option>Roof painting</option><option>Moss treatment</option><option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">What's going on with the roof?</label><textarea id="f-msg" name="message" placeholder="e.g. leak over the kitchen when it's windy, iron roof about 30 years old"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="label">Southpeak Roofing, Invercargill · 021 000 0000</p>
+    <p class="label">Sample site for siterefresh.co.nz. Southpeak Roofing is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // rounded long-run monthly rainfall for Invercargill, mm (sums to about 1,100)
+  var mm = [105, 80, 95, 95, 110, 100, 80, 75, 80, 95, 90, 100];
+  var names = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var range = document.getElementById('roofArea'), out = document.getElementById('areaOut'), grid = document.getElementById('months');
+  var presets = document.querySelectorAll('.presets button');
+  var fmt = function (n) { return Math.round(n).toLocaleString('en-NZ'); };
+  var cells = names.map(function (n) {
+    var d = document.createElement('div');
+    d.innerHTML = '<span class="m">' + n + '</span><span class="v">0</span>';
+    grid.appendChild(d); return d.querySelector('.v');
+  });
+  var total = document.createElement('div'); total.className = 'total';
+  total.innerHTML = '<span class="m">A year off your roof</span><span class="v">0 L</span>';
+  grid.appendChild(total); var totalV = total.querySelector('.v');
+  function draw() {
+    var a = +range.value; out.textContent = a;
+    var sum = 0;
+    mm.forEach(function (m, i) { var l = a * m; sum += l; cells[i].textContent = fmt(l); });
+    totalV.textContent = fmt(sum) + ' L';
+    presets.forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.a === a)); });
+  }
+  range.addEventListener('input', draw);
+  presets.forEach(function (b) { b.addEventListener('click', function () { range.value = b.dataset.a; draw(); }); });
+  draw();
+})();
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+</body>
+</html>
