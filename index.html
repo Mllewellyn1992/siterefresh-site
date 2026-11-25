@@ -109,9 +109,10 @@ footer{border-top:1px solid var(--line);background:var(--card);padding:40px 0 32
 @media (max-width:820px){.works.five{grid-template-columns:repeat(2,1fr)}}
 .shead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
 .arrows{display:flex;gap:8px;flex:none}.arr{width:46px;height:46px;border-radius:50%;border:2px solid var(--green);background:var(--card);color:var(--green);font-size:1.2rem;cursor:pointer}.arr:hover{background:var(--green);color:#fff}
-.reel{overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;margin:18px -16px 0;padding:8px 16px 26px;outline:none}.reel::-webkit-scrollbar{display:none}
-.track{display:flex;gap:24px}
-.slide{flex:0 0 clamp(240px,27vw,330px);scroll-snap-align:start;transition:transform .35s,box-shadow .35s,opacity .35s}
+/* both strips drift slowly sideways like the reviews/photos on customer sites; pause on hover or touch (Mike, 26 Nov 2026) */
+.reel{overflow-x:auto;scrollbar-width:none;margin:18px -16px 0;padding:8px 16px 26px;outline:none}.reel::-webkit-scrollbar{display:none}
+.track{display:flex;gap:24px;width:max-content}
+.slide{flex:0 0 clamp(240px,27vw,330px);transition:transform .6s cubic-bezier(.4,0,.2,1),box-shadow .6s cubic-bezier(.4,0,.2,1)}
 .slide.on{transform:translateY(-6px) scale(1.02);box-shadow:0 22px 44px rgba(22,35,31,.18)}
 .slide img{transition:object-position 3.3s ease-in-out}.slide.on img{object-position:50% 100%}
 .slide span:last-child{font-size:.9rem}
@@ -146,6 +147,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding:40px 0 32
   <ul>
    <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><ellipse cx="24" cy="24" rx="8" ry="18"/><path d="M6 24h36M9 15h30M9 33h30"/></svg></i>Your own .co.nz web address</li>
    <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><polygon class="a" points="24,6 29.3,17.6 42,18.4 32.3,26.6 35.4,39 24,32.2 12.6,39 15.7,26.6 6,18.4 18.7,17.6"/></svg></i>Your Google stars and reviews on the page</li>
+   <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path class="a" d="M24 44s-13-13.5-13-24a13 13 0 0 1 26 0c0 10.5-13 24-13 24z"/><circle cx="24" cy="20" r="5"/></svg></i>Your Google profile tidied up: photos, description, services and hours</li>
    <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path class="a" d="M15 7h6l3 9-5 3.5a24 24 0 0 0 10.5 10.5L33 25l9 3v6a4 4 0 0 1-4 4C22 38 10 26 10 11a4 4 0 0 1 4-4z"/></svg></i>Tap-to-call button on every phone</li>
    <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="13" y="13" width="22" height="31" rx="4"/><path d="M21 40h6"/><path class="a" d="M24 4h17a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3h-9l-5.5 4.5V21H24a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"/><path class="w" d="M27 10.5h11M27 15h7" stroke-width="2"/></svg></i>Quote requests sent straight to your mobile</li>
    <li><i class="ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path class="a" d="M9 39l2.5-9.5L32 9l7 7-20.5 20.5z"/><path d="M28.5 12.5l7 7M6 43h36"/></svg></i>Small changes done for you, just text me</li>
@@ -174,15 +176,20 @@ footer{border-top:1px solid var(--line);background:var(--card);padding:40px 0 32
 </div></section>
 
 <section class="alt" id="work"><div class="wrap">
- <h2>Sites I've built</h2>
- <p class="lede">Tap one to open the live site. On a computer, hover to scroll through it.</p>
- <div class="works five">
-  <a class="work" href="https://dealprospect.com/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>dealprospect.com</em></span><img src="work/dealprospect-tall.jpg" width="640" height="2600" loading="lazy" alt="DealProspect home page"><div><b>DealProspect</b><span>Businesses for sale across New Zealand and Australia.</span></div></a>
-  <a class="work" href="https://clearledger.co.nz/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>clearledger.co.nz</em></span><img src="work/clearledger-tall.jpg" width="640" height="2600" loading="lazy" alt="ClearLedger home page"><div><b>ClearLedger</b><span>Accounting for New Zealand businesses.</span></div></a>
-  <a class="work" href="https://mowmatch.co.nz/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>mowmatch.co.nz</em></span><img src="work/mowmatch-tall.jpg" width="640" height="795" loading="lazy" alt="MowMatch home page"><div><b>MowMatch</b><span>Lawn mowing prices from local mowers.</span></div></a>
-  <a class="work" href="https://www.gobusinessvaluation.com/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>gobusinessvaluation.com</em></span><img src="work/go-business-valuation-tall.jpg" width="640" height="2600" loading="lazy" alt="Go Business Valuation home page"><div><b>Go Business Valuation</b><span>A free asking price range for your business.</span></div></a>
-  <a class="work" href="https://aquilalens.com/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>aquilalens.com</em></span><img src="work/aquilalens-tall.jpg" width="640" height="2600" loading="lazy" alt="AquilaLens home page"><div><b>AquilaLens</b><span>All of New Zealand's organisations in one place.</span></div></a>
-  <a class="work" href="https://businessborrowing.co.nz/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>businessborrowing.co.nz</em></span><img src="work/business-borrowing-tall.jpg" width="640" height="2600" loading="lazy" alt="Business Borrowing home page"><div><b>Business Borrowing</b><span>How much a company can borrow, and at what price.</span></div></a>
+ <div class="shead">
+  <div><h2>Sites I've built</h2>
+  <p class="lede">Tap one to open the live site. On a computer, hover to scroll through it.</p></div>
+  <div class="arrows"><button type="button" class="arr" data-dir="-1" aria-label="Previous sites">&larr;</button><button type="button" class="arr" data-dir="1" aria-label="Next sites">&rarr;</button></div>
+ </div>
+ <div class="reel" tabindex="0" aria-label="Sites I've built">
+ <div class="track">
+  <a class="work slide" href="https://dealprospect.com/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>dealprospect.com</em></span><img src="work/dealprospect-tall.jpg" width="640" height="2600" loading="lazy" alt="DealProspect home page"><div><b>DealProspect</b><span>Businesses for sale across New Zealand and Australia.</span></div></a>
+  <a class="work slide" href="https://clearledger.co.nz/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>clearledger.co.nz</em></span><img src="work/clearledger-tall.jpg" width="640" height="2600" loading="lazy" alt="ClearLedger home page"><div><b>ClearLedger</b><span>Accounting for New Zealand businesses.</span></div></a>
+  <a class="work slide" href="https://mowmatch.co.nz/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>mowmatch.co.nz</em></span><img src="work/mowmatch-tall.jpg" width="640" height="795" loading="lazy" alt="MowMatch home page"><div><b>MowMatch</b><span>Lawn mowing prices from local mowers.</span></div></a>
+  <a class="work slide" href="https://www.gobusinessvaluation.com/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>gobusinessvaluation.com</em></span><img src="work/go-business-valuation-tall.jpg" width="640" height="2600" loading="lazy" alt="Go Business Valuation home page"><div><b>Go Business Valuation</b><span>A free asking price range for your business.</span></div></a>
+  <a class="work slide" href="https://aquilalens.com/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>aquilalens.com</em></span><img src="work/aquilalens-tall.jpg" width="640" height="2600" loading="lazy" alt="AquilaLens home page"><div><b>AquilaLens</b><span>All of New Zealand's organisations in one place.</span></div></a>
+  <a class="work slide" href="https://businessborrowing.co.nz/" target="_blank" rel="noopener"><span class="bar"><i></i><i></i><i></i><em>businessborrowing.co.nz</em></span><img src="work/business-borrowing-tall.jpg" width="640" height="2600" loading="lazy" alt="Business Borrowing home page"><div><b>Business Borrowing</b><span>How much a company can borrow, and at what price.</span></div></a>
+ </div>
  </div>
 </div></section>
 
@@ -227,7 +234,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding:40px 0 32
 <section class="alt"><div class="wrap">
  <h2>Fair questions</h2>
  <details><summary>Is there a catch?</summary><p>No setup fee and no contract. $49 a month, paid at the start of the month. Stop paying and the site comes down at the end of that month.</p></details>
- <details><summary>Do I have to do anything?</summary><p>No. I write it from your Google profile. If you want changes later (new photo, new service, holiday hours) just text me and I'll do it.</p></details>
+ <details><summary>Do I have to do anything?</summary><p>No. I write it from your Google profile. If you want changes later (new photo, new service, holiday hours) just text me and I'll do it. To tidy up your Google profile you add me as a manager on it (I'll send the steps). You stay the owner.</p></details>
  <details><summary>Will it get me more work?</summary><p>I can't promise that and won't pretend to. It helps customers who've already found you trust you and get in touch. You'll see every quote request that comes through it.</p></details>
 </div></section>
 
@@ -257,15 +264,30 @@ footer{border-top:1px solid var(--line);background:var(--card);padding:40px 0 32
  <p class="fine">© 2026 SiteRefresh, a trading name of Llewellyn Ventures Limited (NZBN 9429051034597), New Zealand.</p>
 </div></footer>
 <script>
-(()=>{const r=document.querySelector('.reel');if(!r)return;const sl=[...r.querySelectorAll('.slide')];let i=0,hold=false,t;
-const step=()=>sl[1].offsetLeft-sl[0].offsetLeft;
-const go=n=>{i=(n+sl.length)%sl.length;r.scrollTo({left:sl[i].offsetLeft-sl[0].offsetLeft});sl.forEach((x,k)=>x.classList.toggle('on',k===i))};
-const tick=()=>{if(!hold&&r.getBoundingClientRect().top<innerHeight)go(i+1)};
-document.querySelectorAll('.arr').forEach(b=>b.onclick=()=>{go(i+ +b.dataset.dir);clearInterval(t);t=setInterval(tick,3500)});
-['mouseenter','focusin','touchstart'].forEach(e=>r.addEventListener(e,()=>hold=true,{passive:true}));
-['mouseleave','focusout'].forEach(e=>r.addEventListener(e,()=>hold=false));
-r.addEventListener('scroll',()=>{if(!hold)return;const n=Math.round(r.scrollLeft/step());if(n!==i){i=n;sl.forEach((x,k)=>x.classList.toggle('on',k===i))}},{passive:true});
-sl[0].classList.add('on');t=setInterval(tick,3500)})();
+// Card-by-card like before (one step every 3.5 s, front card lifts and its page scrolls), but each step is a slow
+// eased glide, and cards are cloned once so the strip loops forward with no rewind (Mike, 26 Nov 2026).
+(()=>{const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+document.querySelectorAll('.reel').forEach(r=>{
+ const tr=r.querySelector('.track'),sl=[...tr.children],n=sl.length;if(n<2)return;
+ sl.forEach(s=>{const c=s.cloneNode(true);c.setAttribute('aria-hidden','true');c.tabIndex=-1;c.querySelectorAll('img').forEach(m=>m.alt='');tr.appendChild(c)});
+ const all=[...tr.children],W=()=>sl[1].offsetLeft-sl[0].offsetLeft,L=()=>all[n].offsetLeft-sl[0].offsetLeft;
+ let i=0,hold=false,seen=false,t,id;
+ const mark=()=>all.forEach((x,k)=>x.classList.toggle('on',k%n===i%n));
+ const go=d=>{cancelAnimationFrame(id);
+  if(i>=n){i-=n;r.scrollLeft-=L()}
+  if(i+d<0){i+=n;r.scrollLeft+=L()}
+  i+=d;mark();const from=r.scrollLeft,to=i*W(),t0=performance.now(),dur=1100;
+  const f=now=>{const p=Math.min((now-t0)/dur,1);r.scrollLeft=from+(to-from)*ease(p);
+   if(p<1){id=requestAnimationFrame(f);return}
+   if(i>=n){i-=n;r.scrollLeft-=L()}};id=requestAnimationFrame(f)};
+ const tick=()=>{if(!hold&&seen)go(1)},restart=()=>{clearInterval(t);t=setInterval(tick,3500)};
+ new IntersectionObserver(e=>{seen=e[0].isIntersecting}).observe(r);
+ r.closest('section').querySelectorAll('.arr').forEach(b=>b.onclick=()=>{go(+b.dataset.dir);restart()});
+ ['mouseenter','focusin','touchstart'].forEach(e=>r.addEventListener(e,()=>hold=true,{passive:true}));
+ ['mouseleave','focusout'].forEach(e=>r.addEventListener(e,()=>hold=false));
+ r.addEventListener('touchend',()=>{setTimeout(()=>{i=Math.round(r.scrollLeft/W())%n;if(r.scrollLeft>=L())r.scrollLeft-=L();mark();hold=false;restart()},600)},{passive:true});
+ mark();restart();
+})})();
 </script>
 <script async src="https://siterefresh-hits.siterefresh-nz.workers.dev/h.js"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1174742f262842a7bc48958e4bed24c4"}'></script><!-- End Cloudflare Web Analytics -->
