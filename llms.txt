@@ -1,0 +1,33 @@
+# SiteRefresh
+
+> SiteRefresh builds simple one-page websites for New Zealand businesses that have good Google reviews but no website. $49 NZD a month, no setup fee, no GST, no contract, and the owner sees a free mock-up before deciding.
+
+SiteRefresh is run by Mike Llewellyn in Auckland, New Zealand. There is no call centre or sales team; texts and emails go to Mike directly.
+
+## What a customer gets
+
+- A one-page website on the business's own .co.nz address
+- The business's Google stars and reviews shown on the page
+- A tap-to-call button on phones
+- Quote requests sent straight to the owner's mobile
+- Small changes done on request by text (new photo, new service, holiday hours)
+- Hosting and security looked after
+
+## How it works
+
+1. Mike builds a free mock-up from the business's public Google profile: name, services, area, reviews and photos. The owner writes nothing.
+2. Mike texts the owner a link. The owner asks for changes, or says no and that is the end of it.
+3. If the owner wants it, the site goes live on their own .co.nz address. They pay $49 at the start of each month and can stop at any time; the site comes down at the end of the last paid month.
+
+SiteRefresh does not promise more work. The site helps customers who have already found the business on Google trust it and get in touch.
+
+## Contact
+
+- Email: hello@siterefresh.co.nz
+- Text: 0210 827 8450
+- Website: https://siterefresh.co.nz/
+
+## Pages
+
+- [Home](https://siterefresh.co.nz/): pricing, how it works, sample styles, sites built, FAQ
+- [Terms](https://siterefresh.co.nz/terms.html)
