@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Softlight Blinds | Curtains and blinds in Feilding (sample site)</title>
+<meta name="description" content="Sample site: a made-up Feilding curtain and blind maker, built to show the Ribbon style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Figtree:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(98.2% 0.008 82); --color-paper-2: oklch(95.8% 0.011 82); --color-paper-3: oklch(92.3% 0.014 82);
+  --color-ink: oklch(18% 0.006 80); --color-ink-2: oklch(30% 0.008 80); --color-muted: oklch(47% 0.012 80);
+  --color-rule: oklch(89.5% 0.011 82); --color-rule-2: oklch(93.5% 0.009 82);
+  --color-accent: oklch(44% 0.075 190); --color-accent-soft: oklch(92% 0.028 190); --color-accent-ink: oklch(98% 0.006 85); --color-focus: oklch(52% 0.09 190);
+  --color-band: oklch(26% 0.045 195); --color-band-ink: oklch(94% 0.012 85);
+  --color-slot: oklch(69% 0.07 80);
+  --metal-hi: oklch(97% 0.006 85); --metal-lo: oklch(85% 0.01 85);
+  --edge-light: inset 0 1px 0 oklch(100% 0 0 / 0.5);
+  --shadow-part: 0 1px 0 oklch(20% 0.01 80 / 0.25), 0 10px 18px -6px oklch(20% 0.01 80 / 0.3);
+  --shadow-panel: 0 1px 0 oklch(20% 0.01 80 / 0.2), 0 24px 48px -16px oklch(20% 0.02 80 / 0.35);
+  --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; --font-body: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+  --radius-card: 20px; --radius-part: 6px; --radius-pill: 999px; --rule-hair: 1px;
+  --tracking-display: -0.035em; --display-weight: 400;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-md: 1.0625rem;
+  --text-display-s: clamp(1.9rem, 1.3rem + 2.2vw, 3rem);
+  --text-display: clamp(3rem, 1.6rem + 5vw, 5.6rem);
+  --dur-long: 900ms; --ease-in-out: cubic-bezier(.45,.05,.3,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem); --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-muted); font: 400 var(--text-md)/1.6 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; font-variant-numeric: tabular-nums; }
+::selection { background: var(--color-accent-soft); color: var(--color-ink); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-decoration-color: color-mix(in oklab, var(--color-ink) 35%, transparent); text-underline-offset: 0.2em; }
+a:hover { text-decoration-color: var(--color-accent); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.04; color: var(--color-ink); margin: 0; }
+h1 { font-size: var(--text-display); }
+h2 { font-size: var(--text-display-s); }
+h3 { font-size: 1.35rem; font-weight: 500; letter-spacing: -0.025em; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-md); }
+.section__head p { max-width: 32rem; }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding-inline: 1rem; background: var(--color-ink); color: var(--color-band-ink); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { font: 500 0.6875rem/1 var(--font-outlier); background: var(--color-accent-soft); color: var(--color-ink); padding: 0.25rem 0.55rem; border-radius: var(--radius-pill); }
+@media (max-width: 480px) { .sample b { display: none; } }
+
+/* machined pills */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; min-height: 52px; padding: 0 var(--space-lg); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-pill); cursor: pointer; text-decoration: none; white-space: nowrap;
+  background: linear-gradient(var(--color-paper-2), var(--color-paper-3)); box-shadow: var(--edge-light), var(--shadow-part); color: var(--color-ink); font: 500 var(--text-md)/1 var(--font-body); }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn:active { transform: translateY(1px); }
+.btn--primary { background: linear-gradient(oklch(50% 0.08 190), var(--color-accent)); border-color: var(--color-accent); color: var(--color-accent-ink); box-shadow: inset 0 1px 0 oklch(100% 0 0 / 0.28), var(--shadow-part); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+/* hero: the hour drawn as light */
+.night { position: relative; isolation: isolate; background: linear-gradient(oklch(24% 0.045 197), var(--color-band) 55%, oklch(30% 0.05 195)); color: var(--color-band-ink); overflow: hidden; }
+.night canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; display: block; -webkit-mask-image: linear-gradient(to right, transparent 20%, #000 62%); mask-image: linear-gradient(to right, transparent 20%, #000 62%); }
+.night h1, .night h2 { color: var(--color-band-ink); }
+.night .label { color: oklch(80% 0.02 190); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--color-band-ink); }
+.brand svg { width: 2rem; height: 2rem; flex: none; }
+.brand span { font: 500 1.35rem/1 var(--font-display); letter-spacing: -0.03em; }
+.brand small { display: block; font: 400 0.8125rem/1.3 var(--font-body); letter-spacing: 0; color: oklch(80% 0.02 190); margin-top: 0.2rem; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); color: var(--color-band-ink); text-decoration: none; }
+.nav a:not(.btn):hover { text-decoration: underline; }
+.nav .btn { min-height: 46px; padding-inline: var(--space-md); }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 440px) { .nav .btn .long { display: none; } .brand small { display: none; } }
+
+.hero { padding-block: var(--space-xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: center; }
+.hero__copy { grid-column: 1 / span 6; }
+.hero h1 { margin-block: var(--space-md) var(--space-lg); }
+.hero__lede { font-size: 1.1875rem; max-width: 30rem; margin-bottom: var(--space-lg); color: oklch(88% 0.015 190); }
+.rating { display: flex; align-items: center; gap: 0.8rem; margin-top: var(--space-lg); }
+.rating .big { font: 400 2.6rem/1 var(--font-display); letter-spacing: -0.04em; color: var(--color-band-ink); }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent); }
+.night .stars { color: oklch(86% 0.08 80); }
+.stars svg { width: 1rem; height: 1rem; }
+@media (max-width: 860px) { .hero__grid { grid-template-columns: minmax(0, 1fr); } .hero__copy, .panelwrap { grid-column: 1 / -1; } .night canvas { -webkit-mask-image: linear-gradient(to bottom, transparent 40%, #000 90%); mask-image: linear-gradient(to bottom, transparent 40%, #000 90%); } }
+.night .btn--ghost { background: linear-gradient(oklch(34% 0.045 195), oklch(28% 0.045 195)); border-color: oklch(42% 0.04 195); color: var(--color-band-ink); }
+
+/* the instrument */
+.panelwrap { grid-column: 8 / span 5; }
+@media (max-width: 860px) { .panelwrap { grid-column: 1 / -1; } }
+.panel { border-radius: var(--radius-card); background: linear-gradient(var(--color-paper), var(--color-paper-3)); box-shadow: var(--edge-light), var(--shadow-panel); padding: var(--space-md); color: var(--color-ink); position: relative; }
+.panel h3 { font-size: 1.35rem; }
+.panel__top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: var(--space-sm); }
+.panel .label { color: var(--color-muted); font-size: 0.8125rem; }
+.bed { display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 0.5rem; border-radius: 14px; background: linear-gradient(oklch(88% 0.012 85), oklch(93% 0.011 85)); box-shadow: inset 0 2px 6px oklch(20% 0.02 80 / 0.28), inset 0 -1px 0 oklch(100% 0 0 / 0.6); padding: var(--space-sm) var(--space-sm) var(--space-sm); align-items: end; }
+.chan { display: grid; justify-items: center; gap: 0.35rem; }
+.chan .val { font: 500 0.9375rem/1 var(--font-outlier); color: var(--color-ink); }
+.chan .name { font: 500 0.8125rem/1.2 var(--font-body); color: var(--color-muted); text-align: center; }
+.fader { position: relative; width: 3.4rem; height: 10.5rem; touch-action: none; cursor: grab; outline-offset: 4px; border-radius: 6px; }
+.fader::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 6px; translate: -50% 0; border-radius: 3px; background: oklch(24% 0.012 80); box-shadow: inset 0 2px 4px #000; }
+.fader .glow { position: absolute; left: 50%; bottom: 0; width: 4px; translate: -50% 0; border-radius: 2px; background: var(--color-accent); box-shadow: 0 0 8px oklch(60% 0.09 190 / 0.7); height: var(--lvl, 50%); }
+.fader .ticks { position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, color-mix(in oklab, var(--color-ink) 35%, transparent) 0 1px, transparent 1px 10%); -webkit-mask: linear-gradient(90deg, #000 0 22%, transparent 22% 78%, #000 78%); mask: linear-gradient(90deg, #000 0 22%, transparent 22% 78%, #000 78%); }
+.fader .cap { position: absolute; left: 50%; width: 2.3rem; height: 1.45rem; translate: -50% 50%; bottom: var(--lvl, 50%); border-radius: var(--radius-part); background: linear-gradient(var(--metal-hi), var(--metal-lo)); box-shadow: var(--edge-light), var(--shadow-part); }
+.fader .cap::before { content: ""; position: absolute; inset: 3px 4px; border-radius: 2px; background: repeating-linear-gradient(90deg, oklch(70% 0.01 85 / 0.45) 0 1px, transparent 1px 3px); }
+.fader .cap::after { content: ""; position: absolute; left: 3px; right: 3px; top: 50%; height: 2px; translate: 0 -50%; background: var(--color-accent); box-shadow: 0 0 4px oklch(60% 0.09 190 / 0.6); }
+.view { display: grid; justify-items: center; gap: 0.35rem; }
+.view svg { width: 100%; max-width: 8.2rem; height: auto; border-radius: 8px; box-shadow: inset 0 2px 6px oklch(20% 0.02 80 / 0.3); }
+.light-fig { margin-top: var(--space-sm); display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-sm); }
+.light-fig .n { font: 400 2.4rem/1 var(--font-display); letter-spacing: -0.04em; color: var(--color-ink); }
+.panel__note { margin-top: 0.5rem; font-size: 0.8125rem; color: var(--color-muted); }
+
+/* reviews: rows */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.score { grid-column: 1 / span 4; display: grid; gap: 0.4rem; }
+.score .big { font: 400 clamp(6.5rem, 4rem + 9vw, 10rem)/0.85 var(--font-display); letter-spacing: -0.05em; color: var(--color-ink); }
+.quotes { grid-column: 6 / span 7; margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.quotes li { list-style: none; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.5rem; }
+.quotes blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink-2); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.quotes .who b { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .reviews { grid-template-columns: minmax(0, 1fr); } .score, .quotes { grid-column: 1 / -1; } }
+
+/* services */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.svc li { list-style: none; padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.5rem; align-content: start; grid-template-rows: auto auto 1fr; }
+.svc li:not(:nth-child(3n+1)) { padding-left: var(--space-lg); }
+.svc li:not(:nth-child(3n)) { border-right: var(--rule-hair) solid var(--color-rule); }
+.svc svg { width: 3rem; height: 3rem; color: var(--color-accent); margin-bottom: 0.3rem; }
+@media (max-width: 860px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svc li, .svc li:not(:nth-child(3n+1)) { padding: var(--space-md) var(--space-md) var(--space-md) 0; border-right: 0; }
+  .svc li:nth-child(even) { padding-left: var(--space-md); border-left: var(--rule-hair) solid var(--color-rule); } }
+@media (max-width: 520px) { .svc { grid-template-columns: 1fr; } .svc li, .svc li:nth-child(even) { padding: var(--space-md) 0; border-left: 0; } }
+
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-lg); margin: 0; padding: 0; }
+.steps li { list-style: none; border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-sm); display: grid; gap: 0.4rem; align-content: start; }
+.steps .n { font: 400 3rem/1 var(--font-display); letter-spacing: -0.05em; color: var(--color-accent); }
+@media (max-width: 860px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .steps { grid-template-columns: 1fr; } }
+
+.band2 { background: var(--color-band); color: var(--color-band-ink); position: relative; isolation: isolate; }
+.band2 .wrap { padding-block: var(--space-3xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: end; }
+.band2 .statement { grid-column: 1 / span 8; font: 400 var(--text-display)/1.02 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-band-ink); }
+.band2 .note { grid-column: 9 / span 4; color: oklch(86% 0.02 190); }
+@media (max-width: 860px) { .band2 .wrap { grid-template-columns: minmax(0, 1fr); } .band2 .statement, .band2 .note { grid-column: 1 / -1; } }
+
+.work { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); }
+.work figure { margin: 0; }
+.work img { width: 100%; object-fit: cover; border-radius: var(--radius-card); }
+.work .a { grid-column: 1 / span 7; } .work .b { grid-column: 8 / span 5; } .work .c { grid-column: 1 / span 4; } .work .d { grid-column: 5 / span 4; } .work .e { grid-column: 9 / span 4; }
+.work .a img, .work .b img, .work .c img, .work .d img, .work .e img { aspect-ratio: 4 / 3; }
+.work .a img { aspect-ratio: 3 / 2; }
+.work figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); margin-top: 0.6rem; }
+@media (max-width: 760px) { .work { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); } .work .a, .work .b, .work .e { grid-column: 1 / -1; } .work .c, .work .d { grid-column: span 1; } }
+
+.two { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.two > :first-child { grid-column: 1 / span 6; }
+.two > :last-child { grid-column: 8 / span 5; }
+.two p + p { margin-top: var(--space-sm); }
+.towns { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+.towns li span:last-child { font-family: var(--font-outlier); font-size: 0.9375rem; white-space: nowrap; color: var(--color-ink-2); }
+.quote-card { border-radius: var(--radius-card); background: linear-gradient(var(--color-paper-2), var(--color-paper-3)); box-shadow: var(--edge-light), var(--shadow-panel); padding: var(--space-md); }
+@media (max-width: 860px) { .two { grid-template-columns: minmax(0, 1fr); } .two > * { grid-column: 1 / -1 !important; } }
+
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.phone { font: 400 clamp(2.6rem, 1.6rem + 4vw, 4.6rem)/1 var(--font-display); letter-spacing: -0.05em; color: var(--color-ink); text-decoration: none; white-space: nowrap; }
+.phone:hover { color: var(--color-accent); }
+.hours { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 500; } .hours dd { margin: 0; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg); display: grid; gap: var(--space-md); border-radius: var(--radius-card); background: linear-gradient(var(--color-paper-2), var(--color-paper-3)); box-shadow: var(--edge-light), var(--shadow-panel); }
+.form h3 { font-size: var(--text-display-s); font-weight: 400; letter-spacing: -0.035em; }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: 12px; border: var(--rule-hair) solid var(--color-rule); background: var(--color-paper); box-shadow: inset 0 1px 3px oklch(20% 0.02 80 / 0.12); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.9rem; min-height: 3rem; }
+textarea { min-height: 6.5rem; resize: vertical; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } .contact__call, .form { grid-column: 1 / -1; } }
+
+footer { border-top: var(--rule-hair) solid var(--color-rule); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<div class="night">
+  <canvas id="slatlight" width="240" height="150" aria-hidden="true"></canvas>
+  <header class="top">
+    <div class="wrap top__in">
+      <a class="brand" href="#top" aria-label="Softlight Blinds, home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="24" height="24" rx="5" fill="none" stroke="oklch(86% 0.08 80)" stroke-width="2"/><path d="M8 10h16M8 15h16M8 20h16" stroke="oklch(86% 0.08 80)" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Softlight Blinds<small>Feilding · Rachel</small></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#services">Blinds and curtains</a>
+        <a href="#how">How it works</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#area">Area</a>
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" style="display:contents">
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="label">Curtains and blinds · Feilding and Manawatū · Rachel</p>
+        <h1>The right amount of morning.</h1>
+        <p class="hero__lede">Rachel measures your windows, leaves swatches in your own light, and fits blinds and curtains that sit true. Roller, venetian, day-and-night, and lined curtains made to size.</p>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Rachel</a>
+          <a class="btn btn--ghost" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+        </div>
+        <div class="rating">
+          <span class="big">4.9</span>
+          <div>
+            <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+            <p class="label">from 47 Google reviews</p>
+          </div>
+        </div>
+      </div>
+      <div class="panelwrap">
+        <div class="panel" id="inst">
+          <div class="panel__top"><h3>Living room, 9 am</h3><span class="label">Sample levels</span></div>
+          <div class="bed">
+            <div class="chan">
+              <span class="val" id="v-drop">60</span>
+              <div class="fader" id="f-drop" role="slider" tabindex="0" aria-label="Blind drop" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" style="--lvl:60%"><div class="ticks"></div><div class="glow"></div><div class="cap"></div></div>
+              <span class="name">Drop</span>
+            </div>
+            <div class="chan">
+              <span class="val" id="v-tilt">40</span>
+              <div class="fader" id="f-tilt" role="slider" tabindex="0" aria-label="Slat tilt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" style="--lvl:40%"><div class="ticks"></div><div class="glow"></div><div class="cap"></div></div>
+              <span class="name">Tilt</span>
+            </div>
+            <div class="chan view">
+              <svg id="win" viewBox="0 0 120 150" role="img" aria-label="The window with the blind at the current drop and tilt">
+                <rect width="120" height="150" fill="oklch(90% 0.06 85)"/>
+                <path d="M0 150L40 110 120 118V150z" fill="oklch(78% 0.07 80)" opacity="0.7"/>
+                <g id="slats"></g>
+                <rect x="2" y="2" width="116" height="146" fill="none" stroke="oklch(34% 0.01 80)" stroke-width="4"/>
+                <path d="M60 2v146M2 76h116" stroke="oklch(34% 0.01 80)" stroke-width="3"/>
+              </svg>
+              <span class="name">Window</span>
+            </div>
+          </div>
+          <div class="light-fig"><div><span class="n" id="v-light">60</span></div><p class="label">Light in the room, out of 100</p></div>
+          <p class="panel__note">Move a fader, or use the arrow keys, and the window follows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+</div>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What customers say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="score">
+        <span class="big">4.9</span>
+        <p class="label">out of 5, from 47 Google reviews</p>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Rachel left fabric swatches taped to the windows for a few days so we could see them morning and evening. We picked a different colour from the one we'd planned, and she was right.”</blockquote>
+          <p class="who"><b>Helen</b><span>Halcombe</span><span>· Curtains</span></p>
+        </li>
+        <li>
+          <blockquote>“Six roller blinds fitted in one morning. Every one sits exactly in the reveal, and the chains are on the side we asked for.”</blockquote>
+          <p class="who"><b>Nick</b><span>Feilding</span><span>· Roller blinds</span></p>
+        </li>
+        <li>
+          <blockquote>“Our west-facing bedroom was unbearable in summer. The day-and-night blinds fixed that and the room is dark enough for the baby's naps.”</blockquote>
+          <p class="who"><b>Amy</b><span>Bunnythorpe</span><span>· Day-and-night blinds</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Blinds and curtains</h2>
+      <p>Measured, made to size and fitted by Rachel, for homes and small offices.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8h36"/><path d="M12 8v26h28V8"/><path d="M12 34h28v4H12z"/><path d="M26 38v6"/><circle cx="26" cy="46" r="2"/></svg>
+        <h3>Roller blinds</h3>
+        <p>Plain and blockout fabrics, cut to fit the reveal.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8h36"/><path d="M10 15h32M10 22h32M10 29h32M10 36h32"/><path d="M14 8v28M38 8v28"/><path d="M26 36v8"/></svg>
+        <h3>Venetian blinds</h3>
+        <p>Timber and aluminium slats you can tilt to taste.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h40"/><path d="M10 8c0 12-2 24-4 36h14c-2-12-4-24-4-36"/><path d="M42 8c0 12 2 24 4 36H32c2-12 4-24 4-36"/></svg>
+        <h3>Curtains</h3>
+        <p>Made-to-measure drapes, lined or sheer, hung on tracks or rods.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8h36"/><path d="M12 8v34h28V8"/><path d="M12 16h28M12 22h28" stroke-dasharray="2 3"/><path d="M12 28h28M12 34h28"/></svg>
+        <h3>Day-and-night</h3>
+        <p>Sheer and solid bands in one blind, for light and privacy.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8h36v32H8z"/><path d="M8 16h36M8 24h36M8 32h36"/><circle cx="26" cy="46" r="2"/></svg>
+        <h3>Motorised blinds</h3>
+        <p>Remote or phone control for the hard-to-reach windows.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 8l-6 6 10 10 6-6z"/><path d="M24 14L8 40l4 4 26-16"/><path d="M34 34l8 8"/></svg>
+        <h3>Repairs and restring</h3>
+        <p>Cords, brackets and chains on blinds already in your home.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="how" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How it works</h2>
+      <p>Four steps, measured before anything is cut.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">1</span><h3>Measure at home</h3><p>Rachel measures every window and checks the reveal, the wall and the light.</p></li>
+      <li><span class="n">2</span><h3>Swatches in your light</h3><p>Fabric samples stay with you, so you see them morning and evening.</p></li>
+      <li><span class="n">3</span><h3>Made to size</h3><p>Blinds and curtains are cut and sewn to your measurements, not off a shelf.</p></li>
+      <li><span class="n">4</span><h3>Fitted and tested</h3><p>She fits, levels and runs every blind up and down before she leaves.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band2">
+  <div class="wrap">
+    <p class="statement">Measure twice. Hang once. Level to the millimetre.</p>
+    <p class="note">Rachel measures every window twice, on different days if she can, and fits only when both numbers agree.</p>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent jobs</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="a"><img src="img/hero.jpg" width="1024" height="683" alt="Close view of cream venetian blind slats on a window"><figcaption>Cream venetian blinds, Feilding</figcaption></figure>
+      <figure class="b"><img src="img/night.jpg" width="1023" height="681" alt="Dark venetian blinds with light coming through the slats"><figcaption>Blockout slats for a shift worker's bedroom</figcaption></figure>
+      <figure class="c"><img src="img/sheer.jpg" width="960" height="640" alt="A white sheer curtain beside a dark window frame"><figcaption>Sheer curtains, Sanson</figcaption></figure>
+      <figure class="d"><img src="img/garden.jpg" width="1023" height="681" alt="A window looking onto a garden with a sheer and a heavy curtain either side"><figcaption>Sheer and drape, Halcombe</figcaption></figure>
+      <figure class="e"><img src="img/shadow.jpg" width="1024" height="685" alt="Stripes of light and shadow from blinds falling across fabric"><figcaption>Light through the slats at midday</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head"><h2>Who turns up</h2></div>
+    <div class="two">
+      <div>
+        <p>Rachel runs Softlight on her own from Feilding. You deal with the same person who measures, orders, sews and fits.</p>
+        <p>She carries fabric books and a tape measure, and will tell you straight if a window is better with a blind than a curtain.</p>
+      </div>
+      <div class="quote-card">
+        <p class="label">What Rachel says at the door</p>
+        <p style="font:400 1.5rem/1.2 var(--font-display);letter-spacing:-0.03em;color:var(--color-ink);margin-top:0.5rem">“Which room gets the sun first?”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where Rachel works</h2>
+      <p>Feilding and the towns around it. Further out by arrangement.</p>
+    </div>
+    <div class="two">
+      <div>
+        <p>Feilding, Halcombe, Sanson, Bunnythorpe, Cheltenham, Rongotea, Palmerston North and Kimbolton.</p>
+        <p>Send a photo of the window and the town and Rachel will tell you when she can visit.</p>
+      </div>
+      <ul class="towns">
+        <li><span>Feilding</span><span>0–15 min</span></li>
+        <li><span>Halcombe</span><span>15 min</span></li>
+        <li><span>Palmerston North</span><span>20 min</span></li>
+        <li><span>Kimbolton</span><span>25 min</span></li>
+        <li><span>Feilding, by arrangement</span><span>60 min</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Book a measure</h2>
+      <p>Call or text Rachel. A photo of the window and the room is a good start.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd>8:00 am – 5:00 pm</dd></div>
+          <div><dt>Saturday</dt><dd>Home visits by booking</dd></div>
+          <div><dt>Reply</dt><dd>Within a day</dd></div>
+        </dl>
+      </div>
+      <form class="form" id="quote" novalidate>
+        <h3>Request a measure</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">What for</label>
+            <select id="f-job" name="job"><option>Roller blinds</option><option>Venetian blinds</option><option>Curtains</option><option>Day-and-night blinds</option><option>Motorised blinds</option><option>Repairs</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Rooms and windows</label><textarea id="f-msg" name="message" placeholder="e.g. lounge and two bedrooms, six windows, west-facing"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Softlight Blinds, Feilding · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Softlight Blinds is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+
+/* the instrument: two real faders, drop and tilt, drive the window and the light figure */
+(function () {
+  var st = { drop: 60, tilt: 40 }, slats = document.getElementById('slats'), N = 10;
+  function render() {
+    var bottom = 150 * (st.drop / 100), pitch = bottom / N, th = Math.max(1.2, pitch * (1 - st.tilt / 100 * 0.85)), html = '';
+    for (var i = 0; i < N; i++) { var y = i * pitch; html += '<rect x="2" y="' + y.toFixed(1) + '" width="116" height="' + th.toFixed(1) + '" fill="oklch(95% 0.012 85)" stroke="oklch(60% 0.015 85)" stroke-width="0.6"/>'; }
+    slats.innerHTML = st.drop > 0 ? html : '';
+    var light = Math.round(100 - st.drop * (1 - 0.85 * st.tilt / 100));
+    document.getElementById('v-light').textContent = light;
+    ['drop', 'tilt'].forEach(function (k) {
+      var f = document.getElementById('f-' + k); f.style.setProperty('--lvl', st[k] + '%'); f.setAttribute('aria-valuenow', st[k]);
+      document.getElementById('v-' + k).textContent = st[k];
+    });
+  }
+  function bind(k) {
+    var f = document.getElementById('f-' + k);
+    function set(v) { st[k] = Math.max(0, Math.min(100, Math.round(v))); render(); }
+    function fromPtr(e) { var r = f.getBoundingClientRect(); set((1 - (e.clientY - r.top) / r.height) * 100); }
+    f.addEventListener('pointerdown', function (e) { f.setPointerCapture(e.pointerId); fromPtr(e); f.dataset.drag = 1; });
+    f.addEventListener('pointermove', function (e) { if (f.dataset.drag) fromPtr(e); });
+    f.addEventListener('pointerup', function () { delete f.dataset.drag; });
+    f.addEventListener('keydown', function (e) {
+      var s = { ArrowUp: 5, ArrowRight: 5, ArrowDown: -5, ArrowLeft: -5, PageUp: 20, PageDown: -20 }[e.key];
+      if (s) { e.preventDefault(); set(st[k] + s); } else if (e.key === 'Home') { e.preventDefault(); set(0); } else if (e.key === 'End') { e.preventDefault(); set(100); }
+    });
+  }
+  bind('drop'); bind('tilt'); render();
+})();
+
+/* hero light: slats of morning sun drifting across the dark band. One still frame if motion is reduced. */
+(function () {
+  var c = document.getElementById('slatlight'), ctx = c.getContext('2d'), w = c.width, h = c.height;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function draw(t) {
+    var img = ctx.createImageData(w, h), d = img.data, i = 0;
+    for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
+      var p = (y + x * 0.28 + t * 6) / 11, f = p - Math.floor(p);
+      var band = f < 0.5 ? Math.sin(f / 0.5 * Math.PI) : 0; band = Math.pow(band, 1.6);
+      var fade = Math.max(0, 1 - Math.hypot((x - w * 0.72) / (w * 0.55), (y - h * 0.4) / (h * 0.95)));
+      var a = band * fade * 0.5;
+      d[i++] = 240; d[i++] = 214; d[i++] = 160; d[i++] = Math.round(a * 255);
+    }
+    ctx.putImageData(img, 0, 0);
+  }
+  draw(0);
+  if (reduce) return;
+  var vis = true, t0 = performance.now(), last = 0;
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { vis = es[0].isIntersecting; }).observe(c);
+  (function tick(now) { if (vis && now - last > 66) { last = now; draw((now - t0) / 1000); } requestAnimationFrame(tick); })(0);
+})();
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../window-cleaner/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>39<i class="w"> of </i><i class="s">/</i>50</span><a href="../tyres/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

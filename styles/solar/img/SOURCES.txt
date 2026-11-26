@@ -1,0 +1,33 @@
+Photos for the Vineyard Row Solar sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was converted to a violet duotone (shadows in the page's night ground, highlights in its pale ink) and saved as JPEG quality 80.
+
+roof.jpg
+  Title:   Solar panels roof
+  Source:  https://www.rawpixel.com/image/3339452/free-photo-image-solar-energy-photovoltaic-environmental
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvd2szMTA0NDkwLWltYWdlLWtwNml5b2g0LmpwZw.jpg
+  Licence: CC0 1.0
+
+crew.jpg
+  Title:   Free solar panel installation crew
+  Source:  https://www.rawpixel.com/image/5906768/photo-image-public-domain-person-free
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4NjkzNTI5LWltYWdlLWt3dnY2YjA3LmpwZw.jpg
+  Licence: CC0 1.0
+  Note:    installers seen from behind and the side, no faces
+
+array.jpg
+  Title:   130625-097 Solar Panels (US Coast Guard Academy)
+  Source:  https://www.flickr.com/photos/43228104@N07/9133268903
+  File:    https://live.staticflickr.com/3798/9133268903_d5a3d4de8d_b.jpg
+  Licence: Public Domain Mark 1.0
+
+panel.jpg
+  Title:   Glacier goes Solar (GlacierNPS)
+  Source:  https://www.flickr.com/photos/43288043@N04/51375234410
+  File:    https://live.staticflickr.com/65535/51375234410_592a9a63fe_b.jpg
+  Licence: Public Domain Mark 1.0
+
+field.jpg
+  Title:   IMG_3129 (mlinksva)
+  Source:  https://www.flickr.com/photos/44124284226@N01/4961841275
+  File:    https://live.staticflickr.com/4088/4961841275_642baabd99_b.jpg
+  Licence: CC0 1.0

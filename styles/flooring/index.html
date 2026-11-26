@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tessel Flooring | Flooring installer in Thames (sample site)</title>
+<meta name="description" content="Sample site: a made-up Thames flooring installer, built to show the Grid style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@400;700&family=Radio+Canada:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(97.5% 0.005 90); --color-paper-2: oklch(94.2% 0.006 90); --color-paper-3: oklch(90.5% 0.008 90);
+  --color-ink: oklch(19% 0.022 266); --color-ink-2: oklch(31% 0.02 266); --color-muted: oklch(47% 0.016 266);
+  --color-rule: oklch(87.5% 0.008 90);
+  --color-accent: oklch(44% 0.2 266); --color-accent-ink: oklch(97.5% 0.005 90); --color-focus: oklch(46% 0.2 266);
+  --color-field: oklch(44% 0.2 266); --color-field-ink: oklch(97.5% 0.005 90);
+  --color-mark: oklch(57% 0.215 29); --color-mark-ink: oklch(97.5% 0.005 90);
+  --font-display: "Radio Canada Big", ui-sans-serif, system-ui, sans-serif; --font-body: "Radio Canada", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.035em; --display-weight: 700;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 3rem; --space-2xl: 5rem; --space-3xl: 8rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-statement: clamp(1.75rem, 1.2rem + 2.4vw, 3rem);
+  --text-head: clamp(2.5rem, 1.5rem + 3.4vw, 4.5rem);
+  --text-poster: clamp(3.75rem, 1rem + 11.6vw, 10.5rem);
+  --dur-short: 160ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 80rem; --gutter: clamp(1rem, 4vw, 2.5rem); --gap: clamp(0.75rem, 2vw, 1.5rem); --banner-h: 2.25rem;
+  --lx: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter)));
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); background: var(--color-paper); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.5 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+p { margin: 0; }
+::selection { background: var(--color-mark); color: var(--color-mark-ink); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.field :focus-visible, .field--mark :focus-visible { outline-color: var(--color-field-ink); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); color: var(--color-ink); line-height: 1; margin: 0; text-align: start; }
+h2 { font-size: var(--text-head); }
+h3 { font-size: 1.375rem; letter-spacing: -0.02em; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.field .label { color: var(--color-field-ink); }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.g12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); }
+.section { padding-block: var(--space-3xl); }
+
+/* sample banner */
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 60; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem; background: var(--color-ink); color: var(--color-paper); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { color: var(--color-mark); font-weight: 500; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+/* controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; min-height: 52px; padding-inline: var(--space-lg); border: 0; border-radius: 0; cursor: pointer; text-decoration: none; white-space: nowrap; font: 500 1rem/1 var(--font-body); transition: background-color var(--dur-short) var(--ease-out); }
+.btn svg { width: 1.1em; height: 1.1em; flex: none; }
+.btn--primary { background: var(--color-ink); color: var(--color-paper); }
+.btn--primary:hover { background: var(--color-ink-2); color: var(--color-paper); }
+.btn--secondary { background: none; color: currentColor; padding-inline: 0; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.32em; }
+.btn--secondary:hover { color: var(--color-mark); }
+.field .btn--secondary:hover { color: var(--color-field-ink); text-decoration-thickness: 3px; }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-lg); align-items: center; }
+
+/* header and wordmark */
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.wordmark { display: inline-grid; grid-template-columns: auto auto; column-gap: var(--space-sm); font: 700 1.25rem/0.92 var(--font-display); letter-spacing: -0.03em; text-decoration: none; color: var(--color-ink); align-items: center; }
+.wordmark::before { content: ""; grid-row: span 2; aspect-ratio: 1; height: 2.3em; background: var(--color-mark); }
+.wordmark span:last-child { font-weight: 400; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a { font: 500 var(--text-sm)/1 var(--font-body); text-decoration: none; }
+.nav a:hover { text-decoration: underline; text-underline-offset: 0.3em; }
+.nav .btn { min-height: 44px; padding-inline: var(--space-md); }
+.nav .btn:hover { text-decoration: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+@media (min-width: 421px) { .nav .btn .sr { display: none; } }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } }
+
+/* hero: the overprint sheet */
+.hero { position: relative; isolation: isolate; overflow-x: clip; }
+.hero__field { position: absolute; top: calc(var(--banner-h) * 0); bottom: 0; left: 40vw; right: 0; background: var(--color-field); z-index: -1; }
+.hero .top .wordmark { position: relative; z-index: 2; }
+.hero .top .nav { color: var(--color-paper); }
+.hero .top .nav a:not(.btn) { color: var(--color-field-ink); }
+@media (max-width: 860px) { .hero .top .nav a:not(.btn) { color: var(--color-ink); } }
+.hero__body { padding-block: var(--space-2xl) var(--space-xl); position: relative; }
+.hero h1 { font-size: var(--text-poster); line-height: 0.9; letter-spacing: -0.045em; margin-bottom: var(--space-xl); position: relative; }
+.hero h1 .over { position: absolute; inset: 0; color: var(--color-field-ink); clip-path: inset(0 0 0 calc(40vw - var(--lx))); pointer-events: none; }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); align-items: end; }
+.hero__copy { grid-column: 1 / span 6; }
+.hero__fig { grid-column: 8 / span 5; color: var(--color-field-ink); padding-bottom: 0.2rem; }
+.hero__fig .big { font: 700 clamp(5rem, 2rem + 9vw, 9.5rem)/0.85 var(--font-display); letter-spacing: -0.045em; display: block; }
+.hero__fig .stars { display: flex; gap: 3px; margin-top: var(--space-sm); }
+.stars svg { width: 1.05rem; height: 1.05rem; }
+.hero__lede { font-size: 1.1875rem; max-width: 27rem; margin-bottom: var(--space-lg); color: var(--color-ink); }
+.hero__fig .label { margin-top: 0.4rem; font-size: 1rem; color: var(--color-field-ink); }
+@media (max-width: 860px) {
+  .hero__field { left: 0; top: auto; height: auto; bottom: 0; }
+  .hero h1 .over { display: none; }
+  .hero__copy, .hero__fig { grid-column: 1 / -1; }
+  .hero__fig { margin-top: var(--space-xl); padding-block: var(--space-lg); position: relative; }
+  .hero__fig::before { content: ""; position: absolute; top: 0; bottom: calc(var(--space-xl) * -1); left: calc(var(--lx) * -1); right: -100vw; background: var(--color-field); z-index: -1; }
+  .hero__body { padding-bottom: var(--space-xl); }
+}
+
+/* reviews: statement hung from column 4 */
+.rev__head { grid-column: 1 / span 12; margin-bottom: var(--space-xl); }
+.rev__photo { grid-column: 1 / span 3; margin: 0; }
+.rev__photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--color-paper-2); }
+.rev__statement { grid-column: 4 / span 9; }
+.rev__statement blockquote { margin: 0; font: 400 var(--text-statement)/1.12 var(--font-display); letter-spacing: -0.03em; color: var(--color-ink); }
+.rev__statement .who { margin-top: var(--space-md); }
+.rev__more { grid-column: 4 / span 9; margin-top: var(--space-xl); border-collapse: collapse; width: 100%; }
+.rev__more td { padding: 1rem 1.5rem 1rem 0; border-bottom: var(--rule-hair) solid var(--color-rule); vertical-align: top; }
+.rev__more tr:first-child td { border-top: var(--rule-hair) solid var(--color-rule); }
+.rev__more td:first-child { font-weight: 500; color: var(--color-ink); white-space: nowrap; width: 8rem; }
+.rev__more td:last-child { color: var(--color-muted); white-space: nowrap; text-align: right; padding-right: 0; }
+@media (max-width: 860px) { .rev__photo { grid-column: 1 / span 6; margin-bottom: var(--space-lg); } .rev__statement, .rev__more { grid-column: 1 / -1; } .rev__more td:last-child { white-space: normal; } .rev__more td:first-child { width: 5.5rem; white-space: normal; } }
+
+/* services as an index */
+.index__head { grid-column: 4 / span 9; margin-bottom: var(--space-xl); }
+.index__head p { margin-top: var(--space-sm); max-width: 32rem; }
+.svc { grid-column: 4 / span 9; margin: 0; padding: 0; }
+.svc li { list-style: none; display: grid; grid-template-columns: 3.5rem minmax(0, 4fr) minmax(0, 5fr); gap: var(--space-md) var(--space-lg); align-items: center; padding-block: 1.1rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.svc li:first-child { border-top: var(--rule-hair) solid var(--color-rule); }
+.svc svg { width: 3rem; height: 3rem; color: var(--color-ink); }
+.svc h3 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2.125rem); }
+.svc p { font-size: 1rem; }
+@media (max-width: 860px) { .index__head, .svc { grid-column: 1 / -1; } }
+@media (max-width: 620px) { .svc li { grid-template-columns: 3rem minmax(0, 1fr); } .svc li p { grid-column: 2; } .svc svg { width: 2.5rem; height: 2.5rem; } }
+
+/* how: the red field */
+.field--mark { background: var(--color-mark); color: var(--color-mark-ink); --color-focus: var(--color-ink); }
+.how { padding-block: var(--space-3xl); }
+.how .wrap > h2 { color: var(--color-mark-ink); margin-bottom: var(--space-xl); max-width: 14ch; }
+.how__steps { margin: 0; padding: 0; }
+.how__steps li { list-style: none; grid-column: span 3; display: grid; gap: var(--space-xs); align-content: start; }
+.how__steps .n { font: 700 clamp(4rem, 2rem + 6vw, 8rem)/0.85 var(--font-display); letter-spacing: -0.05em; color: var(--color-mark-ink); }
+.how__steps h3 { color: var(--color-mark-ink); margin-top: var(--space-sm); }
+.how__steps p { color: var(--color-mark-ink); max-width: 17rem; font-size: 1rem; }
+@media (max-width: 900px) { .how__steps li { grid-column: span 6; margin-bottom: var(--space-xl); } }
+@media (max-width: 520px) { .how__steps li { grid-column: 1 / -1; } }
+
+/* room by room: the one thing */
+.rooms__head { grid-column: 1 / span 5; }
+.rooms__head p { margin-top: var(--space-sm); max-width: 25rem; }
+.rooms { grid-column: 6 / span 7; border-collapse: collapse; width: 100%; align-self: start; }
+.rooms th { text-align: left; font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); padding: 0 1rem 0.6rem 0; border-bottom: var(--rule-hair) solid var(--color-muted); }
+.rooms td { padding: 0.95rem 1rem 0.95rem 0; border-bottom: var(--rule-hair) solid var(--color-rule); vertical-align: top; }
+.rooms td:first-child { font: 700 1.375rem/1.1 var(--font-display); letter-spacing: -0.025em; color: var(--color-ink); white-space: nowrap; }
+.rooms td:nth-child(2) { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .rooms__head, .rooms { grid-column: 1 / -1; } .rooms__head { margin-bottom: var(--space-lg); } }
+@media (max-width: 560px) { .rooms th:nth-child(3), .rooms td:nth-child(3) { display: none; } }
+
+/* job photos */
+.work__head { grid-column: 1 / span 12; margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+.work__photo { grid-column: span 3; margin: 0; }
+.work__photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--color-paper-2); }
+.work__photo figcaption { margin-top: 0.7rem; font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); }
+.work__photo figcaption span { display: block; color: var(--color-muted); font-weight: 400; }
+@media (max-width: 860px) { .work__photo { grid-column: span 6; margin-bottom: var(--space-lg); } }
+@media (max-width: 420px) { .work__photo { grid-column: 1 / -1; } }
+
+/* about: asymmetric statement */
+.about__head { grid-column: 1 / span 3; }
+.about__statement { grid-column: 4 / span 9; font: 400 var(--text-statement)/1.14 var(--font-display); letter-spacing: -0.03em; color: var(--color-ink); }
+.about__rows { grid-column: 4 / span 6; margin: var(--space-xl) 0 0; padding: 0; }
+.about__rows div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.8rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.about__rows div:first-child { border-top: var(--rule-hair) solid var(--color-rule); }
+.about__rows dt { color: var(--color-muted); }
+.about__rows dd { margin: 0; color: var(--color-ink); font-weight: 500; text-align: right; }
+@media (max-width: 860px) { .about__head { margin-bottom: var(--space-md); } .about__head, .about__statement, .about__rows { grid-column: 1 / -1; } }
+
+/* area */
+.area__head { grid-column: 1 / span 12; margin-bottom: var(--space-xl); max-width: 40rem; }
+.area__head p { margin-top: var(--space-sm); }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-paper-2); }
+.area__list { grid-column: 9 / span 4; }
+.towns { margin: var(--space-md) 0 0; padding: 0; }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.75rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li:first-child { border-top: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+.towns .d { color: var(--color-muted); white-space: nowrap; }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } .area__list { margin-top: var(--space-lg); } }
+
+/* contact: a field that holds a control */
+.contact { padding-block: var(--space-3xl); }
+.field { background: var(--color-field); color: var(--color-field-ink); --color-focus: var(--color-field-ink); }
+.contact h2 { color: var(--color-field-ink); }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); align-content: start; }
+.contact__call .phone { font: 700 clamp(2.75rem, 1.4rem + 4.8vw, 5.5rem)/0.95 var(--font-display); letter-spacing: -0.045em; color: var(--color-field-ink); text-decoration: none; }
+.contact__call .phone:hover { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 0.15em; }
+.contact .btn--primary { background: var(--color-ink); color: var(--color-paper); }
+.hours { margin: 0; padding: 0; }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid color-mix(in oklab, var(--color-field-ink) 40%, transparent); }
+.hours div:first-child { border-top: var(--rule-hair) solid color-mix(in oklab, var(--color-field-ink) 40%, transparent); }
+.hours dd { margin: 0; text-align: right; }
+.form { grid-column: 7 / span 6; display: grid; gap: var(--space-md); align-content: start; }
+.form h3 { color: var(--color-field-ink); font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem); }
+.f { display: grid; gap: 0.2rem; }
+.f label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-field-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border: 0; border-bottom: var(--rule-hair) solid color-mix(in oklab, var(--color-field-ink) 60%, transparent); border-radius: 0; background: transparent; color: var(--color-field-ink); font: 400 1.25rem/1.3 var(--font-body); padding: 0.55rem 0; min-height: 52px; }
+input::placeholder, textarea::placeholder { color: color-mix(in oklab, var(--color-field-ink) 65%, transparent); }
+select option { color: #111; }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 0.65rem) 55%, calc(100% - 0.3rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 1.6rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); min-height: 1.4em; }
+@media (max-width: 860px) { .contact__call, .form { grid-column: 1 / -1; } .contact__call { margin-bottom: var(--space-xl); } }
+
+footer { padding-block: var(--space-xl) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2"/></symbol>
+  </defs>
+</svg>
+
+<main id="top">
+
+<section class="hero">
+  <div class="hero__field" aria-hidden="true"></div>
+  <header class="top">
+    <div class="wrap top__in">
+      <a class="wordmark" href="#top" aria-label="Tessel Flooring, home"><span>Tessel</span><span>Flooring</span></a>
+      <nav class="nav" aria-label="Main">
+        <a href="#reviews">Reviews</a>
+        <a href="#services">Services</a>
+        <a href="#how">How it works</a>
+        <a href="#area">Area</a>
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span class="sr">Call</span></a>
+      </nav>
+    </div>
+  </header>
+  <div class="wrap hero__body">
+    <h1><span>Floors,<br>laid flat.</span><span class="over" aria-hidden="true">Floors,<br>laid flat.</span></h1>
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <p class="label" style="margin-bottom:var(--space-sm)">Flooring installer · Thames and the Coromandel</p>
+        <p class="hero__lede">Tom lays timber, vinyl plank, laminate and carpet in Thames homes. He measures, preps the subfloor and lays it all himself, then takes the offcuts away.</p>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Tom</a>
+          <a class="btn btn--secondary" href="sms:+64210000000">Text a photo of the room</a>
+        </div>
+      </div>
+      <div class="hero__fig">
+        <span class="big">4.9</span>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <p class="label">from 52 Google reviews</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap g12">
+    <div class="rev__head">
+      <h2>What customers say</h2>
+      <p class="label" style="margin-top:var(--space-xs)">Sample reviews written for this style demo.</p>
+    </div>
+    <figure class="rev__photo"><img src="img/hero.jpg" width="683" height="683" alt="Narrow timber boards laid in a staggered pattern, seen from directly above"></figure>
+    <div class="rev__statement">
+      <blockquote>“Tom pulled up the old carpet, levelled the slab and had hybrid planks down in two days. Every board is dead straight and he took the offcuts with him.”</blockquote>
+      <p class="label who">Gemma, Parawai. New vinyl plank, lounge and hall.</p>
+    </div>
+    <table class="rev__more">
+      <tr><td>Mark</td><td>“Sanded and re-coated our rimu floors. Looks like new, and he moved the furniture back himself.”</td><td>Tararu</td></tr>
+      <tr><td>Hine</td><td>“Carpet in three bedrooms, with new underlay. Rang the day before to confirm, and the edges are neat.”</td><td>Moanataiari</td></tr>
+      <tr><td>Paul</td><td>“Quoted the same price he'd written down, even after finding a soft patch he had to fix first.”</td><td>Kōpū</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap g12">
+    <div class="index__head">
+      <h2>What Tom lays</h2>
+      <p>Floors for homes, from one bedroom of carpet to a whole house of timber. Every job is measured, priced in writing and cleaned up after.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true"><path d="M4 12h40v8H4zM4 20h24v8H4zM28 20h16v8H28zM4 28h40v8H4z"/><path d="M16 12v8M36 28v8" /></svg>
+        <h3>Timber and engineered</h3><p>Solid and engineered boards, nailed or glued down.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true"><path d="M4 14h40v10H4zM12 24h32v10H12z"/><path d="M4 24v10h8"/><path d="M20 14v10M30 24v10"/></svg>
+        <h3>Vinyl plank and laminate</h3><p>Click-lock planks floated over a prepped floor.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true"><ellipse cx="14" cy="24" rx="8" ry="16"/><ellipse cx="14" cy="24" rx="3" ry="6"/><path d="M14 8h26c3 0 3 32 0 32H14"/><path d="M22 14h14M22 20h14M22 26h14"/></svg>
+        <h3>Carpet</h3><p>Stretched in with new underlay, seams hidden.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true"><path d="M6 36h36v6H6z"/><path d="M12 36l4-14h16l4 14"/><path d="M20 22v-6h8v6"/><path d="M14 12l-4-4M34 12l4-4M24 10V4"/></svg>
+        <h3>Sanding and finishing</h3><p>Old boards sanded back and sealed with a hard coat.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true"><path d="M4 38h40"/><path d="M4 30h40" stroke-dasharray="4 3"/><path d="M4 22c8 0 8-6 16-6s8 6 16 6 8-6 8-6"/><path d="M24 4v8M20 8l4 4 4-4"/></svg>
+        <h3>Levelling and underlay</h3><p>Dips filled and the base made ready before laying.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true"><path d="M4 42h10V32h10V22h10V12h10"/><path d="M4 42h40"/><path d="M14 32h10M24 22h10M34 12h10"/></svg>
+        <h3>Stairs and landings</h3><p>Treads and nosings cut to fit, in timber or carpet.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="how field--mark" id="how">
+  <div class="wrap">
+    <h2>How a floor goes down</h2>
+    <ol class="how__steps g12">
+      <li><span class="n">01</span><h3>Measure</h3><p>Tom checks the room, the subfloor and the doors. Free, about 30 minutes.</p></li>
+      <li><span class="n">02</span><h3>Prep</h3><p>Old floor up, base levelled. Boards rest in the room to settle to its humidity.</p></li>
+      <li><span class="n">03</span><h3>Lay</h3><p>Boards start from the straightest wall, gaps kept at the edges.</p></li>
+      <li><span class="n">04</span><h3>Finish</h3><p>Trims and thresholds fitted, offcuts gone, and a walk-round with you.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="rooms">
+  <div class="wrap g12">
+    <div class="rooms__head">
+      <h2>Room by room</h2>
+      <p>The floor that suits a kitchen is not the one for a bedroom. Tom will tell you what he'd lay and why.</p>
+    </div>
+    <table class="rooms">
+      <thead><tr><th>Room</th><th>Tom would lay</th><th>Because</th></tr></thead>
+      <tbody>
+        <tr><td>Kitchen</td><td>Vinyl plank</td><td>Takes spills and the odd dropped pan</td></tr>
+        <tr><td>Living</td><td>Timber</td><td>Wears well and can be sanded later</td></tr>
+        <tr><td>Bedrooms</td><td>Carpet</td><td>Warm and quiet underfoot</td></tr>
+        <tr><td>Bathroom</td><td>Vinyl sheet</td><td>Water stays on top, not underneath</td></tr>
+        <tr><td>Hall and stairs</td><td>Timber, with a nosing</td><td>Hard-wearing where everyone walks</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="work" style="padding-top:0">
+  <div class="wrap g12">
+    <div class="work__head">
+      <h2>Recent floors</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <figure class="work__photo"><img src="img/pine.jpg" width="768" height="768" alt="Old pine floorboards with dark knots, seen from above, with a pair of canvas shoes at the bottom"><figcaption>Old pine boards<span>Sanded and sealed, Parawai</span></figcaption></figure>
+    <figure class="work__photo"><img src="img/parquet.jpg" width="1200" height="1200" alt="Parquet tiles of short boards in a basket-weave pattern, with the shadow of a tree across them"><figcaption>Parquet<span>Relaid, Tararu</span></figcaption></figure>
+    <figure class="work__photo"><img src="img/room.jpg" width="552" height="552" alt="An empty room with white walls, a wide window and a new timber floor"><figcaption>Empty room, new floor<span>Ready for furniture, Moanataiari</span></figcaption></figure>
+    <figure class="work__photo"><img src="img/living.jpg" width="683" height="683" alt="A bright living area with three tall windows, a dining table and light timber floor"><figcaption>Open-plan floor<span>Engineered oak, Kōpū</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="section" id="about" style="padding-top:0">
+  <div class="wrap g12">
+    <div class="about__head"><h2 style="font-size:var(--text-head)">About Tom</h2></div>
+    <p class="about__statement">Tom lays floors and nothing else. One installer, one van, and a floor that is flat before it is finished.</p>
+    <dl class="about__rows">
+      <div><dt>Based in</dt><dd>Parawai, Thames</dd></div>
+      <div><dt>Lays</dt><dd>Timber, vinyl, laminate, carpet</dd></div>
+      <div><dt>Quote</dt><dd>In writing, before we start</dd></div>
+      <div><dt>Measure</dt><dd>Free</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap g12">
+    <div class="area__head">
+      <h2>Where Tom lays</h2>
+      <p>Based in Parawai. All of Thames and the towns within about 40 km. Further out for whole-house jobs, by arrangement.</p>
+    </div>
+    <figure class="area__map">
+      <svg viewBox="0 0 600 420" role="img" aria-labelledby="mapT">
+        <title id="mapT">Sketch of the service area: Thames beside the Firth of Thames with a ring taking in Kōpū, Ngatea and Paeroa, and Coromandel by arrangement.</title>
+        <g font-family="Radio Canada, sans-serif" font-weight="500" font-size="16" fill="#1d2230">
+          <rect x="0" y="0" width="600" height="420" fill="oklch(94.2% 0.006 90)"/>
+          <path d="M0 0H170C 215 80, 250 140, 272 195 S 275 250, 230 280 S 120 310, 0 320Z" fill="oklch(44% 0.2 266)" fill-opacity=".14"/>
+          <path d="M170 0C 215 80, 250 140, 272 195 S 275 250, 230 280 S 120 310, 0 320" fill="none" stroke="oklch(44% 0.2 266)" stroke-width="4"/>
+          <text x="40" y="200" font-size="14" fill="#555a68">Firth of Thames</text>
+          <circle cx="300" cy="210" r="170" fill="none" stroke="#1d2230" stroke-width="1" stroke-dasharray="6 6"/>
+          <text x="414" y="108" font-size="14" fill="#555a68" transform="rotate(38 414 108)">about 40 km</text>
+          <rect x="284" y="194" width="32" height="32" fill="oklch(57% 0.215 29)"/>
+          <text x="300" y="248" text-anchor="middle" font-family="Radio Canada Big, sans-serif" font-weight="700" font-size="22" letter-spacing="-0.5">Thames</text>
+          <rect x="258" y="170" width="0" height="0"/>
+          <rect x="330" y="264" width="12" height="12"/><text x="350" y="275">Kōpū</text>
+          <rect x="285" y="296" width="12" height="12"/><text x="305" y="308">Ngatea</text>
+          <rect x="347" y="330" width="12" height="12"/><text x="367" y="342">Paeroa</text>
+          <rect x="230" y="30" width="12" height="12" fill="none" stroke="#1d2230" stroke-width="2"/><text x="250" y="42" fill="#555a68" font-size="14">Coromandel, by arrangement</text>
+          <g transform="translate(556 380)"><path d="M0 -20 L8 8 L0 2 L-8 8 Z"/><text x="0" y="26" font-size="14" text-anchor="middle">N</text></g>
+        </g>
+      </svg>
+      <figcaption class="label" style="margin-top:.6rem">Sketch, not to scale. Red square: the workshop in Parawai.</figcaption>
+    </figure>
+    <div class="area__list">
+      <p>Thames suburbs: Parawai, Tararu, Moanataiari, Puriri, Matatoki, Kauaeranga Valley and more.</p>
+      <ul class="towns">
+        <li><span>Thames</span><span class="d">0–10 km</span></li>
+        <li><span>Kōpū</span><span class="d">5 km</span></li>
+        <li><span>Ngatea</span><span class="d">17 km</span></li>
+        <li><span>Paeroa</span><span class="d">28 km</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact field" id="contact">
+  <div class="wrap g12">
+    <div class="contact__call">
+      <h2>Get a price</h2>
+      <a class="phone" href="tel:+64210000000">021 000 0000</a>
+      <p>Call or text Tom. Send a photo of the room and a rough size and he'll come and measure.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+        <a class="btn btn--secondary" href="sms:+64210000000">Send a text</a>
+      </div>
+      <dl class="hours">
+        <div><dt>Mon–Fri</dt><dd>7:00 am – 5:00 pm</dd></div>
+        <div><dt>Saturday</dt><dd>Quotes only, 8:00 am – 12:00 pm</dd></div>
+        <div><dt>Quote back</dt><dd>Within 2 working days</dd></div>
+      </dl>
+    </div>
+    <form class="form" id="quote" novalidate>
+      <h3>Quote request</h3>
+      <div class="row2">
+        <div class="f"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+        <div class="f"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+      </div>
+      <div class="row2">
+        <div class="f"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+        <div class="f"><label for="f-job">Floor</label>
+          <select id="f-job" name="job"><option>Timber</option><option>Vinyl plank</option><option>Laminate</option><option>Carpet</option><option>Sanding and finishing</option><option>Something else</option></select>
+        </div>
+      </div>
+      <div class="f"><label for="f-msg">Which rooms, and a rough size</label><textarea id="f-msg" name="message" placeholder="e.g. lounge and hall, about 40 m², old carpet to come up"></textarea></div>
+      <button class="btn btn--primary" type="submit">Send request</button>
+      <p class="form__note" id="formNote" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Tessel Flooring, Thames · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Tessel Flooring is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../earthmoving/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>29<i class="w"> of </i><i class="s">/</i>50</span><a href="../heat-pumps/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

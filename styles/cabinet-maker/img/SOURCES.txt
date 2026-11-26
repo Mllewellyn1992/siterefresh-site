@@ -1,0 +1,30 @@
+Photos for the Tidewood Cabinetry sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped (ratios noted below) in true colour and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   1371 Ranch House - 2026 Remodel Old Kitchen Cabinets
+  Source:  https://www.flickr.com/photos/76697976@N00/55134924282
+  File:    https://live.staticflickr.com/65535/55134924282_a69a557fbc_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to 4:3, true colour
+
+base.jpg
+  Title:   1371 Ranch House - 2026 Remodel Old Kitchen Cabinets
+  Source:  https://www.flickr.com/photos/76697976@N00/55135814516
+  File:    https://live.staticflickr.com/65535/55135814516_092b449ca9_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to 3:2, true colour
+
+drawer.jpg
+  Title:   1371 Ranch House - 2026 Remodel Old Kitchen Cabinets
+  Source:  https://www.flickr.com/photos/76697976@N00/55135814381
+  File:    https://live.staticflickr.com/65535/55135814381_4134e9c28e_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to 4:5, true colour
+
+shelves.jpg
+  Title:   1371 Ranch House - 2026 Remodel Old Kitchen Cabinets
+  Source:  https://www.flickr.com/photos/76697976@N00/55135813411
+  File:    https://live.staticflickr.com/65535/55135813411_205f05f495_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to 4:5, true colour

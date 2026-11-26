@@ -1,0 +1,30 @@
+Photos for the Cog & River Cycle Repairs sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped to 4:3, printed as a two-ink duotone (blue shadows into a light pink screen, contrast up) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Bicycle Repair Garage
+  Source:  https://www.rawpixel.com/image/5966903/bicycle-repair-garage
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvbnMyMjk4LWltYWdlLWt3eXJ4YWc5LmpwZw.jpg
+  Licence: CC0 1.0
+  Note:    cropped to 4:3
+
+yellow.jpg
+  Title:   PAINT IT
+  Source:  https://www.flickr.com/photos/135057501@N05/28172517313
+  File:    https://live.staticflickr.com/8620/28172517313_1b3b81aeb4_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to 4:3
+
+chain.jpg
+  Title:   Gears Chains
+  Source:  https://stocksnap.io/photo/gears-chains-OSN4FUCU8C
+  File:    https://cdn.stocksnap.io/img-thumbs/960w/OSN4FUCU8C.jpg
+  Licence: CC0 1.0
+  Note:    cropped to 4:3
+
+hub.jpg
+  Title:   Bicycle wheel close up
+  Source:  https://www.rawpixel.com/image/6028638/photo-image-public-domain-free
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL2ZyYmljeWNsZV9heGxlX2Jpa2VfYWtzZWxsaS1pbWFnZS1reWJjNWswaC5qcGc.jpg
+  Licence: CC0 1.0
+  Note:    cropped to 4:3

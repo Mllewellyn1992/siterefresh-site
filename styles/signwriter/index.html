@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sable &amp; Gilt Signwriters | Signwriter in Greymouth (sample site)</title>
+<meta name="description" content="Sample site: a made-up Greymouth signwriter, built to show the Broadside style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Six+Caps&family=Bevan&family=Archivo+Narrow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(92% 0.028 88); --color-paper-2: oklch(88.5% 0.032 88); --color-paper-3: oklch(85% 0.036 86);
+  --color-ink: oklch(18% 0.01 50); --color-ink-2: oklch(30% 0.012 50); --color-muted: oklch(43% 0.02 62);
+  --color-rule: oklch(75% 0.028 82);
+  --color-accent: oklch(53% 0.19 33); --color-accent-ink: oklch(95.5% 0.018 88); --color-focus: oklch(53% 0.19 33);
+  --font-display: "Six Caps", "Impact", sans-serif; --font-display-2: "Bevan", Georgia, serif;
+  --font-body: "Archivo Narrow", "Arial Narrow", ui-sans-serif, sans-serif;
+  --font-outlier: var(--font-body);
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 5px; --rule-frame: 3px;
+  --shadow-card: none;
+  --tracking-display: 0.02em; --display-weight: 400;
+  --grain: 0.08;
+  --speck: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 -4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+
+  --space-2xs: 0.25rem; --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.125rem;
+  --text-display-s: clamp(1.5rem, 1.1rem + 1.8vw, 2.25rem);
+  --text-display-m: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.5 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: color-mix(in oklab, var(--color-accent) 30%, transparent); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-underline-offset: 0.18em; }
+a:hover { color: var(--color-accent); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+h1, .display { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; line-height: 0.88; letter-spacing: var(--tracking-display); color: var(--color-ink); margin: 0; }
+.fit { display: block; white-space: nowrap; font-family: var(--font-display); font-weight: 400; text-transform: uppercase; line-height: 0.88; letter-spacing: var(--tracking-display); }
+.fitbox { display: block; min-width: 0; }
+.fit--vm { color: var(--color-accent); }
+h2, h3, .wordmark { font-family: var(--font-display-2); font-weight: 400; text-transform: uppercase; line-height: 1; letter-spacing: 0; color: var(--color-ink); margin: 0; }
+h2 { font-size: var(--text-display-m); }
+h3 { font-size: 1.1875rem; line-height: 1.1; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.fig { font-family: var(--font-body); font-weight: 600; font-variant-numeric: tabular-nums; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { border-top: var(--rule-bar) solid var(--color-ink); padding-top: var(--space-md); margin-bottom: var(--space-xl);
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 34rem; }
+
+/* grain: the speck layer, on bands, wells and photograph frames */
+.grained { position: relative; isolation: isolate; }
+.grained::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0; background-image: var(--speck); background-size: 200px; opacity: var(--grain); mix-blend-mode: multiply; }
+.grained > * { position: relative; z-index: 1; }
+
+/* sample banner */
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem;
+  background: var(--color-ink); color: var(--color-paper); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { font: 400 0.8125rem/1 var(--font-display-2); text-transform: uppercase; color: var(--color-accent-ink); background: var(--color-accent); padding: 0.2rem 0.4rem; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+/* controls: ink block, and the same block as a double-rule frame */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 3rem; padding: 0 var(--space-xl); white-space: nowrap; cursor: pointer; text-decoration: none;
+  border: 3px solid var(--color-ink); background: var(--color-ink); color: var(--color-paper); font: 600 var(--text-sm)/1 var(--font-body); text-transform: uppercase; letter-spacing: 0.04em; border-radius: 0; }
+.btn svg { width: 1.2em; height: 1.2em; flex: none; }
+.btn:hover { color: var(--color-paper); background: var(--color-ink-2); }
+.btn--frame { background: transparent; color: var(--color-ink); box-shadow: inset 0 0 0 3px var(--color-paper), inset 0 0 0 4px var(--color-ink); }
+.btn--frame:hover { background: transparent; color: var(--color-accent); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+/* header */
+.top { border-bottom: var(--rule-hair) solid var(--color-ink); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.5rem; height: 2.5rem; flex: none; }
+.brand span { font: 400 1.35rem/1 var(--font-display-2); text-transform: uppercase; }
+.brand small { display: block; margin-top: 0.3rem; font: 500 0.8125rem/1.3 var(--font-body); text-transform: none; color: var(--color-muted); }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 600 var(--text-sm)/1 var(--font-body); text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; }
+.nav a:not(.btn):hover { text-decoration: underline; }
+.nav .btn { padding-inline: var(--space-md); min-height: 2.75rem; }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1.1rem; } }
+
+/* hero: the bill */
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.hero__copy { grid-column: 1 / span 7; min-width: 0; }
+.hero__photo { grid-column: 8 / span 5; margin-top: var(--space-md); }
+.hero h1 { margin-block: var(--space-md) var(--space-lg); display: grid; gap: 0.12em; }
+.hero h1 .fit { font-size: 5rem; }
+.hero__lede { font-size: 1.25rem; max-width: 33rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 0.9rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-ink); max-width: 33rem; }
+.rating .big { font: 400 3.5rem/0.85 var(--font-display); color: var(--color-ink); }
+.stars { display: inline-flex; gap: 2px; color: var(--color-ink); }
+.stars svg { width: 1rem; height: 1rem; }
+@media (max-width: 860px) { .hero__copy, .hero__photo { grid-column: 1 / -1; } }
+
+/* photographs: plain, printed in the ink, double-rule frame, caption beneath */
+.photo { margin: 0; }
+.frame { border: var(--rule-frame) solid var(--color-ink); box-shadow: inset 0 0 0 3px var(--color-paper), inset 0 0 0 4px var(--color-ink); padding: 0.55rem; background: var(--color-paper); }
+.frame img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.photo figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); margin-top: 0.6rem; display: flex; justify-content: space-between; gap: 1rem; }
+.photo figcaption .fig { color: var(--color-ink); white-space: nowrap; }
+
+/* services */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-ink); }
+.svc li { list-style: none; padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; grid-template-rows: auto auto 1fr; gap: 0.6rem; align-content: start; }
+.svc li + li { padding-left: var(--space-lg); }
+.svc li:nth-child(3n+1) { padding-left: 0; }
+.svc li:not(:nth-child(3n)) { border-right: var(--rule-hair) solid var(--color-ink); }
+.svc svg { width: 3.25rem; height: 3.25rem; color: var(--color-ink); margin-bottom: 0.3rem; }
+@media (max-width: 860px) {
+  .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svc li, .svc li + li { padding: var(--space-lg) var(--space-md) var(--space-lg) 0; border-right: 0 !important; }
+  .svc li:nth-child(even) { padding-left: var(--space-md); border-left: var(--rule-hair) solid var(--color-ink); }
+}
+@media (max-width: 560px) {
+  .svc { grid-template-columns: 1fr; }
+  .svc li, .svc li + li, .svc li:nth-child(even) { padding: var(--space-md) 0; border-left: 0; grid-template-columns: 3.25rem 1fr; grid-template-rows: auto auto; column-gap: var(--space-md); }
+  .svc li svg { grid-row: span 2; }
+}
+
+/* band: layout proof */
+.band { background: var(--color-paper-2); }
+.build { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg) var(--space-xl); align-items: start; }
+.build__draw { grid-column: 1 / span 8; margin: 0; }
+.build__photo { grid-column: 9 / span 4; }
+.build__draw svg { width: 100%; height: auto; display: block; background: var(--color-paper); border: var(--rule-frame) solid var(--color-ink); box-shadow: inset 0 0 0 3px var(--color-paper), inset 0 0 0 4px var(--color-ink); }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: var(--rule-bar) solid var(--color-ink); margin: var(--space-2xl) 0 0; padding: 0; }
+.steps li { list-style: none; padding: var(--space-md) var(--space-md) 0; display: grid; gap: 0.4rem; align-content: start; }
+.steps li:first-child { padding-left: 0; }
+.steps li + li { border-left: var(--rule-hair) solid var(--color-ink); }
+.steps .n { font: 400 4rem/0.85 var(--font-display); color: var(--color-ink); }
+@media (max-width: 860px) { .build, .hero__grid { grid-template-columns: minmax(0, 1fr); } .build__draw, .build__photo { grid-column: 1 / -1; } }
+@media (max-width: 760px) {
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-lg); }
+  .steps li:nth-child(3) { padding-left: 0; border-left: 0; }
+}
+
+/* recent work */
+.work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+
+/* fitted statement */
+.stmt .wrap { padding-block: var(--space-3xl); }
+.stmt h2.fitbox { max-width: 34rem; display: grid; gap: 0.1em; font-family: var(--font-display); font-size: inherit; line-height: 0.88; letter-spacing: var(--tracking-display); }
+.stmt .fit { font-size: 6rem; }
+.stmt .note { max-width: 36rem; margin-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-ink); padding-top: var(--space-sm); }
+
+/* reviews: particulars as rows */
+.score { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-lg); align-items: end; border-top: var(--rule-bar) solid var(--color-ink); padding-top: var(--space-md); margin-bottom: var(--space-lg); }
+.score .fit { font-size: 9rem; } .score .fitbox { max-width: 9rem; }
+.score .unit { font: 500 1.125rem/1.35 var(--font-body); color: var(--color-ink-2); }
+.score .unit b { color: var(--color-ink); font-weight: 600; }
+.quotes { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-ink); }
+.quotes li { list-style: none; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--space-md) var(--space-lg); padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.quotes .who { font: 400 1.0625rem/1.15 var(--font-display-2); text-transform: uppercase; color: var(--color-ink); }
+.quotes .who small { display: block; margin-top: 0.4rem; font: 500 var(--text-sm)/1.3 var(--font-body); text-transform: none; color: var(--color-muted); }
+.quotes blockquote { margin: 0; font-size: 1.1875rem; color: var(--color-ink-2); }
+@media (max-width: 700px) { .score { grid-template-columns: 1fr; } .quotes li { grid-template-columns: 1fr; gap: 0.5rem; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-paper); border: var(--rule-frame) solid var(--color-ink); box-shadow: inset 0 0 0 3px var(--color-paper), inset 0 0 0 4px var(--color-ink); }
+.area__list { grid-column: 8 / span 5; }
+.towns { margin: var(--space-md) 0 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { font: 400 1rem/1.3 var(--font-display-2); text-transform: uppercase; color: var(--color-ink); }
+.towns li span:last-child { font-weight: 600; white-space: nowrap; color: var(--color-ink-2); }
+@media (max-width: 860px) { .area { grid-template-columns: minmax(0, 1fr); } .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact: the vermilion band */
+.band--vm { background: var(--color-accent); color: var(--color-accent-ink); }
+.band--vm .wrap { padding-block: var(--space-3xl); }
+.band--vm h2, .band--vm h3 { color: var(--color-accent-ink); }
+.band--vm .section__head { border-top-color: var(--color-ink); }
+.band--vm a { color: var(--color-accent-ink); }
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); min-width: 0; }
+.contact__call .phonebox { display: block; text-decoration: none; }
+.contact__call .phonebox .fit { color: var(--color-ink); font-size: 6rem; }
+.band--vm .btn--frame { color: var(--color-ink); box-shadow: inset 0 0 0 3px var(--color-accent), inset 0 0 0 4px var(--color-ink); border-color: var(--color-ink); }
+.band--vm .btn--frame:hover { color: var(--color-accent-ink); }
+.hours { margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid color-mix(in oklab, var(--color-ink) 55%, transparent); }
+.hours dt { font-weight: 600; color: var(--color-accent-ink); text-transform: uppercase; letter-spacing: 0.03em; }
+.hours dd { margin: 0; text-align: right; color: var(--color-accent-ink); }
+.form { grid-column: 7 / span 6; display: grid; gap: var(--space-md); }
+.form h3 { font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 600 var(--text-sm)/1.3 var(--font-body); text-transform: uppercase; letter-spacing: 0.03em; color: var(--color-accent-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: 0; border: 1px solid var(--color-ink); background: oklch(95.5% 0.018 88); font: 400 1.0625rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3rem; }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 600 var(--text-sm)/1.4 var(--font-body); color: var(--color-accent-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } .contact__call, .form { grid-column: 1 / -1; } }
+
+footer { border-top: var(--rule-bar) solid var(--color-ink); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2.2"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Sable and Gilt Signwriters, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="2" y="2" width="44" height="44" fill="var(--color-ink)"/>
+        <rect x="6" y="6" width="36" height="36" fill="none" stroke="var(--color-paper)" stroke-width="1"/>
+        <path d="M16 32l8-18 8 18M19 26h10" fill="none" stroke="var(--color-paper)" stroke-width="3"/>
+        <path d="M10 38h28" stroke="var(--color-accent)" stroke-width="3"/>
+      </svg>
+      <span>Sable &amp; Gilt<small>Greymouth signwriters · Sam &amp; Ruth</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#how">How we work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--frame" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Signwriters · Greymouth and the West Coast · Sam &amp; Ruth</p>
+      <h1 aria-label="Hand-painted signs and lettering, Greymouth"><span class="fit">Hand-painted</span><span class="fit">Signs &amp; lettering</span><span class="fit fit--vm">Greymouth</span></h1>
+      <p class="hero__lede">Sam and Ruth paint shop signs, van doors, gold-leaf windows and boat names across the West Coast. Brush and enamel, laid out full size, and finished on your wall or glass.</p>
+      <div class="btns">
+        <a class="btn" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Sam</a>
+        <a class="btn btn--frame" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="big">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from <span class="fig">36</span> Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <figure class="photo hero__photo">
+      <div class="frame grained"><img src="img/hero.jpg" width="1200" height="1200" alt="Gilded capital letters on a black stone plaque set in a stone wall" fetchpriority="high"></div>
+      <figcaption><span>Gold leaf on black, bar wall</span><span class="fig">Gold leaf</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we paint</h2>
+      <p>Signs for shops, farms, pubs and boats. Drawn full size, painted by hand, and built to stand the West Coast weather.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M4 14h44v20H4z"/><path d="M4 10h44M10 14v-4M42 14v-4"/><path d="M13 28l5-10 5 10M15.5 24h5M29 28V18h5a3 3 0 0 1 0 5h-5"/><path d="M12 38v8M40 38v8"/>
+        </svg>
+        <h3>Shop signs</h3>
+        <p>Fascia boards and hanging signs, painted to your name and style.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M4 34V20h26l8 6h10v8z"/><path d="M30 20v14M38 26v8"/><circle cx="14" cy="36" r="4" fill="var(--color-paper)"/><circle cx="38" cy="36" r="4" fill="var(--color-paper)"/><path d="M9 25h14M9 29h8" stroke-dasharray="3 2"/>
+        </svg>
+        <h3>Van and ute lettering</h3>
+        <p>Doors, tailgates and trailers lettered by hand, not vinyl.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M8 6h36v40H8z"/><path d="M14 12h24v28H14z" stroke-dasharray="3 3"/><path d="M26 18l3 6 6 1-4.500 4 1.200 6-5.700-3.200L20.300 35l1.200-6L17 25l6-1z" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3>Gold-leaf windows</h3>
+        <p>Gilded letters on the glass that catch the light in the afternoon.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M6 6h40v40H6z"/><path d="M6 20h40M6 34h40" stroke-dasharray="4 3"/><path d="M14 14h24M14 28h16M14 42h20"/>
+        </svg>
+        <h3>Wall signs</h3>
+        <p>Big painted lettering on brick, block and corrugated iron.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M4 34h44l-6 10H10z"/><path d="M26 6v28"/><path d="M26 8l14 22H26z"/><path d="M12 40h28" stroke-dasharray="3 3"/>
+        </svg>
+        <h3>Boat names</h3>
+        <p>Names and port of registry, drawn and painted at the wharf.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M6 12h40v26H6z"/><path d="M12 18l8 14M20 18l-8 14" /><path d="M28 20h12M28 26h12M28 32h8"/><path d="M14 44h24"/>
+        </svg>
+        <h3>Sign restoration</h3>
+        <p>Faded old signs repainted to match the original lettering.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band section grained" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How a sign gets made</h2>
+      <p>Most signs take one to two weeks from visit to finished job. Nothing is painted until you have seen the layout at full size.</p>
+    </div>
+    <div class="build">
+      <figure class="build__draw">
+        <svg viewBox="0 0 640 330" role="img" aria-labelledby="layT">
+          <title id="layT">Layout proof for a shop fascia, 3600 mm wide by 600 mm high, with a centre line, margins and the lettering set on a baseline.</title>
+          <g font-family="Archivo Narrow, sans-serif" font-weight="500" font-size="15" fill="var(--color-ink)">
+            <rect x="60" y="80" width="520" height="130" fill="var(--color-paper-2)" stroke="var(--color-ink)" stroke-width="3"/>
+            <path d="M60 145h520" stroke="var(--color-ink)" stroke-width="1" stroke-dasharray="8 5"/>
+            <path d="M320 70v150" stroke="var(--color-accent)" stroke-width="1.5" stroke-dasharray="8 5"/>
+            <rect x="92" y="108" width="456" height="74" fill="none" stroke="var(--color-muted)" stroke-width="1" stroke-dasharray="3 3"/>
+            <text x="320" y="165" text-anchor="middle" font-family="Bevan, serif" font-size="52" fill="var(--color-ink)" textLength="400" lengthAdjust="spacingAndGlyphs">SAMPLE &amp; SON</text>
+            <path d="M60 238h520M60 230v16M580 230v16" stroke="var(--color-ink)" stroke-width="1.5" fill="none"/>
+            <text x="320" y="268" text-anchor="middle" font-size="17">3600 mm</text>
+            <path d="M32 80v130M24 80h16M24 210h16" stroke="var(--color-ink)" stroke-width="1.5" fill="none"/>
+            <text x="16" y="150" font-size="15" transform="rotate(-90 16 150)" text-anchor="middle">600 mm</text>
+            <path d="M92 98v10M548 98v10" stroke="var(--color-ink)" stroke-width="1.5"/>
+            <text x="92" y="92" font-size="13">margin 140</text>
+            <text x="338" y="76" font-size="13" fill="var(--color-accent)">centre line</text>
+            <text x="60" y="310" font-size="14" fill="var(--color-ink-2)">Layout proof, drawn full size on paper before any paint goes on.</text>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Sample layout for a made-up shop. Not to scale.</figcaption>
+      </figure>
+      <figure class="photo build__photo">
+        <div class="frame grained"><img src="img/field.jpg" width="1200" height="1200" alt="Fine carved capitals on pale stone, spaced evenly in three lines"></div>
+        <figcaption><span>Letters spaced by eye, then checked</span><span class="fig">40 mm caps</span></figcaption>
+      </figure>
+    </div>
+    <ol class="steps">
+      <li><span class="n">1</span><h3>Visit</h3><p>Sam measures the board or wall, photographs it and talks lettering.</p></li>
+      <li><span class="n">2</span><h3>Draw</h3><p>A layout at full size on paper. You see it before paint touches anything.</p></li>
+      <li><span class="n">3</span><h3>Paint</h3><p>Enamel and brush, one colour at a time, left to dry between coats.</p></li>
+      <li><span class="n">4</span><h3>Fit</h3><p>Hung or painted on site, then sealed against sun and salt.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent signs</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="photo">
+        <div class="frame grained"><img src="img/work1.jpg" width="1200" height="1200" alt="Gilded lettering and an ornamental crest on a dark stone plaque"></div>
+        <figcaption><span>Gilded name board, Blaketown</span><span class="fig">Gold leaf</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame grained"><img src="img/work2.jpg" width="1200" height="1200" alt="A hand-painted banner on a timber fence with large capitals and a drawn border"></div>
+        <figcaption><span>Painted banner on a fence, Rapahoe</span><span class="fig">3 m wide</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame grained"><img src="img/work3.jpg" width="1200" height="1200" alt="Cream painted capitals on a dark speckled stone plaque"></div>
+        <figcaption><span>Cream capitals on dark, Boddytown</span><span class="fig">Enamel</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="stmt">
+  <div class="wrap">
+    <h2 class="fitbox" aria-label="One brush. One board. Painted by hand."><span class="fit">One brush.</span><span class="fit">One board.</span></h2>
+    <p class="note">Every sign is drawn by Sam and painted by Ruth, start to finish. You get the layout to approve before a drop of paint goes on,.</p>
+  </div>
+</section>
+
+<section class="section" id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="score">
+      <span class="fitbox"><span class="fit">4.9</span></span>
+      <p class="unit">out of 5, from <b>36</b> Google reviews<br><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></p>
+    </div>
+    <ul class="quotes">
+      <li><p class="who">Callum<small>Runanga · Tavern sign</small></p><blockquote>“Painted the name on our front door in gold leaf. People stop and photograph it. They drew it out full size first, so we knew exactly what we were getting.”</blockquote></li>
+      <li><p class="who">Margaret<small>Greymouth · Shop fascia</small></p><blockquote>“Our old shop sign had faded to nothing. Sam matched the original lettering from a photo and it looks as if it has always been there.”</blockquote></li>
+      <li><p class="who">Wiremu<small>Cobden · Boat name</small></p><blockquote>“Named the new boat at the wharf on a Saturday. Straight lines, even paint, and not a drip.”</blockquote></li>
+      <li><p class="who">Ellen<small>Karoro · Van doors</small></p><blockquote>“Hand-lettered doors on the work van. A year on, still sharp, and I get asked about them every week.”</blockquote></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we paint</h2>
+      <p>Based in Greymouth. Across the Grey Valley and the West Coast, with bigger jobs further afield by arrangement.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 460" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Greymouth at the mouth of the Grey River, with Runanga, Rapahoe, Paroa and Moana around it, and Hokitika by arrangement.</title>
+          <g font-family="Archivo Narrow, sans-serif" font-weight="600" font-size="17" fill="var(--color-ink)">
+            <path d="M0 0H200C190 80 215 150 232 210S238 290 215 350S190 420 205 460H0Z" fill="var(--color-paper-2)" stroke="var(--color-ink)" stroke-width="2"/>
+            <text x="40" y="90" fill="var(--color-muted)" font-size="14">Tasman Sea</text>
+            <path d="M600 330 C 520 300, 440 280, 380 262 S 290 250, 232 238" fill="none" stroke="var(--color-ink)" stroke-width="4"/>
+            <text x="470" y="298" font-size="14" fill="var(--color-muted)" transform="rotate(-14 470 298)">Grey River</text>
+            <circle cx="300" cy="250" r="190" fill="none" stroke="var(--color-ink)" stroke-width="2" stroke-dasharray="9 6"/>
+            <text x="420" y="338" font-size="14" fill="var(--color-ink-2)">30 km</text>
+            <rect x="268" y="228" width="84" height="44" fill="var(--color-ink)"/>
+            <text x="310" y="257" text-anchor="middle" font-family="Bevan, serif" font-weight="400" font-size="16" fill="var(--color-paper)">GREYMOUTH</text>
+            <circle cx="284" cy="268" r="5" fill="var(--color-accent)" stroke="var(--color-paper)" stroke-width="2"/>
+            <g>
+              <rect x="322" y="190" width="11" height="11"/><text x="340" y="200">Runanga</text>
+              <rect x="284" y="190" width="11" height="11"/><text x="272" y="170" text-anchor="end">Rapahoe</text>
+              <rect x="281" y="305" width="11" height="11"/><text x="300" y="316">Paroa</text>
+              <rect x="439" y="338" width="11" height="11"/><text x="458" y="349">Moana</text>
+              <rect x="215" y="440" width="11" height="11" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="234" y="450" fill="var(--color-ink-2)">Hokitika, by arrangement</text>
+            </g>
+            <g transform="translate(550 400)"><path d="M0 0v-26M-8 -16L0 -28l8 12" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="12" y="-8" font-size="14">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Sketch, not to scale. Vermilion dot: our workshop in Greymouth.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Greymouth suburbs: Cobden, Blaketown, Karoro, Boddytown, Dobson, Taylorville, Kaiata, Omoto and the town centre.</p>
+        <ul class="towns">
+          <li><span>Greymouth</span><span>0–8 km</span></li>
+          <li><span>Runanga</span><span>8 km</span></li>
+          <li><span>Paroa</span><span>11 km</span></li>
+          <li><span>Rapahoe</span><span>12 km</span></li>
+          <li><span>Moana</span><span>38 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band--vm grained" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Book a visit</h2>
+      <p>Call or text Sam. Say what needs a sign, where it goes and roughly how big.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phonebox fitbox" href="tel:+64210000000" aria-label="Call 021 000 0000"><span class="fit">021 000 0000</span></a>
+        <div class="btns">
+          <a class="btn btn--frame" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--frame" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd class="fig">7:30 am – 5:00 pm</dd></div>
+          <div><dt>Saturday</dt><dd class="fig">By appointment</dd></div>
+          <div><dt>Reply</dt><dd class="fig">Within 2 working days</dd></div>
+        </dl>
+      </div>
+      <form class="form" id="quote" novalidate>
+        <h3>Sign enquiry</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Town or suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job"><option>Shop sign</option><option>Van or ute</option><option>Gold-leaf window</option><option>Wall sign</option><option>Boat name</option><option>Restoration</option><option>Something else</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">What do you need?</label><textarea id="f-msg" name="message" placeholder="e.g. new name on a brick wall, about 4 m wide, two colours"></textarea></div>
+        <button class="btn" type="submit">Send enquiry</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Sable &amp; Gilt Signwriters, Greymouth · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Sable &amp; Gilt Signwriters is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+/* fit each Six Caps line to its column once the fonts are in */
+function fitLines() {
+  document.querySelectorAll('.fit').forEach(function (el) {
+    var box = el.closest('h1, .fitbox, .phonebox, .score > span') || el.parentElement;
+    var w = box.clientWidth;
+    if (!w) return;
+    el.style.fontSize = '100px'; el.style.width = 'max-content';
+    var tw = el.getBoundingClientRect().width;
+    el.style.width = '';
+    if (tw) el.style.fontSize = (100 * w / tw * 0.995) + 'px';
+  });
+}
+if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fitLines); }
+window.addEventListener('load', fitLines);
+window.addEventListener('resize', fitLines);
+fitLines();
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../gardener/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>20<i class="w"> of </i><i class="s">/</i>50</span><a href="../scaffolder/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

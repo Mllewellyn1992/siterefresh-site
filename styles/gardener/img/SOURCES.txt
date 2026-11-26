@@ -1,0 +1,27 @@
+Photos for the Wren & Willow Gardens sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped square, given a slight warm daylight lift (a touch brighter, softer colour) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   (untitled) wheelbarrow of petals beside tulip beds, rawpixel
+  Source:  https://www.rawpixel.com/image/5961438/free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgxMTU5MDM0LWltYWdlLWt3eXIyaTkxLmpwZw.jpg
+  Licence: CC0 1.0
+
+work1.jpg
+  Title:   Plants raised bed garden (rawpixel)
+  Source:  https://www.rawpixel.com/image/6075151/plants-raised-bed-garden
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZmw0OTc0NTcyNTcwOC1pbWFnZS1reWNpc2s4ai1reWNrMTBwbi5qcGc.jpg
+  Licence: CC0 1.0
+
+work2.jpg
+  Title:   Pliers, gardening tool (rawpixel)
+  Source:  https://www.rawpixel.com/image/6032747/photo-image-public-domain-free-silver
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJzaGVhcl9zY2lzc29yc19nYXJkZW5fZ2FyZGVuaW5nLWltYWdlLWt5YmN0bDN2LmpwZw.jpg
+  Licence: CC0 1.0
+
+work3.jpg
+  Title:   In the daffodil garden. (Bernard Spragg)
+  Source:  https://www.flickr.com/photos/88123769@N02/21380803611
+  File:    https://live.staticflickr.com/65535/21380803611_eeb7024eb7_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the right-hand square

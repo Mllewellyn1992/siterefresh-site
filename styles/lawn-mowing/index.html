@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Evergreen Edge Mowing | Lawn mowing in Rolleston (sample site)</title>
+<meta name="description" content="Sample site: a made-up Rolleston lawn mowing business, built to show the Sticker style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Sofia+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(95.7% 0.013 82); --color-paper-2: oklch(92.8% 0.021 79); --color-paper-3: oklch(99.4% 0.007 89);
+  --color-ink: oklch(21% 0.011 81); --color-ink-2: oklch(30% 0.013 78); --color-muted: oklch(50% 0.017 64);
+  --color-rule: oklch(89.7% 0.02 80); --color-white: oklch(99.5% 0.003 82);
+  --color-accent: oklch(56% 0.225 2); --color-accent-deep: oklch(49% 0.205 2); --color-accent-2: oklch(87.6% 0.179 119); --color-slot: oklch(95% 0.021 355);
+  --color-accent-ink: oklch(99.5% 0.003 82); --color-focus: oklch(56% 0.225 2);
+  --font-display: "Bowlby One SC", "Arial Black", sans-serif; --font-body: "Sofia Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: "Sofia Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 18px; --radius-pill: 999px; --rule-hair: 1px; --rule-bar: 2px;
+  --shadow-card: 5px 6px 0 var(--color-ink); --shadow-press: 1px 1px 0 var(--color-ink);
+  --tracking-display: 0.005em; --display-weight: 400;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-md: 1.0625rem; --text-body: 1.0625rem;
+  --text-display: min(4.5rem, clamp(2.3rem, 1.2rem + 5vw, 4.5rem));
+  --text-section: min(3.25rem, clamp(1.9rem, 1.2rem + 3vw, 3.25rem));
+  --dur-micro: 120ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.5 var(--font-body); font-variant-numeric: tabular-nums; padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: var(--color-accent-2); color: var(--color-ink); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: none; }
+a:hover { text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 3px; text-underline-offset: 0.2em; }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: var(--tracking-display); line-height: 1.02; color: var(--color-ink); margin: 0; text-transform: uppercase; }
+h1 { font-size: var(--text-display); } h2 { font-size: var(--text-section); } h3 { font-size: 1.25rem; line-height: 1.1; }
+p { margin: 0; }
+.label { font: 700 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 34rem; }
+.dash { border: 0; border-top: var(--rule-bar) dashed var(--color-rule); margin: 0; }
+
+/* the die-cut: white border on a hard offset shadow */
+.diecut { border: 6px solid var(--color-white); border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+.tilt-l { rotate: -1.5deg; } .tilt-r { rotate: 1.5deg; } .tilt-l2 { rotate: -3deg; } .tilt-r2 { rotate: 2.5deg; }
+.tag { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.85rem; border-radius: var(--radius-pill); background: var(--color-accent-2); color: var(--color-ink); font: 700 var(--text-sm)/1.2 var(--font-body); }
+
+/* sample banner */
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding-inline: 1rem;
+  background: var(--color-ink); color: var(--color-paper); font: 600 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { background: var(--color-accent-2); color: var(--color-ink); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700; font-size: 0.75rem; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+/* controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; height: 52px; padding: 0 var(--space-lg); border: 0; border-radius: var(--radius-pill); cursor: pointer;
+  font: 700 var(--text-md)/1 var(--font-body); color: var(--color-ink); background: transparent; box-shadow: inset 0 0 0 2px var(--color-ink); text-decoration: none !important; white-space: nowrap; }
+.btn svg { width: 1.2em; height: 1.2em; flex: none; }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); box-shadow: 0 0 0 5px var(--color-white), 5px 6px 0 var(--color-ink); margin: 5px 6px 6px 5px;
+  transition: translate var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out), background-color var(--dur-micro); }
+.btn--primary:hover { background: var(--color-accent-deep); }
+.btn--primary:active { translate: 4px 5px; box-shadow: 0 0 0 5px var(--color-white), var(--shadow-press); }
+.btn--secondary { transition: background-color var(--dur-micro); }
+.btn--secondary:hover { background: var(--color-paper-2); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-md) var(--space-sm); align-items: center; }
+
+/* header */
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.7rem; color: var(--color-ink); }
+.brand:hover { text-decoration: none; }
+.brand svg { width: 2.7rem; height: 2.7rem; flex: none; }
+.brand span { font: 400 1.2rem/1 var(--font-display); text-transform: uppercase; }
+.brand small { display: block; font: 700 0.8125rem/1.3 var(--font-body); text-transform: none; color: var(--color-muted); margin-top: 0.25rem; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 700 var(--text-sm)/1 var(--font-body); }
+.nav .btn { height: 44px; padding-inline: var(--space-md); box-shadow: 0 0 0 4px var(--color-white), 4px 5px 0 var(--color-ink); margin: 4px 5px 5px 4px; }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1rem; } }
+
+/* hero */
+.hero { padding-block: var(--space-xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: center; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero__media { grid-column: 8 / span 5; position: relative; padding: 0.5rem 0.5rem 1.5rem 0; }
+.hero h1 { margin-block: var(--space-md) var(--space-lg); }
+.hero h1 .pink { display: inline-block; background: var(--color-accent); color: var(--color-accent-ink); padding: 0.02em 0.18em 0.08em; border-radius: 0.18em; rotate: -1.5deg; }
+.hero__lede { font-size: 1.1875rem; max-width: 34rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 0.9rem; margin-top: var(--space-lg); }
+.rating .fig { font: 400 2.4rem/1 var(--font-display); color: var(--color-ink); }
+.stars { display: inline-flex; gap: 2px; color: var(--color-ink); }
+.stars svg { width: 1.05rem; height: 1.05rem; }
+@media (max-width: 860px) { .hero__copy, .hero__media { grid-column: 1 / -1; } }
+
+/* photographs: product in use, in a die-cut */
+.photo { margin: 0; }
+.photo .frame { border: 6px solid var(--color-white); border-radius: 22px; box-shadow: var(--shadow-card); overflow: hidden; background: var(--color-slot); }
+.photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.photo figcaption { font: 700 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); margin-top: 0.9rem; }
+.hero__media .tag { position: absolute; right: -0.4rem; bottom: 0; rotate: 3deg; box-shadow: 0 0 0 4px var(--color-white), 4px 5px 0 var(--color-ink); margin: 0 4px 0 0; z-index: 2; }
+
+/* facts: a bento of fills */
+.bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: stretch; }
+.fill { padding: var(--space-lg); display: grid; gap: 0.5rem; align-content: start; }
+.fill--pink { background: var(--color-accent); color: var(--color-accent-ink); }
+.fill--lime { background: var(--color-accent-2); color: var(--color-ink); }
+.fill--ink { background: var(--color-ink); color: var(--color-paper); }
+.fill--white { background: var(--color-paper-3); color: var(--color-ink-2); }
+.bento .lead { grid-column: 1 / span 5; align-content: center; align-self: stretch; }
+.bento .lead .fig { font: 400 clamp(6.5rem, 4rem + 9vw, 12rem)/0.86 var(--font-display); }
+.bento .lead .unit { font: 700 1.125rem/1.35 var(--font-body); }
+.bento .rev { grid-column: auto; }
+.bento .rev blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink); }
+.fill .who { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.rev .who { font: 700 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.rev .who b { color: var(--color-ink); }
+.row-revs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg); }
+.row-revs .fill { padding: var(--space-md) var(--space-lg); }
+.row-revs .fill blockquote { margin: 0; font-size: 1.0625rem; }
+.row-revs .fill .who { font: 700 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); }
+.row-revs .fill--lime .who { color: var(--color-ink-2); }
+.row-revs .fill--lime .who b { color: var(--color-ink); }
+.row-revs .fill--ink blockquote, .row-revs .fill--ink .who b { color: var(--color-paper); }
+.row-revs .fill--ink .who { color: oklch(80% 0.015 80); }
+@media (max-width: 900px) {
+  .bento { grid-template-columns: minmax(0, 1fr); }
+  .bento .lead, .bento .rev, .row-revs { grid-column: 1 / -1; grid-row: auto; }
+  .row-revs { grid-template-columns: minmax(0, 1fr); }
+}
+.stack { grid-column: 6 / span 7; display: grid; gap: var(--space-lg); }
+
+/* services: die-cut cards */
+.svc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); }
+.svc li { background: var(--color-paper-3); padding: var(--space-lg); display: grid; grid-template-rows: auto auto 1fr; gap: 0.5rem; align-content: start; transition: translate var(--dur-micro) var(--ease-out), rotate var(--dur-micro) var(--ease-out); }
+.svc li:nth-child(odd) { rotate: -0.8deg; } .svc li:nth-child(even) { rotate: 0.8deg; }
+.svc li:hover { translate: 0 -2px; rotate: 0deg; }
+.svc .ic { width: 3.6rem; height: 3.6rem; border-radius: 50%; background: var(--color-accent-2); display: grid; place-items: center; margin-bottom: 0.3rem; }
+.svc li:nth-child(3n+2) .ic { background: var(--color-accent); color: var(--color-accent-ink); }
+.svc .ic svg { width: 2.2rem; height: 2.2rem; color: inherit; }
+.svc .ic { color: var(--color-ink); }
+@media (max-width: 900px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .svc { grid-template-columns: 1fr; } .svc li { padding: var(--space-md); } }
+
+/* lime field: how it works */
+.band--lime { background: var(--color-accent-2); }
+.thirds { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: center; margin-bottom: var(--space-2xl); }
+.thirds__draw { grid-column: 1 / span 7; margin: 0; background: var(--color-white); padding: var(--space-md); }
+.thirds__draw svg { width: 100%; height: auto; display: block; }
+.thirds__text { grid-column: 8 / span 5; display: grid; gap: var(--space-md); }
+.thirds__text p { color: var(--color-ink); }
+@media (max-width: 860px) { .thirds { grid-template-columns: minmax(0, 1fr); } .thirds__draw, .thirds__text { grid-column: 1 / -1; } }
+.steps { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-md); margin: 0; padding: var(--space-md) 0; list-style: none; }
+.steps::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: var(--rule-bar) dashed var(--color-ink); }
+.steps li { position: relative; background: var(--color-paper-3); padding: var(--space-md); display: grid; gap: 0.5rem; align-content: start; }
+.steps li:nth-child(1) { rotate: -2deg; } .steps li:nth-child(2) { rotate: 1.5deg; } .steps li:nth-child(3) { rotate: -1deg; } .steps li:nth-child(4) { rotate: 2deg; }
+.steps .n { display: grid; place-items: center; width: 2.8rem; height: 2.8rem; border-radius: 50%; background: var(--color-accent-2); color: var(--color-ink); font: 400 1.3rem/1 var(--font-display); box-shadow: inset 0 0 0 2px var(--color-ink); }
+.steps p { color: var(--color-ink-2); }
+@media (max-width: 860px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg) var(--space-md); } .steps::before { display: none; } }
+@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+
+/* work */
+.work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); }
+.work .photo:nth-child(1) { rotate: -1.5deg; } .work .photo:nth-child(2) { rotate: 1deg; } .work .photo:nth-child(3) { rotate: -1deg; }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+
+/* ink band: statement with a tag across its corner */
+.band--ink { background: var(--color-ink); color: var(--color-paper); }
+.band--ink .wrap { padding-block: var(--space-3xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: end; }
+.statement { grid-column: 1 / span 9; position: relative; font: 400 min(4.5rem, clamp(2.2rem, 1.2rem + 4.6vw, 4.5rem))/1.04 var(--font-display); text-transform: uppercase; color: var(--color-paper); margin: 0; }
+.statement .tag { position: absolute; right: -0.5rem; top: -2.8rem; rotate: 4deg; background: var(--color-accent); color: var(--color-accent-ink); box-shadow: 0 0 0 4px var(--color-white), 4px 5px 0 var(--color-ink-2); font-size: 0.9375rem; padding: 0.45rem 1rem; }
+.band--ink .note { grid-column: 1 / span 6; color: var(--color-paper); font-size: 1.125rem; display: grid; gap: var(--space-md); justify-items: start; margin-top: var(--space-md); }
+@media (max-width: 860px) { .statement, .band--ink .note { grid-column: 1 / -1; } .statement .tag { top: -3rem; right: 0; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map .frame { border: 6px solid var(--color-white); border-radius: var(--radius-card); box-shadow: var(--shadow-card); overflow: hidden; background: var(--color-paper-3); }
+.area__map svg { width: 100%; height: auto; display: block; }
+.area__list { grid-column: 8 / span 5; }
+.map text { paint-order: stroke; stroke: var(--color-paper-3); stroke-width: 5px; stroke-linejoin: round; }
+.towns { margin: var(--space-md) 0 0; padding: 0; list-style: none; }
+.towns li { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-top: var(--rule-bar) dashed var(--color-rule); }
+.towns li:last-child { border-bottom: var(--rule-bar) dashed var(--color-rule); }
+.towns li span:first-child { font-weight: 700; color: var(--color-ink); }
+.towns li span:last-child { white-space: nowrap; }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.phone { font: 400 min(3.25rem, clamp(1.9rem, 1.2rem + 3vw, 3.25rem))/1 var(--font-display); color: var(--color-ink); white-space: nowrap; }
+.hours { margin: 0; padding: 0; }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; border-top: var(--rule-bar) dashed var(--color-rule); }
+.hours div:last-child { border-bottom: var(--rule-bar) dashed var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 700; }
+.hours dd { margin: 0; text-align: right; }
+.form { grid-column: 7 / span 6; background: var(--color-paper-3); padding: var(--space-lg); display: grid; gap: var(--space-md); }
+.form h3 { font-size: 1.6rem; }
+.field { display: grid; gap: 0.35rem; }
+.field label, .field legend { font: 700 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; min-height: 50px; border: 2px solid var(--color-ink); border-radius: var(--radius-card); background: var(--color-white); color: var(--color-ink); font: 400 1rem/1.4 var(--font-body); padding: 0.65rem 0.9rem; }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%); background-position: calc(100% - 1.25rem) 55%, calc(100% - 0.9rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.4rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 700 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } .contact__call, .form { grid-column: 1 / -1; } }
+
+@media (max-width: 860px) {
+  .hero__grid, .area { grid-template-columns: minmax(0, 1fr); }
+  .hero__grid > *, .area > * { grid-column: 1 / -1; }
+}
+
+footer { border-top: var(--rule-bar) dashed var(--color-rule); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 700 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+@media (prefers-reduced-motion: reduce) { .btn--primary, .svc li, .btn--secondary { transition: none; } .svc li:hover { translate: 0 0; } }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M7.5 9h9M7.5 12h5.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Evergreen Edge Mowing, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="22" fill="var(--color-accent)" stroke="var(--color-white)" stroke-width="4"/>
+        <path d="M13 31h18l4-8" fill="none" stroke="var(--color-white)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M31 31l5-14h4" fill="none" stroke="var(--color-white)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="17" cy="35" r="3" fill="var(--color-white)"/><circle cx="29" cy="35" r="3" fill="var(--color-white)"/>
+      </svg>
+      <span>Evergreen Edge<small>Rolleston lawn mowing · Ben</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Jobs</a>
+      <a href="#how">How it works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span class="sr">Call Ben</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <span class="tag">Lawn mowing · Rolleston and Selwyn</span>
+      <h1>Lawns mown. Edges <span class="pink">sorted.</span></h1>
+      <p class="hero__lede">Ben mows lawns across Rolleston every week or fortnight, on the same day, with the edges trimmed and the clippings cleared. He brings his own mower, does the whole section, and texts you when it's done. Free quote by text.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Ben</a>
+        <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text for a quote</a>
+      </div>
+      <div class="rating">
+        <span class="fig">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from 52 Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero__media">
+      <figure class="photo tilt-r">
+        <div class="frame"><img src="img/hero.jpg" width="949" height="712" alt="A red push mower on a green lawn between trees" fetchpriority="high"></div>
+      </figure>
+      <span class="tag">Same day, every week</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews" style="padding-top:var(--space-xl)">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="bento">
+      <div class="diecut fill fill--pink lead tilt-l">
+        <span class="fig" aria-label="4.9 out of 5">4.9</span>
+        <p class="unit">out of 5, from 52 Google reviews</p>
+        <span class="stars" aria-hidden="true" style="color:var(--color-accent-ink)"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <div class="stack">
+        <div class="diecut fill fill--white rev tilt-r">
+          <blockquote>“Same day every Thursday for two years now. Ben texts when he's done and the edges are always crisp. I haven't thought about my lawn once.”</blockquote>
+          <p class="who"><b>Margaret</b><span>Faringdon</span><span>· Weekly mow</span></p>
+        </div>
+        <div class="row-revs">
+          <div class="diecut fill fill--lime tilt-l">
+            <blockquote>“Our section was knee-high after we bought. He cut it down in two passes and took the clippings.”</blockquote>
+            <p class="who"><b>Josh</b><span>Brookside</span></p>
+          </div>
+          <div class="diecut fill fill--ink tilt-r">
+            <blockquote>“Reliable. Rings if rain moves the day, never just doesn't turn up.”</blockquote>
+            <p class="who"><b>Denise</b><span>West Melton</span></p>
+          </div>
+        </div>
+        <div class="diecut fill fill--white rev tilt-l2" style="rotate:-1deg">
+          <blockquote>“Does our lifestyle block with the ride-on and the house lawn with the push mower. One call for the lot.”</blockquote>
+          <p class="who"><b>Hamish</b><span>Prebbleton</span><span>· Ride-on</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <hr class="dash" style="margin-bottom:var(--space-2xl)">
+    <div class="section__head">
+      <h2>What we mow</h2>
+      <p>Regular rounds and one-off tidy-ups, for houses, rentals and lifestyle blocks.</p>
+    </div>
+    <ul class="svc">
+      <li class="diecut">
+        <span class="ic"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 34h26l6-14h6"/><path d="M34 34l-3-10"/><circle cx="14" cy="42" r="4"/><circle cx="32" cy="42" r="4"/><path d="M14 34v4M32 34v4"/></svg></span>
+        <h3>Regular mowing</h3>
+        <p>Weekly or fortnightly rounds on the same day.</p>
+      </li>
+      <li class="diecut">
+        <span class="ic"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 44L34 12"/><path d="M34 12l-4-4h10v10z"/><path d="M6 44h10"/><path d="M26 30c4 2 10 2 14 0M30 36c3 1 8 1 11-1" stroke-dasharray="2 4"/></svg></span>
+        <h3>Edges and trimming</h3>
+        <p>Paths, fences and garden edges trimmed clean.</p>
+      </li>
+      <li class="diecut">
+        <span class="ic"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 40V26c0-6 4-10 10-10s10 4 10 10v14"/><path d="M28 40V22c0-5 3-8 8-8s8 3 8 8v18"/><path d="M6 44h40"/></svg></span>
+        <h3>Hedge trimming</h3>
+        <p>Boundary hedges cut square, with the cuttings taken away.</p>
+      </li>
+      <li class="diecut">
+        <span class="ic"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 32h24l4-10h10v10h-6"/><path d="M16 22l6-8h8"/><circle cx="14" cy="38" r="6"/><circle cx="38" cy="38" r="4"/></svg></span>
+        <h3>Big sections</h3>
+        <p>Lifestyle blocks and large lawns done with a ride-on.</p>
+      </li>
+      <li class="diecut">
+        <span class="ic"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 44c0-10 2-20 4-30M16 44c0-12 0-22 2-34M24 44c0-10 0-20 1-30M32 44c1-12 2-22 5-32M40 44c0-10 1-18 4-26"/><path d="M4 44h44"/></svg></span>
+        <h3>Overgrown tidy-ups</h3>
+        <p>Long grass and neglected sections cut back in stages.</p>
+      </li>
+      <li class="diecut">
+        <span class="ic"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20h30l4 10v8H6z"/><path d="M36 20l4 10h8v8h-8"/><circle cx="14" cy="40" r="4"/><circle cx="34" cy="40" r="4"/><path d="M10 14c4-4 8-4 12 0s8 4 12 0"/></svg></span>
+        <h3>Green waste away</h3>
+        <p>Clippings and prunings loaded up and taken to the green waste.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band--lime section" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How a mow goes</h2>
+      <p style="color:var(--color-ink)">Ben texts you before he comes and again when he's done. If rain moves the day, he'll tell you.</p>
+    </div>
+
+    <div class="thirds">
+      <figure class="diecut thirds__draw tilt-l">
+        <svg viewBox="0 0 640 300" role="img" aria-labelledby="thT">
+          <title id="thT">Side view of grass blades: the lawn is cut at the dashed line, taking off only the top third of the blade.</title>
+          <g font-family="Sofia Sans, sans-serif" font-weight="700" font-size="17" fill="var(--color-ink)">
+            <rect x="20" y="236" width="600" height="44" rx="8" fill="var(--color-ink)"/>
+            <g stroke="var(--color-ink)" stroke-width="6" stroke-linecap="round" fill="none">
+              <path d="M60 238 C 58 190, 66 140, 72 92"/><path d="M100 238 C 98 180, 110 130, 118 80"/><path d="M144 238 C 142 190, 150 140, 154 96"/>
+              <path d="M188 238 C 186 186, 196 132, 206 86"/><path d="M232 238 C 232 190, 238 144, 244 100"/><path d="M276 238 C 274 186, 284 130, 292 84"/>
+              <path d="M320 238 C 320 190, 326 144, 330 100"/><path d="M364 238 C 362 186, 372 132, 380 88"/>
+            </g>
+            <path d="M40 176 H 420" stroke="var(--color-ink)" stroke-width="3" stroke-dasharray="10 8"/>
+            <path d="M30 80V176" stroke="var(--color-ink)" stroke-width="3"/><path d="M22 80h16M22 176h16" stroke="var(--color-ink)" stroke-width="3"/>
+            <text x="440" y="180">Cut here</text>
+            <text x="440" y="120">Top third: this goes</text>
+            <text x="440" y="214">Bottom two thirds: stays</text>
+            <path d="M432 112L400 100" stroke="var(--color-ink)" stroke-width="2.5"/>
+          </g>
+        </svg>
+      </figure>
+      <div class="thirds__text">
+        <h3>Never more than a third</h3>
+        <p>Taking off too much in one go stresses the grass and shows up brown. Ben mows often enough that he only ever takes the top third, and leaves the lawn at a healthy height for the season.</p>
+      </div>
+    </div>
+
+    <ol class="steps">
+      <li><span class="n">1</span><h3>Text a photo</h3><p>Send a picture of the lawn and your address. Ben replies with a quote.</p></li>
+      <li><span class="n">2</span><h3>First mow</h3><p>He walks the section, notes the gates and dogs, and does the first cut.</p></li>
+      <li><span class="n">3</span><h3>Same day, weekly</h3><p>Your day is your day, every week or fortnight, all season.</p></li>
+      <li><span class="n">4</span><h3>Text when done</h3><p>A message when he's finished, with anything he noticed.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Fresh cuts</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="photo">
+        <div class="frame"><img src="img/front.jpg" width="951" height="713" alt="The front of a red mower with its engine on a short green lawn"></div>
+        <figcaption>Push mower, house lawn in Faringdon</figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="img/trees.jpg" width="968" height="726" alt="A red push mower on a lawn under tall trees"></div>
+        <figcaption>Section with trees to mow around, Brookside</figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="img/rideon.jpg" width="536" height="402" alt="A red ride-on mower cutting a large green lawn"></div>
+        <figcaption>Ride-on for a lifestyle block, Prebbleton</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band--ink">
+  <div class="wrap">
+    <p class="statement"><span class="tag">Free quote by text</span>One mower. One day a week. Ben.</p>
+    <div class="note">
+      <p>It's a one-man round, so the person who quotes your lawn is the person who mows it. He knows which gate sticks and where the dog's bowl lives.</p>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Ben</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we mow</h2>
+      <p>Based in Rolleston. All of the town and the villages around it, out to Lincoln and Prebbleton. Further out for big sections.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map tilt-l" style="rotate:-1deg">
+        <div class="frame">
+          <svg viewBox="0 0 600 480" role="img" aria-labelledby="mapT">
+            <title id="mapT">Sketch of the service area: Rolleston on the Canterbury Plains with West Melton to the north, Lincoln and Prebbleton to the east, Darfield to the north-west and Leeston to the south.</title>
+            <g font-family="Sofia Sans, sans-serif" font-weight="700" fill="var(--color-ink)" class="map">
+              <path d="M600 0v480H560C 545 400, 540 330, 540 250 S 545 80, 550 0z" fill="var(--color-accent-2)"/>
+              <path d="M550 0C 545 80, 540 200, 540 250 S 545 400, 560 480" fill="none" stroke="var(--color-ink)" stroke-width="3"/>
+              <text x="578" y="300" font-size="14" fill="var(--color-ink)" style="stroke:none" text-anchor="middle" transform="rotate(-90 578 300)">Pacific Ocean</text>
+              <circle cx="330" cy="290" r="165" fill="none" stroke="var(--color-ink)" stroke-width="3" stroke-dasharray="10 8"/>
+              <text x="170" y="176" font-size="15" style="stroke:var(--color-paper-3)">25 km</text>
+              <rect x="296" y="262" width="104" height="36" rx="18" fill="var(--color-accent)" stroke="var(--color-white)" stroke-width="4"/>
+              <text x="348" y="286" text-anchor="middle" font-size="15" fill="var(--color-white)" style="stroke:none" font-family="Bowlby One SC, Arial Black, sans-serif" font-weight="400">ROLLESTON</text>
+              <g>
+                <circle cx="362" cy="196" r="7" fill="var(--color-ink)"/><text x="376" y="190" font-size="17">West Melton</text>
+                <circle cx="432" cy="278" r="7" fill="var(--color-ink)"/><text x="444" y="262" font-size="17">Prebbleton</text>
+                <circle cx="410" cy="330" r="7" fill="var(--color-ink)"/><text x="424" y="350" font-size="17">Lincoln</text>
+                <circle cx="178" cy="217" r="7" fill="none" stroke="var(--color-ink)" stroke-width="3"/><text x="164" y="213" font-size="17" text-anchor="end">Darfield, by arrangement</text>
+                <circle cx="284" cy="420" r="7" fill="none" stroke="var(--color-ink)" stroke-width="3"/><text x="270" y="426" font-size="17" text-anchor="end">Leeston, by arrangement</text>
+              </g>
+              <g transform="translate(500 52)"><path d="M0 -22 L9 8 L0 2 L-9 8 Z" fill="var(--color-ink)"/><text x="0" y="30" font-size="15" text-anchor="middle">N</text></g>
+            </g>
+          </svg>
+        </div>
+        <figcaption class="label" style="margin-top:.9rem">Sketch, not to scale.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Rolleston suburbs: Faringdon, Brookside, Lemonwood Grove, Stonebrook and the town centre, and more.</p>
+        <ul class="towns">
+          <li><span>Rolleston town</span><span>Weekly rounds</span></li>
+          <li><span>West Melton</span><span>Weekly rounds</span></li>
+          <li><span>Lincoln</span><span>Fortnightly round</span></li>
+          <li><span>Prebbleton</span><span>Fortnightly round</span></li>
+          <li><span>Darfield, Leeston</span><span>By arrangement</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <hr class="dash" style="margin-bottom:var(--space-2xl)">
+    <div class="section__head">
+      <h2>Get a quote</h2>
+      <p>Text Ben a photo of the lawn and your address, or fill this in. He'll reply with a quote and a day.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd>7:30 am – 5:00 pm</dd></div>
+          <div><dt>Saturday</dt><dd>Quotes only, 8:00 am – 12:00 pm</dd></div>
+          <div><dt>Quote back</dt><dd>Same day</dd></div>
+        </dl>
+      </div>
+      <form class="diecut form tilt-r" id="quote" novalidate style="rotate:.6deg">
+        <h3>Quote request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job">
+              <option>Regular mowing</option><option>Edges and trimming</option><option>Hedge trimming</option><option>Big section</option><option>Overgrown tidy-up</option><option>Green waste</option><option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Rough size and anything we should know</label><textarea id="f-msg" name="message" placeholder="e.g. front and back lawn, small dog, side gate sticks"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Evergreen Edge Mowing, Rolleston · <span style="white-space:nowrap">021 000 0000</span></p>
+    <p>Sample site for siterefresh.co.nz. Evergreen Edge Mowing is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../pest-control/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>44<i class="w"> of </i><i class="s">/</i>50</span><a href="../cabinet-maker/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

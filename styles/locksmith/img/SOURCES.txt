@@ -1,0 +1,34 @@
+Photos for the Small Hours Locksmiths sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was converted to a midnight-blue duotone (shadows in the page's ground, highlights pale blue) and saved as JPEG quality 80.
+
+key.jpg
+  Title:   Key door lock
+  Source:  https://www.rawpixel.com/image/6022351/key-door-lock-free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL2Zya2V5X21vdmVfbG9ja183NzkzOTItaW1hZ2Uta3liYjZhOTUuanBn.jpg
+  Licence: CC0 1.0
+
+hang.jpg
+  Title:   Key. Free public domain CC0
+  Source:  https://www.rawpixel.com/image/6035983/key-free-public-domain-cc0-image
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJrZXlfa2V5X3JvcGVfaGFuZ2luZy1pbWFnZS1reWJkY2t4bS5qcGc.jpg
+  Licence: CC0 1.0
+
+cylinder.jpg
+  Title:   Reinstalling splined adapter (royvanegas)
+  Source:  https://www.flickr.com/photos/7387328@N03/2702974190
+  File:    https://live.staticflickr.com/3129/2702974190_b025b5e810_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    a vehicle ignition lock barrel, in a repair
+
+parts.jpg
+  Title:   Deadbolt ~Victory (cogdogblog)
+  Source:  https://www.flickr.com/photos/37996646802@N01/42140645695
+  File:    https://live.staticflickr.com/844/42140645695_d40df5b0ee_b.jpg
+  Licence: CC0 1.0
+  Note:    a deadbolt taken apart
+
+old.jpg
+  Title:   Vintage key
+  Source:  https://www.rawpixel.com/image/5904779/vintage-key-free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4ODcyMTI1LWltYWdlLWt3dnV3MTJhLmpwZw.jpg
+  Licence: CC0 1.0

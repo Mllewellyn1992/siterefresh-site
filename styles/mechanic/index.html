@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="dark">
+<title>Kerr Street Motors | Car mechanic in Whanganui (sample site)</title>
+<meta name="description" content="Sample site: a made-up Whanganui car mechanic, built to show the Console style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500&family=Atkinson+Hyperlegible+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* console: graphite */
+:root {
+  --color-paper: oklch(17% 0.008 250); --color-paper-2: oklch(21% 0.009 250); --color-paper-3: oklch(13.5% 0.007 250);
+  --color-ink: oklch(95% 0.005 250); --color-ink-2: oklch(83% 0.008 250); --color-muted: oklch(71% 0.01 250);
+  --color-rule: oklch(31% 0.01 250); --color-rule-2: oklch(42% 0.012 250);
+  --color-accent: oklch(82% 0.15 80); --color-accent-ink: oklch(18% 0.04 75); --color-accent-soft: oklch(29% 0.05 80); --color-focus: oklch(82% 0.15 80);
+  --color-cool: oklch(77% 0.12 245); --color-cool-soft: oklch(29% 0.05 245);
+  --color-ok: oklch(76% 0.15 150); --color-ok-soft: oklch(24.5% 0.03 150); --color-bad: oklch(70% 0.17 25); --color-bad-soft: oklch(24.5% 0.035 25);
+  --font-display: "Host Grotesk", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
+  --font-outlier: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
+  --radius-card: 10px; --radius-pill: 6px; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.03em; --display-weight: 500;
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-section: clamp(2rem, 1.3rem + 2.8vw, 3.25rem);
+  --text-display: clamp(2.6rem, 1.2rem + 5.2vw, 5.5rem);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem); --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-muted); font: 400 var(--text-body)/1.55 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: color-mix(in oklab, var(--color-accent) 25%, transparent); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-rule-2); text-underline-offset: 0.2em; }
+a:hover { color: var(--color-accent); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing: var(--tracking-display); line-height: 1.04; color: var(--color-ink); margin: 0; }
+h2 { font-size: var(--text-section); }
+h3 { font-size: 1.1875rem; letter-spacing: -0.015em; line-height: 1.15; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.mono { font-family: var(--font-outlier); font-size: 0.9375rem; font-variant-numeric: tabular-nums slashed-zero; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-2xl); }
+.section__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); margin-bottom: var(--space-lg); padding-bottom: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.section__head p { max-width: 32rem; }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding-inline: 1rem; background: var(--color-paper-3); border-bottom: 1px solid var(--color-rule); color: var(--color-ink-2); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { font: 400 0.75rem/1 var(--font-outlier); background: var(--color-accent-soft); color: var(--color-accent); border: 1px solid var(--color-rule-2); border-radius: 4px; padding: 0.25rem 0.5rem; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+/* controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; white-space: nowrap; min-height: 3rem; padding: 0 var(--space-md); border: 1px solid var(--color-rule-2); border-radius: var(--radius-pill); background: var(--color-paper-2); color: var(--color-ink); font: 500 1rem/1 var(--font-body); text-decoration: none; cursor: pointer; transition: background-color 120ms ease-out; }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn:hover { background: var(--color-paper-3); color: var(--color-ink); }
+.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
+.btn--primary:hover { background: color-mix(in oklab, var(--color-accent) 88%, var(--color-ink)); color: var(--color-accent-ink); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.chip { display: inline-block; font: 400 0.8125rem/1 var(--font-outlier); border: 1px solid var(--color-rule-2); border-radius: 4px; padding: 0.3rem 0.5rem; color: var(--color-ink-2); }
+.chip--person { background: var(--color-accent-soft); color: var(--color-accent); }
+.chip--inst { background: var(--color-cool-soft); color: var(--color-cool); }
+
+/* panels: one surface, 1px seams */
+.panels { display: grid; gap: 1px; background: var(--color-rule); border: 1px solid var(--color-rule); border-radius: var(--radius-card); overflow: hidden; }
+.panels > * { background: var(--color-paper-2); }
+.panel { padding: var(--space-md); }
+
+/* header */
+.top { border-bottom: 1px solid var(--color-rule); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.4rem; height: 2.4rem; flex: none; }
+.brand span { font: 500 1.375rem/1 var(--font-display); letter-spacing: -0.02em; }
+.brand small { display: block; font: 400 0.8125rem/1.3 var(--font-body); color: var(--color-muted); letter-spacing: 0; margin-top: 0.25rem; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); text-decoration: none; color: var(--color-ink-2); }
+.nav a:not(.btn):hover { color: var(--color-accent); }
+.nav .btn { min-height: 2.75rem; }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } }
+
+/* hero */
+.hero { padding-block: var(--space-2xl) var(--space-2xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero__side { grid-column: 8 / span 5; display: grid; gap: var(--space-md); }
+.hero h1 { font-size: var(--text-display); margin-block: var(--space-sm) var(--space-md); }
+.hero__lede { font-size: 1.125rem; color: var(--color-ink-2); max-width: 34rem; margin-bottom: var(--space-md); }
+.rating { display: flex; align-items: center; gap: 0.75rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: 1px solid var(--color-rule); max-width: 34rem; }
+.rating .big { font: 400 2.5rem/1 var(--font-outlier); color: var(--color-ink); letter-spacing: -0.04em; }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent); }
+.stars svg { width: 1rem; height: 1rem; }
+.reading { padding: var(--space-md); display: grid; gap: 0.5rem; background: var(--color-paper-2); border: 1px solid var(--color-rule); border-radius: var(--radius-card); }
+.reading .was { font: 400 1rem/1 var(--font-outlier); color: var(--color-muted); text-decoration: line-through; text-decoration-color: var(--color-bad); }
+.reading .now { font: 400 clamp(3rem, 2rem + 4vw, 5rem)/1 var(--font-outlier); letter-spacing: -0.04em; color: var(--color-ink); font-variant-numeric: tabular-nums slashed-zero; }
+.reading .now small { font-size: 0.32em; letter-spacing: 0; color: var(--color-muted); margin-left: 0.4em; }
+.reading .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.reading p { font-size: var(--text-sm); color: var(--color-ink-2); }
+@media (max-width: 860px) { .hero__copy, .hero__side { grid-column: 1 / -1; } .hero__grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* photos: deepest step, 1px edge, caption beneath */
+.photo { margin: 0; }
+.photo img { width: 100%; border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-paper-3); object-fit: cover; }
+.photo--wide img { aspect-ratio: 4 / 3; }
+.photo figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); margin-top: 0.6rem; display: flex; justify-content: space-between; gap: 1rem; }
+.photo figcaption .mono { white-space: nowrap; color: var(--color-cool); }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.plate { grid-column: 1 / span 5; padding: var(--space-lg); display: grid; gap: var(--space-sm); background: var(--color-paper-2); border: 1px solid var(--color-rule); border-radius: var(--radius-card); }
+.plate .big { font: 400 clamp(6rem, 4rem + 9vw, 11rem)/0.9 var(--font-outlier); letter-spacing: -0.06em; color: var(--color-ink); }
+.plate .unit { font: 400 1.0625rem/1.4 var(--font-body); color: var(--color-ink-2); }
+.plate .unit b { font: 500 1rem var(--font-outlier); color: var(--color-cool); }
+.quotes { grid-column: 6 / span 7; margin: 0; padding: 0; display: grid; gap: 0; border: 1px solid var(--color-rule); border-radius: var(--radius-card); overflow: hidden; background: var(--color-rule); gap: 1px; }
+.quotes li { list-style: none; padding: var(--space-md); display: grid; gap: 0.6rem; background: var(--color-paper-2); }
+.quotes blockquote { margin: 0; font-size: 1.0625rem; color: var(--color-ink-2); }
+.quotes .who { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; font-size: var(--text-sm); }
+.quotes .who b { color: var(--color-accent); font-weight: 500; }
+@media (max-width: 860px) { .plate, .quotes { grid-column: 1 / -1; } .reviews { grid-template-columns: minmax(0, 1fr); } }
+
+/* services */
+.svc { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
+.svc li { padding: var(--space-md); display: grid; grid-template-rows: auto auto 1fr; gap: 0.5rem; min-height: 12.5rem; align-content: start; }
+.svc svg { width: 2.75rem; height: 2.75rem; color: var(--color-ink-2); margin-bottom: 0.25rem; }
+.svc li p { color: var(--color-muted); }
+@media (max-width: 860px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .svc { grid-template-columns: 1fr; } .svc li { min-height: 0; } }
+
+/* how: audit trail */
+.band--deep { background: var(--color-paper-3); border-block: 1px solid var(--color-rule); }
+.trail { margin: 0; padding: 0 0 0 1.75rem; list-style: none; position: relative; max-width: 54rem; }
+.trail::before { content: ""; position: absolute; left: 0.45rem; top: 0.5rem; bottom: 0.5rem; width: 1px; background: var(--color-rule-2); }
+.trail li { position: relative; padding: var(--space-md); margin-bottom: var(--space-sm); background: var(--color-paper-2); border: 1px solid var(--color-rule); border-radius: var(--radius-card); display: grid; gap: 0.5rem; }
+.trail li::before { content: ""; position: absolute; left: calc(-1.75rem + 0.45rem - 4px); top: 1.6rem; width: 9px; height: 9px; border-radius: 50%; background: var(--color-paper-3); border: 1px solid var(--color-rule-2); }
+.trail li:last-child::before { background: var(--color-cool); border-color: var(--color-cool); }
+.trail .hd { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; }
+.trail .hd h3 { font-size: 1.3125rem; margin-right: 0.25rem; }
+.trail p { color: var(--color-ink-2); }
+.how2 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.how2__trail { grid-column: 1 / span 7; }
+.how2__side { grid-column: 8 / span 5; display: grid; gap: var(--space-md); }
+.diff { border: 1px solid var(--color-rule); border-radius: var(--radius-card); overflow: hidden; background: var(--color-paper-3); }
+.diff .hd { padding: 0.7rem var(--space-md); border-bottom: 1px solid var(--color-rule); display: flex; justify-content: space-between; gap: 1rem; background: var(--color-paper-2); }
+.diff .row { display: grid; grid-template-columns: 1.5rem 1fr auto; gap: 0.6rem; padding: 0.55rem var(--space-md); font: 400 0.875rem/1.4 var(--font-outlier); font-variant-numeric: tabular-nums slashed-zero; }
+.diff .row--minus { background: var(--color-bad-soft); color: var(--color-ink); } .diff .row--plus { background: var(--color-ok-soft); color: var(--color-ink); }
+.diff .row i { font-style: normal; color: var(--color-muted); } .diff .row--minus i { color: var(--color-bad); } .diff .row--plus i { color: var(--color-ok); }
+@media (max-width: 860px) { .how2 { grid-template-columns: minmax(0, 1fr); } .how2__trail, .how2__side { grid-column: 1 / -1; } }
+
+/* job photos */
+.pours { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+@media (max-width: 760px) { .pours { grid-template-columns: 1fr; } }
+
+/* about */
+.about { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: center; }
+.about__copy { grid-column: 1 / span 8; display: grid; gap: var(--space-md); }
+.about__copy h2 { max-width: 14ch; }
+.about__copy p { color: var(--color-ink-2); }
+.about .photo { grid-column: 8 / span 5; }
+@media (max-width: 860px) { .about { grid-template-columns: minmax(0, 1fr); } .about__copy, .about .photo { grid-column: 1 / -1; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__copy { grid-column: 1 / span 5; display: grid; gap: var(--space-md); }
+.towns { grid-column: 6 / span 7; margin: 0; padding: 0; list-style: none; }
+.towns li { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 1rem; padding: 0.8rem var(--space-md); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+.towns .mono { color: var(--color-cool); white-space: nowrap; }
+@media (max-width: 860px) { .area { grid-template-columns: minmax(0, 1fr); } .area__copy, .towns { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: 400 clamp(2.2rem, 1.2rem + 3.6vw, 3.75rem)/1 var(--font-outlier); letter-spacing: -0.04em; color: var(--color-ink); text-decoration: none; white-space: nowrap; }
+.contact__call .phone:hover { color: var(--color-accent); }
+.hours { margin: 0; border: 1px solid var(--color-rule); border-radius: var(--radius-card); overflow: hidden; background: var(--color-rule); display: grid; gap: 1px; }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.7rem var(--space-md); background: var(--color-paper-2); }
+.hours dt { color: var(--color-ink); font-weight: 500; } .hours dd { margin: 0; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg); display: grid; gap: var(--space-md); background: var(--color-paper-2); border: 1px solid var(--color-rule); border-radius: var(--radius-card); }
+.form h3 { font-size: 1.75rem; }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink-2); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+input, select, textarea { width: 100%; border: 1px solid var(--color-rule-2); border-radius: var(--radius-pill); background: var(--color-paper-3); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3rem; }
+input::placeholder, textarea::placeholder { color: var(--color-muted); opacity: 0.8; }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink-2) 50%), linear-gradient(135deg, var(--color-ink-2) 50%, transparent 50%); background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 400 0.875rem/1.4 var(--font-outlier); color: var(--color-cool); min-height: 1.4em; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } .contact__call, .form { grid-column: 1 / -1; } }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } .form { padding: var(--space-md); } }
+
+footer { border-top: 1px solid var(--color-rule); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 400 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7.5 9h9M7.5 12h5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Kerr Street Motors, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="1" y="1" width="46" height="46" rx="10" fill="var(--color-paper-2)" stroke="var(--color-rule-2)"/>
+        <circle cx="24" cy="24" r="11" fill="none" stroke="var(--color-ink)" stroke-width="2.5"/>
+        <circle cx="24" cy="24" r="3" fill="var(--color-accent)"/>
+        <path d="M24 13v-4M24 39v-4M13 24H9M39 24h-4" stroke="var(--color-ink)" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <span>Kerr Street Motors<small>Car mechanic · Whanganui · Wiremu &amp; Sam</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#how">How a job runs</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Car mechanic · Whanganui and Castlecliff</p>
+      <h1>What is wrong, what it costs, and who fixed it.</h1>
+      <p class="hero__lede">Wiremu and Sam fix and service cars and utes across Whanganui. Every job is written down as it happens: what was found, the price you agreed and who did the work, with the old parts back in the boot.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Sam</a>
+        <a class="btn" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="big">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from <span class="mono">73</span> Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero__side">
+      <div class="reading" aria-label="Example scan tool reading">
+        <span class="was">P0301</span>
+        <span class="now">0<small>fault codes</small></span>
+        <div class="meta"><span class="chip chip--person">Wiremu</span><span class="chip chip--inst">Tue 14:42</span></div>
+        <p>Cylinder 1 misfire cleared after a new coil pack. Road test 8 km, no codes returned.</p>
+      </div>
+      <figure class="photo">
+        <img src="img/hero.jpg" width="1024" height="683" alt="Close view of a car engine bay with hoses, wiring and the intake in black and white" fetchpriority="high">
+        <figcaption><span>Engine bay, before the coil pack</span><span class="mono">2.0 L</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="plate">
+        <span class="big">4.9</span>
+        <p class="unit">out of 5, from <b>73</b> Google reviews</p>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Had a clunk from the front end. Wiremu put it on the hoist, showed me the worn part and texted the price before touching it. Done the same afternoon.”</blockquote>
+          <p class="who"><b>Dale</b><span>Gonville</span><span>· Suspension</span></p>
+        </li>
+        <li>
+          <blockquote>“Engine light was on for months and two places couldn't find it. Sam explained the code in plain words, they fixed it and I got the old part to keep.”</blockquote>
+          <p class="who"><b>Priya</b><span>Aramoho</span><span>· Diagnostics</span></p>
+        </li>
+        <li>
+          <blockquote>“Booked my ute in for a service and a brake check before a long trip. The list of what they did was in my text before I got there.”</blockquote>
+          <p class="who"><b>Tane</b><span>Castlecliff</span><span>· Service and brakes</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we fix</h2>
+      <p>Cars, utes and small vans, petrol and diesel. We tell you what we find before we touch anything, and you say yes first.</p>
+    </div>
+    <ul class="panels svc">
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h20l8 8v28H10z"/><path d="M30 6v8h8"/><path d="M16 22h16M16 28h16M16 34h10"/></svg>
+        <h3>Servicing</h3>
+        <p>Oil, filters, fluids and a written check of the lot.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="5"/><path d="M24 8v6M24 34v6M8 24h6M34 24h6"/><path d="M36 10l4-4"/></svg>
+        <h3>Brakes</h3>
+        <p>Pads, rotors, fluid and lines, measured and shown to you.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14h36v20H6z"/><path d="M12 22h6l3-5 4 10 3-5h8"/><path d="M14 40h20"/></svg>
+        <h3>Diagnostics</h3>
+        <p>Scan tool reads, then a hands-on check to find the cause.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 28h32l-3-10H12z"/><path d="M6 28v8h36v-8"/><circle cx="14" cy="36" r="4" fill="var(--color-paper-2)"/><circle cx="34" cy="36" r="4" fill="var(--color-paper-2)"/><path d="M18 10h12"/></svg>
+        <h3>Pre-WoF checks</h3>
+        <p>We check the usual fail points and fix what we find before the test.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6v10M34 6v10"/><path d="M10 16h8l-4 8 4 8-4 8M30 16h8l-4 8 4 8-4 8" fill="none"/><path d="M14 40v2M34 40v2"/></svg>
+        <h3>Suspension</h3>
+        <p>Shocks, springs, bushes and joints, for clunks and uneven wear.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="9"/><circle cx="24" cy="24" r="2.5"/><path d="M24 15v-0M15 24h-0"/><path d="M24 7v8M24 33v8M7 24h8M33 24h8"/></svg>
+        <h3>Tyres and wheels</h3>
+        <p>Fitting, balancing and a wheel alignment check.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band--deep section" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How a job runs</h2>
+      <p>Every job gets a record like this one: a version for each step, who did it, when, and why.</p>
+    </div>
+    <div class="how2">
+      <div class="how2__trail">
+        <ol class="trail">
+          <li>
+            <div class="hd"><h3>1 · Booked</h3><span class="chip chip--person">Sam</span><span class="chip chip--inst">Mon 08:10</span></div>
+            <p>Rattle from the front left. Booked in for Tuesday morning, key left in the box.</p>
+          </li>
+          <li>
+            <div class="hd"><h3>2 · Checked</h3><span class="chip chip--person">Wiremu</span><span class="chip chip--inst">Tue 08:45</span></div>
+            <p>On the hoist. Worn drop link on the front left, pads at 3 mm. Photos taken of both.</p>
+          </li>
+          <li>
+            <div class="hd"><h3>3 · Agreed</h3><span class="chip chip--person">Sam</span><span class="chip chip--inst">Tue 09:20</span></div>
+            <p>Photos and a written price texted. You said go for the drop link and pads.</p>
+          </li>
+          <li>
+            <div class="hd"><h3>4 · Fixed</h3><span class="chip chip--person">Wiremu</span><span class="chip chip--inst">Tue 15:30</span></div>
+            <p>Parts fitted, road test 8 km, rattle gone. Old parts in the boot, invoice on your phone.</p>
+          </li>
+        </ol>
+      </div>
+      <div class="how2__side">
+        <div class="diff" aria-label="Example change on a job record">
+          <div class="hd"><span class="label">Change to the job</span><span class="chip chip--inst">v2 → v3</span></div>
+          <div class="row row--minus"><i>−</i><span>Drop link, front left: play</span><span>3.0 mm</span></div>
+          <div class="row row--plus"><i>+</i><span>Drop link, front left: play</span><span>0.0 mm</span></div>
+          <div class="row row--minus"><i>−</i><span>Front pads</span><span>3 mm</span></div>
+          <div class="row row--plus"><i>+</i><span>Front pads</span><span>9 mm</span></div>
+        </div>
+        <figure class="photo">
+          <img src="img/tread.jpg" width="1024" height="683" alt="Close view of a worn tyre tread in black and white" style="aspect-ratio:16/10">
+          <figcaption><span>Tread check on every visit</span><span class="mono">4 corners</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>On the bench</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="pours">
+      <figure class="photo photo--wide">
+        <img src="img/flathead.jpg" width="952" height="613" alt="An old four-cylinder engine in a car, carburettors on top and red plug leads">
+        <figcaption><span>Old four-cylinder, carbs set up</span><span class="mono">4 cyl</span></figcaption>
+      </figure>
+      <figure class="photo photo--wide">
+        <img src="img/gt.jpg" width="799" height="630" alt="Engine bay of a mid-engined sports car, with a blue coil-over shock and silver frame">
+        <figcaption><span>Suspension check, mid-engine car</span><span class="mono">1 hoist</span></figcaption>
+      </figure>
+      <figure class="photo photo--wide">
+        <img src="img/stack.jpg" width="1024" height="683" alt="A stack of new tyres with tread facing the camera">
+        <figcaption><span>New tyres in, ready to fit</span><span class="mono">16 in</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band--deep section">
+  <div class="wrap about">
+    <div class="about__copy">
+      <h2>Fixed once, recorded twice.</h2>
+      <p>Wiremu has worked on cars in Whanganui all his life and Sam runs the desk and the phone. If we find something extra, you get a photo and a price before we do anything. If you don't want it done, it doesn't get done.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we collect from</h2>
+      <p>Based in Gonville. We can pick your car up and drop it back for the day inside Whanganui.</p>
+    </div>
+    <div class="area">
+      <div class="area__copy">
+        <p>Whanganui suburbs: Gonville, Aramoho, Castlecliff, St Johns Hill, Durie Hill, Springvale, Westmere, Whanganui East and Kai Iwi.</p>
+        <p class="label">Distances are about, by road, from the Gonville workshop.</p>
+      </div>
+      <ul class="panels towns">
+        <li><span>Whanganui</span><span class="mono">0–8 km</span></li>
+        <li><span>Castlecliff</span><span class="mono">7 km</span></li>
+        <li><span>Kai Iwi</span><span class="mono">15 km</span></li>
+        <li><span>Ratana</span><span class="mono">25 km</span></li>
+        <li><span>Marton</span><span class="mono">40 km</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Book a job</h2>
+      <p>Call or text Sam. Say what the car is doing, and send a photo of the dash if a light is on.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd class="mono">7:30 am – 5:00 pm</dd></div>
+          <div><dt>Sat–Sun</dt><dd class="mono">Closed</dd></div>
+          <div><dt>Price back</dt><dd class="mono">Same day</dd></div>
+        </dl>
+      </div>
+      <form class="form" id="quote" novalidate>
+        <h3>Book a job</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job"><option>Service</option><option>Brakes</option><option>Diagnostics</option><option>Pre-WoF check</option><option>Suspension</option><option>Tyres and wheels</option><option>Something else</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Make, model and what it is doing</label><textarea id="f-msg" name="message" placeholder="e.g. 2012 Corolla, rattle from the front left over bumps"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Kerr Street Motors, Whanganui · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Kerr Street Motors is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../party-hire/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>23<i class="w"> of </i><i class="s">/</i>50</span><a href="../pool-service/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

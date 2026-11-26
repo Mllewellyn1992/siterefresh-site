@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Half Day Handyman | Handyman in Waiuku (sample site)</title>
+<meta name="description" content="Sample site: a made-up Waiuku handyman, built to show the Paste-up style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(73% 0.068 70); --color-paper-2: oklch(66% 0.072 68); --color-paper-3: oklch(97% 0.008 90);
+  --color-ink: oklch(17% 0.01 60); --color-ink-2: oklch(24% 0.014 60); --color-muted: oklch(28% 0.026 62);
+  --color-rule: oklch(50% 0.055 68); --color-rule-2: oklch(84% 0.012 85);
+  --color-accent: oklch(93% 0.2 112); --color-accent-ink: oklch(17% 0.01 60); --color-focus: oklch(17% 0.01 60);
+  --font-display: "League Gothic", Impact, sans-serif; --font-body: "Newsreader", Georgia, serif;
+  --radius-card: 0; --radius-pill: 999px; --rule-hair: 1px;
+  --shadow-card: 0 1px 0 oklch(18% 0.01 60 / 0.2), 0 4px 10px oklch(18% 0.01 60 / 0.12);
+  --shadow-sheet: 0 14px 30px oklch(18% 0.01 60 / 0.26), 0 2px 4px oklch(18% 0.01 60 / 0.14);
+  --tracking-display: 0.01em; --display-weight: 400;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 1rem; --text-body: 1.125rem;
+  --text-display: clamp(3.4rem, 1.8rem + 6vw, 7rem);
+  --text-section: clamp(2.5rem, 1.6rem + 3.4vw, 4.5rem);
+  --dur-micro: 120ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font: 400 var(--text-body)/1.5 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: color-mix(in oklab, var(--color-accent) 70%, transparent); color: var(--color-ink); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+h1, h2 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; letter-spacing: var(--tracking-display); color: var(--color-ink); margin: 0; line-height: 1; }
+h1 { line-height: 0.92; font-size: var(--text-display); }
+h2 { font-size: var(--text-section); }
+h3 { font: 500 1.375rem/1.2 var(--font-body); color: var(--color-ink); margin: 0; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); margin-bottom: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-md); }
+.section__head p { max-width: 32rem; }
+.fibre { position: relative; isolation: isolate; background: var(--color-paper-2); }
+.fibre::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0.5; mix-blend-mode: multiply; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02 0.03' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.45 0 0 0 0 0.3 0 0 0 0.28 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"); }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding-inline: 1rem; background: var(--color-ink); color: var(--color-paper-3); font: 500 0.875rem/1.2 var(--font-body); text-align: center; }
+.sample b { font: 400 1rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em; background: var(--color-paper-3); color: var(--color-ink); padding: 0.15rem 0.45rem; }
+@media (max-width: 480px) { .sample { font-size: 0.8125rem; } .sample b { display: none; } }
+
+.sheet { background: var(--color-paper-3); box-shadow: var(--shadow-sheet); rotate: var(--r, 0deg); }
+.sheet--fluoro { background: var(--color-accent); color: var(--color-accent-ink); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; border: 0; border-radius: 0; cursor: pointer; text-decoration: none; white-space: nowrap;
+  padding: var(--space-sm) var(--space-md); min-height: 3rem; font: 500 1rem/1.2 var(--font-body); color: var(--color-ink); box-shadow: 4px 4px 0 var(--color-ink);
+  transition: translate var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out); }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn:hover { translate: 1px 1px; box-shadow: 3px 3px 0 var(--color-ink); }
+.btn:active { translate: 4px 4px; box-shadow: none; }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
+.btn--secondary { background: var(--color-paper-3); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+
+/* header: a strip of copy paper */
+.top { padding-block: var(--space-md) 0; }
+.top__in { background: var(--color-paper-3); box-shadow: var(--shadow-card); display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding: 0.7rem 1rem; }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+.brand svg { width: 2.2rem; height: 2.2rem; flex: none; }
+.brand span { font: 400 1.75rem/0.95 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em; }
+.brand small { display: block; font: 500 0.875rem/1.2 var(--font-body); text-transform: none; letter-spacing: 0; color: var(--color-ink-2); margin-top: 0.15rem; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); }
+.nav .btn { min-height: 2.75rem; }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 440px) { .nav .btn .long { display: none; } .brand span { font-size: 1.5rem; } .brand small { display: none; } }
+
+/* hero */
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: center; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero__art { grid-column: 8 / span 5; position: relative; padding-bottom: 5.5rem; }
+.hero h1 { margin-block: var(--space-md) var(--space-lg); }
+.hero__lede { font-size: 1.25rem; max-width: 33rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 0.75rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); max-width: 33rem; }
+.rating .num { font: 400 3rem/1 var(--font-display); }
+.stars { display: inline-flex; gap: 2px; }
+.stars svg { width: 1.05rem; height: 1.05rem; }
+.copy { padding: 14px 14px 0; }
+.copy img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.copy figcaption { font: 500 var(--text-sm)/1.35 var(--font-body); padding: 0.7rem 0 0.8rem; }
+.hero__art .copy { --r: 1.4deg; }
+.hero__art .tag { position: absolute; left: -1.5rem; bottom: 0.3rem; --r: -3deg; padding: 0.9rem 1.2rem; font: 400 2.4rem/0.95 var(--font-display); text-transform: uppercase; box-shadow: var(--shadow-sheet); }
+@media (max-width: 860px) { .hero__copy, .hero__art { grid-column: 1 / -1; } .hero__art { max-width: 28rem; } .hero__art .tag { left: 0; } }
+
+/* reviews: wall of sheets */
+.wall { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: start; }
+.wall .score { grid-column: 1 / span 4; padding: var(--space-md) var(--space-lg) var(--space-lg); --r: -1.5deg; display: grid; gap: 0.3rem; }
+.wall .score .big { font: 400 clamp(7rem, 4rem + 11vw, 12rem)/0.85 var(--font-display); }
+.wall .score .unit { font: 500 1.125rem/1.35 var(--font-body); }
+.quotes { grid-column: 5 / span 8; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin: 0; padding: 0; }
+.quotes li { list-style: none; padding: var(--space-md); background: var(--color-paper-3); box-shadow: var(--shadow-card); display: grid; gap: 0.7rem; align-content: start; }
+.quotes li:nth-child(4) { grid-column: 1 / -1; }
+.quotes blockquote { margin: 0; font-size: 1.125rem; }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink-2); display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.quotes .who b { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .wall .score, .quotes { grid-column: 1 / -1; } .wall .score { max-width: 22rem; } }
+@media (max-width: 620px) { .quotes { grid-template-columns: 1fr; } }
+
+/* services: bento of sheets */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); margin: 0; padding: 0; }
+.svc li { list-style: none; background: var(--color-paper-3); box-shadow: var(--shadow-card); padding: var(--space-md); display: grid; gap: 0.5rem; align-content: start; grid-template-rows: auto auto 1fr; }
+.svc li:nth-child(2) { --r: 0.6deg; rotate: var(--r); }
+.svc li:nth-child(5) { --r: -0.6deg; rotate: var(--r); }
+.svc svg { width: 3rem; height: 3rem; color: var(--color-ink); margin-bottom: 0.2rem; }
+@media (max-width: 860px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .svc { grid-template-columns: 1fr; } }
+
+/* how: steps + typed list */
+.how { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.steps { grid-column: 1 / span 5; margin: 0; padding: 0; display: grid; gap: var(--space-md); }
+.steps li { list-style: none; display: grid; grid-template-columns: 4.5rem 1fr; gap: var(--space-md); align-items: start; border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-sm); }
+.steps .n { font: 400 4rem/0.9 var(--font-display); }
+.typed { grid-column: 7 / span 6; padding: var(--space-md) var(--space-md) var(--space-lg); --r: 1deg; }
+.typed h3 { font: 400 2.2rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: 0.3rem; }
+.typed table { width: 100%; border-collapse: collapse; margin-top: var(--space-sm); }
+.typed th { text-align: left; font: 500 var(--text-sm)/1.3 var(--font-body); border-bottom: 2px solid var(--color-ink); padding: 0.35rem 0; }
+.typed td { border-bottom: var(--rule-hair) solid var(--color-rule-2); padding: 0.5rem 0; vertical-align: baseline; }
+.typed td:first-child { font: 400 1.5rem/1 var(--font-display); text-transform: uppercase; width: 5.2rem; white-space: nowrap; }
+.typed tfoot td { border-bottom: 0; border-top: 2px solid var(--color-ink); font-weight: 500; }
+.typed tfoot td:first-child { font-size: 1.5rem; }
+@media (max-width: 860px) { .steps, .typed { grid-column: 1 / -1; } }
+
+/* toner band */
+.toner { background: var(--color-ink); color: var(--color-paper); padding-block: var(--space-2xl); }
+.toner p { font: 400 var(--text-section)/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; max-width: 56rem; }
+
+/* work */
+.work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); align-items: start; }
+.work .copy:nth-child(1) { --r: -1deg; }
+.work .copy:nth-child(3) { --r: 1.2deg; }
+.work .copy img { aspect-ratio: 4 / 3; }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; max-width: 30rem; } }
+
+/* about + area */
+.two { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.two > :first-child { grid-column: 1 / span 6; }
+.two > :last-child { grid-column: 8 / span 5; }
+.two p + p { margin-top: var(--space-sm); }
+.towns { margin: 0; padding: var(--space-md) var(--space-md) var(--space-sm); }
+.towns ul { margin: var(--space-sm) 0 0; padding: 0; }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.55rem; border-bottom: var(--rule-hair) solid var(--color-rule-2); }
+.towns li span:last-child { font: 400 1.5rem/1 var(--font-display); text-transform: uppercase; white-space: nowrap; }
+.towns h3 { font: 400 2.2rem/1 var(--font-display); text-transform: uppercase; }
+@media (max-width: 860px) { .two > * { grid-column: 1 / -1 !important; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.phone { font: 400 var(--text-display)/0.92 var(--font-display); text-decoration: none; letter-spacing: 0.01em; white-space: nowrap; }
+.hours { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hours dt { font-weight: 500; } .hours dd { margin: 0; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg); display: grid; gap: var(--space-md); box-shadow: 8px 8px 0 var(--color-ink); background: var(--color-paper-3); }
+.form h3 { font: 400 2.6rem/1 var(--font-display); text-transform: uppercase; }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: 0; border: 1px solid var(--color-ink); background: var(--color-paper-3); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3rem; }
+textarea { min-height: 6.5rem; resize: vertical; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); min-height: 1.4em; }
+@media (max-width: 860px) { .contact__call, .form { grid-column: 1 / -1; } }
+@media (max-width: 860px) { .hero__grid, .wall, .how, .two, .contact { grid-template-columns: minmax(0, 1fr); } }
+
+footer { padding-block: var(--space-lg) var(--space-2xl); border-top: var(--rule-hair) solid var(--color-rule); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2.2"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top__in">
+      <a class="brand" href="#top" aria-label="Half Day Handyman, home">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <rect x="2" y="2" width="44" height="44" fill="var(--color-ink)"/>
+          <path d="M12 36l14-14" stroke="var(--color-accent)" stroke-width="5"/>
+          <path d="M22 12h14v8H22z" fill="var(--color-paper-3)" transform="rotate(45 29 16)"/>
+        </svg>
+        <span>Half Day Handyman<small>Waiuku · Gary</small></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#services">The jobs</a>
+        <a href="#how">How it works</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#area">Where</a>
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Handyman · Waiuku and Franklin · Gary</p>
+      <h1>Your list. Half a day. Ticked off.</h1>
+      <p class="hero__lede">Send Gary the jobs that have sat on the fridge for months. He turns up in the morning with the tools, works down the list, and you get the house back by lunch.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Gary</a>
+        <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text your list</a>
+      </div>
+      <div class="rating">
+        <span class="num">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from 41 Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero__art">
+      <figure class="sheet copy" style="margin:0">
+        <img src="img/hero.jpg" width="1024" height="860" alt="An old wooden toolbox with a chisel and a mallet beside it" fetchpriority="high">
+        <figcaption>The toolbox that comes to every job</figcaption>
+      </figure>
+      <div class="sheet sheet--fluoro tag">One list<br>Half a day</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fibre" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Pinned up by the customers</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="wall">
+      <div class="sheet score">
+        <span class="big">4.9</span>
+        <p class="unit">out of 5, from 41 Google reviews</p>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“I sent a list of eight jobs on a Sunday night. Gary did seven of them on the Wednesday and told me straight why the eighth needed a builder.”</blockquote>
+          <p class="who"><b>Linda</b><span>Glenbrook</span><span>· Mixed list</span></p>
+        </li>
+        <li>
+          <blockquote>“Hung four shelves, re-hung two doors, fixed the gate. Level, tidy, and he vacuumed up after himself.”</blockquote>
+          <p class="who"><b>Hemi</b><span>Otaua</span><span>· Shelves and doors</span></p>
+        </li>
+        <li>
+          <blockquote>“Mum's place had a list as long as my arm. One morning and it was all done. She keeps asking when he's back.”</blockquote>
+          <p class="who"><b>Sarah</b><span>Pollok</span><span>· Odd jobs</span></p>
+        </li>
+        <li>
+          <blockquote>“Re-sealed the shower, replaced the tap washers and fixed a deck board that had been catching toes all summer.”</blockquote>
+          <p class="who"><b>Mike</b><span>Awhitu</span><span>· Bathroom and deck</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>The jobs on the list</h2>
+      <p>Small repairs and fix-ups around the house. Anything that needs a licensed trade, Gary will tell you and point you to one.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M6 14h40v5H6z"/><path d="M10 19v7M42 19v7"/><path d="M6 36h40v5H6z"/><path d="M10 41v6M42 41v6"/></svg>
+        <h3>Shelves and hanging</h3>
+        <p>Shelves, mirrors, curtain rails and TVs, fixed level.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M12 5h28v42H12z"/><path d="M12 5l-6 4v38h6"/><circle cx="34" cy="28" r="2.4" fill="currentColor" stroke="none"/><path d="M4 47h44"/></svg>
+        <h3>Doors and locks</h3>
+        <p>Sticking doors re-hung, latches and handles replaced.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M4 22h44"/><path d="M8 22v22M24 22v22M40 22v22"/><path d="M4 32h44"/><path d="M4 44h44"/><path d="M14 22V10M34 22V10"/></svg>
+        <h3>Decks and fences</h3>
+        <p>Loose boards, wonky palings and broken gate latches.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M18 46V14a8 8 0 0 1 16 0"/><path d="M10 8h14"/><path d="M26 26v3M32 30v3M38 26v3M28 36v3M36 38v3" stroke-linecap="butt"/></svg>
+        <h3>Bathroom fix-ups</h3>
+        <p>Re-silicone, tap washers, towel rails and grout touch-ups.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M6 16l20-9 20 9v24l-20 9-20-9z"/><path d="M6 16l20 9 20-9M26 25v24"/></svg>
+        <h3>Flat-pack assembly</h3>
+        <p>Wardrobes, beds, desks and bookcases, built and fixed to the wall.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M8 44L30 22"/><path d="M26 10l10-4 10 10-4 10-6-2-6-6z"/><path d="M5 41l6 6"/></svg>
+        <h3>Everything else</h3>
+        <p>The odd jobs that do not fit anywhere. Ask, he will say yes or no.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How a half day goes</h2>
+      <p>Four steps. You do the first one.</p>
+    </div>
+    <div class="how">
+      <ol class="steps">
+        <li><span class="n">01</span><div><h3>Send the list</h3><p>Text a photo or a few lines. As rough as you like.</p></div></li>
+        <li><span class="n">02</span><div><h3>Pick a morning</h3><p>Gary tells you which morning fits and how long the list will take.</p></div></li>
+        <li><span class="n">03</span><div><h3>Door opens, tools out</h3><p>He starts at the top and works down.</p></div></li>
+        <li><span class="n">04</span><div><h3>Tick, tidy, done</h3><p>You walk round with him, and he sweeps up before he goes.</p></div></li>
+      </ol>
+      <div class="sheet typed">
+        <h3>A half day, typed up</h3>
+        <p class="label">One real-sized list. Four hours, six jobs.</p>
+        <table>
+          <thead><tr><th>Time</th><th>Job on the list</th></tr></thead>
+          <tbody>
+            <tr><td>45 min</td><td>Hang three shelves in the spare room</td></tr>
+            <tr><td>30 min</td><td>Plane the sticking bathroom door</td></tr>
+            <tr><td>25 min</td><td>New latch on the side gate</td></tr>
+            <tr><td>50 min</td><td>Re-silicone the shower</td></tr>
+            <tr><td>40 min</td><td>Fit the curtain rail in the lounge</td></tr>
+            <tr><td>50 min</td><td>Fix four loose deck boards</td></tr>
+          </tbody>
+          <tfoot><tr><td>240 min</td><td>One morning, finished by lunch</td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="toner">
+  <div class="wrap">
+    <p>Half a day. One list. No jobs left on the fridge.</p>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Off the workbench</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="sheet copy" style="margin:0">
+        <img src="img/hammer.jpg" width="820" height="683" loading="lazy" alt="A hammer coming down on a screw beside an adjustable spanner">
+        <figcaption>Loose fixings, tightened properly</figcaption>
+      </figure>
+      <figure class="sheet copy" style="margin:0">
+        <img src="img/post.jpg" width="1024" height="683" loading="lazy" alt="A single nail standing out of a weathered wooden post">
+        <figcaption>The nail that was catching everyone's feet</figcaption>
+      </figure>
+      <figure class="sheet copy" style="margin:0">
+        <img src="img/nails.jpg" width="512" height="683" loading="lazy" alt="A wooden-handled mallet lying on a bench">
+        <figcaption>Gate and deck repairs</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Who turns up</h2>
+    </div>
+    <div class="two">
+      <div>
+        <p>Gary works alone. You get him, not a different pair of hands each time, and he gives you a straight answer about how long the list will take before he starts.</p>
+        <p>He keeps his own ladders, drop sheets and a vacuum in the van. If a job needs a plumber, electrician or builder, he says so on the day and does not guess.</p>
+      </div>
+      <div class="sheet copy" style="padding:var(--space-md);--r:-1deg">
+        <p class="label">What Gary says on the phone</p>
+        <p style="font-size:1.375rem;margin-top:0.4rem">“Send me the list and a photo of the worst one. I will tell you straight away if it is a half day or a whole day.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where he works</h2>
+      <p>Waiuku and the localities around it, plus a run out along the Pukekohe road. Further out by arrangement.</p>
+    </div>
+    <div class="two">
+      <div>
+        <p>Glenbrook, Otaua, Matakawau, Pollok, Awhitu, Orua Bay, Karioitahi and the town centre, and more.</p>
+        <p>Send a photo from anywhere in the area and Gary will say whether it is on his route that week.</p>
+      </div>
+      <div class="sheet towns">
+        <h3>Drive from the yard</h3>
+        <ul>
+          <li><span>Waiuku and localities</span><span>5–15 min</span></li>
+          <li><span>Glenbrook</span><span>10 min</span></li>
+          <li><span>Awhitu</span><span>15 min</span></li>
+          <li><span>Pukekohe</span><span>20 min</span></li>
+          <li><span>Papakura, by arrangement</span><span>35 min</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Send the list</h2>
+      <p>Call or text Gary. A photo of the jobs and a rough list is plenty.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd>7:30 am – 5:00 pm</dd></div>
+          <div><dt>Saturday</dt><dd>Mornings, by booking</dd></div>
+          <div><dt>Reply</dt><dd>Same day</dd></div>
+        </dl>
+      </div>
+      <form class="form" id="quote" novalidate>
+        <h3>The list</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Main job</label>
+            <select id="f-job" name="job"><option>Shelves and hanging</option><option>Doors and locks</option><option>Decks and fences</option><option>Bathroom fix-ups</option><option>Flat-pack assembly</option><option>A list of everything</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">The list, as rough as you like</label><textarea id="f-msg" name="message" placeholder="e.g. 3 shelves, sticking door, gate latch"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send the list</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Half Day Handyman, Waiuku · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Half Day Handyman is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../house-washing/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>36<i class="w"> of </i><i class="s">/</i>50</span><a href="../refrigeration/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Vineyard Row Solar | Solar panel installer in Blenheim (sample site)</title>
+<meta name="description" content="Sample site: a made-up Blenheim solar panel installer, built to show the Lumen style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* lumen: night */
+:root {
+  --color-paper: oklch(12.5% 0.027 290); --color-paper-2: oklch(16% 0.03 290); --color-paper-3: oklch(20% 0.032 290);
+  --color-ink: oklch(96% 0.01 300); --color-ink-2: oklch(85% 0.017 298); --color-muted: oklch(69% 0.026 295);
+  --color-rule: oklch(27% 0.034 290); --color-rule-2: oklch(36% 0.04 292); --rule-blueprint: oklch(96% 0.01 300 / 0.05);
+  --color-accent: oklch(80% 0.15 62); --color-accent-2: oklch(72% 0.15 12); --color-accent-ink: oklch(14% 0.028 290);
+  --color-live: oklch(80% 0.13 155); --color-focus: oklch(80% 0.15 62);
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif; --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: "Geist Mono", ui-monospace, monospace;
+  --radius-card: 10px; --radius-pill: 999px; --rule-hair: 1px;
+  --shadow-card: 0 28px 64px -30px oklch(4% 0.02 290 / 0.8);
+  --tracking-display: -0.015em; --display-weight: 400;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(2.1rem, 1.5rem + 2.4vw, 3.25rem);
+  --text-display-m: clamp(3rem, 1.8rem + 4.2vw, 5rem);
+  --text-display-l: clamp(3.75rem, 2rem + 7vw, 8rem);
+  --dur-micro: 120ms; --dur-long: 700ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 74rem; --gutter: clamp(1rem, 4vw, 2.5rem); --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.55 var(--font-body); font-variant-numeric: tabular-nums; padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: var(--color-accent); color: var(--color-accent-ink); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-rule-2); text-underline-offset: 0.2em; text-decoration-thickness: 1px; transition: text-decoration-color var(--dur-micro); }
+a:hover { text-decoration-color: var(--color-accent); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+h1, h2, h3, nav, label, th, figcaption, .btn { text-transform: lowercase; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: var(--tracking-display); color: var(--color-ink); line-height: 0.98; margin: 0; }
+h2 { font-size: var(--text-display-s); }
+h3 { font-size: 1.65rem; line-height: 1; }
+p { margin: 0; }
+.label { font-size: var(--text-sm); line-height: 1.4; color: var(--color-muted); text-transform: lowercase; }
+.mono { font: 400 0.8125rem/1.5 var(--font-outlier); color: var(--color-ink-2); text-transform: lowercase; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); margin-bottom: var(--space-xl); }
+.section__head p { max-width: 30rem; }
+.band { background: var(--color-paper-2); }
+.well { background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); }
+.band .well { background: var(--color-paper); }
+.blueprint { background-image: linear-gradient(var(--rule-blueprint) 1px, transparent 1px), linear-gradient(90deg, var(--rule-blueprint) 1px, transparent 1px); background-size: 48px 48px; }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem; background: var(--color-paper-3); border-bottom: var(--rule-hair) solid var(--color-rule-2); color: var(--color-ink); font: 400 0.8125rem/1.2 var(--font-body); text-align: center; text-transform: none; }
+.sample b { font-family: var(--font-outlier); font-weight: 400; color: var(--color-accent); text-transform: lowercase; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; white-space: nowrap; border: 0; border-radius: var(--radius-pill); padding: var(--space-sm) var(--space-lg); min-height: 3rem; background: none; color: var(--color-ink); font: 500 1rem/1.2 var(--font-body); text-decoration: none; cursor: pointer; transition: background-color var(--dur-micro); }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
+.btn--secondary { box-shadow: inset 0 0 0 var(--rule-hair) var(--color-rule-2); }
+.btn--secondary:hover { background: var(--color-paper-2); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+.top { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-sm); }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.4rem; height: 2.4rem; flex: none; }
+.brand span { font: 400 1.7rem/0.95 var(--font-display); text-transform: lowercase; }
+.brand small { display: block; font: 400 0.8125rem/1.3 var(--font-body); color: var(--color-muted); }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font-size: var(--text-sm); text-decoration: none; color: var(--color-ink-2); }
+.nav a:not(.btn):hover { text-decoration: underline; text-decoration-color: var(--color-accent); }
+.nav .btn { min-height: 2.75rem; padding-inline: var(--space-md); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1.45rem; } }
+
+/* hero */
+.hero { padding-block: var(--space-2xl) var(--space-xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: end; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero h1 { font-size: var(--text-display-l); margin-block: var(--space-md) var(--space-lg); }
+.verb { display: inline-block; color: var(--color-accent-2); }
+.verb::after { content: ""; display: block; height: var(--rule-hair); background: currentColor; transform-origin: left; animation: draw var(--dur-long) var(--ease-out) both; }
+@keyframes draw { from { transform: scaleX(0); } }
+.hero__lede { font-size: 1.125rem; max-width: 34rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 0.75rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); max-width: 34rem; }
+.rating .big { font: 400 2.75rem/1 var(--font-display); color: var(--color-ink); }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent); }
+.stars svg { width: 0.95rem; height: 0.95rem; }
+.readout { grid-column: 8 / span 5; padding: var(--space-md); display: grid; gap: var(--space-sm); }
+.readout h3 { font-size: 1.35rem; }
+.readout dl { margin: 0; display: grid; }
+.readout dl div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.55rem; border-top: var(--rule-hair) solid var(--color-rule); }
+.readout dt { color: var(--color-muted); font-size: var(--text-sm); text-transform: lowercase; }
+.readout dd { margin: 0; }
+.live { color: var(--color-live); }
+@media (max-width: 860px) { .hero__copy, .readout { grid-column: 1 / -1; } }
+
+/* photographs: violet duotone */
+.photo { margin: 0; }
+.photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-card); border: var(--rule-hair) solid var(--color-rule); background: var(--color-paper-3); }
+.photo--band img { aspect-ratio: 21 / 9; }
+.photo figcaption { margin-top: 0.6rem; font-size: var(--text-sm); color: var(--color-muted); display: flex; justify-content: space-between; gap: 1rem; }
+.photo figcaption .mono { white-space: nowrap; color: var(--color-ink-2); }
+@media (max-width: 560px) { .photo--band img { aspect-ratio: 16 / 9; } }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.score { grid-column: 1 / span 4; padding: var(--space-lg); display: grid; gap: var(--space-xs); }
+.score .fig { font: 400 clamp(6rem, 4rem + 8vw, 10rem)/0.85 var(--font-display); color: var(--color-ink); }
+.quotes { grid-column: 5 / span 8; margin: 0; padding: 0; }
+.quotes li { list-style: none; padding-block: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.5rem; }
+.quotes li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.quotes blockquote { margin: 0; color: var(--color-ink-2); font-size: 1.125rem; }
+.quotes .who { font-size: var(--text-sm); color: var(--color-muted); display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; }
+.quotes .who b { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .score, .quotes { grid-column: 1 / -1; } }
+
+/* services */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); margin: 0; padding: 0; }
+.svc li { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; padding: var(--space-md) var(--space-md) var(--space-lg); }
+.svc svg { width: 2.75rem; height: 2.75rem; color: var(--color-accent); margin-bottom: 0.6rem; }
+.svc p { color: var(--color-ink-2); }
+@media (max-width: 860px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .svc { grid-template-columns: 1fr; } }
+
+/* path diagram */
+.path { padding: var(--space-lg); overflow: hidden; }
+.path svg { width: 100%; height: auto; display: block; }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-lg); margin: var(--space-xl) 0 0; padding: 0; }
+.steps li { list-style: none; border-top: var(--rule-hair) solid var(--color-rule-2); padding-top: var(--space-sm); display: grid; gap: 0.35rem; align-content: start; }
+.steps .n { font: 400 0.8125rem/1 var(--font-outlier); color: var(--color-accent); }
+@media (max-width: 760px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* chart */
+.chart { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-md); }
+.chart__well { grid-column: 1 / span 8; padding: var(--space-md); }
+.chart__well svg { width: 100%; height: auto; display: block; }
+.chart__side { grid-column: 9 / span 4; padding: var(--space-lg); display: grid; gap: var(--space-sm); align-content: space-between; }
+.chart__side .fig { font: 400 clamp(5rem, 3rem + 6vw, 8rem)/0.85 var(--font-display); color: var(--color-ink); }
+.chart__side .fig small { font: 400 0.8125rem/1.5 var(--font-outlier); color: var(--color-muted); margin-left: 0.4rem; }
+@media (max-width: 860px) { .chart__well, .chart__side { grid-column: 1 / -1; } }
+
+.work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+
+.about { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.about__text { grid-column: 1 / span 6; display: grid; gap: var(--space-sm); }
+.rates { grid-column: 7 / span 6; margin: 0; padding: 0; }
+.rates li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.8rem; border-top: var(--rule-hair) solid var(--color-rule); }
+.rates li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.rates span:first-child { color: var(--color-ink); }
+@media (max-width: 860px) { .about__text, .rates { grid-column: 1 / -1; } }
+
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; border-radius: var(--radius-card); border: var(--rule-hair) solid var(--color-rule); }
+.area__list { grid-column: 8 / span 5; display: grid; gap: var(--space-md); }
+.towns { margin: 0; padding: 0; }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-top: var(--rule-hair) solid var(--color-rule); }
+.towns li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: 400 var(--text-display-m)/1 var(--font-display); color: var(--color-ink); text-decoration: none; letter-spacing: 0; }
+.contact__call .phone:hover { color: var(--color-accent); }
+.hours { margin: 0; padding: 0; }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-top: var(--rule-hair) solid var(--color-rule); }
+.hours div:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hours dt { color: var(--color-ink); }
+.hours dd { margin: 0; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg); display: grid; gap: var(--space-md); }
+.form h3 { font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.35rem; }
+.field label { font-size: var(--text-sm); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border: var(--rule-hair) solid var(--color-rule-2); border-radius: var(--radius-card); background: var(--color-paper); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3rem; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--color-focus); outline-offset: 1px; }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%); background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font-size: var(--text-sm); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) {
+  .hero__grid, .reviews, .about, .area, .contact, .chart { grid-template-columns: minmax(0, 1fr); }
+  .hero__grid > *, .reviews > *, .about > *, .area > *, .contact > *, .chart > * { grid-column: 1 / -1; }
+  .contact__call, .form { grid-column: 1 / -1; }
+}
+footer { border-top: var(--rule-hair) solid var(--color-rule); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font-size: var(--text-sm); color: var(--color-muted); }
+@media (prefers-reduced-motion: reduce) { .verb::after { animation: none; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.5 9h9M7.5 12h5.5" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Vineyard Row Solar, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="1" y="1" width="46" height="46" rx="10" fill="var(--color-paper-2)" stroke="var(--color-rule-2)"/>
+        <path d="M9 34 15 14h24l-6 20z" fill="none" stroke="var(--color-ink)" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M13 24h24M22 14l-4 20M31 14l-4 20" stroke="var(--color-ink-2)" stroke-width="1"/>
+        <circle cx="38" cy="10" r="3.5" fill="var(--color-accent)"/>
+      </svg>
+      <span>vineyard row solar<small>Blenheim solar installer · Anna and Dev</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">services</a>
+      <a href="#how">how it goes</a>
+      <a href="#reviews">reviews</a>
+      <a href="#area">area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span class="sr">call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">solar panel installer · blenheim and marlborough</p>
+      <h1>let your roof <span class="verb">earn</span> its keep.</h1>
+      <p class="hero__lede">Anna and Dev design and install solar panels, batteries and car chargers for Marlborough homes. A look at your roof and your power bill, a written design, and one crew on the roof from start to switch-on.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>call anna</a>
+        <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>text a photo of your roof</a>
+      </div>
+      <div class="rating">
+        <span class="big">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from <span class="mono">36</span> google reviews</p>
+        </div>
+      </div>
+    </div>
+    <aside class="well readout" aria-label="Example system readout">
+      <h3>an example system</h3>
+      <dl>
+        <div><dt>panels</dt><dd class="mono">16 on a north roof</dd></div>
+        <div><dt>size</dt><dd class="mono">6.6 kw</dd></div>
+        <div><dt>battery</dt><dd class="mono">10 kwh, optional</dd></div>
+        <div><dt>status</dt><dd class="mono live">generating</dd></div>
+      </dl>
+      <p class="label">An example for this sample, sized in the free design.</p>
+    </aside>
+  </div>
+</section>
+
+<section style="padding-bottom:var(--space-3xl)">
+  <div class="wrap">
+    <figure class="photo photo--band">
+      <img src="img/array.jpg" width="1024" height="618" alt="Rows of solar panels on a flat roof, tilted on frames and running away from the camera" fetchpriority="high" style="object-position:50% 45%">
+      <figcaption><span>Panels on frames, flat roof</span><span class="mono">north-facing</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>what clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="well score">
+        <span class="fig">4.9</span>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <p>out of 5, from <span class="mono">36</span> google reviews</p>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Dev drew up the roof, showed us where the shade from the walnut fell, and didn't oversell. The panels went on in a day and the app showed power coming in before the ladders were down.”</blockquote>
+          <p class="who"><b>Helen</b><span>Witherlea</span><span>· roof solar</span></p>
+        </li>
+        <li>
+          <blockquote>“We added a battery after a winter of outages. Anna explained what it would run in a cut and what it wouldn't. No surprises since.”</blockquote>
+          <p class="who"><b>James</b><span>Renwick</span><span>· battery</span></p>
+        </li>
+        <li>
+          <blockquote>“Charger on the garage wall for the new EV, neat cable run, and they tested it with us before leaving. Tidy people.”</blockquote>
+          <p class="who"><b>Priya</b><span>Springlands</span><span>· car charger</span></p>
+        </li>
+        <li>
+          <blockquote>“Our old inverter died on a Friday. Dev replaced it on the Monday and the panels were back to normal by lunchtime.”</blockquote>
+          <p class="who"><b>Rewi</b><span>Riverlands</span><span>· inverter swap</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>what we install</h2>
+      <p>Residential first, with a few small farm sheds and offices. Every system is designed from your roof and your bill, not a template.</p>
+    </div>
+    <ul class="svc">
+      <li class="well">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M5 24 24 9l19 15"/><path d="M10 40V24M38 40V24M10 40h28"/><path d="M17 22l3-5h10l3 5zM15 28l2-4h14l2 4z"/></svg>
+        <h3>roof solar</h3>
+        <p>Panels sized to your roof and your daytime use.</p>
+      </li>
+      <li class="well">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="6" y="14" width="32" height="20" rx="3"/><path d="M38 20h4v8h-4"/><path d="M12 19v10M18 19v10M24 19v10"/></svg>
+        <h3>batteries</h3>
+        <p>Store the afternoon's power for the evening.</p>
+      </li>
+      <li class="well">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="12" y="6" width="20" height="30" rx="3"/><path d="M22 14l-4 8h6l-4 8"/><path d="M32 20h4a4 4 0 0 1 4 4v10"/><path d="M8 42h28"/></svg>
+        <h3>car chargers</h3>
+        <p>A wall charger run from your switchboard, tested.</p>
+      </li>
+      <li class="well">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="10" y="6" width="28" height="36" rx="3"/><path d="M17 14h14M17 20h8"/><path d="M17 31h14l-3 7M17 31l3 7"/></svg>
+        <h3>inverter swaps</h3>
+        <p>Replace a tired inverter and keep your panels.</p>
+      </li>
+      <li class="well">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M6 36h36"/><path d="M8 30l7-8 6 5 9-13 10 8"/><circle cx="15" cy="22" r="1.5"/><circle cx="21" cy="27" r="1.5"/><circle cx="30" cy="14" r="1.5"/></svg>
+        <h3>monitoring</h3>
+        <p>See what your roof made today, from your phone.</p>
+      </li>
+      <li class="well">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="6"/><path d="M24 6v6M24 36v6M6 24h6M36 24h6M11 11l4 4M33 33l4 4M11 37l4-4M33 15l4-4"/></svg>
+        <h3>system checks</h3>
+        <p>A yearly look at the panels, wiring and output.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band section" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>how a system goes in</h2>
+      <p>Most homes are on the roof for one day. The design takes longer than the install, and that's on purpose.</p>
+    </div>
+    <div class="well path blueprint">
+      <svg viewBox="0 0 900 250" role="img" aria-labelledby="pathT">
+        <title id="pathT">Where the power goes: panels to inverter to switchboard, then to the house first and the grid with what is left over. The battery sits beside the switchboard.</title>
+        <g font-family="Geist Mono, monospace" font-size="13" fill="var(--color-ink-2)" text-anchor="middle">
+          <g fill="var(--color-paper)" stroke="var(--color-rule-2)" stroke-width="1">
+            <rect x="20" y="85" width="140" height="56" rx="8"/><rect x="215" y="85" width="140" height="56" rx="8"/><rect x="410" y="85" width="140" height="56" rx="8"/>
+            <rect x="660" y="30" width="140" height="56" rx="8"/><rect x="660" y="150" width="140" height="56" rx="8"/><rect x="410" y="180" width="140" height="48" rx="8"/>
+          </g>
+          <g stroke="var(--color-accent)" stroke-width="1.5" fill="none">
+            <path d="M160 113H215"/><path d="M355 113H410"/><path d="M550 113H605V58H660"/><path d="M605 113V178H660"/><path d="M480 141V180" stroke-dasharray="3 4"/>
+          </g>
+          <g fill="var(--color-ink)"><text x="90" y="118">panels</text><text x="285" y="118">inverter</text><text x="480" y="118">switchboard</text><text x="730" y="63">your house</text><text x="730" y="183">the grid</text><text x="480" y="209">battery</text></g>
+          <g fill="var(--color-muted)"><text x="90" y="160">dc, on the roof</text><text x="285" y="160">dc to ac</text><text x="480" y="160" dy="2"> </text><text x="730" y="104">used first</text><text x="730" y="224">what's left over</text></g>
+        </g>
+      </svg>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><h3>look</h3><p>Anna checks the roof, the shade and your last twelve bills. Free.</p></li>
+      <li><span class="n">02</span><h3>design</h3><p>A written design with the panel layout, output and what it saves.</p></li>
+      <li><span class="n">03</span><h3>install</h3><p>One crew, usually one day on the roof, a second inside.</p></li>
+      <li><span class="n">04</span><h3>switch on</h3><p>Tested with you, app set up, and a call a month later.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="sun">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>one day of sun</h2>
+      <p>What a roof makes against what a house uses. The surplus at midday is what the battery or the grid takes up.</p>
+    </div>
+    <div class="chart">
+      <div class="well chart__well blueprint">
+        <svg viewBox="0 0 640 300" role="img" aria-labelledby="chT">
+          <title id="chT">Sample day: a curve of solar output rising from 6 am, peaking around midday and fading by 8 pm, over a flatter line of the house's use with a morning and an evening peak.</title>
+          <g font-family="Geist Mono, monospace" font-size="12" fill="var(--color-muted)">
+            <path d="M40 250H620M40 250V20" stroke="var(--color-rule-2)" stroke-width="1" fill="none"/>
+            <path d="M70 250C120 248 160 226 210 150S290 38 330 36 410 80 450 150 540 244 590 250V250H70Z" fill="var(--color-ink-2)" fill-opacity=".14"/>
+            <path d="M70 250C120 248 160 226 210 150S290 38 330 36 410 80 450 150 540 244 590 250" fill="none" stroke="var(--color-ink-2)" stroke-opacity=".6" stroke-width="2"/>
+            <path d="M40 170C80 170 100 100 140 98S190 168 260 172 360 168 430 168 480 90 520 88 580 140 620 170" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
+            <text x="40" y="272">6 am</text><text x="190" y="272">10 am</text><text x="322" y="272">2 pm</text><text x="460" y="272">6 pm</text><text x="580" y="272">10 pm</text>
+            <text x="338" y="30" fill="var(--color-ink-2)">roof output</text>
+            <text x="524" y="80" fill="var(--color-accent)">your use</text>
+          </g>
+        </svg>
+        <p class="label" style="margin-top:.6rem">Illustration for this sample, not a measured day.</p>
+      </div>
+      <div class="well chart__side">
+        <p class="mono">typical 6.6 kw system</p>
+        <p class="fig">6.6<small>kw, 16 panels</small></p>
+        <p class="label">Output climbs from first light, peaks near midday and drops by evening. North-facing panels make the most of the day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>recent installs</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="photo">
+        <img src="img/roof.jpg" width="1024" height="520" alt="Solar panels on a pitched tile roof of a brick house, a chimney beside them">
+        <figcaption><span>Pitched roof, Witherlea</span><span class="mono">12 panels</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/crew.jpg" width="1024" height="768" alt="Two installers working on a panel on a tiled roof, seen from behind">
+        <figcaption><span>Fitting the last panel, Renwick</span><span class="mono">1 day</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/panel.jpg" width="1024" height="683" alt="Close-up of solar cells and the aluminium frame of a panel">
+        <figcaption><span>Panel and frame, up close</span><span class="mono">monocrystalline</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap about">
+    <div class="about__text">
+      <h2>two people, one roof at a time</h2>
+      <p>Anna designs and Dev installs. You deal with the two of them from the first look to the first bill, and nobody new turns up on the day.</p>
+      <p>Designs are written plainly: where the panels go, what size the system is, what it should make and what it will save. If the roof isn't right for solar, we'll say so.</p>
+      <figure class="photo" style="margin-top:var(--space-sm)">
+        <img src="img/field.jpg" width="1024" height="768" alt="Rows of solar panels on a roof under a bright sky, a hill beyond" style="aspect-ratio:16/9">
+        <figcaption><span>Rows of panels at a larger site</span></figcaption>
+      </figure>
+    </div>
+    <ul class="rates">
+      <li><span>design visit</span><span class="mono">free</span></li>
+      <li><span>design back to you</span><span class="mono">2 working days</span></li>
+      <li><span>install</span><span class="mono">1 to 2 days</span></li>
+      <li><span>app and monitoring</span><span class="mono">set up with you</span></li>
+      <li><span>follow-up call</span><span class="mono">after a month</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band section" id="area">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>where we install</h2>
+      <p>Based in Springlands. Blenheim and the Wairau Plains, plus Picton and the sounds by arrangement.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 440" role="img" aria-labelledby="mapT" class="blueprint" style="background-color:var(--color-paper)">
+          <title id="mapT">Sketch of the service area: Blenheim in the middle of the Wairau Plains with the Wairau River, Renwick to the west, Rarangi to the east, and Picton and Seddon marked outside the ring.</title>
+          <g font-family="Geist, sans-serif" fill="var(--color-ink-2)" font-size="15">
+            <path d="M0 40C120 60 200 30 300 70S470 40 600 80" fill="none" stroke="var(--color-rule-2)" stroke-width="1"/>
+            <path d="M40 400C140 360 200 300 270 250S360 190 430 180 520 190 600 150" fill="none" stroke="var(--color-ink-2)" stroke-opacity=".6" stroke-width="2"/>
+            <text x="470" y="140" fill="var(--color-muted)" font-size="13">Wairau River</text>
+            <circle cx="300" cy="215" r="130" fill="none" stroke="var(--color-accent)" stroke-width="1" stroke-dasharray="5 5"/>
+            <text x="270" y="68" fill="var(--color-muted)" font-size="13">about 20 km</text>
+            <circle cx="300" cy="215" r="8" fill="var(--color-accent)"/><text x="316" y="206" font-family="Instrument Serif, serif" font-size="30" fill="var(--color-ink)">blenheim</text>
+            <circle cx="215" cy="236" r="4"/><text x="150" y="260">Renwick</text>
+            <circle cx="365" cy="190" r="4"/><text x="378" y="184">Rarangi</text>
+            <circle cx="268" cy="262" r="4"/><text x="212" y="290">Riverlands</text>
+            <rect x="445" y="38" width="10" height="10" fill="none" stroke="var(--color-ink)"/><text x="462" y="48">Picton, by arrangement</text>
+            <rect x="262" y="392" width="10" height="10" fill="none" stroke="var(--color-ink)"/><text x="280" y="402">Seddon, by arrangement</text>
+            <g transform="translate(550 400)"><path d="M0 -20 L8 8 L0 3 L-8 8 Z" fill="var(--color-ink)"/><text x="0" y="28" font-size="13" text-anchor="middle">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Sketch, not to scale. Brass dot: Blenheim.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Blenheim suburbs: Springlands, Witherlea, Redwoodtown, Riverlands, Burleigh, Grovetown, Mayfield, Renwick, Rapaura and more.</p>
+        <ul class="towns">
+          <li><span>Blenheim</span><span class="mono">0–10 km</span></li>
+          <li><span>Renwick</span><span class="mono">12 km</span></li>
+          <li><span>Rarangi</span><span class="mono">13 km</span></li>
+          <li><span>Seddon</span><span class="mono">33 km</span></li>
+          <li><span>Picton</span><span class="mono">29 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>get a design</h2>
+      <p>Call or text Anna. Send a photo of your roof and your last power bill and she'll book the look.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>mon–fri</dt><dd class="mono">8:00 am – 5:00 pm</dd></div>
+          <div><dt>saturday</dt><dd class="mono">design visits, by booking</dd></div>
+          <div><dt>design back</dt><dd class="mono">within 2 working days</dd></div>
+        </dl>
+      </div>
+      <form class="well form" id="quote" novalidate>
+        <h3>design request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">job</label>
+            <select id="f-job" name="job">
+              <option>Roof solar</option><option>Battery</option><option>Car charger</option><option>Inverter swap</option><option>Monitoring</option><option>System check</option><option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">roof type and anything we should know</label><textarea id="f-msg" name="message" placeholder="e.g. tile roof facing north, one big tree on the west side"></textarea></div>
+        <button class="btn btn--primary" type="submit">send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Vineyard Row Solar, Blenheim · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Vineyard Row Solar is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../plasterer/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>32<i class="w"> of </i><i class="s">/</i>50</span><a href="../rubbish-removal/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

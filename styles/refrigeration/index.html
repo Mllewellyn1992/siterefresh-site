@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Coldfront Refrigeration | Refrigeration engineer in Gore (sample site)</title>
+<meta name="description" content="Sample site: a made-up Gore refrigeration engineer, built to show the Piste style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(98.5% 0.005 260); --color-paper-2: oklch(95.5% 0.008 260); --color-paper-3: oklch(91% 0.01 260);
+  --color-ink: oklch(16% 0.012 260); --color-ink-2: oklch(30% 0.014 260); --color-muted: oklch(48% 0.016 260);
+  --color-rule: oklch(88% 0.01 260);
+  --color-accent: oklch(52% 0.25 265); --color-accent-deep: oklch(40% 0.2 266); --color-accent-ink: oklch(98.5% 0.004 260); --color-focus: oklch(58% 0.22 28);
+  --color-field: var(--color-accent);
+  --font-display: "Barlow Condensed", ui-sans-serif, sans-serif; --font-body: "Barlow", ui-sans-serif, sans-serif; --font-outlier: var(--font-display);
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 2px;
+  --shadow-card: none; --tracking-display: -0.005em; --display-weight: 800;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 1rem; --text-body: 1.125rem;
+  --text-display-s: clamp(2rem, 1.4rem + 2.2vw, 3.2rem);
+  --text-display: clamp(3.4rem, 1.8rem + 5.6vw, 6.4rem);
+  --text-hero: clamp(3.6rem, 1.6rem + 7.6vw, 8rem);
+  --dur-micro: 120ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem); --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.5 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: color-mix(in oklab, var(--color-accent) 30%, transparent); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-underline-offset: 0.18em; }
+a:hover { color: var(--color-accent); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: var(--tracking-display); line-height: 1; color: var(--color-ink); margin: 0; }
+h1 { font-size: var(--text-hero); line-height: 0.92; }
+h2 { font-size: var(--text-display-s); }
+h3 { font-size: 1.5rem; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.fig { font: 800 var(--text-display)/0.9 var(--font-display); color: var(--color-accent); font-variant-numeric: tabular-nums; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { border-top: var(--rule-bar) solid var(--color-ink); padding-top: var(--space-md); margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 32rem; }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding-inline: 1rem; background: var(--color-ink); color: var(--color-paper); font: 500 0.875rem/1.2 var(--font-body); text-align: center; }
+.sample b { font: 800 0.9rem/1 var(--font-display); text-transform: uppercase; background: var(--color-accent); color: var(--color-accent-ink); padding: 0.18rem 0.5rem; }
+@media (max-width: 480px) { .sample { font-size: 0.8125rem; } .sample b { display: none; } }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; min-height: 52px; padding: 0 var(--space-lg); border: 0; border-radius: 0; cursor: pointer; text-decoration: none; white-space: nowrap;
+  font: 800 1.125rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0; transition: background var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out); }
+.btn svg { width: 1.2em; height: 1.2em; flex: none; }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
+.btn--primary:hover { background: var(--color-accent-deep); color: var(--color-accent-ink); }
+.btn--primary:active { background: var(--color-ink); }
+.btn--secondary { background: none; box-shadow: inset 0 0 0 var(--rule-bar) var(--color-ink); color: var(--color-ink); }
+.btn--secondary:hover { background: var(--color-paper-2); color: var(--color-ink); }
+.btn--on-field { background: var(--color-paper); color: var(--color-ink); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+.top { border-bottom: var(--rule-bar) solid var(--color-ink); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.4rem; height: 2.4rem; flex: none; }
+.brand span { font: 800 1.6rem/0.95 var(--font-display); text-transform: uppercase; }
+.brand small { display: block; font: 500 0.875rem/1.3 var(--font-body); text-transform: none; color: var(--color-muted); margin-top: 0.15rem; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); text-decoration: none; }
+.nav a:not(.btn):hover { text-decoration: underline; }
+.nav .btn { min-height: 46px; padding-inline: var(--space-md); }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 440px) { .nav .btn .long { display: none; } .brand small { display: none; } }
+
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: end; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero__photo { grid-column: 8 / span 5; }
+.hero h1 { margin-block: var(--space-md) var(--space-lg); }
+.hero__lede { font-size: 1.25rem; max-width: 33rem; margin-bottom: var(--space-lg); color: var(--color-ink-2); }
+.rating { display: flex; align-items: center; gap: 0.9rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-bar) solid var(--color-ink); max-width: 33rem; }
+.rating .fig { font-size: 3rem; line-height: 1; }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent); }
+.stars svg { width: 1.05rem; height: 1.05rem; }
+.photo { margin: 0; }
+.photo img { width: 100%; object-fit: cover; outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; background: var(--color-paper-3); }
+.photo--sq img { aspect-ratio: 1 / 1; }
+.photo--43 img { aspect-ratio: 4 / 3; }
+.photo figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); margin-top: 0.6rem; display: flex; justify-content: space-between; gap: 1rem; }
+.photo figcaption .t { font: 800 1.1rem/1 var(--font-display); color: var(--color-accent); white-space: nowrap; }
+@media (max-width: 860px) { .hero__copy, .hero__photo { grid-column: 1 / -1; } }
+
+/* lift board: figure row */
+.board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--rule-bar) solid var(--color-ink); }
+.board > div { padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; display: grid; gap: 0.5rem; align-content: start; }
+.board > div + div { padding-left: var(--space-lg); border-left: var(--rule-hair) solid var(--color-rule); }
+.board .fig { font-size: clamp(3.6rem, 2rem + 6vw, 7rem); }
+.board .fig small { font-size: 0.45em; margin-left: 0.1em; }
+@media (max-width: 700px) { .board { grid-template-columns: 1fr; } .board > div, .board > div + div { padding: var(--space-md) 0; border-left: 0; border-bottom: var(--rule-hair) solid var(--color-rule); } }
+
+/* field band */
+.field-band { background: var(--color-field); color: var(--color-accent-ink); }
+.field-band .wrap { padding-block: var(--space-3xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: end; }
+.statement { grid-column: 1 / span 8; font: 800 var(--text-display)/0.95 var(--font-display); text-transform: uppercase; color: var(--color-accent-ink); margin: 0; }
+.field-band .note { grid-column: 9 / span 4; color: var(--color-accent-ink); }
+@media (max-width: 860px) { .field-band .wrap { grid-template-columns: minmax(0, 1fr); } .statement, .field-band .note { grid-column: 1 / -1; } }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.score { grid-column: 1 / span 4; border-top: var(--rule-bar) solid var(--color-ink); padding-top: var(--space-md); display: grid; gap: 0.4rem; }
+.score .fig { font-size: clamp(7rem, 4rem + 11vw, 12rem); line-height: 0.82; }
+.quotes { grid-column: 6 / span 7; margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.quotes li { list-style: none; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.5rem; }
+.quotes blockquote { margin: 0; font-size: 1.1875rem; color: var(--color-ink); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.quotes .who b { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .reviews { grid-template-columns: minmax(0, 1fr); } .score, .quotes { grid-column: 1 / -1; } }
+
+/* services */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.svc li { list-style: none; padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.5rem; align-content: start; grid-template-rows: auto auto 1fr; }
+.svc li:not(:nth-child(3n+1)) { padding-left: var(--space-lg); }
+.svc li:not(:nth-child(3n)) { border-right: var(--rule-hair) solid var(--color-rule); }
+.svc svg { width: 3.25rem; height: 3.25rem; color: var(--color-accent); margin-bottom: 0.3rem; }
+@media (max-width: 860px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svc li, .svc li:not(:nth-child(3n+1)) { padding: var(--space-md) var(--space-md) var(--space-md) 0; border-right: 0; }
+  .svc li:nth-child(even) { padding-left: var(--space-md); border-left: var(--rule-hair) solid var(--color-rule); } }
+@media (max-width: 520px) { .svc { grid-template-columns: 1fr; } .svc li, .svc li:nth-child(even) { padding: var(--space-md) 0; border-left: 0; } }
+
+/* how */
+.band2 { background: var(--color-paper-2); }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 0; gap: var(--space-lg); }
+.steps li { list-style: none; border-top: var(--rule-bar) solid var(--color-ink); padding-top: var(--space-sm); display: grid; gap: 0.4rem; align-content: start; }
+.steps .n { font: 800 clamp(3rem, 2rem + 3vw, 4.5rem)/0.9 var(--font-display); color: var(--color-accent); }
+@media (max-width: 860px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .steps { grid-template-columns: 1fr; } }
+.triage { margin-top: var(--space-2xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.triage__head { grid-column: 1 / span 5; }
+.triage__head h3 { font-size: var(--text-display-s); margin-bottom: 0.6rem; }
+.triage table { grid-column: 6 / span 7; width: 100%; border-collapse: collapse; }
+.triage th { text-align: left; font: 500 var(--text-sm)/1.3 var(--font-body); border-bottom: var(--rule-bar) solid var(--color-ink); padding: 0.5rem 0; }
+.triage td { border-bottom: var(--rule-hair) solid var(--color-rule); padding: 0.65rem 0; vertical-align: baseline; }
+.triage td:first-child { font: 800 1.5rem/1 var(--font-display); text-transform: uppercase; color: var(--color-accent); width: 7rem; white-space: nowrap; }
+@media (max-width: 860px) { .triage { grid-template-columns: minmax(0, 1fr); } .triage__head, .triage table { grid-column: 1 / -1; } }
+
+.work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+
+.two { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.two > :first-child { grid-column: 1 / span 6; }
+.two > :last-child { grid-column: 8 / span 5; }
+.two p + p { margin-top: var(--space-sm); }
+.towns { margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+.towns li span:last-child { font: 800 1.25rem/1 var(--font-display); color: var(--color-accent); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 860px) { .two { grid-template-columns: minmax(0, 1fr); } .two > * { grid-column: 1 / -1 !important; } }
+
+/* contact: ticket desk */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.phone { font: 800 var(--text-display)/0.92 var(--font-display); color: var(--color-accent); text-decoration: none; white-space: nowrap; }
+.phone:hover { color: var(--color-accent-deep); }
+.hours { margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 500; } .hours dd { margin: 0; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg); display: grid; gap: var(--space-md); background: var(--color-paper-2); }
+.form h3 { font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: 0; border: 1px solid var(--color-ink); background: var(--color-paper); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 52px; }
+textarea { min-height: 6.5rem; resize: vertical; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } .contact__call, .form { grid-column: 1 / -1; } }
+
+footer { border-top: var(--rule-bar) solid var(--color-ink); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2.4"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Coldfront Refrigeration, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="2" y="2" width="44" height="44" fill="var(--color-accent)"/>
+        <path d="M24 9v30M10 16l28 16M10 32l28-16" stroke="var(--color-accent-ink)" stroke-width="3.2" fill="none"/>
+      </svg>
+      <span>Coldfront Refrigeration<small>Gore · Dan</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">What we fix</a>
+      <a href="#how">How a callout goes</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Refrigeration engineer · Gore and Southland · Dan</p>
+      <h1>Cold again by tonight.</h1>
+      <p class="hero__lede">Cool rooms, display fridges, freezers and heat pumps for cafés, shops, farms and homes across Gore. Dan answers the phone, tells you what to do while he is on the way, and brings the parts to fix it.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Dan</a>
+        <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="fig">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from 36 Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <figure class="photo photo--sq hero__photo">
+      <img src="img/hero.jpg" width="553" height="542" alt="A row of white outdoor condenser units mounted on a wall beside a glass building" fetchpriority="high">
+      <figcaption><span>Outdoor units, serviced and logged</span><span class="t">4 units</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="board">
+      <div><span class="fig">4<small>°C</small></span><p><b>Chiller ceiling.</b> Food in a cool room stays at 4 degrees or under. Dan checks it on every visit.</p></div>
+      <div><span class="fig">−18<small>°C</small></span><p><b>Freezer holding.</b> The temperature a working freezer should hold, and what Dan sets it back to.</p></div>
+      <div><span class="fig">24<small>/7</small></span><p><b>Breakdown line.</b> Same phone, any hour. Dan decides if it can wait until morning.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="field-band">
+  <div class="wrap">
+    <p class="statement">Fridge down? Shut the door and ring Dan.</p>
+    <p class="note">Every door left open lets the cold out. Dan will tell you what to move, what to bin and what to leave while he drives over.</p>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What customers say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="score">
+        <span class="fig">4.9</span>
+        <p class="label" style="color:var(--color-ink-2)">out of 5, from 36 Google reviews</p>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Our display fridge died on a Saturday morning with the café full. Dan talked me through moving the stock, was here within the hour and had it cold again by closing.”</blockquote>
+          <p class="who"><b>Jess</b><span>Gore</span><span>· Café fridge</span></p>
+        </li>
+        <li>
+          <blockquote>“Fixed the cool room compressor on the farm shop and showed me the temperature log. Straight answers, no upsell.”</blockquote>
+          <p class="who"><b>Tom</b><span>Mataura</span><span>· Cool room</span></p>
+        </li>
+        <li>
+          <blockquote>“Our heat pump had stopped heating. He found a blocked drain line in ten minutes and cleaned the filters while he was here.”</blockquote>
+          <p class="who"><b>Maria</b><span>Mandeville</span><span>· Heat pump</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What Dan fixes</h2>
+      <p>Commercial and home refrigeration, plus the heat pumps that run on the same gas and the same pipes.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter" aria-hidden="true"><path d="M6 8h40v38H6z"/><path d="M6 20h40"/><path d="M12 12v4M12 26v8"/><path d="M33 33l4-4M33 29l4 4M35 27v8M31 31h8"/></svg>
+        <h3>Cool rooms</h3>
+        <p>Walk-in chillers and freezers for cafés, butchers and growers.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter" aria-hidden="true"><path d="M8 6h36v40H8z"/><path d="M8 24h36"/><path d="M14 11v8M14 29v10"/></svg>
+        <h3>Fridges and freezers</h3>
+        <p>Upright, under-bench and chest units, repaired where they stand.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter" aria-hidden="true"><path d="M4 22h44M8 14h36v8H8z"/><path d="M14 34l-4 8M26 34v8M38 34l4 8"/></svg>
+        <h3>Heat pumps</h3>
+        <p>Servicing, fault finding and regassing for wall units and ducted systems.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter" aria-hidden="true"><path d="M4 22h44v24H4z"/><path d="M4 22l8-12h28l8 12"/><path d="M12 28v12M20 28v12M28 28v12M36 28v12"/></svg>
+        <h3>Display cabinets</h3>
+        <p>Shop and café counters, from door seals to fan motors.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter" aria-hidden="true"><path d="M10 6h32v16H10z"/><path d="M14 22v10h24V22"/><path d="M18 38l4 4-4 4M34 38l-4 4 4 4" stroke-linecap="butt"/></svg>
+        <h3>Ice machines</h3>
+        <p>Descaled, cleaned and sanitised, with water and drain checks.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter" aria-hidden="true"><circle cx="26" cy="26" r="20"/><path d="M26 12v14l9 6"/></svg>
+        <h3>Breakdown callouts</h3>
+        <p>One call, a plan before Dan arrives, and parts on the van.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section band2" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How a callout goes</h2>
+      <p>Four steps from the phone call to a stable temperature.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><h3>Call</h3><p>Ring Dan, tell him the make and what it is doing.</p></li>
+      <li><span class="n">02</span><h3>Triage</h3><p>He tells you what to move or keep shut, and gives an arrival time.</p></li>
+      <li><span class="n">03</span><h3>Fix</h3><p>Fault found on site. Common parts come out of the van.</p></li>
+      <li><span class="n">04</span><h3>Check</h3><p>Dan stays until the temperature is holding and writes it on your log.</p></li>
+    </ol>
+    <div class="triage">
+      <div class="triage__head">
+        <h3>Before Dan arrives</h3>
+        <p>The first hour decides how much stock you keep. Do these in order.</p>
+      </div>
+      <table>
+        <thead><tr><th>When</th><th>What to do</th></tr></thead>
+        <tbody>
+          <tr><td>Now</td><td>Shut the door and keep it shut. Do not turn it off at the wall.</td></tr>
+          <tr><td>5 min</td><td>Read the display temperature and write it down with the time.</td></tr>
+          <tr><td>15 min</td><td>Move the most valuable stock to another working fridge or chilly bins.</td></tr>
+          <tr><td>On arrival</td><td>Show Dan the log. He starts with the controller and the compressor.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent jobs</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="photo photo--43">
+        <img src="img/condenser.jpg" width="1024" height="683" loading="lazy" alt="A grey outdoor condenser unit on a lawn beside a brick wall">
+        <figcaption><span>Condenser clean and recheck, Gore</span><span class="t">1 unit</span></figcaption>
+      </figure>
+      <figure class="photo photo--43">
+        <img src="img/fans.jpg" width="1024" height="683" loading="lazy" alt="Two large condenser fans on a rooftop unit with a worker beside it">
+        <figcaption><span>Rooftop fan unit, Mataura</span><span class="t">2 fans</span></figcaption>
+      </figure>
+      <figure class="photo photo--43">
+        <img src="img/panel.jpg" width="1024" height="680" loading="lazy" alt="A grey electrical control cabinet mounted on a concrete wall">
+        <figcaption><span>Controller replaced, cool room</span><span class="t">1 panel</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head"><h2>Who turns up</h2></div>
+    <div class="two">
+      <div>
+        <p>Dan runs Coldfront on his own out of Gore. You get the engineer who answers the phone, not a call centre.</p>
+        <p>The van carries start gear for compressors, fan motors, door seals, controllers and gas. If a part has to be ordered, he tells you how long and what to do in the meantime.</p>
+      </div>
+      <div class="score" style="border-top:var(--rule-bar) solid var(--color-ink)">
+        <p class="label">What Dan says first</p>
+        <p style="font:800 2rem/1.05 var(--font-display);text-transform:uppercase;color:var(--color-ink)">“Keep the door shut. I am on my way.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where Dan works</h2>
+      <p>Gore and Southland. Further out for cool rooms and farm jobs, by arrangement.</p>
+    </div>
+    <div class="two">
+      <div>
+        <p>Gore, East Gore, Charlton, Waimumu, Mataura, Mandeville, Wyndham and the farms around them.</p>
+        <p>Not sure you are in range? Text a photo and the town and Dan will tell you the same day.</p>
+      </div>
+      <ul class="towns">
+        <li><span>Gore</span><span>0–10 min</span></li>
+        <li><span>Mataura</span><span>10 min</span></li>
+        <li><span>Mandeville</span><span>15 min</span></li>
+        <li><span>Wyndham</span><span>25 min</span></li>
+        <li><span>Invercargill, by arrangement</span><span>55 min</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Book a callout</h2>
+      <p>Call for a breakdown. Use the form for servicing and anything that can wait a day.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd>7:30 am – 5:30 pm</dd></div>
+          <div><dt>Breakdowns</dt><dd>Any hour, call</dd></div>
+          <div><dt>Servicing</dt><dd>Booked within the week</dd></div>
+        </dl>
+      </div>
+      <form class="form" id="quote" novalidate>
+        <h3>Callout request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb or town</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">What needs fixing</label>
+            <select id="f-job" name="job"><option>Cool room</option><option>Fridge or freezer</option><option>Heat pump</option><option>Display cabinet</option><option>Ice machine</option><option>Something else</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">What it is doing</label><textarea id="f-msg" name="message" placeholder="e.g. upright freezer reading -8, compressor humming but not cooling"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Coldfront Refrigeration, Gore · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Coldfront Refrigeration is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../handyman/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>37<i class="w"> of </i><i class="s">/</i>50</span><a href="../window-cleaner/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

@@ -1,0 +1,27 @@
+Photos for the Coldfront Refrigeration sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was colour kept, saturation raised slightly, saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Fujitsu Air Conditioners (Open Grid Scheduler / Grid Engine)
+  Source:  https://www.flickr.com/photos/29155878@N03/22290934846
+  File:    https://live.staticflickr.com/5732/22290934846_154202d1f3_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the right of the first unit and the manufacturer labels on the units painted out
+
+condenser.jpg
+  Title:   Air conditioner (Open Grid Scheduler / Grid Engine)
+  Source:  https://www.flickr.com/photos/29155878@N03/20094897922
+  File:    https://live.staticflickr.com/351/20094897922_44b9367022_b.jpg
+  Licence: CC0 1.0
+
+fans.jpg
+  Title:   Repairing a cooling tower motor (wwward0)
+  Source:  https://www.flickr.com/photos/15802578@N00/51693356579
+  File:    https://live.staticflickr.com/65535/51693356579_96cce62bdb_b.jpg
+  Licence: CC0 1.0
+
+panel.jpg
+  Title:   Control panel of cooling tower at NERSC (D Coetzee)
+  Source:  https://www.flickr.com/photos/29507259@N02/6271753962
+  File:    https://live.staticflickr.com/6115/6271753962_750faa5611_b.jpg
+  Licence: CC0 1.0

@@ -1,0 +1,20 @@
+Photos for the Patchline Cabling sample (made-up business). All found on Wikimedia Commons (the source Openverse indexes; Openverse's own API was blocked by a bot check at build time), licence CC0 1.0: no credit required.
+Each was cropped square, converted to a duotone (Terminal paper to accent green, contrast +20) and saved as JPEG quality 80. The hero glyph picture is printed from EthernetSwitch2.jpg (cropped square, brightness levels turned into characters); it is not a file in img/.
+
+patch.jpg
+  Title:   EthernetSwitch2 (Raysonho @ Open Grid Scheduler / Grid Engine)
+  Source:  https://commons.wikimedia.org/wiki/File:EthernetSwitch2.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the left square; also the source of the hero glyph picture
+
+rack.jpg
+  Title:   ESnet Network equipment at NERSC (Derrick Coetzee)
+  Source:  https://commons.wikimedia.org/wiki/File:ESnet_Network_equipment_at_NERSC.jpg
+  Licence: CC0 1.0
+  Note:    cropped square
+
+cable.jpg
+  Title:   EthernetCableGreen2 (Raysonho @ Open Grid Scheduler / Grid Engine)
+  Source:  https://commons.wikimedia.org/wiki/File:EthernetCableGreen2.jpg
+  Licence: CC0 1.0
+  Note:    cropped square

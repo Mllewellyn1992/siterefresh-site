@@ -1,0 +1,34 @@
+Photos for the Roadhold Tyres sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was colour slightly desaturated and contrast raised a little, saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Car tyre (rawpixel)
+  Source:  https://www.rawpixel.com/image/6029793/car-tyre-free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJ3aW50ZXJfdHlyZV9wcm9maWxlX3RyZWFkLWltYWdlLWt5YmNkMGdiLmpwZw.jpg
+  Licence: CC0 1.0
+
+tread.jpg
+  Title:   Project 366 #292: I'm Tyred (comedy_nose)
+  Source:  https://www.flickr.com/photos/23408922@N07/8100216913
+  File:    https://live.staticflickr.com/8054/8100216913_6979e0197e_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped top and bottom
+
+shop.jpg
+  Title:   Project 365 #183: I'm Feeling Tyred (comedy_nose)
+  Source:  https://www.flickr.com/photos/23408922@N07/3681771841
+  File:    https://live.staticflickr.com/3546/3681771841_d7c077e75c_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to the lower left to leave out signs and equipment in the background
+
+rim.jpg
+  Title:   Project 365 #179: Watching The Wheels (comedy_nose)
+  Source:  https://www.flickr.com/photos/23408922@N07/14525354712
+  File:    https://live.staticflickr.com/3835/14525354712_2491b913f8_b.jpg
+  Licence: Public Domain Mark 1.0
+
+field.jpg
+  Title:   Car tyre, tractor rubber (rawpixel)
+  Source:  https://www.rawpixel.com/image/6017407/car-tyre-free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL2ZydGlyZV90cmFjdG9yX3J1YmJlcl9zdHJvbmdtYW4taW1hZ2Uta3liYWdvbjAuanBn.jpg
+  Licence: CC0 1.0

@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Plainwater Bathrooms | Bathroom renovator in Rangiora (sample site)</title>
+<meta name="description" content="Sample site: a made-up Rangiora bathroom renovator, built to show the Editorial style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(97% 0.007 86); --color-paper-2: oklch(94% 0.010 86); --color-paper-3: oklch(91% 0.012 84);
+  --color-ink: oklch(16% 0.012 280); --color-ink-2: oklch(29% 0.011 280); --color-muted: oklch(48% 0.010 75);
+  --color-rule: oklch(85% 0.009 85); --color-rule-2: oklch(64% 0.010 80);
+  --color-accent: oklch(49% 0.130 152); --color-accent-ink: oklch(98% 0.005 88); --color-focus: oklch(52% 0.135 152);
+  --font-display: "Bricolage Grotesque", ui-sans-serif, sans-serif; --font-body: "Source Serif 4", ui-serif, Georgia, serif;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-heavy: 4px; --shadow-card: none;
+  --tracking-display: -0.012em; --display-weight: 800;
+
+  --space-3xs: 0.25rem; --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 3rem; --space-2xl: 4.5rem; --space-3xl: 6.5rem;
+  --text-sm: 0.9375rem; --text-body: 1.125rem; --text-lead: 1.375rem;
+  --text-display-s: clamp(1.75rem, 1.2rem + 2vw, 2.625rem);
+  --text-display: clamp(2.75rem, 1.6rem + 4.2vw, 5rem);
+  --text-hero: clamp(3.25rem, 0.5rem + 11vw, 10rem);
+  --dur-short: 180ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem); --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.55 var(--font-body); font-optical-sizing: auto; font-variant-numeric: oldstyle-nums; padding-top: var(--banner-h); overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+p { margin: 0; }
+::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); }
+a { color: var(--color-ink); text-decoration-line: underline; text-decoration-color: var(--color-rule-2); text-decoration-thickness: 1px; text-underline-offset: 0.2em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+a:hover { text-decoration-color: var(--color-accent); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); font-variation-settings: "wdth" 75, "opsz" 96; letter-spacing: var(--tracking-display); color: var(--color-ink); font-variant-numeric: lining-nums tabular-nums; margin: 0; line-height: 1; }
+h2 { font-size: var(--text-display); }
+h3 { font-size: 1.5rem; }
+small, figcaption, label, th, .nav a, .btn, .tag, .meta { font-family: var(--font-display); font-weight: 500; font-variation-settings: "opsz" 12; }
+.meta, figcaption { font-size: 0.875rem; color: var(--color-muted); line-height: 1.4; }
+.lining { font-family: var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; font-weight: 800; font-variant-numeric: lining-nums tabular-nums; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.opens { border-top: var(--rule-heavy) solid var(--color-ink); padding-top: var(--space-lg); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); margin-bottom: var(--space-xl); }
+.opens p { max-width: 30rem; font-size: 1.0625rem; }
+.standfirst { font: 400 var(--text-lead)/1.3 var(--font-body); color: var(--color-ink); }
+
+/* sample banner */
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 60; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem; background: var(--color-ink); color: var(--color-paper); font: 500 0.8125rem/1.2 var(--font-display); font-variation-settings: "opsz" 12; text-align: center; }
+.sample b { color: oklch(78% 0.14 152); font-weight: 600; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+/* controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; min-height: 48px; padding: 0 var(--space-lg); border: var(--rule-hair) solid var(--color-ink); border-radius: 0; cursor: pointer; text-decoration: none; white-space: nowrap; font-size: 1rem; line-height: 1; transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
+.btn svg { width: 1.1em; height: 1.1em; flex: none; }
+.btn--primary { background: var(--color-ink); color: var(--color-paper); }
+.btn--primary:hover { background: var(--color-ink-2); }
+.btn--secondary { background: none; color: var(--color-ink); }
+.btn--secondary:hover { background: var(--color-paper-2); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.tag { display: inline-block; background: var(--color-accent); color: var(--color-accent-ink); padding: var(--space-3xs) var(--space-xs); font-size: 0.8125rem; line-height: 1.3; }
+
+/* header */
+.top { border-bottom: var(--rule-heavy) solid var(--color-ink); }
+.top__in { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--space-md); padding-block: var(--space-md); }
+.top__in .meta { color: var(--color-muted); }
+.brand { font: 800 clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem)/1 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; letter-spacing: var(--tracking-display); text-decoration: none; color: var(--color-ink); text-align: center; }
+.brand:hover { color: var(--color-ink); }
+.nav { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-lg); }
+.nav a:not(.btn) { font-size: var(--text-sm); text-decoration-color: transparent; white-space: nowrap; }
+.nav a:not(.btn):hover { text-decoration-color: var(--color-accent); }
+.nav .btn { min-height: 44px; padding-inline: var(--space-md); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+@media (min-width: 521px) { .nav .btn .sr { display: none; } }
+@media (max-width: 1100px) { .top__in .meta { display: none; } .top__in { grid-template-columns: auto 1fr; } .brand { text-align: left; } }
+@media (max-width: 900px) { .nav a:not(.btn), .top__in .meta { display: none; } .top__in { grid-template-columns: 1fr auto; } .brand { text-align: left; } }
+@media (max-width: 520px) { .nav .btn .long { display: none; } }
+
+/* hero */
+.hero { padding-block: var(--space-xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: center; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero__cover { grid-column: 8 / span 5; position: relative; margin: 0; }
+.hero h1 { font-size: var(--text-hero); line-height: 0.88; margin-bottom: var(--space-md); }
+.hero .standfirst { max-width: 30rem; margin-bottom: var(--space-lg); }
+.facts { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; border-top: var(--rule-heavy) solid var(--color-ink); margin-bottom: var(--space-lg); max-width: 34rem; }
+.facts div { padding: var(--space-sm) var(--space-lg) 0 0; }
+.facts div + div { border-left: var(--rule-hair) solid var(--color-rule); padding-left: var(--space-md); }
+.facts .lining { font-size: 1.75rem; color: var(--color-ink); display: block; line-height: 1.1; }
+.facts small { color: var(--color-muted); font-size: 0.875rem; }
+.rating { display: flex; align-items: center; gap: var(--space-sm); margin-top: var(--space-lg); }
+.rating .lining { font-size: 2.5rem; color: var(--color-ink); line-height: 1; }
+.stars { display: inline-flex; gap: 2px; color: var(--color-ink); }
+.stars svg { width: 0.95rem; height: 0.95rem; }
+.photo { margin: 0; }
+.photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; background: var(--color-paper-3); }
+.photo figcaption { margin-top: 0.6rem; display: flex; justify-content: space-between; gap: var(--space-sm); }
+.hero__cover .scrim { position: absolute; inset: auto 0 0 0; padding: 5rem var(--space-md) var(--space-md); background: linear-gradient(to top, color-mix(in oklab, var(--color-ink) 82%, transparent), transparent); color: var(--color-paper); pointer-events: none; }
+.hero__cover .scrim .lining { color: var(--color-paper); font-size: clamp(2rem, 1.4rem + 2vw, 3rem); line-height: 0.95; display: block; margin-top: 0.4rem; }
+@media (max-width: 900px) { .hero__copy, .hero__cover { grid-column: 1 / -1; } .facts { grid-template-columns: repeat(3, 1fr); } }
+
+/* reviews */
+.rev { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: start; }
+.rev__fig { grid-column: 1 / span 4; }
+.rev__fig .lining { font-size: clamp(6rem, 3rem + 10vw, 11rem); line-height: 0.82; color: var(--color-ink); }
+.quotes { grid-column: 5 / span 8; margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.quotes li { list-style: none; display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: var(--space-md); padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.quotes .who { font-family: var(--font-display); font-weight: 500; font-variation-settings: "opsz" 12; font-size: 0.9375rem; line-height: 1.35; color: var(--color-muted); }
+.quotes .who b { display: block; color: var(--color-ink); font-weight: 500; }
+.quotes blockquote { margin: 0; font-style: italic; color: var(--color-ink); font-size: 1.1875rem; line-height: 1.4; }
+@media (max-width: 860px) { .rev__fig, .quotes { grid-column: 1 / -1; } .quotes li { grid-template-columns: 1fr; gap: 0.4rem; } }
+
+/* services as contents rows */
+.rows { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.rows li { list-style: none; display: grid; grid-template-columns: 3.5rem minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-md) var(--space-lg); align-items: center; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.rows svg { width: 3.25rem; height: 3.25rem; color: var(--color-ink); }
+.rows h3 { font-size: clamp(1.75rem, 1.3rem + 1.4vw, 2.5rem); }
+.rows p { font-size: 1.0625rem; }
+@media (max-width: 760px) { .rows li { grid-template-columns: 3rem minmax(0, 1fr); } .rows li p { grid-column: 2; } .rows svg { width: 2.75rem; height: 2.75rem; } }
+
+/* ink band with steps and the section drawing */
+.band--ink { background: var(--color-ink); color: var(--color-paper); }
+.band--ink h2, .band--ink h3 { color: var(--color-paper); }
+.band--ink .opens { border-top-color: var(--color-paper); }
+.band--ink .meta { color: oklch(78% 0.010 80); }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0 0 var(--space-xl); padding: 0; }
+.steps li { list-style: none; padding: 0 var(--space-md); display: grid; gap: 0.5rem; align-content: start; }
+.steps li:first-child { padding-left: 0; }
+.steps li + li { border-left: var(--rule-hair) solid oklch(40% 0.01 280); }
+.steps .lining { font-size: var(--text-display); line-height: 0.9; color: var(--color-paper); }
+.steps p { font-size: 1rem; color: oklch(86% 0.008 80); }
+@media (max-width: 760px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-lg); } .steps li:nth-child(3) { padding-left: 0; border-left: 0; } }
+.spec { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: start; background: var(--color-paper-2); color: var(--color-ink-2); padding: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule-2); }
+.spec__draw { grid-column: 1 / span 7; margin: 0; }
+.spec__draw svg { width: 100%; height: auto; display: block; }
+.spec__list { grid-column: 8 / span 5; }
+.spec__list h3 { color: var(--color-ink); margin-bottom: var(--space-sm); font-size: 1.75rem; }
+.spec table { width: 100%; border-collapse: collapse; font-size: 1rem; }
+.spec th { text-align: left; font-size: 0.875rem; color: var(--color-muted); padding: 0 0 0.4rem; border-bottom: var(--rule-hair) solid var(--color-rule-2); }
+.spec td { padding: 0.6rem 0; border-bottom: var(--rule-hair) solid var(--color-rule); vertical-align: top; }
+.spec td:first-child { font-family: var(--font-display); font-weight: 500; font-variation-settings: "opsz" 12; color: var(--color-ink); padding-right: var(--space-sm); white-space: nowrap; }
+@media (max-width: 860px) { .spec__draw, .spec__list { grid-column: 1 / -1; } .spec { padding: var(--space-md); } }
+
+/* big pictures */
+.pics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+@media (max-width: 760px) { .pics { grid-template-columns: minmax(0, 1fr); } }
+
+/* about: standfirst as a statement */
+.statement { font: 400 var(--text-display-s)/1.2 var(--font-body); color: var(--color-ink); max-width: 56rem; margin-bottom: var(--space-lg); }
+.about__cols { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); }
+.about__cols p { grid-column: 1 / span 6; }
+.about__cols dl { grid-column: 8 / span 5; margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.about__cols dl div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.about__cols dt { font-family: var(--font-display); font-weight: 500; font-variation-settings: "opsz" 12; color: var(--color-muted); font-size: var(--text-sm); }
+.about__cols dd { margin: 0; color: var(--color-ink); text-align: right; }
+@media (max-width: 860px) { .about__cols p, .about__cols dl { grid-column: 1 / -1; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-paper-2); border-top: var(--rule-hair) solid var(--color-rule-2); }
+.area__list { grid-column: 8 / span 5; }
+.towns { margin: var(--space-md) 0 0; padding: 0; border-top: var(--rule-heavy) solid var(--color-ink); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); }
+.towns .lining { font-size: 1.125rem; color: var(--color-ink-2); white-space: nowrap; }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact: order as a spec sheet */
+.order { background: var(--color-paper-2); border-top: var(--rule-hair) solid var(--color-rule-2); padding: var(--space-lg); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.order__call { grid-column: 1 / span 5; display: grid; gap: var(--space-md); }
+.order__call .phone { font: 800 var(--text-display)/0.95 var(--font-display); font-variation-settings: "wdth" 75, "opsz" 96; font-variant-numeric: lining-nums tabular-nums; color: var(--color-ink); text-decoration: none; letter-spacing: var(--tracking-display); }
+.order__call .phone:hover { text-decoration: underline; text-decoration-color: var(--color-accent); }
+.facts2 { margin: 0; padding: 0; border-top: var(--rule-heavy) solid var(--color-ink); }
+.facts2 div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.facts2 dt { font-family: var(--font-display); font-weight: 500; font-variation-settings: "opsz" 12; color: var(--color-ink); }
+.facts2 dd { margin: 0; text-align: right; }
+.form { grid-column: 7 / span 6; display: grid; gap: var(--space-md); }
+.form h3 { font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.35rem; }
+.field label { font-size: var(--text-sm); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border: var(--rule-hair) solid var(--color-rule-2); border-radius: 0; background: var(--color-paper); font: 400 1.0625rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 52px; transition: border-color var(--dur-short) var(--ease-out); }
+input:focus, select:focus, textarea:focus { border-color: var(--color-ink); outline: 2px solid var(--color-focus); outline-offset: 1px; }
+textarea { min-height: 7rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%); background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-display); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .order__call, .form { grid-column: 1 / -1; } .order { padding: var(--space-md); } }
+
+footer { border-top: var(--rule-heavy) solid var(--color-ink); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-display); font-variation-settings: "opsz" 12; color: var(--color-muted); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <span class="meta">Rangiora · bathrooms only</span>
+    <a class="brand" href="#top" aria-label="Plainwater Bathrooms, home">Plainwater Bathrooms</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#reviews">Reviews</a>
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span class="sr">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="meta" style="margin-bottom:var(--space-sm)">Bathroom renovations · Rangiora and North Canterbury</p>
+      <h1>Bathrooms.</h1>
+      <p class="standfirst">Jo and a crew of three strip, waterproof, tile and fit out bathrooms across Rangiora. One crew from the first demolition to the last silicone bead.</p>
+      <dl class="facts" style="margin-top:0">
+        <div><span class="lining">Free</span><small>measure on site</small></div>
+        <div><span class="lining">Written</span><small>quote, then no surprises</small></div>
+        <div><span class="lining">One</span><small>crew start to finish</small></div>
+      </dl>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Jo</a>
+        <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="lining">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="meta">from <span class="lining" style="font-size:1rem">37</span> Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <figure class="photo hero__cover">
+      <img src="img/hero.jpg" width="683" height="683" alt="A bathroom lined in timber-look tiles, with a shower behind glass, a bath and a floating basin, lit by downlights" fetchpriority="high">
+      <div class="scrim"><span class="tag">Now booking</span><span class="lining">The warm one</span></div>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="opens">
+      <h2>Letters</h2>
+      <p class="meta">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="rev">
+      <div class="rev__fig"><span class="lining">4.9</span><p class="meta" style="margin-top:.8rem">out of 5, from 37 Google reviews</p></div>
+      <ul class="quotes">
+        <li><p class="who"><b>Helen</b>Southbrook · Full bathroom</p><blockquote>“They took our 1970s bathroom back to the studs and gave us a shower we actually fit in. Jo rang when the old floor turned out soft and showed me before fixing it.”</blockquote></li>
+        <li><p class="who"><b>Craig</b>Kingsbury · Ensuite</p><blockquote>“Small ensuite, lots of fiddly tiling. The lines are dead straight and the crew left the rest of the house cleaner than they found it.”</blockquote></li>
+        <li><p class="who"><b>Priya</b>Fernside · Bath to shower</p><blockquote>“Swapped our bath for a walk-in shower for mum. It was done in under three weeks and the price matched the quote exactly.”</blockquote></li>
+        <li><p class="who"><b>Ngaire</b>Oxford · Vanity and floor</p><blockquote>“Only a new vanity and floor, but they treated it like a whole job. Turned up when they said and answered every message the same day.”</blockquote></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="opens">
+      <h2>Inside the bathroom</h2>
+      <p>Everything from a new vanity to a full strip-out. Each job is measured by Jo and priced in writing.</p>
+    </div>
+    <ul class="rows">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M6 24h40v6a14 14 0 0 1-14 14H20A14 14 0 0 1 6 30z"/><path d="M12 24V12a6 6 0 0 1 12 0"/><path d="M14 44l-2 4M38 44l2 4"/></svg>
+        <h3>Full renovations</h3><p>Strip to the studs, rebuild and fit out, start to finish.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M8 6v40M8 6h20"/><path d="M28 6v8"/><path d="M20 20c0-3 4-3 4 0M28 22c0-3 4-3 4 0M36 20c0-3 4-3 4 0" stroke-dasharray="2 4"/><path d="M8 46h36"/><path d="M30 46v-12h14v12"/></svg>
+        <h3>Showers and wet rooms</h3><p>Walk-in showers with a fall to the drain and glass that fits.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><rect x="6" y="6" width="18" height="18"/><rect x="28" y="6" width="18" height="18"/><rect x="6" y="28" width="18" height="18"/><rect x="28" y="28" width="18" height="18"/><path d="M6 6l18 18M28 28l18 18"/></svg>
+        <h3>Tiling</h3><p>Floors and walls laid on a waterproof base, grout lines kept even.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M4 22h44v8H4z"/><path d="M8 30v14h36V30"/><path d="M12 30v14M26 30v14"/><path d="M30 22v-8a6 6 0 0 1 12 0"/></svg>
+        <h3>Vanities and storage</h3><p>Made to fit your wall, with a basin and a tap that suit it.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M26 6c8 10 12 16 12 22a12 12 0 0 1-24 0c0-6 4-12 12-22z"/><path d="M20 30a6 6 0 0 0 6 6"/></svg>
+        <h3>Waterproofing</h3><p>A membrane across the floor and up the walls before any tile goes on.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M8 10h36v32H8z"/><path d="M8 20h36"/><path d="M16 15h4M24 15h4"/><path d="M16 30h20M16 36h12"/></svg>
+        <h3>Heated floors and fans</h3><p>Underfloor heat, heated rails and quiet extractor fans fitted.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band--ink section" id="how">
+  <div class="wrap">
+    <div class="opens">
+      <h2>How a bathroom goes in</h2>
+      <p class="meta">Most full bathrooms take two to three weeks from strip-out to the last bead of silicone.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="lining">01</span><h3>Measure</h3><p>Jo visits, measures and talks through the layout. Free, about an hour.</p></li>
+      <li><span class="lining">02</span><h3>Strip</h3><p>Everything out to the framing, so we see what's really behind the walls.</p></li>
+      <li><span class="lining">03</span><h3>Seal and tile</h3><p>Membrane first, then tiles, so the water has nowhere to go but the drain.</p></li>
+      <li><span class="lining">04</span><h3>Fit out</h3><p>Vanity, shower, taps and glass, then a clean and a walk-through with you.</p></li>
+    </ol>
+    <div class="spec">
+      <figure class="spec__draw">
+        <svg viewBox="0 0 640 340" role="img" aria-labelledby="secT">
+          <title id="secT">Section through a shower floor: tile on adhesive, a waterproof membrane turned up the wall, screed laid to fall towards the drain, over the slab.</title>
+          <g font-family="Bricolage Grotesque, sans-serif" font-weight="500" font-size="15" fill="#1b1b22" stroke="none">
+            <path d="M60 268H580V300H60z" fill="oklch(85% 0.009 85)" stroke="#1b1b22" stroke-width="2"/>
+            <path d="M60 232L330 252V268H60z" fill="oklch(91% 0.012 84)" stroke="#1b1b22" stroke-width="2"/>
+            <path d="M580 232L350 252V268H580z" fill="oklch(91% 0.012 84)" stroke="#1b1b22" stroke-width="2"/>
+            <path d="M60 232L330 252M580 232L350 252" fill="none" stroke="oklch(49% 0.13 152)" stroke-width="3"/>
+            <path d="M60 214L330 234V248L60 228zM580 214L350 234V248L580 228z" fill="oklch(97% 0.007 86)" stroke="#1b1b22" stroke-width="2"/>
+            <path d="M60 60V232" stroke="oklch(49% 0.13 152)" stroke-width="3" fill="none"/>
+            <path d="M52 60V214H60" fill="none" stroke="#1b1b22" stroke-width="2"/>
+            <rect x="330" y="236" width="20" height="36" fill="#1b1b22"/>
+            <g stroke="#1b1b22" stroke-width="1.5"><path d="M130 224L130 120M190 252L190 150M470 236L470 120M540 248L540 150" fill="none"/></g>
+            <circle cx="130" cy="224" r="3.5"/><circle cx="190" cy="252" r="3.5"/><circle cx="470" cy="236" r="3.5"/><circle cx="540" cy="248" r="3.5"/>
+            <text x="82" y="108">Tile on adhesive</text>
+            <text x="150" y="140">Membrane, turned up the wall</text>
+            <text x="400" y="108">Screed laid to fall</text>
+            <text x="470" y="140">Slab</text>
+            <text x="318" y="304" text-anchor="middle" font-size="14">Waste</text>
+            <text x="68" y="48" font-size="13" fill="#4a4a50">Wall lining</text>
+          </g>
+        </svg>
+        <figcaption class="meta" style="margin-top:.6rem">Section through a shower floor. Drawing not to scale.</figcaption>
+      </figure>
+      <div class="spec__list">
+        <h3>What goes under the tile</h3>
+        <table>
+          <thead><tr><th>Layer</th><th>Why it's there</th></tr></thead>
+          <tbody>
+            <tr><td>Slab</td><td>Firm, flat and dry before we start.</td></tr>
+            <tr><td>Screed</td><td>Sloped so water runs to the waste, not the door.</td></tr>
+            <tr><td>Membrane</td><td>The waterproofing. Turned up the walls and into the corners.</td></tr>
+            <tr><td>Adhesive and tile</td><td>Laid only once the membrane has cured.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="opens">
+      <h2>Recent bathrooms</h2>
+      <p class="meta">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="pics">
+      <figure class="photo"><img src="img/freestanding.jpg" width="717" height="717" alt="A freestanding oval bath beside a large window, with a glass shower behind"><figcaption><span>Freestanding bath, Fernside</span><span class="lining">Full</span></figcaption></figure>
+      <figure class="photo"><img src="img/compact.jpg" width="768" height="768" alt="A compact white bathroom with a corner bath and a wall-hung vanity"><figcaption><span>Compact bathroom, Southbrook</span><span class="lining">Small</span></figcaption></figure>
+      <figure class="photo"><img src="img/slate.jpg" width="576" height="576" alt="Slate-grey wall and floor tiles in a shower, with a wire caddy holding towels"><figcaption><span>Slate shower, Kingsbury</span><span class="lining">Tile</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="opens"><h2>About Jo</h2></div>
+    <p class="statement">We only do bathrooms, so we've seen what sits behind most of the walls in Rangiora. We tell you what we find, before we fix it.</p>
+    <div class="about__cols">
+      <p>Jo runs a crew of four out of Rangiora. They do the strip-out, framing, waterproofing, tiling and fit-out themselves, so the same people stay with you through the whole job.</p>
+      <dl>
+        <div><dt>Based in</dt><dd>Southbrook, Rangiora</dd></div>
+        <div><dt>Crew</dt><dd>Jo and three</dd></div>
+        <div><dt>Quote</dt><dd>In writing, before we start</dd></div>
+        <div><dt>Typical job</dt><dd>2 to 3 weeks</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <div class="opens">
+      <h2>Where we work</h2>
+      <p>Based in Southbrook. All of Rangiora, plus the towns within about 50 km. Further out for full renovations, by arrangement.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 440" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Rangiora just inland from the coast with a ring taking in Kaiapoi, Amberley, Oxford and Christchurch.</title>
+          <g font-family="Bricolage Grotesque, sans-serif" font-weight="500" fill="#1b1b22">
+            <path d="M600 330 C 540 300, 500 260, 470 215 S 440 120, 470 40 L600 40z" fill="oklch(91% 0.012 84)" opacity=".0"/>
+            <path d="M500 0 C 480 100, 462 160, 450 200 S 425 260, 432 300 S 445 380, 440 440" fill="none" stroke="#1b1b22" stroke-width="3" stroke-dasharray="1 0"/>
+            <text x="525" y="30" font-size="13" fill="#6b6b70">Pegasus Bay</text>
+            <circle cx="400" cy="240" r="190" fill="none" stroke="#1b1b22" stroke-width="1.5" stroke-dasharray="7 6"/>
+            <text x="500" y="378" font-size="13" fill="#4a4a50">about 50 km</text>
+            <rect x="388" y="228" width="24" height="24" fill="#1b1b22"/>
+            <text x="400" y="274" font-size="20" font-weight="800" text-anchor="middle">Rangiora</text>
+            <rect x="270" y="237" width="10" height="10"/><text x="260" y="233" font-size="16" text-anchor="end">Oxford</text>
+            <rect x="437" y="174" width="10" height="10"/><text x="428" y="170" font-size="16" text-anchor="end">Amberley</text>
+            <rect x="415" y="295" width="10" height="10"/><text x="405" y="311" font-size="16" text-anchor="end">Kaiapoi</text>
+            <rect x="394" y="352" width="10" height="10"/><text x="384" y="368" font-size="16" text-anchor="end">Christchurch</text>
+            <rect x="60" y="300" width="10" height="10" fill="none" stroke="#1b1b22" stroke-width="2"/><text x="60" y="332" font-size="14" fill="#4a4a50">Darfield, by arrangement</text>
+            <g transform="translate(560 410)"><path d="M0 -20 L8 8 L0 2 L-8 8 Z"/><text x="0" y="26" font-size="14" text-anchor="middle">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="meta" style="margin-top:.6rem">Sketch, not to scale.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Rangiora and nearby: Southbrook, Kingsbury, Fernside, Flaxton, Loburn, Ashley, Swannanoa and more.</p>
+        <ul class="towns">
+          <li><span>Rangiora</span><span class="lining">0–10 km</span></li>
+          <li><span>Kaiapoi</span><span class="lining">12 km</span></li>
+          <li><span>Amberley</span><span class="lining">20 km</span></li>
+          <li><span>Christchurch</span><span class="lining">30 km</span></li>
+          <li><span>Oxford</span><span class="lining">30 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="opens">
+      <h2>Get a quote</h2>
+      <p>Call or text Jo. Send a photo of the bathroom as it is and what you'd like instead, and she'll come and measure.</p>
+    </div>
+    <div class="order">
+      <div class="order__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="facts2">
+          <div><dt>Mon–Fri</dt><dd>7:30 am – 5:00 pm</dd></div>
+          <div><dt>Saturday</dt><dd>Quotes only, 8:00 am – 12:00 pm</dd></div>
+          <div><dt>Quote back</dt><dd>Within 3 working days</dd></div>
+        </dl>
+      </div>
+      <form class="form" id="quote" novalidate>
+        <h3>Quote request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job"><option>Full renovation</option><option>Shower or wet room</option><option>Bath to shower</option><option>Tiling</option><option>Vanity and floor</option><option>Something else</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">What is there now, and what would you like</label><textarea id="f-msg" name="message" placeholder="e.g. 2 m by 2.5 m, bath to go, walk-in shower instead"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Plainwater Bathrooms, Rangiora · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Plainwater Bathrooms is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../gasfitter/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>27<i class="w"> of </i><i class="s">/</i>50</span><a href="../earthmoving/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

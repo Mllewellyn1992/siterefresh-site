@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cog &amp; River Cycle Repairs | Bike repair in Hokitika (sample site)</title>
+<meta name="description" content="Sample site: a made-up Hokitika bike repairer, built to show the Riso style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(97% 0.011 90); --color-paper-2: oklch(93.5% 0.034 356); --color-paper-3: oklch(84% 0.11 356);
+  --color-ink: oklch(40% 0.165 265); --color-ink-2: oklch(45% 0.15 265); --color-muted: oklch(50% 0.115 265);
+  --color-rule: oklch(85% 0.045 265);
+  --color-accent: oklch(68% 0.235 356); --color-accent-ink: oklch(27% 0.13 265); --color-focus: oklch(44% 0.2 265);
+  --font-display: "Cabinet Grotesk", ui-sans-serif, "Helvetica Neue", Arial, sans-serif; --font-body: "Literata", ui-serif, Georgia, serif;
+  --radius-card: 2px; --radius-pill: 2px; --rule-hair: 1px;
+  --shadow-card: none; --texture-opacity: 0.08;
+  --tracking-display: -0.025em; --display-weight: 800;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(1.6rem, 1.2rem + 1.8vw, 2.4rem);
+  --text-display-m: clamp(2.2rem, 1.4rem + 3.2vw, 3.8rem);
+  --text-display-l: clamp(2.9rem, 1.5rem + 5.4vw, 6rem);
+  --dur-micro: 120ms; --dur-short: 160ms; --dur-long: 900ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 9 -4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.55 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: var(--color-accent); color: var(--color-accent-ink); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 4px; }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); color: var(--color-ink); margin: 0; }
+h1 { line-height: 0.92; } h2 { line-height: 0.98; font-size: var(--text-display-m); } h3 { font-size: 1.3rem; line-height: 1.05; letter-spacing: -0.015em; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 34rem; }
+
+/* grain: paper specks where the ink skips, on fills, bands and photographs only */
+.grained { position: relative; isolation: isolate; }
+.grained::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: var(--texture-opacity); background-size: 200px 200px; background-image: var(--grain); border-radius: inherit; }
+
+/* sample banner */
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem;
+  background: var(--color-ink); color: var(--color-paper); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { font-family: var(--font-display); background: var(--color-accent); color: var(--color-accent-ink); padding: 0.2rem 0.5rem; border-radius: 2px; font-size: 0.75rem; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+/* controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 48px; padding: 0 var(--space-lg); border: 1.5px solid transparent; border-radius: var(--radius-card); cursor: pointer;
+  font: var(--display-weight) 0.9375rem/1 var(--font-display); text-decoration: none !important; white-space: nowrap;
+  transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn svg { width: 1.2em; height: 1.2em; flex: none; }
+.btn:active { transform: translate(1px, 1px); }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
+.btn--primary:hover { background: var(--color-paper-3); }
+.btn--secondary { border-color: var(--color-ink); color: var(--color-ink); background: transparent; }
+.btn--secondary:hover { background: var(--color-paper-2); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+/* header */
+.top { border-bottom: 1.5px solid var(--color-ink); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.8rem; height: 2.8rem; flex: none; }
+.brand span { font: 800 1.35rem/0.98 var(--font-display); letter-spacing: var(--tracking-display); }
+.brand small { display: block; font: 500 0.8125rem/1.3 var(--font-body); letter-spacing: 0; color: var(--color-muted); margin-top: 0.15rem; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); text-decoration: none; }
+.nav a:not(.btn):hover { text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 3px; text-underline-offset: 0.3em; }
+.nav .btn { min-height: 44px; padding-inline: var(--space-md); }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1.2rem; } }
+
+/* hero */
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: center; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero__media { grid-column: 8 / span 5; position: relative; }
+.hero h1 { font-size: var(--text-display-l); margin-block: var(--space-md) var(--space-lg); }
+.hero__lede { font-size: 1.125rem; max-width: 34rem; margin-bottom: var(--space-lg); }
+.tag { display: inline-block; background: var(--color-paper-2); padding: 0.3rem 0.7rem; font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); border-radius: 2px; }
+.misreg { position: relative; display: inline-block; isolation: isolate; }
+.misreg::after { content: attr(data-text); position: absolute; inset: 0; z-index: -1; white-space: nowrap; pointer-events: none; color: var(--color-accent); transform: translate(2px, 3px); animation: settle var(--dur-long) var(--ease-out) both; }
+@keyframes settle { from { transform: translate(14px, 18px); opacity: 0; } to { transform: translate(2px, 3px); opacity: 1; } }
+.rating { display: flex; align-items: center; gap: 0.9rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); max-width: 34rem; }
+.rating .big { font: 800 2.6rem/1 var(--font-display); color: var(--color-ink); letter-spacing: var(--tracking-display); }
+.stars { display: inline-flex; gap: 2px; }
+.stars svg { width: 1rem; height: 1rem; }
+@media (max-width: 860px) { .hero__copy, .hero__media { grid-column: 1 / -1; } }
+
+/* photographs: printed in both drums */
+.photo { margin: 0; }
+.photo .frame { position: relative; isolation: isolate; border-radius: var(--radius-card); overflow: hidden; outline: 1.5px solid var(--color-ink); outline-offset: -1.5px; background: var(--color-paper-2); }
+.photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.photo .frame::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: var(--texture-opacity); background-size: 200px 200px; background-image: var(--grain); }
+.photo figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); margin-top: 0.6rem; }
+
+/* job sheet: a tag stuck on the hero photograph */
+.sheet { position: absolute; left: -2.5rem; bottom: -2.5rem; width: min(17.5rem, 80%); background: var(--color-paper); border: 1.5px solid var(--color-ink); border-radius: 2px; padding: 0.8rem 1rem 0.9rem; z-index: 2; }
+.sheet .hd { display: flex; justify-content: space-between; font: 800 0.8125rem/1 var(--font-display); letter-spacing: 0; color: var(--color-ink); border-bottom: 1.5px solid var(--color-ink); padding-bottom: 0.5rem; margin-bottom: 0.4rem; }
+.sheet dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.15rem 0.9rem; font: 500 0.9375rem/1.4 var(--font-body); color: var(--color-ink); font-variant-numeric: tabular-nums; }
+.sheet dt { color: var(--color-muted); }
+.sheet dd { margin: 0; }
+.sheet .done { position: absolute; right: -0.6rem; top: -0.9rem; background: var(--color-accent); color: var(--color-accent-ink); font: 800 0.8125rem/1 var(--font-display); padding: 0.45rem 0.7rem; border-radius: 2px; transform: rotate(3deg); }
+@media (max-width: 860px) { .sheet { position: relative; left: auto; bottom: auto; margin: -2.5rem 0 0 1rem; } }
+
+/* reviews: the score as a two-ink overprint */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.score { grid-column: 1 / span 5; display: grid; gap: var(--space-sm); }
+.score .fig { position: relative; display: inline-block; justify-self: start; font: 800 clamp(7rem, 4rem + 12vw, 13rem)/0.85 var(--font-display); color: var(--color-ink); letter-spacing: -0.04em; padding-right: 0.08em; }
+.score .fig::after { content: ""; position: absolute; left: 36%; right: 4%; top: 6%; bottom: -2%; background: var(--color-accent); mix-blend-mode: multiply; border-radius: 2px; }
+.score .unit { font: 500 1.125rem/1.35 var(--font-body); color: var(--color-ink-2); }
+.quotes { grid-column: 6 / span 7; margin: 0; padding: 0; list-style: none; border-top: 1.5px solid var(--color-ink); }
+.quotes li { padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.5rem; }
+.quotes blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+.quotes .who b { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .score, .quotes { grid-column: 1 / -1; } }
+
+/* services on the light pink screen */
+.svc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); }
+.svc li { background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); padding: var(--space-lg); display: grid; grid-template-rows: auto auto 1fr; gap: 0.5rem; align-content: start; }
+.svc svg { width: 3.25rem; height: 3.25rem; color: var(--color-ink); margin-bottom: 0.3rem; }
+.svc p { color: var(--color-ink); }
+@media (max-width: 900px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .svc { grid-template-columns: 1fr; } .svc li { padding: var(--space-md); } }
+
+/* how it works */
+.band--screen { background: var(--color-paper-2); }
+.look { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: center; margin-bottom: var(--space-2xl); }
+.look__draw { grid-column: 1 / span 7; margin: 0; background: var(--color-paper); border: 1.5px solid var(--color-ink); border-radius: 2px; padding: var(--space-md); }
+.look__draw svg { width: 100%; height: auto; display: block; }
+.look__list { grid-column: 8 / span 5; }
+.look__list ol { margin: var(--space-md) 0 0; padding: 0; list-style: none; border-top: 1.5px solid var(--color-ink); counter-reset: c; }
+.look__list li { counter-increment: c; display: grid; grid-template-columns: 2.2rem 1fr; gap: 0.6rem; padding-block: 0.55rem; border-bottom: var(--rule-hair) solid var(--color-rule); color: var(--color-ink); }
+.look__list li::before { content: counter(c); font: 800 1.05rem/1.4 var(--font-display); color: var(--color-ink); }
+@media (max-width: 860px) { .look__draw, .look__list { grid-column: 1 / -1; } }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-md); margin: 0; padding: 0; list-style: none; }
+.steps li { background: var(--color-paper); border: 1.5px solid var(--color-ink); border-radius: 2px; padding: var(--space-md); display: grid; gap: 0.4rem; align-content: start; }
+.steps .n { font: 800 var(--text-display-s)/1 var(--font-display); color: var(--color-ink); position: relative; display: inline-block; justify-self: start; padding-right: 0.5rem; }
+.steps .n::after { content: ""; position: absolute; left: 30%; right: 0; top: 10%; bottom: -8%; background: var(--color-accent); mix-blend-mode: multiply; border-radius: 2px; }
+@media (max-width: 860px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+
+/* on the stand */
+.pulls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+@media (max-width: 760px) { .pulls { grid-template-columns: 1fr; } }
+
+/* solid band: the blue drum, statement knocked out */
+.band--solid { background: var(--color-ink); color: var(--color-paper); position: relative; isolation: isolate; }
+.band--solid::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: var(--texture-opacity); background-size: 200px 200px; background-image: var(--grain); }
+.band--solid .wrap { padding-block: var(--space-3xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: end; }
+.statement { grid-column: 1 / span 8; font: 800 var(--text-display-l)/0.95 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-paper); margin: 0; }
+.band--solid .note { grid-column: 9 / span 4; color: var(--color-paper); display: grid; gap: var(--space-md); justify-items: start; }
+.band--solid .btn--primary:hover { background: var(--color-paper-2); }
+@media (max-width: 860px) { .statement, .band--solid .note { grid-column: 1 / -1; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-paper-2); outline: 1.5px solid var(--color-ink); outline-offset: -1.5px; border-radius: 2px; }
+.area__list { grid-column: 8 / span 5; }
+.map text { paint-order: stroke; stroke: var(--color-paper-2); stroke-width: 5px; stroke-linejoin: round; }
+.towns { margin: var(--space-md) 0 0; padding: 0; list-style: none; border-top: 1.5px solid var(--color-ink); }
+.towns li { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; border-bottom: var(--rule-hair) solid var(--color-rule); color: var(--color-ink); font-variant-numeric: tabular-nums; }
+.towns li span:last-child { white-space: nowrap; color: var(--color-ink-2); }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.phone { font: 800 var(--text-display-m)/1 var(--font-display); color: var(--color-ink); text-decoration: none; letter-spacing: var(--tracking-display); white-space: nowrap; }
+.hours { margin: 0; padding: 0; border-top: 1.5px solid var(--color-ink); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 500; }
+.hours dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.form { grid-column: 7 / span 6; background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: 2px; padding: var(--space-lg); display: grid; gap: var(--space-md); }
+.form h3 { font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; min-height: 48px; border: 1.5px solid var(--color-ink); border-radius: 2px; background: var(--color-paper); color: var(--color-ink); font: 800 1rem/1.4 var(--font-display); padding: 0.65rem 0.8rem; }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%); background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact__call, .form { grid-column: 1 / -1; } }
+
+@media (max-width: 860px) {
+  .hero__grid, .look, .reviews, .area, .contact, .band--solid .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hero__grid > *, .look > *, .reviews > *, .area > *, .contact > *, .band--solid .wrap > * { grid-column: 1 / -1; }
+}
+
+footer { border-top: 1.5px solid var(--color-ink); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .misreg::after { animation: none; }
+  .btn { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="#fe419d" stroke="#1a3c9f" stroke-width="1.2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M7.5 9h9M7.5 12h5.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Cog &amp; River Cycle Repairs, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="19" cy="24" r="15" fill="var(--color-ink)"/>
+        <circle cx="19" cy="24" r="6" fill="var(--color-paper)"/>
+        <circle cx="29" cy="24" r="15" fill="var(--color-accent)" style="mix-blend-mode:multiply"/>
+      </svg>
+      <span>Cog &amp; River<small>Hokitika bike repairs · Hemi</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Repairs</a>
+      <a href="#how">How it works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span class="sr">Call Hemi</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <span class="tag">Bike repairs · Hokitika · Seaview workshop</span>
+      <h1>Flat tyres, slipping gears, <span class="misreg" data-text="mended.">mended.</span></h1>
+      <p class="hero__lede">Hemi mends bikes in a Seaview workshop for people across Hokitika: kids' bikes, commuters, road bikes and e-bikes. Drop it off or text a photo of the problem, and you get a call when it's ready. Free pick-up in town for big jobs.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Hemi</a>
+        <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="big">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from 41 Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero__media">
+      <figure class="photo">
+        <div class="frame"><img src="img/hero.jpg" width="911" height="683" alt="A road bike held in a workshop repair stand, with a wall of hand tools behind it" fetchpriority="high"></div>
+      </figure>
+      <div class="sheet" aria-label="Example job sheet">
+        <span class="done">Ready</span>
+        <div class="hd"><span>JOB SHEET</span><span>No. 0237</span></div>
+        <dl>
+          <dt>Bike</dt><dd>Blue commuter</dd>
+          <dt>In</dt><dd>Tue, 4.10 pm</dd>
+          <dt>Job</dt><dd>New chain, rear brake</dd>
+          <dt>Ring</dt><dd>Thu, before 5</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews" style="padding-top:var(--space-xl)">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What riders say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="score">
+        <span class="fig" aria-label="4.9 out of 5">4.9</span>
+        <p class="unit">out of 5, from 41 Google reviews</p>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“My daughter's bike had been in the shed for two years with flat tyres and a rusty chain. Hemi got it rolling again and she's been riding it to school every day.”</blockquote>
+          <p class="who"><b>Rachel</b><span>Seaview</span><span>· Kids' bike</span></p>
+        </li>
+        <li>
+          <blockquote>“Texted a photo of my slipping gears on a Sunday night. Had a reply in the morning and the bike was fixed by Wednesday. He showed me what was worn.”</blockquote>
+          <p class="who"><b>Tane</b><span>Arahura</span><span>· Gears</span></p>
+        </li>
+        <li>
+          <blockquote>“Wheel was buckled after a fall on the river trail. It's running dead straight now and he tightened everything else while it was on the stand.”</blockquote>
+          <p class="who"><b>Joanne</b><span>Kaniere</span><span>· Wheel truing</span></p>
+        </li>
+        <li>
+          <blockquote>“Honest about what was worth fixing on my old road bike and what wasn't. Rings when he says he will.”</blockquote>
+          <p class="who"><b>Pete</b><span>Hokitika</span><span>· Service</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we mend</h2>
+      <p>Everyday repairs and full services for most bikes. If it needs a part, Hemi tells you before ordering it.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="26" cy="26" r="19"/><circle cx="26" cy="26" r="12"/><path d="M26 14v-4M26 42v4M14 26h-4M42 26h4"/><path d="M22 23l4 4 4-4" stroke-width="2.2"/>
+        </svg>
+        <h3>Puncture repair</h3>
+        <p>New tube or patch, tyre checked for glass and thorns.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 40a18 18 0 0 1 36 0"/><path d="M26 40l9-14"/><circle cx="26" cy="40" r="3"/><path d="M6 46h40"/>
+        </svg>
+        <h3>Brakes</h3>
+        <p>Pads, cables and adjustment so it stops straight and fast.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="20" cy="26" r="11"/><circle cx="20" cy="26" r="3"/><path d="M20 15v-3M20 40v-3M9 26h-3M34 26h-3M12 18l-2-2M30 34l2 2M12 34l-2 2M30 18l2-2"/><path d="M31 18h14M31 34h14"/><path d="M45 18v16"/>
+        </svg>
+        <h3>Gears and chain</h3>
+        <p>Indexing, new chain and cassette, and a clean drivetrain.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="26" cy="26" r="19"/><circle cx="26" cy="26" r="3"/><path d="M26 7v16M26 29v16M7 26h16M29 26h16M12.6 12.6l11.3 11.3M28.1 28.1l11.3 11.3M12.6 39.4l11.3-11.3M28.1 23.9l11.3-11.3"/>
+        </svg>
+        <h3>Wheel truing</h3>
+        <p>Buckled or wobbling wheels spun true on the stand.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M33 8l11 11-7 7-11-11z"/><path d="M26 15L8 33a4 4 0 0 0 0 6l5 5a4 4 0 0 0 6 0l18-18"/><circle cx="15" cy="37" r="1.6" fill="currentColor"/>
+        </svg>
+        <h3>Full service</h3>
+        <p>Every bolt, bearing and cable checked, then a test ride.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="36" r="8"/><circle cx="40" cy="36" r="8"/><path d="M12 36l8-16h14l6 16M20 20l-3-6h-4M34 20l-2-6h5"/><path d="M26 8l-5 8h7l-5 8" stroke-width="2.2"/>
+        </svg>
+        <h3>E-bike checks</h3>
+        <p>Brakes, tyres and drivetrain on bikes with a motor.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band--screen section grained" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How a repair goes</h2>
+      <p>Most repairs are done in two to three days. Hemi rings or texts when yours is ready.</p>
+    </div>
+
+    <div class="look">
+      <figure class="look__draw">
+        <svg viewBox="0 0 640 360" role="img" aria-labelledby="chkT">
+          <title id="chkT">A bicycle drawn in blue with six pink circles marking the points Hemi checks on every bike: tyres, brakes, chain, headset, wheels and cables.</title>
+          <g fill="none" stroke="#1a3c9f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="150" cy="230" r="85"/><circle cx="490" cy="230" r="85"/>
+            <circle cx="150" cy="230" r="6" fill="#1a3c9f"/><circle cx="490" cy="230" r="6" fill="#1a3c9f"/>
+            <path d="M150 230L300 230L430 118L275 118L300 230"/>
+            <path d="M150 230L275 118"/>
+            <path d="M275 118L268 92M248 92h42"/>
+            <path d="M430 118L440 150L490 230"/>
+            <path d="M430 118L424 86M424 86h-8M424 86h34"/>
+            <circle cx="300" cy="230" r="20"/>
+            <path d="M300 230L326 268" stroke-width="3"/><path d="M318 268h18" stroke-width="3"/>
+          </g>
+          <g stroke="#1a3c9f" stroke-width="1.5" fill="none">
+            <circle cx="150" cy="230" r="70" stroke-dasharray="2 8"/><circle cx="490" cy="230" r="70" stroke-dasharray="2 8"/>
+          </g>
+          <g style="mix-blend-mode:multiply" fill="#fe419d">
+            <circle cx="574" cy="188" r="26"/><circle cx="462" cy="172" r="26"/><circle cx="228" cy="236" r="26"/><circle cx="432" cy="118" r="26"/>
+            <circle cx="150" cy="230" r="26"/><circle cx="352" cy="124" r="26"/>
+          </g>
+          <g font-family="Cabinet Grotesk, Arial, sans-serif" font-weight="800" font-size="20" fill="#1a3c9f" text-anchor="middle">
+            <text x="574" y="195">1</text><text x="462" y="179">2</text><text x="228" y="243">3</text><text x="432" y="125">4</text><text x="150" y="237">5</text><text x="352" y="131">6</text>
+          </g>
+        </svg>
+      </figure>
+      <div class="look__list">
+        <h3>Six points on every bike</h3>
+        <ol>
+          <li>Tyre wear and pressure</li>
+          <li>Front and rear brakes</li>
+          <li>Chain wear and gear indexing</li>
+          <li>Headset and stem tight</li>
+          <li>Wheels true, spokes even</li>
+          <li>Cables and housing frayed or sticky</li>
+        </ol>
+        <p class="label" style="margin-top:.8rem">Hemi runs through these before he hands a bike back, whatever it came in for.</p>
+      </div>
+    </div>
+
+    <ol class="steps">
+      <li><span class="n">01</span><h3>Drop it in</h3><p>Bring it to the workshop, or text a photo and Hemi picks it up.</p></li>
+      <li><span class="n">02</span><h3>Look it over</h3><p>He checks the six points and rings you with what's needed.</p></li>
+      <li><span class="n">03</span><h3>Fix it</h3><p>Repairs done on the stand, parts ordered only if you say yes.</p></li>
+      <li><span class="n">04</span><h3>Test ride</h3><p>A ride round the block before it goes back to you.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>On the stand</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="pulls">
+      <figure class="photo">
+        <div class="frame"><img src="img/yellow.jpg" width="1024" height="768" alt="An old road bike on a workbench in a busy garage, ready for a service"></div>
+        <figcaption>Old road bike on the bench, ready for a full service</figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="img/chain.jpg" width="853" height="640" alt="Close-up of a bike chain sitting on the cassette sprockets"></div>
+        <figcaption>Chain and cassette, replaced as a pair</figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="img/hub.jpg" width="1024" height="768" alt="Close-up of a front wheel hub with its spokes and axle nut"></div>
+        <figcaption>Front hub and spokes, wheel trued</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band--solid">
+  <div class="wrap">
+    <p class="statement">Fixed once. Ridden for years.</p>
+    <div class="note">
+      <p>Hemi runs a small workshop on his own, so every bike gets the same pair of hands. If something else is worn, he shows you the part and lets you decide.</p>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Hemi</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we ride</h2>
+      <p>Workshop in Seaview. Free pick-up and drop-off anywhere in Hokitika town, and a weekly run out to Kaniere and Kumara.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 460" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Hokitika on the coast with the river running out beside it, and Kumara, Arahura, Kaniere, Ross and Greymouth around it.</title>
+          <g font-family="Literata, Georgia, serif" font-weight="500" fill="#1a3c9f" class="map">
+            <rect x="0" y="0" width="70" height="460" fill="#fe419d" style="mix-blend-mode:multiply" opacity=".55"/>
+            <path d="M70 0 C 60 120, 80 300, 70 460" fill="none" stroke="#1a3c9f" stroke-width="2.5"/>
+            <text x="12" y="238" font-size="14" transform="rotate(-90 28 238)" text-anchor="middle">Tasman Sea</text>
+            <!-- river -->
+            <path d="M300 0 C 290 70, 250 120, 220 170 S 150 230, 118 262 S 90 290, 70 300" fill="none" stroke="#1a3c9f" stroke-width="5" stroke-linecap="round"/>
+            <text x="262" y="100" font-size="15" transform="rotate(-48 262 100)">Hokitika River</text>
+            <!-- ring -->
+            <circle cx="150" cy="285" r="95" fill="none" stroke="#1a3c9f" stroke-width="2" stroke-dasharray="8 7"/>
+            <text x="60" y="330" font-size="0"></text>
+            <!-- city -->
+            <rect x="112" y="258" width="76" height="56" fill="#1a3c9f"/>
+            <text x="150" y="292" text-anchor="middle" font-family="Cabinet Grotesk, Arial, sans-serif" font-weight="800" font-size="15" fill="#f8f5ed" style="stroke:none">HOKITIKA</text>
+            <circle cx="170" cy="318" r="7" fill="#fe419d" stroke="#1a3c9f" stroke-width="2.5"/>
+            <g>
+              <rect x="266" y="190" width="11" height="11" fill="#1a3c9f"/><text x="284" y="200" font-size="17">Kumara</text>
+              <rect x="94" y="170" width="11" height="11" fill="#1a3c9f"/><text x="113" y="181" font-size="17">Arahura</text>
+              <rect x="400" y="350" width="11" height="11" fill="#1a3c9f"/><text x="420" y="361" font-size="17">Kaniere</text>
+              <rect x="120" y="395" width="10" height="10" fill="none" stroke="#1a3c9f" stroke-width="2"/><text x="138" y="405" font-size="16">Ross, by arrangement</text>
+              <rect x="560" y="110" width="10" height="10" fill="none" stroke="#1a3c9f" stroke-width="2"/><text x="548" y="121" font-size="16" text-anchor="end">Greymouth, by arrangement</text>
+            </g>
+            <g transform="translate(556 40)"><path d="M0 -22 L9 8 L0 2 L-9 8 Z" fill="#1a3c9f"/><text x="0" y="28" font-size="15" text-anchor="middle">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Sketch, not to scale. Pink dot: the workshop in Seaview.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Town areas: Hokitika central, Seaview, Blue Spur, Kaniere Road and more.</p>
+        <ul class="towns">
+          <li><span>Hokitika town</span><span>Free pick-up</span></li>
+          <li><span>Kumara</span><span>Weekly run</span></li>
+          <li><span>Kaniere</span><span>Weekly run</span></li>
+          <li><span>Arahura</span><span>By arrangement</span></li>
+          <li><span>Ross, Greymouth</span><span>By arrangement</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Book a repair</h2>
+      <p>Call or text Hemi. Say what the bike's doing and send a photo if you can.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Tue–Fri</dt><dd>8:30 am – 5:30 pm</dd></div>
+          <div><dt>Saturday</dt><dd>9:00 am – 1:00 pm</dd></div>
+          <div><dt>Sun–Mon</dt><dd>Closed</dd></div>
+        </dl>
+      </div>
+      <form class="form" id="quote" novalidate>
+        <h3>Repair request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job">
+              <option>Puncture</option><option>Brakes</option><option>Gears and chain</option><option>Wheel truing</option><option>Full service</option><option>E-bike check</option><option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">What is the bike doing?</label><textarea id="f-msg" name="message" placeholder="e.g. chain skips under load, back tyre goes flat every few days"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Cog &amp; River Cycle Repairs, Hokitika · <span style="white-space:nowrap">021 000 0000</span></p>
+    <p>Sample site for siterefresh.co.nz. Cog &amp; River Cycle Repairs is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../tyres/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>41<i class="w"> of </i><i class="s">/</i>50</span><a href="../stonemason/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

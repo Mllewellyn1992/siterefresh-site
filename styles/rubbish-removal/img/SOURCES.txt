@@ -1,0 +1,29 @@
+Photos for the Gone by Noon sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was printed as an off-white-on-near-black duotone with the contrast pushed up, and saved as JPEG quality 80.
+
+load.jpg
+  Title:   Condo Junk Removal Day: It Got Fuller (Dennis S. Hurd)
+  Source:  https://www.flickr.com/photos/43296902@N00/50128080167
+  File:    https://live.staticflickr.com/65535/50128080167_44cf30e6b2_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped from the top to leave out the car-park signs
+
+sign.jpg
+  Title:   Dumping rubish prohibited (exit78)
+  Source:  https://www.flickr.com/photos/28826830@N00/29256722380
+  File:    https://live.staticflickr.com/8439/29256722380_e5d5f5f4af_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped slightly from the top
+
+units.jpg
+  Title:   The Ridges (dankeck)
+  Source:  https://www.flickr.com/photos/140641142@N05/48133241107
+  File:    https://live.staticflickr.com/65535/48133241107_a64ec3c31c_b.jpg
+  Licence: CC0 1.0
+
+yard.jpg
+  Title:   The Ridges (dankeck)
+  Source:  https://www.flickr.com/photos/140641142@N05/48133241517
+  File:    https://live.staticflickr.com/65535/48133241517_23fa7509f3_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the stack of units

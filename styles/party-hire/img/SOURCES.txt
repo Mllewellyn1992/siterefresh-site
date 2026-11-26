@@ -1,0 +1,29 @@
+Photos for the Jumbo Jumps Party Hire sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped as noted, colour pushed a little and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Bouncy Castle (chooyutshing)
+  Source:  https://www.flickr.com/photos/25802865@N08/55561982058
+  File:    https://live.staticflickr.com/65535/55561982058_5d84862972_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to the top of the castle, leaving out the children
+
+slide.jpg
+  Title:   inflatable water slide in Tulcea (brianj.lowe)
+  Source:  https://www.flickr.com/photos/68433569@N02/8059808616
+  File:    https://live.staticflickr.com/8317/8059808616_da6ea01f2e_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to the slide, leaving out the people at the right
+
+foil.jpg
+  Title:   2008.10 - 'Street-view - selling balloons at the street-fair', in the Kinkerstraat in the light of October in Amsterdam, district Oud-WestDutch photo - urban photography by Fons Heijnsbroek, The Netherlands (Amsterdam free photos & pictures of the Dutch city)
+  Source:  https://www.flickr.com/photos/104736837@N03/10929824775
+  File:    https://live.staticflickr.com/3765/10929824775_bbd6079441_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the top of the frame, the foil balloons only
+
+balloon.jpg
+  Title:   Inflating hot air balloons at sunrise, central Oregon. (Bonnie Moreland (free images))
+  Source:  https://www.flickr.com/photos/66741228@N05/51489651141
+  File:    https://live.staticflickr.com/65535/51489651141_f0807aa680_b.jpg
+  Licence: Public Domain Mark 1.0

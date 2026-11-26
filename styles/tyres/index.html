@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Roadhold Tyres | Tyre shop in Hāwera (sample site)</title>
+<meta name="description" content="Sample site: a made-up Hāwera tyre shop, built to show the Rim style.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(9% 0.008 75); --color-paper-2: oklch(12.5% 0.009 75); --color-paper-3: oklch(6.5% 0.007 75);
+  --color-ink: oklch(94% 0.010 80); --color-ink-2: oklch(84% 0.011 80); --color-muted: oklch(68% 0.012 80); --color-muted-2: oklch(50% 0.010 80);
+  --color-rule: oklch(25% 0.010 78); --color-rule-2: oklch(16% 0.009 78);
+  --color-accent: oklch(72% 0.17 45); --color-accent-ink: oklch(10% 0.02 45); --color-accent-2: oklch(74% 0.12 250); --color-focus: oklch(78% 0.15 45);
+  --font-display: "Switzer", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
+  --font-outlier: "Geist Mono", ui-monospace, monospace;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.04em; --display-weight: 500;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(1.8rem, 1.2rem + 2.2vw, 2.9rem);
+  --text-display: clamp(2.8rem, 1.6rem + 4.4vw, 5.4rem);
+  --dur-short: 160ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem); --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); color-scheme: dark; }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.55 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: color-mix(in oklab, var(--color-accent) 35%, transparent); color: var(--color-ink); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.02; color: var(--color-ink); margin: 0; }
+h1 { font-size: var(--text-display); letter-spacing: var(--tracking-display); }
+h2 { font-size: var(--text-display-s); letter-spacing: -0.03em; }
+h3 { font-size: 1.3rem; letter-spacing: -0.02em; line-height: 1.15; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.m { font-family: var(--font-outlier); font-weight: 400; font-variant-numeric: tabular-nums; letter-spacing: 0; }
+.m small { font-size: 0.5em; color: var(--color-muted); margin-left: 0.15em; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-md); margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 32rem; color: var(--color-muted); }
+.band { background: var(--color-paper-2); border-block: var(--rule-hair) solid var(--color-rule); }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding-inline: 1rem; background: var(--color-ink); color: var(--color-paper); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { font: 400 0.6875rem/1 var(--font-outlier); background: var(--color-accent); color: var(--color-accent-ink); padding: 0.25rem 0.5rem; }
+@media (max-width: 480px) { .sample b { display: none; } }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; min-height: 3rem; padding: var(--space-sm) var(--space-md); border: var(--rule-hair) solid var(--color-rule); border-radius: 0; background: none; color: var(--color-ink); cursor: pointer; text-decoration: none; white-space: nowrap; font: 500 var(--text-body)/1.2 var(--font-body); transition: background var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out); }
+.btn:hover { text-decoration: none; border-color: var(--color-muted); background: var(--color-paper-2); }
+.btn svg { width: 1.1em; height: 1.1em; flex: none; }
+.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
+.btn--primary:hover { background: oklch(78% 0.16 45); border-color: oklch(78% 0.16 45); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+.top { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.7rem; color: var(--color-ink); }
+.brand svg { width: 2rem; height: 2rem; flex: none; }
+.brand span { font: 500 1.3rem/1 var(--font-display); letter-spacing: -0.03em; }
+.brand small { display: block; font: 400 0.8125rem/1.3 var(--font-body); letter-spacing: 0; color: var(--color-muted); margin-top: 0.2rem; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); }
+.nav .btn { min-height: 2.75rem; }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 440px) { .nav .btn .long { display: none; } .brand small { display: none; } }
+
+/* hero: ledge */
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: end; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero__photo { grid-column: 8 / span 5; }
+.hero h1 { margin-block: var(--space-md) var(--space-lg); }
+.hero__lede { font-size: 1.1875rem; max-width: 31rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 0.9rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); max-width: 31rem; }
+.rating .m { font-size: 2.6rem; line-height: 1; color: var(--color-ink); letter-spacing: -0.03em; }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent); }
+.stars svg { width: 0.95rem; height: 0.95rem; }
+.photo { margin: 0; position: relative; }
+.photo img { width: 100%; object-fit: cover; outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; background: var(--color-paper-2); }
+.photo--43 img { aspect-ratio: 4 / 3; }
+.photo--sq img { aspect-ratio: 5 / 6; }
+.photo .strip { position: absolute; left: 0; right: 0; bottom: 0; background: color-mix(in oklab, var(--color-paper) 78%, transparent); padding: 0.55rem 0.8rem; display: flex; justify-content: space-between; gap: 1rem; font: 400 0.8125rem/1.3 var(--font-outlier); color: var(--color-ink-2); font-variant-numeric: tabular-nums; }
+.photo figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); margin-top: 0.6rem; }
+.ticks { position: relative; }
+.ticks::before, .ticks::after { content: ""; position: absolute; width: 12px; height: 12px; border: 0 solid var(--color-muted); pointer-events: none; z-index: 2; }
+.ticks::before { top: calc(-1 * var(--space-xs)); left: calc(-1 * var(--space-xs)); border-width: 1px 0 0 1px; }
+.ticks::after { right: calc(-1 * var(--space-xs)); bottom: calc(-1 * var(--space-xs)); border-width: 0 1px 1px 0; }
+@media (max-width: 860px) { .hero__grid { grid-template-columns: minmax(0, 1fr); } .hero__copy, .hero__photo { grid-column: 1 / -1; } .photo--sq img { aspect-ratio: 4 / 3; } }
+
+/* figures: sidewall */
+.figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: var(--rule-hair) solid var(--color-rule); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.figs > div { padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; display: grid; gap: 0.5rem; align-content: start; }
+.figs > div + div { padding-left: var(--space-lg); border-left: var(--rule-hair) solid var(--color-rule); }
+.figs .m { font-size: clamp(2.8rem, 1.6rem + 4vw, 5rem); line-height: 1; letter-spacing: -0.03em; color: var(--color-ink); }
+.figs .m.blue { color: var(--color-accent-2); }
+.figs h3 { font-size: 1.1rem; }
+.sidewall { margin-bottom: var(--space-lg); font: 400 clamp(2.2rem, 1.2rem + 5vw, 5rem)/1 var(--font-outlier); letter-spacing: -0.03em; color: var(--color-ink); display: flex; flex-wrap: wrap; gap: 0 0.1em; }
+.sidewall span { color: var(--color-accent); }
+@media (max-width: 860px) { .figs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .figs > div { padding: var(--space-md) var(--space-md) var(--space-md) 0; border-bottom: var(--rule-hair) solid var(--color-rule); } .figs > div + div { padding-left: var(--space-md); } .figs > div:nth-child(3) { padding-left: 0; border-left: 0; } .figs > div:nth-child(n+3) { border-bottom: 0; } }
+@media (max-width: 460px) { .figs { grid-template-columns: 1fr; } .figs > div, .figs > div + div, .figs > div:nth-child(3) { padding: var(--space-md) 0; border-left: 0; border-bottom: var(--rule-hair) solid var(--color-rule); } .figs > div:last-child { border-bottom: 0; } }
+
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.score { grid-column: 1 / span 4; display: grid; gap: 0.4rem; }
+.score .m { font-size: clamp(5.5rem, 3rem + 9vw, 9rem); line-height: 0.9; letter-spacing: -0.05em; color: var(--color-ink); }
+.quotes { grid-column: 6 / span 7; margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.quotes li { list-style: none; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule-2); display: grid; gap: 0.5rem; }
+.quotes blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.quotes .who b { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .reviews { grid-template-columns: minmax(0, 1fr); } .score, .quotes { grid-column: 1 / -1; } }
+
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.svc li { list-style: none; padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; border-bottom: var(--rule-hair) solid var(--color-rule-2); display: grid; gap: 0.5rem; align-content: start; grid-template-rows: auto auto 1fr; }
+.svc li:not(:nth-child(3n+1)) { padding-left: var(--space-lg); }
+.svc li:not(:nth-child(3n)) { border-right: var(--rule-hair) solid var(--color-rule-2); }
+.svc svg { width: 3rem; height: 3rem; color: var(--color-accent); margin-bottom: 0.3rem; }
+@media (max-width: 860px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svc li, .svc li:not(:nth-child(3n+1)) { padding: var(--space-md) var(--space-md) var(--space-md) 0; border-right: 0; }
+  .svc li:nth-child(even) { padding-left: var(--space-md); border-left: var(--rule-hair) solid var(--color-rule-2); } }
+@media (max-width: 520px) { .svc { grid-template-columns: 1fr; } .svc li, .svc li:nth-child(even) { padding: var(--space-md) 0; border-left: 0; } }
+
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-lg); margin: 0 0 var(--space-2xl); padding: 0; }
+.steps li { list-style: none; border-top: var(--rule-hair) solid var(--color-muted-2); padding-top: var(--space-sm); display: grid; gap: 0.4rem; align-content: start; }
+.steps .n { font: 400 1.5rem/1 var(--font-outlier); color: var(--color-accent); }
+@media (max-width: 860px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .steps { grid-template-columns: 1fr; } }
+
+.well { background: var(--color-paper-2); padding: var(--space-lg); }
+.well h3 { font-size: 1.5rem; letter-spacing: -0.03em; margin-bottom: 0.2rem; }
+.axis { width: 100%; height: auto; display: block; margin-top: var(--space-md); }
+.axis text { font-family: var(--font-outlier); font-size: 12px; fill: var(--color-muted); }
+.axis .pin { font-size: 13px; fill: var(--color-ink); }
+@media (max-width: 560px) { .well { padding: var(--space-md); overflow-x: auto; } .axis { min-width: 600px; } }
+
+.work { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); }
+.work .a { grid-column: 1 / span 6; } .work .b { grid-column: 7 / span 6; } .work .c { grid-column: 1 / span 6; } .work .d { grid-column: 7 / span 6; }
+.work .a img, .work .b img { aspect-ratio: 3 / 2; } .work .c img, .work .d img { aspect-ratio: 3 / 2; }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } .work > * { grid-column: 1 / -1 !important; } }
+
+.two { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.two > :first-child { grid-column: 1 / span 6; }
+.two > :last-child { grid-column: 8 / span 5; }
+.two p + p { margin-top: var(--space-sm); }
+.towns { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule-2); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+.towns li span:last-child { font: 400 0.9375rem/1.4 var(--font-outlier); color: var(--color-ink-2); white-space: nowrap; }
+@media (max-width: 860px) { .two { grid-template-columns: minmax(0, 1fr); } .two > * { grid-column: 1 / -1 !important; } }
+
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.phone { font: 400 clamp(2rem, 1.2rem + 3vw, 3.4rem)/1 var(--font-outlier); letter-spacing: -0.04em; color: var(--color-accent); white-space: nowrap; }
+.phone:hover { text-decoration: none; color: oklch(80% 0.16 45); }
+.hours { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; border-bottom: var(--rule-hair) solid var(--color-rule-2); }
+.hours dt { color: var(--color-ink); font-weight: 500; } .hours dd { margin: 0; font: 400 0.9375rem/1.5 var(--font-outlier); color: var(--color-ink-2); text-align: right; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg); display: grid; gap: var(--space-md); background: var(--color-paper-2); }
+.form h3 { font-size: var(--text-display-s); letter-spacing: -0.03em; }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: 0; border: var(--rule-hair) solid var(--color-muted); background: var(--color-paper); font: 400 1rem/1.4 var(--font-outlier); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3rem; }
+select { font-family: var(--font-body); }
+textarea { min-height: 6.5rem; resize: vertical; }
+::placeholder { color: var(--color-muted-2); font-family: var(--font-body); }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } .contact__call, .form { grid-column: 1 / -1; } }
+
+footer { border-top: var(--rule-hair) solid var(--color-rule); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Roadhold Tyres, home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" fill="none" stroke="var(--color-ink)" stroke-width="1.5"/><path d="M16 6v20M6 16h20" stroke="var(--color-muted)" stroke-width="1"/><rect x="11" y="11" width="10" height="10" fill="var(--color-accent)"/></svg>
+      <span>Roadhold Tyres<small>Hāwera · Sam</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">What we fit</a>
+      <a href="#how">How it works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long m" style="font-size:0.95rem">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Tyre shop · Hāwera and South Taranaki · Sam</p>
+      <h1>Fitted and balanced, while you wait.</h1>
+      <p class="hero__lede">New and used tyres, puncture repairs, alignment and balancing for cars, utes and small trucks. Sam tells you the tread depth, shows you the tyre, and fits it the same morning if you ring early.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Sam</a>
+        <a class="btn" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text your tyre size</a>
+      </div>
+      <div class="rating">
+        <span class="m">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from 44 Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <figure class="photo photo--sq hero__photo ticks">
+      <img src="img/hero.jpg" width="768" height="1024" alt="Close-up of a winter tyre tread with deep grooves and fine sipes" fetchpriority="high">
+      <div class="strip"><span>Tread, new</span><span>8.0 mm</span></div>
+    </figure>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="size">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Read the sidewall</h2>
+      <p>Every tyre carries its size in one line. Text Sam what yours says and he can quote from it.</p>
+    </div>
+    <p class="sidewall" aria-label="205 slash 55 R 16"><span>205</span>/<span>55</span>&nbsp;R&nbsp;<span>16</span></p>
+    <div class="figs">
+      <div><span class="m">205<small>mm</small></span><h3>Width</h3><p>Tread width across the tyre, in millimetres.</p></div>
+      <div><span class="m">55<small>%</small></span><h3>Profile</h3><p>Sidewall height as a percentage of the width.</p></div>
+      <div><span class="m blue">16<small>in</small></span><h3>Rim</h3><p>The wheel diameter the tyre fits, in inches.</p></div>
+      <div><span class="m">1.5<small>mm</small></span><h3>Legal tread</h3><p>The least tread a tyre may have on a New Zealand road.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section band" id="reviews">
+  <div class="wrap">
+    <div class="section__head" style="border-top:0;padding-top:0">
+      <h2>What customers say</h2>
+      <p>Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="score">
+        <span class="m">4.9</span>
+        <p class="label">out of 5, from 44 Google reviews</p>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Picked up a nail on the way to work, rang at 07:45 and was fitted in by nine. Sam showed me the hole in the tyre and the repair, and charged nothing for the pressure check.”</blockquote>
+          <p class="who"><b>Dion</b><span>Normanby</span><span>· Puncture repair</span></p>
+        </li>
+        <li>
+          <blockquote>“Four new tyres on the ute plus an alignment. He measured the tread on the old ones and told me which two had another year in them.”</blockquote>
+          <p class="who"><b>Pete</b><span>Eltham</span><span>· Tyres and alignment</span></p>
+        </li>
+        <li>
+          <blockquote>“Wheels went on balanced and the steering wobble was gone before I left the yard.”</blockquote>
+          <p class="who"><b>Tania</b><span>Manaia</span><span>· Balancing</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we fit</h2>
+      <p>Everything that goes between the car and the road, at one yard in Hāwera.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true"><circle cx="26" cy="26" r="20"/><circle cx="26" cy="26" r="11"/><circle cx="26" cy="26" r="3"/><path d="M26 6v6M26 40v6M6 26h6M40 26h6"/></svg>
+        <h3>New tyres</h3>
+        <p>Sizes for cars, SUVs, utes and small trucks.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true"><circle cx="26" cy="26" r="20"/><circle cx="26" cy="26" r="11"/><path d="M32 8l-8 14M22 26l-3 6"/></svg>
+        <h3>Puncture repairs</h3>
+        <p>Plugged and patched from the inside, then rechecked.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true"><path d="M14 6v40M38 6v40"/><path d="M10 16h8M34 16h8M10 36h8M34 36h8"/><path d="M18 26h16M30 22l4 4-4 4"/></svg>
+        <h3>Wheel alignment</h3>
+        <p>Camber, caster and toe set to the car's own figures.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true"><circle cx="26" cy="26" r="20"/><path d="M26 6v6M26 40v6M6 26h6M40 26h6"/><path d="M26 26l10-10"/><circle cx="26" cy="26" r="2.5" fill="currentColor"/></svg>
+        <h3>Balancing</h3>
+        <p>Weights fitted to stop the shake at 100 km/h.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true"><circle cx="26" cy="26" r="20"/><path d="M26 26l0-16M26 26l14 8M26 26l-14 8"/><circle cx="26" cy="26" r="4"/></svg>
+        <h3>Mags and rims</h3>
+        <p>New and second-hand wheels, straightened and refitted.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true"><path d="M4 34h8l4-12h22l6 12h4v6H4z"/><circle cx="16" cy="42" r="5"/><circle cx="38" cy="42" r="5"/><path d="M20 22l3-8h8l3 8"/></svg>
+        <h3>Mobile call-out</h3>
+        <p>A flat on the roadside, fitted where you are.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section band" id="how">
+  <div class="wrap">
+    <div class="section__head" style="border-top:0;padding-top:0">
+      <h2>How a fitting goes</h2>
+      <p>Four steps. Most cars are on and off the hoist in under an hour.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><h3>Ring or text</h3><p>Give Sam the size on your sidewall and the car.</p></li>
+      <li><span class="n">02</span><h3>Check the tread</h3><p>He measures what is left and shows you the wear.</p></li>
+      <li><span class="n">03</span><h3>Fit and balance</h3><p>Old tyres off, new tyres on, each wheel balanced.</p></li>
+      <li><span class="n">04</span><h3>Torque and go</h3><p>Nuts torqued to spec, pressures set, and you drive off.</p></li>
+    </ol>
+    <div class="well ticks">
+      <h3>A morning fitting, in NZ time</h3>
+      <p class="label">Drop off at 08:30, collect at 09:40. Times in NZDT.</p>
+      <svg class="axis" viewBox="0 0 800 150" role="img" aria-label="Timeline from 08:00 to 10:30 NZDT: arrive 08:30, on the hoist 08:40 to 09:25, collect 09:40.">
+        <g stroke="oklch(25% 0.01 78)" stroke-width="1">
+          <path d="M20 90H780"/>
+          <path d="M20 84v12M153 84v12M287 84v12M420 84v12M553 84v12M687 84v12M780 84v12"/>
+        </g>
+        <g>
+          <text x="20" y="116">08:00</text><text x="153" y="116" text-anchor="middle">08:30</text><text x="287" y="116" text-anchor="middle">09:00</text><text x="420" y="116" text-anchor="middle">09:30</text><text x="553" y="116" text-anchor="middle">10:00</text><text x="687" y="116" text-anchor="middle">10:30</text>
+          <text x="780" y="116" text-anchor="end">NZDT</text>
+        </g>
+        <rect x="187" y="80" width="200" height="10" fill="oklch(74% 0.12 250)"/>
+        <g stroke="oklch(72% 0.17 45)" stroke-width="1.5">
+          <path d="M153 90V34"/><path d="M453 90V34"/>
+        </g>
+        <rect x="150" y="30" width="7" height="7" fill="oklch(72% 0.17 45)"/><rect x="450" y="30" width="7" height="7" fill="oklch(72% 0.17 45)"/>
+        <text class="pin" x="163" y="38">08:30 NZDT arrive</text>
+        <text class="pin" x="463" y="38">09:40 NZDT collect</text>
+        <text x="190" y="66">08:40–09:25 on the hoist</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>From the yard</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="photo photo--43 a ticks">
+        <img src="img/shop.jpg" width="634" height="410" alt="Stacks of used tyres on rims beside a tyre changer in a workshop">
+        <div class="strip"><span>Workshop, stock</span><span>14:20 NZDT</span></div>
+      </figure>
+      <figure class="photo photo--43 b ticks">
+        <img src="img/field.jpg" width="1024" height="661" alt="A large black earthmover tyre lying flat on grass">
+        <div class="strip"><span>Farm tyre, 1 of 1</span><span>11:05 NZDT</span></div>
+      </figure>
+      <figure class="photo c ticks">
+        <img src="img/rim.jpg" width="1024" height="683" alt="A bare alloy wheel under a seat in a workshop">
+        <div class="strip"><span>Alloy, straightened</span><span>16:10 NZDT</span></div>
+      </figure>
+      <figure class="photo d ticks">
+        <img src="img/tread.jpg" width="683" height="819" alt="Close-up of a worn tyre tread block with moulded lettering">
+        <div class="strip"><span>Tread, worn</span><span>2.1 mm</span></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head"><h2>Who fits them</h2></div>
+    <div class="two">
+      <div>
+        <p>Sam runs Roadhold on his own with one apprentice, out of a single yard in Hāwera. You deal with the person who measures the tread and torques the nuts.</p>
+        <p>He tells you which tyres are done, which have time left, and which can wait. No pressure to replace all four.</p>
+      </div>
+      <div class="well ticks">
+        <p class="label">What Sam says first</p>
+        <p style="font:500 1.6rem/1.15 var(--font-display);letter-spacing:-0.03em;color:var(--color-ink);margin-top:0.5rem">“What does the sidewall say?”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we work</h2>
+      <p>The yard is in Hāwera. Mobile call-outs cover South Taranaki.</p>
+    </div>
+    <div class="two">
+      <div>
+        <p>Hāwera, Normanby, Manaia, Eltham, Kaponga, Ōkaiawa, Patea and Stratford for call-outs.</p>
+        <p>Flat on the roadside? Text a photo and where you are, and Sam will say if he is nearby.</p>
+      </div>
+      <ul class="towns">
+        <li><span>Hāwera</span><span>0–10 min</span></li>
+        <li><span>Normanby</span><span>8 min</span></li>
+        <li><span>Manaia</span><span>12 min</span></li>
+        <li><span>Eltham</span><span>15 min</span></li>
+        <li><span>New Plymouth, by arrangement</span><span>60 min</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section band" id="contact">
+  <div class="wrap">
+    <div class="section__head" style="border-top:0;padding-top:0">
+      <h2>Book a fitting</h2>
+      <p>Call or text Sam. Say the tyre size, or send a photo of the sidewall.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd>07:30–17:30 NZDT</dd></div>
+          <div><dt>Saturday</dt><dd>08:00–12:00 NZDT</dd></div>
+          <div><dt>Puncture, walk-in</dt><dd>While you wait</dd></div>
+        </dl>
+      </div>
+      <form class="form ticks" id="quote" novalidate>
+        <h3>Fitting request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-size">Tyre size</label><input id="f-size" name="size" placeholder="205/55 R16"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job"><option>New tyres</option><option>Puncture repair</option><option>Wheel alignment</option><option>Balancing</option><option>Mags and rims</option><option>Mobile call-out</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">The car, and anything we should know</label><textarea id="f-msg" name="message" placeholder="e.g. 2016 Hilux, front two worn on the inside edge"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Roadhold Tyres, Hāwera · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Roadhold Tyres is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../blinds/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>40<i class="w"> of </i><i class="s">/</i>50</span><a href="../bike-repair/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

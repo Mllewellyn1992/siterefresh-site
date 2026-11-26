@@ -1,0 +1,30 @@
+Photos for the Longacre Earthmoving sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was resized to 1200 px or less and saved as JPEG quality 80, with the natural toning the Furrow style asks for (contrast up, saturation down a little).
+
+hero.jpg
+  Title:   Yellow Bulldozer Near Forest (Image Catalog)
+  Source:  https://www.flickr.com/photos/132795455@N08/17637781663
+  File:    https://live.staticflickr.com/7731/17637781663_f31355c960_b.jpg
+  Licence: CC0 1.0
+  Note:    toned (contrast +8, saturation -6)
+
+site.jpg
+  Title:   I-69 Construction Indiana (ITB495)
+  Source:  https://www.flickr.com/photos/132926214@N07/21480552299
+  File:    https://live.staticflickr.com/5739/21480552299_500dcfe3b4_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the excavator to leave out a machine logo on the right
+
+dozer.jpg
+  Title:   Bulldozer removing lava on Chain of Craters-Kalapana Road. (Hawai‘i Volcanoes NPS)
+  Source:  https://www.flickr.com/photos/144356245@N06/42464095891
+  File:    https://live.staticflickr.com/1749/42464095891_404c3a1784_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    a small manufacturer logo on the machine was painted out
+
+trench.jpg
+  Title:   Bøgeskov Høvej 35, vejarbejde - DSC_1622_3_4_Realistic 2 (Lav Ulv)
+  Source:  https://www.flickr.com/photos/99460566@N06/35561644663
+  File:    https://live.staticflickr.com/4435/35561644663_f4a578186b_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the left to leave out a distant machine's brand name

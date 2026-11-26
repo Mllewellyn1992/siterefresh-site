@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Hearthbeat Heat Pumps | Heat pump installer in Ashburton (sample site)</title>
+<meta name="description" content="Sample site: a made-up Ashburton heat pump installer, built to show the Hum style.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=chillax@500,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(97% 0.012 95); --color-paper-2: oklch(94.5% 0.018 95); --color-paper-3: oklch(91% 0.022 95);
+  --color-ink: oklch(20% 0.014 255); --color-ink-2: oklch(29% 0.014 255); --color-muted: oklch(47% 0.014 255);
+  --color-rule: oklch(87% 0.016 95);
+  --color-accent: oklch(87% 0.175 96); --color-accent-deep: oklch(72% 0.16 92); --color-accent-ink: oklch(20% 0.014 255);
+  --color-accent-2: oklch(50% 0.17 250); --color-accent-3: oklch(70% 0.2 22);
+  --color-mint: oklch(82% 0.15 152); --color-mint-deep: oklch(48% 0.12 155); --color-focus: oklch(50% 0.17 250);
+  --color-card: oklch(98.8% 0.007 95); --color-edge: oklch(83% 0.04 88); --color-fringe: oklch(99.2% 0.006 95);
+  --color-kraft: oklch(63% 0.085 62); --color-sand: oklch(77% 0.1 76); --color-sugar: oklch(89% 0.035 236);
+  --color-hill-1: oklch(94.5% 0.03 118); --color-hill-2: oklch(91.5% 0.045 135); --color-leaf: oklch(64% 0.15 150);
+  --font-display: "Chillax", ui-rounded, ui-sans-serif, sans-serif; --font-body: var(--font-display);
+  --radius-card: 24px; --radius-stock: 16px; --radius-input: 14px; --radius-pill: 999px; --rule-hair: 1px;
+  --shadow-card: 0 1px 2px oklch(20% 0.014 255 / 0.06), 0 12px 28px -14px oklch(20% 0.014 255 / 0.22);
+  --shadow-paper: drop-shadow(0 0 0.6px oklch(20% 0.014 255 / 0.32)) drop-shadow(1.5px 2.5px 1.5px oklch(20% 0.014 255 / 0.1)) drop-shadow(6px 14px 16px oklch(20% 0.014 255 / 0.13));
+  --tracking-display: -0.03em; --display-weight: 600;
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); --ease-snap: cubic-bezier(0.22, 1, 0.36, 1);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .3  0 0 0 0 .2  0 0 0 .5 -.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='turbulence' baseFrequency='.012 .45' numOctaves='2' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 .98  0 0 0 0 .9  0 0 0 .9 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 3rem; --space-2xl: 4.5rem; --space-3xl: 6.5rem;
+  --text-sm: 0.9375rem; --text-body: 1.125rem;
+  --text-title: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --text-display-s: clamp(1.9rem, 1.3rem + 2vw, 2.75rem);
+  --text-display: clamp(2.5rem, 1.5rem + 3.4vw, 4.5rem);
+  --text-display-l: clamp(2.75rem, 1.2rem + 5.4vw, 5.5rem);
+  --wrap: 74rem; --gutter: clamp(1rem, 4vw, 2.5rem); --banner-h: 2.25rem;
+  --dur-micro: 140ms;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); background: var(--color-paper); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 500 var(--text-body)/1.5 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; position: relative; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: var(--grain); opacity: .5; }
+body > * { position: relative; z-index: 1; }
+img { display: block; max-width: 100%; height: auto; }
+p { margin: 0; }
+a { color: var(--color-accent-2); text-underline-offset: 0.2em; }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; border-radius: 8px; }
+::selection { background: color-mix(in oklab, var(--color-accent) 70%, transparent); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); color: var(--color-ink); line-height: 1.04; margin: 0; }
+h2 { font-size: var(--text-display); }
+h3 { font-size: var(--text-title); letter-spacing: -0.02em; line-height: 1.15; }
+.label { font-size: var(--text-sm); line-height: 1.4; color: var(--color-muted); }
+mark { background: color-mix(in oklab, var(--color-accent) 55%, transparent); color: inherit; box-decoration-break: clone; -webkit-box-decoration-break: clone; padding: 0 0.15em; border-radius: 4px; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { display: grid; gap: var(--space-xs); margin-bottom: var(--space-xl); max-width: 38rem; }
+.section__head p { color: var(--color-ink-2); }
+
+/* sample banner */
+.sample { position: fixed !important; top: 0; left: 0; right: 0; z-index: 60 !important; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem; background: var(--color-ink); color: var(--color-paper); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { color: var(--color-accent); font-weight: 600; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+/* card stock */
+.btn { --edge: 5px; display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; min-height: 54px; padding: 0 var(--space-lg); border: 0; border-radius: var(--radius-stock); cursor: pointer; text-decoration: none; white-space: nowrap;
+  font: 600 1rem/1 var(--font-body); color: var(--color-ink); margin-bottom: 7px;
+  background: var(--grain), var(--fibre), var(--color-card);
+  box-shadow: inset 0 0 0 1px var(--color-rule), 0 var(--edge) 0 0 var(--color-edge);
+  transition: translate var(--dur-micro) var(--ease-snap), box-shadow var(--dur-micro) var(--ease-snap); }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn:hover { --edge: 7px; translate: 0 -2px; color: var(--color-ink); }
+.btn:active { --edge: 1px; translate: 0 4px; }
+.btn--primary { background: var(--grain), var(--fibre), var(--color-accent); box-shadow: inset 0 1px 0 oklch(100% 0 0 / .5), 0 var(--edge) 0 0 var(--color-accent-deep), 2px calc(var(--edge) + 4px) 10px -3px color-mix(in oklab, var(--color-ink) 32%, transparent); transition-timing-function: var(--ease-spring); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-md); }
+
+/* cut sheets with torn edges (edges set by script; straight without it) */
+.sheet { position: relative; filter: var(--shadow-paper); }
+.sheet > .fr { position: absolute; inset: 0; background: var(--color-fringe); clip-path: var(--clipf, none); }
+.sheet > .in { position: relative; clip-path: var(--clip, none); background: var(--grain), var(--fibre), var(--sheet-c, var(--color-card)); }
+.bandwrap { position: relative; }
+
+/* header */
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.5rem; height: 2.5rem; flex: none; }
+.brand span { font: 600 1.375rem/1 var(--font-display); letter-spacing: var(--tracking-display); }
+.brand small { display: block; font: 500 0.8125rem/1.3 var(--font-body); letter-spacing: 0; color: var(--color-muted); margin-top: 0.2rem; }
+.nav { display: flex; align-items: center; gap: var(--space-md); }
+.nav a:not(.btn) { font: 600 var(--text-sm)/1 var(--font-body); text-decoration: none; color: var(--color-ink); padding: 0.55rem 0.8rem; border-radius: var(--radius-stock); background: var(--color-paper-2); box-shadow: inset 0 0 0 1px var(--color-rule), 0 2px 0 0 var(--color-edge); }
+.nav a:not(.btn):hover { background: var(--color-card); }
+.nav .btn { min-height: 46px; padding-inline: var(--space-md); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+@media (min-width: 421px) { .nav .btn .sr { display: none; } }
+@media (max-width: 900px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } }
+
+/* hero */
+.hero__grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--space-xl); align-items: center; padding-block: var(--space-lg) var(--space-3xl); }
+.hero h1 { font-size: var(--text-display-l); line-height: 1.0; margin-block: var(--space-sm) var(--space-md); }
+.hero__lede { font-size: 1.1875rem; max-width: 31rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 0.75rem; margin-top: var(--space-md); }
+.rating .big { font: 600 2.5rem/1 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent-deep); }
+.stars svg { width: 1.05rem; height: 1.05rem; }
+@media (max-width: 900px) { .hero__grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* the sizer */
+.sizer .in { padding: var(--space-lg) var(--space-lg) var(--space-xl); display: grid; gap: var(--space-md); border-radius: 0; }
+.sizer h3 { font-size: var(--text-display-s); }
+.pills { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.pill { --edge: 4px; min-height: 48px; padding: 0 1.1rem; border: 0; border-radius: var(--radius-stock); cursor: pointer; font: 600 1rem/1 var(--font-body); color: var(--color-ink); margin-bottom: 5px;
+  background: var(--grain), var(--fibre), var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), 0 var(--edge) 0 0 var(--color-edge);
+  transition: translate var(--dur-micro) var(--ease-snap), box-shadow var(--dur-micro) var(--ease-snap), background-color var(--dur-micro) var(--ease-snap); }
+.pill:hover { --edge: 6px; translate: 0 -2px; }
+.pill:active { --edge: 1px; translate: 0 3px; }
+.pill[aria-pressed="true"] { background: var(--color-ink); color: var(--color-paper); box-shadow: 0 var(--edge) 0 0 oklch(10% 0.01 255); }
+.result { font-size: 1.1875rem; line-height: 1.6; color: var(--color-ink); min-height: 4.8em; }
+.result b { font-weight: 600; }
+
+/* figures on the pear field */
+.pear { --sheet-c: var(--color-accent); }
+.pear .in { padding: var(--space-2xl) 0; }
+.figs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+.fig .n { font: 600 var(--text-display)/1 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); display: block; }
+.fig .n small { font-size: var(--text-title); letter-spacing: -0.01em; margin-left: 0.2rem; }
+.fig p { margin-top: 0.4rem; color: var(--color-ink); }
+@media (max-width: 600px) { .figs { grid-template-columns: minmax(0, 1fr); gap: var(--space-md); } }
+.reviews { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-xl); }
+.card { background: var(--grain), var(--fibre), var(--color-card); border-radius: var(--radius-card); box-shadow: var(--shadow-card), inset 0 0 0 1px var(--color-rule); padding: var(--space-lg); display: grid; gap: var(--space-sm); align-content: start; }
+.card blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink); }
+.card .who { font-size: var(--text-sm); color: var(--color-muted); display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.card .who b { color: var(--color-ink); font-weight: 600; }
+@media (max-width: 760px) { .reviews { grid-template-columns: minmax(0, 1fr); } }
+
+/* services */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); margin: 0; padding: 0; }
+.svc li { list-style: none; padding: var(--space-md) var(--space-md) var(--space-lg); display: grid; grid-template-rows: auto auto 1fr; gap: 0.5rem; background: var(--grain), var(--fibre), var(--color-card); border-radius: var(--radius-card); box-shadow: var(--shadow-card), inset 0 0 0 1px var(--color-rule); }
+.svc svg { width: 3.25rem; height: 3.25rem; color: var(--color-ink); margin-bottom: 0.3rem; }
+.svc p { font-size: 1rem; color: var(--color-muted); }
+@media (max-width: 860px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .svc { grid-template-columns: minmax(0, 1fr); } }
+
+/* how: tiles on a kraft strip */
+.kraft { --sheet-c: var(--color-kraft); }
+.kraft .in { padding: var(--space-lg); }
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-md); margin: 0; padding: 0; }
+.tiles li { list-style: none; background: var(--grain), var(--fibre), var(--color-card); border-radius: var(--radius-stock); padding: var(--space-md); display: grid; gap: 0.4rem; align-content: start; box-shadow: inset 0 0 0 1px var(--color-rule), 0 5px 0 0 var(--color-edge); }
+.tiles li:nth-child(1) { background: var(--grain), var(--fibre), var(--color-accent); box-shadow: inset 0 1px 0 oklch(100% 0 0 / .5), 0 5px 0 0 var(--color-accent-deep); }
+.tiles .n { font: 600 2.25rem/1 var(--font-display); color: var(--color-ink); }
+.tiles p { font-size: 0.9688rem; color: var(--color-ink-2); }
+@media (max-width: 900px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .tiles { grid-template-columns: minmax(0, 1fr); } }
+.how__note { margin-top: var(--space-lg); max-width: 40rem; }
+
+/* job photos: torn on one edge */
+.photos { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg) var(--space-md); }
+.shot { margin: 0; grid-column: span 6; }
+.shot .in { padding: 0; background: var(--color-paper-3); }
+.shot img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.shot figcaption { margin-top: 0.8rem; font-size: var(--text-sm); color: var(--color-muted); }
+.shot figcaption b { color: var(--color-ink); font-weight: 600; display: block; }
+@media (max-width: 700px) { .shot { grid-column: 1 / -1; } }
+
+/* about: torn ink sheet */
+.ink { --sheet-c: var(--color-ink); color: var(--color-paper); }
+.ink .in { padding: var(--space-3xl) 0; background: var(--grain), var(--color-ink); }
+.ink h2, .ink h3 { color: var(--color-paper); }
+.about { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-2xl); align-items: start; }
+.about p { color: oklch(88% 0.01 95); }
+.about p + p { margin-top: var(--space-sm); }
+.about .lead { font: 600 var(--text-display-s)/1.12 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-paper); margin-bottom: var(--space-md); }
+.facts { margin: 0; padding: 0; border-top: 1px solid oklch(40% 0.014 255); }
+.facts div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.8rem; border-bottom: 1px solid oklch(40% 0.014 255); }
+.facts dt { color: oklch(78% 0.012 255); }
+.facts dd { margin: 0; color: var(--color-paper); font-weight: 600; text-align: right; }
+@media (max-width: 860px) { .about { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); } }
+
+/* area: layered paper hills */
+.area { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-xl); align-items: start; }
+.area__map { margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; overflow: visible; }
+.towns { margin: var(--space-md) 0 0; padding: 0; border-top: 1px solid var(--color-rule); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: 1px solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 600; }
+.towns li span:last-child { color: var(--color-muted); white-space: nowrap; }
+@media (max-width: 860px) { .area { grid-template-columns: minmax(0, 1fr); } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-xl); align-items: start; }
+.contact__call { display: grid; gap: var(--space-lg); }
+.phone { font: 600 var(--text-display)/1 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); text-decoration: none; }
+.hours { margin: 0; padding: 0; border-top: 1px solid var(--color-rule); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; border-bottom: 1px solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 600; }
+.hours dd { margin: 0; text-align: right; }
+.form { padding: var(--space-lg); display: grid; gap: var(--space-md); }
+.form h3 { font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.35rem; }
+.field label { font-size: var(--text-sm); color: var(--color-muted); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: var(--radius-input); border: 1px solid var(--color-muted); background: var(--color-card); font: 500 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.9rem; min-height: 52px; }
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 1px; }
+textarea { min-height: 7rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%); background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font-size: var(--text-sm); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } }
+
+footer { padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font-size: var(--text-sm); line-height: 1.4; color: var(--color-muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .pill { transition: none; }
+  .btn:hover, .pill:hover, .btn:active, .pill:active { translate: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M7.5 9h9M7.5 12h5.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Hearthbeat Heat Pumps, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="3" y="3" width="42" height="42" rx="14" fill="var(--color-accent)"/>
+        <rect x="3" y="3" width="42" height="42" rx="14" fill="none" stroke="var(--color-accent-deep)" stroke-width="2"/>
+        <path d="M24 36c-8-5-12-9-12-14a6.5 6.5 0 0 1 12-3 6.5 6.5 0 0 1 12 3c0 5-4 9-12 14z" fill="var(--color-ink)"/>
+        <path d="M14 25h6l2-4 3 7 2-3h7" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Hearthbeat Heat Pumps<small>Ashburton heat pump installer · Ange</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#reviews">Reviews</a>
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span class="sr">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Heat pump installer · Ashburton and Mid Canterbury</p>
+      <h1>Warm in winter. Cool in summer. <mark>Done in a day.</mark></h1>
+      <p class="hero__lede">Ange fits heat pumps in Ashburton homes, usually in one day. She picks the size for your room, runs the pipework neatly and shows you how the remote works before she leaves.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Ange</a>
+        <a class="btn" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="big">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from 33 Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <div class="sheet sizer" data-edge="rb" style="--sheet-c: var(--color-sugar)">
+      <i class="fr"></i>
+      <div class="in">
+        <h3>Which size for my room?</h3>
+        <div class="pills" role="group" aria-label="Room size">
+          <button class="pill" type="button" data-m2="15" data-kw="2.5" data-what="bedroom" aria-pressed="false">15 m²</button>
+          <button class="pill" type="button" data-m2="25" data-kw="3.5" data-what="lounge" aria-pressed="true">25 m²</button>
+          <button class="pill" type="button" data-m2="40" data-kw="5" data-what="open-plan living area" aria-pressed="false">40 m²</button>
+          <button class="pill" type="button" data-m2="60" data-kw="7" data-what="big living space" aria-pressed="false">60 m²</button>
+        </div>
+        <p class="result" id="result" aria-live="polite">For a <b>25 m²</b> lounge, Ange would look at a <mark>3.5 kW</mark> unit.</p>
+        <p class="label">A rough guide. Ange checks insulation, windows and ceiling height at the visit before she says for sure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews" style="padding-top:0">
+  <div class="pear sheet" data-edge="tb" style="margin-bottom:var(--space-2xl)">
+    <i class="fr"></i>
+    <div class="in">
+      <div class="wrap">
+        <div class="figs">
+          <div class="fig"><span class="n">4.9</span><p>out of 5 on Google</p></div>
+          <div class="fig"><span class="n">33</span><p>Google reviews</p></div>
+          <div class="fig"><span class="n">1<small>day</small></span><p>a typical install</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What customers say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="card"><blockquote>“Ange fitted a heat pump in our lounge in a day. Neat pipework outside, nothing left lying around, and she walked me through the remote twice.”</blockquote><p class="who"><b>Sarah</b><span>Tinwald</span><span>· Lounge</span></p></div>
+      <div class="card"><blockquote>“Our old house was freezing. She suggested one for the lounge and a small one for the bedroom rather than a big one for everything, and she was right.”</blockquote><p class="who"><b>Graham</b><span>Allenton</span><span>· Two units</span></p></div>
+      <div class="card"><blockquote>“Rang on a Monday, quoted on the Tuesday, installed on the Friday. The kids love that it's warm before they get up.”</blockquote><p class="who"><b>Mere</b><span>Netherby</span><span>· Family room</span></p></div>
+      <div class="card"><blockquote>“She serviced the heat pump we already had. Cleaned the filters, showed me how to do it myself, and told me it had years left in it.”</blockquote><p class="who"><b>Ian</b><span>Hampstead</span><span>· Service</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What Ange does</h2>
+      <p>Heat pumps for homes, from one bedroom to a whole house. Each job is measured, priced in writing and tidied up after.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="44" height="18" rx="6"/><path d="M12 34h28M16 40h20" /><path d="M14 19h24"/></svg>
+        <h3>New heat pumps</h3><p>Wall units fitted, sized and tested for your room.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="40" height="40" rx="8"/><circle cx="26" cy="26" r="12"/><circle cx="26" cy="26" r="2.5"/><path d="M26 14c4 4 4 8 0 12M38 26c-4 4-8 4-12 0M26 38c-4-4-4-8 0-12M14 26c4-4 8-4 12 0"/></svg>
+        <h3>Outdoor units</h3><p>Set on a stand where it's quiet and out of the way.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="6"/><path d="M16 4v3M16 25v3M4 16h3M25 16h3M7.5 7.5l2 2M22.5 22.5l2 2M7.5 24.5l2-2M22.5 9.5l2-2"/><path d="M38 24v24M28 30l20 12M28 42l20-12"/></svg>
+        <h3>Heating and cooling</h3><p>One unit that warms in winter and cools in summer.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12h36v28H8z"/><path d="M8 20h36M8 28h36M8 36h36"/><path d="M26 4v8"/></svg>
+        <h3>Servicing</h3><p>Filters cleaned and coils checked, once a year.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="4" width="20" height="44" rx="6"/><circle cx="26" cy="14" r="3"/><path d="M21 24h10M21 30h10M21 36h10"/></svg>
+        <h3>Remote and app set-up</h3><p>Timers set and the remote explained before we leave.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M26 6c8 10 12 16 12 22a12 12 0 0 1-24 0c0-6 4-12 12-22z"/><path d="M20 30a6 6 0 0 0 6 6"/></svg>
+        <h3>Damp and mould help</h3><p>A heat pump placed to dry the room, not just warm it.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="how" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How an install goes</h2>
+      <p>Most homes are done in one day. Here is how it runs.</p>
+    </div>
+    <div class="kraft sheet" data-edge="tb">
+      <i class="fr"></i>
+      <div class="in">
+        <ol class="tiles">
+          <li><span class="n">1</span><h3>Look and measure</h3><p>Ange visits, checks the room and where the units will go. Free, about 30 minutes.</p></li>
+          <li><span class="n">2</span><h3>Written price</h3><p>The size, the model and the fitting, set out in writing.</p></li>
+          <li><span class="n">3</span><h3>Fit in a day</h3><p>Indoor unit on the wall, outdoor unit on a stand, pipes run and sealed.</p></li>
+          <li><span class="n">4</span><h3>Test and show</h3><p>Heating and cooling tested, then the remote explained to you.</p></li>
+        </ol>
+      </div>
+    </div>
+    <p class="how__note label">Heat pumps run cheapest when set to one steady temperature and left on, so Ange sets a timer with you rather than leaving it to guess.</p>
+  </div>
+</section>
+
+<section class="section" id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent installs</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="photos">
+      <figure class="shot"><div class="sheet" data-edge="r"><i class="fr"></i><div class="in"><img src="img/hero.jpg" width="1024" height="683" alt="A grey outdoor heat pump unit on a stand beside a brick wall and a lawn"></div></div><figcaption><b>Outdoor unit on a stand</b>Tinwald</figcaption></figure>
+      <figure class="shot"><div class="sheet" data-edge="b"><i class="fr"></i><div class="in"><img src="img/wall.jpg" style="aspect-ratio:4/3;object-position:50% 40%" width="683" height="1024" alt="A heat pump outdoor unit fixed to the wall of a house in evening sunlight"></div></div><figcaption><b>Wall-mounted unit</b>Allenton</figcaption></figure>
+      <figure class="shot"><div class="sheet" data-edge="l"><i class="fr"></i><div class="in"><img src="img/roof.jpg" width="1200" height="900" alt="A white outdoor air conditioning unit with a grille sitting on a roof against a blue sky"></div></div><figcaption><b>Roof-top unit</b>Netherby</figcaption></figure>
+      <figure class="shot"><div class="sheet" data-edge="t"><i class="fr"></i><div class="in"><img src="img/dial.jpg" width="1024" height="678" alt="A white radiator thermostat dial set to 3"></div></div><figcaption><b>Set to a steady temperature</b>Hampstead</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="ink sheet" data-edge="t" id="about">
+  <i class="fr"></i>
+  <div class="in">
+    <div class="wrap about">
+      <div>
+        <h2 style="margin-bottom:var(--space-md)">About Ange</h2>
+        <p class="lead">One installer, one van, and a warm lounge by tea time.</p>
+        <p>Ange works on her own out of Ashburton. She fits the heat pump herself, answers her own phone, and will tell you if a smaller unit would do the job.</p>
+        <p>After the install she's happy to pop back and check the settings once you've lived with it a few weeks.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Based in</dt><dd>Tinwald, Ashburton</dd></div>
+        <div><dt>Installs</dt><dd>Wall units, home use</dd></div>
+        <div><dt>Quote</dt><dd>In writing, before we start</dd></div>
+        <div><dt>Visit to measure</dt><dd>Free</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where Ange works</h2>
+      <p>All of Ashburton and the towns within about 40 km. Further out for bigger jobs, by arrangement.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map" style="margin:0">
+        <svg viewBox="0 0 600 420" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area as layered paper hills: Ashburton in the middle with Tinwald, Hinds, Rakaia and Methven around it.</title>
+          <defs><filter id="ps" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="1.5" dy="3" stdDeviation="2.5" flood-color="#1b2030" flood-opacity=".16"/></filter></defs>
+          <rect x="0" y="0" width="600" height="420" rx="24" fill="oklch(89% 0.035 236)"/>
+          <g filter="url(#ps)"><path d="M0 230 C 80 190, 130 215, 200 180 S 330 130, 400 170 S 520 150, 600 190 V420 H0z" fill="oklch(94.5% 0.03 118)"/></g>
+          <g filter="url(#ps)"><path d="M0 285 C 90 250, 160 280, 250 245 S 400 215, 470 250 S 560 240, 600 255 V420 H0z" fill="oklch(91.5% 0.045 135)"/></g>
+          <g filter="url(#ps)"><path d="M0 345 C 100 320, 180 345, 280 322 S 440 300, 600 335 V420 H0z" fill="oklch(64% 0.15 150)"/></g>
+          <g filter="url(#ps)"><path d="M0 395 C 150 378, 300 400, 600 380 V420 H0z" fill="oklch(63% 0.085 62)"/></g>
+          <circle cx="300" cy="262" r="150" fill="none" stroke="#1b2030" stroke-width="2" stroke-dasharray="3 8" stroke-linecap="round" opacity=".55"/>
+          <g font-family="Chillax, sans-serif" font-weight="600" fill="#1b2030">
+            <circle cx="300" cy="262" r="12" fill="oklch(87% 0.175 96)" stroke="#1b2030" stroke-width="2.5"/>
+            <text x="300" y="296" font-size="22" text-anchor="middle">Ashburton</text>
+            <circle cx="262" cy="250" r="5"/><text x="150" y="246" font-size="16">Tinwald</text>
+            <circle cx="372" cy="212" r="5"/><text x="384" y="208" font-size="16">Hinds</text>
+            <circle cx="104" cy="196" r="5"/><text x="116" y="192" font-size="16">Rakaia</text>
+            <circle cx="468" cy="168" r="5"/><text x="404" y="150" font-size="16">Methven</text>
+          </g>
+          <g transform="translate(556 372)" font-family="Chillax, sans-serif" font-weight="600" fill="#fff"><path d="M0 -20 L8 8 L0 2 L-8 8 Z"/><text x="0" y="26" font-size="14" text-anchor="middle">N</text></g>
+        </svg>
+        <figcaption class="label" style="margin-top:.8rem">Sketch, not to scale.</figcaption>
+      </figure>
+      <div>
+        <p>Ashburton suburbs: Tinwald, Allenton, Netherby, Hampstead, Lakeside, Hoskyns Way and more.</p>
+        <ul class="towns">
+          <li><span>Ashburton</span><span>0–10 km</span></li>
+          <li><span>Tinwald</span><span>3 km</span></li>
+          <li><span>Hinds</span><span>20 km</span></li>
+          <li><span>Rakaia</span><span>30 km</span></li>
+          <li><span>Methven</span><span>40 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Get a <mark>warm</mark> quote</h2>
+      <p>Call or text Ange. Send a photo of the room and roughly how big it is and she'll come and measure.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd>7:30 am – 5:00 pm</dd></div>
+          <div><dt>Saturday</dt><dd>Quotes only, 8:00 am – 12:00 pm</dd></div>
+          <div><dt>Quote back</dt><dd>Within 2 working days</dd></div>
+        </dl>
+      </div>
+      <form class="card form" id="quote" novalidate>
+        <h3>Quote request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job"><option>New heat pump</option><option>Second unit</option><option>Service</option><option>Move a unit</option><option>Something else</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Which room, and roughly how big</label><textarea id="f-msg" name="message" placeholder="e.g. lounge, about 25 m², cold in winter"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Hearthbeat Heat Pumps, Ashburton · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Hearthbeat Heat Pumps is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+
+/* sizer */
+(function () {
+  var pills = document.querySelectorAll('.pill'), out = document.getElementById('result');
+  pills.forEach(function (p) {
+    p.addEventListener('click', function () {
+      pills.forEach(function (o) { o.setAttribute('aria-pressed', o === p ? 'true' : 'false'); });
+      out.innerHTML = 'For a <b>' + p.dataset.m2 + ' m²</b> ' + p.dataset.what + ', Ange would look at a <mark>' + p.dataset.kw + ' kW</mark> unit.';
+    });
+  });
+})();
+
+/* torn paper edges: seeded value noise, with a pale fibre twin standing a pixel proud */
+(function () {
+  function hash(n, s) { var h = (n * 374761393 + s * 668265263) | 0; h = (h ^ (h >>> 13)) * 1274126177 | 0; return ((h ^ (h >>> 16)) >>> 0) / 4294967295; }
+  function noise(x, s) { var i = Math.floor(x), f = x - i, u = f * f * (3 - 2 * f); return hash(i, s) * (1 - u) + hash(i + 1, s) * u; }
+  function tear(w, h, edges, seed, proud) {
+    var amp = 7, step = 12, pts = [], i, n, o;
+    function off(x, s) { o = (0.65 * noise(x / 22, s) + 0.35 * noise(x / 6, s + 9)) * amp - (proud ? 2 : 0); return Math.max(0, o); }
+    var top = edges.indexOf('t') > -1, right = edges.indexOf('r') > -1, bottom = edges.indexOf('b') > -1, left = edges.indexOf('l') > -1;
+    for (i = 0, n = Math.ceil(w / step); i <= n; i++) { var x = Math.min(i * step, w); pts.push([x, top ? off(x, seed) : 0]); }
+    for (i = 0, n = Math.ceil(h / step); i <= n; i++) { var y = Math.min(i * step, h); pts.push([w - (right ? off(y, seed + 3) : 0), y]); }
+    for (i = 0, n = Math.ceil(w / step); i <= n; i++) { var x2 = Math.max(w - i * step, 0); pts.push([x2, h - (bottom ? off(x2, seed + 5) : 0)]); }
+    for (i = 0, n = Math.ceil(h / step); i <= n; i++) { var y2 = Math.max(h - i * step, 0); pts.push([left ? off(y2, seed + 7) : 0, y2]); }
+    return 'polygon(' + pts.map(function (p) { return p[0].toFixed(1) + 'px ' + p[1].toFixed(1) + 'px'; }).join(',') + ')';
+  }
+  function run() {
+    document.querySelectorAll('.sheet[data-edge]').forEach(function (el, idx) {
+      var inn = el.querySelector(':scope > .in'); if (!inn) return;
+      var w = inn.offsetWidth, h = inn.offsetHeight, e = el.dataset.edge;
+      el.style.setProperty('--clip', tear(w, h, e, idx * 11 + 3, false));
+      el.style.setProperty('--clipf', tear(w, h, e, idx * 11 + 3, true));
+    });
+  }
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(run, 120); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(run);
+  window.addEventListener('load', run); run();
+})();
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../flooring/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>30<i class="w"> of </i><i class="s">/</i>50</span><a href="../plasterer/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

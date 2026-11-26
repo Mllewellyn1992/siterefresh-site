@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Small Hours Locksmiths | 24/7 locksmith in Lower Hutt (sample site)</title>
+<meta name="description" content="Sample site: a made-up Lower Hutt 24/7 locksmith, built to show the Midnight style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@100,400;100,500;125,300&display=swap" rel="stylesheet">
+<style>
+/* midnight */
+:root {
+  --color-paper: oklch(14% 0.048 264); --color-paper-2: oklch(18.5% 0.052 264); --color-paper-3: oklch(23% 0.055 264);
+  --color-ink: oklch(95% 0.016 250); --color-ink-2: oklch(88% 0.05 245); --color-muted: oklch(73% 0.04 256);
+  --color-rule: oklch(29% 0.058 264); --color-rule-2: oklch(40% 0.06 262);
+  --color-accent: oklch(80% 0.11 230); --color-accent-2: oklch(58% 0.1 236); --color-accent-ink: oklch(16% 0.05 264); --color-focus: oklch(84% 0.12 228);
+  --font-display: "Mona Sans", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
+  --radius-card: 0; --rule-hair: 1px;
+  --shadow-card: 0 24px 48px -24px oklch(6% 0.04 264 / 0.7);
+  --tracking-display: -0.015em; --display-weight: 300; --display-stretch: 125%;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+  --text-display-m: clamp(2.4rem, 1.4rem + 3.4vw, 4rem);
+  --text-display-l: clamp(2.5rem, 1.2rem + 4.6vw, 5.25rem);
+  --text-figure: clamp(7rem, 3rem + 18vw, 17rem);
+  --dur-short: 150ms; --dur-long: 600ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem); --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.6 var(--font-body); font-variant-numeric: tabular-nums; padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: var(--color-accent); color: var(--color-accent-ink); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-muted); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-color: var(--color-accent); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+h1, h2 { font-family: var(--font-display); font-weight: var(--display-weight); font-stretch: var(--display-stretch); letter-spacing: var(--tracking-display); color: var(--color-ink); line-height: 1.04; margin: 0; }
+h3 { font-family: var(--font-display); font-weight: 500; color: var(--color-ink); line-height: 1.2; margin: 0; font-size: 1.1875rem; }
+h2 { font-size: var(--text-display-s); }
+p { margin: 0; }
+.label { font-size: var(--text-sm); font-weight: 500; line-height: 1.4; color: var(--color-muted); }
+.fig { font-weight: var(--display-weight); font-stretch: var(--display-stretch); letter-spacing: -0.03em; line-height: 0.9; font-variant-numeric: tabular-nums; color: var(--color-ink); }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); margin-bottom: var(--space-xl); }
+.section__head p { max-width: 30rem; color: var(--color-ink-2); }
+.band { background: var(--color-paper-2); }
+.band--3 { background: var(--color-paper-3); }
+.well { background: var(--color-paper-2); }
+.band .well { background: var(--color-paper-3); }
+.well--raised { background: var(--color-paper-3); box-shadow: var(--shadow-card); }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem; background: var(--color-paper-3); color: var(--color-ink); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { color: var(--color-accent); font-weight: 500; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; white-space: nowrap; border: var(--rule-hair) solid transparent; border-radius: 0; background: none; padding: var(--space-sm) var(--space-lg); min-height: 3rem; font: 500 1rem/1.2 var(--font-body); color: var(--color-ink); text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out); }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
+.btn--secondary { border-color: var(--color-rule-2); }
+.btn--secondary:hover { background: var(--color-paper-2); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+.top { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-sm); }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.4rem; height: 2.4rem; flex: none; }
+.brand span { font: 300 1.2rem/1.05 var(--font-display); font-stretch: 125%; letter-spacing: -0.01em; }
+.brand small { display: block; font: 500 0.8125rem/1.3 var(--font-body); font-stretch: 100%; color: var(--color-muted); letter-spacing: 0; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); text-decoration: none; color: var(--color-ink-2); }
+.nav a:not(.btn):hover { text-decoration: underline; text-decoration-color: var(--color-accent); }
+.nav .btn { min-height: 2.75rem; padding-inline: var(--space-md); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1.05rem; } }
+
+/* hero */
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.settle { animation: settle var(--dur-long) var(--ease-out) both; }
+@keyframes settle { from { opacity: 0.6; } }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: center; }
+.hero__copy { grid-column: 1 / span 6; }
+.hero h1 { font-size: var(--text-display-l); margin-block: var(--space-sm) var(--space-md); }
+.hero__lede { max-width: 30rem; margin-bottom: var(--space-lg); font-size: 1.125rem; }
+.rating { display: flex; align-items: center; gap: 0.75rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); max-width: 30rem; }
+.rating .big { font-size: 2.5rem; }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent); }
+.stars svg { width: 0.95rem; height: 0.95rem; }
+.sheet { grid-column: 8 / span 5; padding: 0; }
+.sheet__head { display: flex; justify-content: space-between; align-items: center; padding: var(--space-sm) var(--space-md); background: var(--color-paper-2); }
+.sheet__head b { font-weight: 500; color: var(--color-ink); }
+.sheet__body { padding: 0 var(--space-md) var(--space-md); }
+.sheet table { width: 100%; border-collapse: collapse; }
+.sheet th { text-align: left; font-weight: 500; font-size: 0.8125rem; color: var(--color-muted); padding: var(--space-sm) 0 0.35rem; }
+.sheet td { padding: 0.65rem 0; border-top: var(--rule-hair) solid var(--color-rule); vertical-align: baseline; font-size: var(--text-sm); }
+.sheet td:first-child { color: var(--color-ink); font-weight: 500; }
+.sheet td:nth-child(2) { color: var(--color-muted); }
+.sheet td:last-child { text-align: right; white-space: nowrap; }
+.sheet .on { color: var(--color-accent); font-weight: 500; }
+@media (max-width: 860px) { .hero__copy, .sheet { grid-column: 1 / -1; } }
+
+/* photographs: moonlight, square frames, caption gives the hour */
+.photo { margin: 0; }
+.photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; background: var(--color-paper-3); }
+.photo--wide img { aspect-ratio: 4 / 3; }
+.photo figcaption { display: flex; justify-content: space-between; gap: 1rem; margin-top: 0.6rem; font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.photo figcaption b { font-weight: 500; color: var(--color-ink-2); white-space: nowrap; }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.score { grid-column: 1 / span 4; padding: var(--space-lg); display: grid; gap: var(--space-xs); }
+.score .fig { font-size: clamp(5rem, 3rem + 6vw, 8rem); }
+.quotes { grid-column: 5 / span 8; margin: 0; padding: 0; }
+.quotes li { list-style: none; padding-block: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.5rem; }
+.quotes li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.quotes blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.25rem 0.75rem; flex-wrap: wrap; }
+.quotes .who b { color: var(--color-ink-2); font-weight: 500; }
+@media (max-width: 860px) { .reviews { grid-template-columns: minmax(0, 1fr); } .score, .quotes { grid-column: 1 / -1; } }
+
+/* services */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; margin: 0; padding: 0; background: var(--color-paper); }
+.svc li { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; padding: var(--space-md) var(--space-md) var(--space-lg); background: var(--color-paper-2); transition: background-color var(--dur-short) var(--ease-out); }
+.svc li:hover { background: var(--color-paper-3); }
+.svc svg { width: 2.75rem; height: 2.75rem; color: var(--color-accent); margin-bottom: 0.6rem; }
+.svc h3 { font-size: 1.25rem; }
+@media (max-width: 860px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .svc { grid-template-columns: 1fr; } }
+
+/* figure as the statement */
+.statement { padding-block: var(--space-3xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: center; }
+.statement .fig { grid-column: 1 / span 7; font-size: var(--text-figure); }
+.statement .fig small { font-size: 0.3em; font-weight: 400; font-stretch: 100%; letter-spacing: 0; color: var(--color-ink-2); margin-left: 0.15em; }
+.statement__copy { grid-column: 8 / span 5; display: grid; gap: var(--space-sm); }
+.statement__copy h2 { font-size: var(--text-display-s); }
+@media (max-width: 860px) { .statement { grid-template-columns: minmax(0, 1fr); } .statement .fig, .statement__copy { grid-column: 1 / -1; } }
+
+/* night log */
+.log { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-lg); }
+.log li { list-style: none; border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-sm); display: grid; gap: 0.4rem; align-content: start; color: var(--color-muted); }
+.log h3 { font-size: 1.5rem; font-weight: 500; color: var(--color-muted); }
+.log .t { font-weight: 300; font-stretch: 125%; font-size: var(--text-display-s); letter-spacing: -0.03em; line-height: 1; color: var(--color-muted); }
+.log li.now { color: var(--color-ink-2); }
+.log li.now h3, .log li.now .t { color: var(--color-ink); }
+.meter { height: 2px; background: var(--color-rule-2); margin-top: var(--space-lg); }
+.meter > span { display: block; height: 100%; width: 75%; background: var(--color-accent); }
+@media (max-width: 760px) { .log { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* tumbler */
+.tumbler { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: center; }
+.tumbler__draw { grid-column: 1 / span 7; padding: var(--space-md); margin: 0; }
+.tumbler__draw svg { width: 100%; height: auto; display: block; }
+.tumbler__copy { grid-column: 8 / span 5; display: grid; gap: var(--space-sm); }
+@media (max-width: 860px) { .tumbler { grid-template-columns: minmax(0, 1fr); } .tumbler__draw, .tumbler__copy { grid-column: 1 / -1; } }
+
+.work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+
+.about { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.about__text { grid-column: 1 / span 6; display: grid; gap: var(--space-sm); }
+.rows { grid-column: 8 / span 5; margin: 0; padding: 0; }
+.rows li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.8rem; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.rows li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule-2); }
+.rows span:first-child { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .about { grid-template-columns: minmax(0, 1fr); } .about__text, .rows { grid-column: 1 / -1; } }
+
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-paper-2); }
+.area__list { grid-column: 8 / span 5; display: grid; gap: var(--space-md); }
+.towns { margin: 0; padding: 0; }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-top: var(--rule-hair) solid var(--color-rule); }
+.towns li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+.towns .u { white-space: nowrap; color: var(--color-ink-2); }
+@media (max-width: 860px) { .area { grid-template-columns: minmax(0, 1fr); } .area__map, .area__list { grid-column: 1 / -1; } }
+
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: 300 var(--text-display-m)/1 var(--font-display); font-stretch: 125%; letter-spacing: -0.02em; color: var(--color-ink); text-decoration: none; }
+.contact__call .phone:hover { text-decoration: underline; text-decoration-color: var(--color-accent); }
+.hours { margin: 0; padding: 0; }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.hours div:last-child { border-bottom: var(--rule-hair) solid var(--color-rule-2); }
+.hours dt { color: var(--color-ink); font-weight: 500; }
+.hours dd { margin: 0; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg); display: grid; gap: var(--space-md); }
+.form h3 { font: 300 var(--text-display-s)/1.04 var(--font-display); font-stretch: 125%; letter-spacing: var(--tracking-display); }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border: var(--rule-hair) solid var(--color-muted); border-radius: 0; background: var(--color-paper); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3rem; }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%); background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } .contact__call, .form { grid-column: 1 / -1; } .hero__grid { grid-template-columns: minmax(0, 1fr); } }
+
+footer { background: var(--color-paper-2); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+@media (prefers-reduced-motion: reduce) { .settle { animation: none; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="1.9"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Small Hours Locksmiths, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="0" y="0" width="48" height="48" fill="var(--color-paper-3)"/>
+        <circle cx="20" cy="22" r="8" fill="none" stroke="var(--color-ink)" stroke-width="2.4"/>
+        <path d="M27 26l13 12M34 33l3-3M38 37l3-3" stroke="var(--color-ink)" stroke-width="2.4" fill="none"/>
+        <circle cx="20" cy="22" r="2.4" fill="var(--color-accent)"/>
+      </svg>
+      <span>Small Hours Locksmiths<small>Lower Hutt, 24 hours · Ben and Aroha</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#how">The night</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span class="sr">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy settle">
+      <p class="label">24-hour locksmith · Lower Hutt and the Hutt Valley</p>
+      <h1>Locked out at 2 am. Back in by 3.</h1>
+      <p class="hero__lede">Ben and Aroha open locked homes and cars, rekey locks and fit new ones across the Hutt, every hour of every night. Call, and one of them drives to you.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Ben</a>
+        <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text your street</a>
+      </div>
+      <div class="rating">
+        <span class="fig big">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from 58 Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <aside class="well well--raised sheet" aria-label="Example call sheet">
+      <div class="sheet__head"><b>Tonight's call sheet</b><span class="label">example</span></div>
+      <div class="sheet__body">
+        <table>
+          <thead><tr><th>Job</th><th>Where</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>House lockout</td><td>Naenae</td><td class="on">On the way</td></tr>
+            <tr><td>Car lockout</td><td>Petone</td><td>Done 01:12</td></tr>
+            <tr><td>Rekey, 3 locks</td><td>Taita</td><td>Done 23:40</td></tr>
+            <tr><td>Broken key</td><td>Epuni</td><td>Done 21:05</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="band section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="well score">
+        <span class="fig">4.9</span>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <p>out of 5, from 58 Google reviews</p>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Shut the door on my keys at half past one in the morning with a toddler inside. Ben was there in twenty minutes, had the door open without a mark, and wouldn't take a thing for waiting.”</blockquote>
+          <p class="who"><b>Hana</b><span>Naenae</span><span>· House lockout</span></p>
+        </li>
+        <li>
+          <blockquote>“Rang at 3 am after a flat tyre and keys in the boot. Aroha got the car open, no damage, and had me on my way before sunrise.”</blockquote>
+          <p class="who"><b>Dylan</b><span>Petone</span><span>· Car lockout</span></p>
+        </li>
+        <li>
+          <blockquote>“We moved into a rental and had no idea who held keys. They rekeyed all three locks the same day and gave us a spare of each.”</blockquote>
+          <p class="who"><b>Lisa</b><span>Taita</span><span>· Rekey</span></p>
+        </li>
+        <li>
+          <blockquote>“Key snapped off in the front door lock on a Sunday night. Out in half an hour, and a new one cut on the spot.”</blockquote>
+          <p class="who"><b>Tevita</b><span>Stokes Valley</span><span>· Broken key</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we open and fit</h2>
+      <p>Homes, cars and small businesses. We check who you are before we open anything, because that is what you'd want from us too.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter" aria-hidden="true"><path d="M6 22 24 8l18 14"/><path d="M10 20v22h28V20"/><circle cx="24" cy="30" r="4"/><path d="M24 34v4"/></svg>
+        <h3>House lockouts</h3>
+        <p>Back inside without drilling or damage, any hour.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter" aria-hidden="true"><path d="M5 30l4-10h22l6 7h6v8H5z"/><path d="M13 20l3-6h12l3 6"/><circle cx="14" cy="36" r="4"/><circle cx="34" cy="36" r="4"/></svg>
+        <h3>Car lockouts</h3>
+        <p>Open without scratches, and replace lost or broken keys.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter" aria-hidden="true"><rect x="8" y="20" width="32" height="22"/><path d="M14 20v-6a10 10 0 0 1 20 0v6"/><path d="M24 28v6"/><path d="M36 8l4 4M40 8l-4 4"/></svg>
+        <h3>Rekeying</h3>
+        <p>New keys for old locks, so past keys stop working.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter" aria-hidden="true"><rect x="12" y="4" width="24" height="40"/><circle cx="30" cy="24" r="3"/><path d="M12 14h24M12 34h24"/><path d="M18 24h6"/></svg>
+        <h3>New locks</h3>
+        <p>Deadbolts and handles fitted square, tested, and keyed to you.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter" aria-hidden="true"><circle cx="14" cy="14" r="8"/><path d="M20 20 40 40M32 32l4-4M36 36l4-4"/></svg>
+        <h3>Key cutting</h3>
+        <p>House, padlock and car keys cut while you wait.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter" aria-hidden="true"><path d="M24 4 6 10v14c0 10 7 17 18 20 11-3 18-10 18-20V10z"/><path d="M16 24l6 6 11-12"/></svg>
+        <h3>Security checks</h3>
+        <p>A walk-round of your doors and windows, with a plain list.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap statement">
+    <p class="fig" aria-label="24 hours">24<small>h</small></p>
+    <div class="statement__copy">
+      <h2>Every hour. Every night of the year.</h2>
+      <p>A call at 3 am goes to the same phone as a call at 3 pm. One of us picks up, tells you how long, and comes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>A lockout, hour by hour</h2>
+      <p>An example call from the small hours. The times change, the order doesn't.</p>
+    </div>
+    <ol class="log">
+      <li><span class="t">02:14</span><h3>Call</h3><p>You tell us the street and what's locked. We tell you how long.</p></li>
+      <li><span class="t">02:20</span><h3>On the way</h3><p>One of us drives out. You get a text when we're two minutes off.</p></li>
+      <li class="now"><span class="t">02:41</span><h3>At the door</h3><p>We check it's your home or car, then open it without damage.</p></li>
+      <li><span class="t">02:50</span><h3>In</h3><p>Locks tested, the price confirmed, spare key cut if you want one.</p></li>
+    </ol>
+    <div class="meter" role="img" aria-label="Three quarters of the example night"><span></span></div>
+  </div>
+</section>
+
+<section class="band section" id="tumbler">
+  <div class="wrap tumbler">
+    <figure class="well tumbler__draw">
+      <svg viewBox="0 0 640 340" role="img" aria-labelledby="tumT">
+        <title id="tumT">Cross-section of a pin tumbler lock: the key's cuts lift each pin stack so the split between key pin and driver pin lines up with the edge of the plug, the shear line, and the plug turns.</title>
+        <g font-family="Mona Sans, sans-serif" font-size="14" fill="var(--color-ink-2)">
+          <rect x="60" y="40" width="520" height="60" fill="var(--color-paper-2)"/>
+          <rect x="60" y="100" width="520" height="130" fill="var(--color-paper)"/>
+          <path d="M60 100H580" stroke="var(--color-accent)" stroke-width="2"/>
+          <g fill="var(--color-rule-2)">
+            <rect x="140" y="52" width="40" height="40"/><rect x="250" y="52" width="40" height="40"/><rect x="360" y="52" width="40" height="40"/><rect x="470" y="52" width="40" height="40"/>
+          </g>
+          <g fill="var(--color-ink)">
+            <rect x="140" y="100" width="40" height="30"/><rect x="250" y="100" width="40" height="46"/><rect x="360" y="100" width="40" height="26"/><rect x="470" y="100" width="40" height="38"/>
+          </g>
+          <g fill="var(--color-muted)">
+            <rect x="140" y="130" width="40" height="42"/><rect x="250" y="146" width="40" height="26"/><rect x="360" y="126" width="40" height="46"/><rect x="470" y="138" width="40" height="34"/>
+          </g>
+          <path d="M60 172H400L440 250H60Z" fill="none"/>
+          <path d="M60 176H560L580 200V236H60Z" fill="var(--color-ink-2)" fill-opacity=".9"/>
+          <path d="M60 176 H130 L148 206 L166 176 H236 L258 214 L282 176 H350 L366 200 L384 176 H456 L474 210 L498 176 H560" fill="var(--color-paper)" stroke="none"/>
+          <text x="62" y="30">Springs push the pins down</text>
+          <text x="588" y="104" text-anchor="start" fill="var(--color-accent)" font-size="13">shear</text><text x="588" y="120" text-anchor="start" fill="var(--color-accent)" font-size="13">line</text>
+          <text x="62" y="262" fill="var(--color-muted)">The key's cuts lift every pin to the line.</text>
+        </g>
+      </svg>
+      <p class="label" style="margin-top:.6rem">Simplified section of a pin tumbler lock. Not to scale.</p>
+    </figure>
+    <div class="tumbler__copy">
+      <h2>Why rekeying works</h2>
+      <p>Inside the lock, each pin has a split. Only the right key lifts every split to the shear line, and then the lock turns.</p>
+      <p>To rekey, we change the pins and cut a new key. The lock stays, the old keys stop working, and nothing on your door changes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>On the bench</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="photo">
+        <img src="img/key.jpg" width="1024" height="683" alt="A key hanging in a door lock beside a brass strike plate">
+        <figcaption><span>Key left in the lock, Naenae</span><b>01:50</b></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/parts.jpg" width="1024" height="768" alt="A deadbolt taken apart on a table, with its pins, cylinder and spare keys laid out">
+        <figcaption><span>Deadbolt taken apart for a rekey</span><b>11:20</b></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/cylinder.jpg" width="1024" height="768" alt="A car's ignition lock barrel exposed in a dashboard during a repair">
+        <figcaption><span>Ignition barrel, Petone</span><b>04:10</b></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band section" id="about">
+  <div class="wrap about">
+    <div class="about__text">
+      <h2>Two locksmiths, one phone</h2>
+      <p>Ben and Aroha share the nights. Whoever answers is the one who comes, and the one who writes the job down.</p>
+      <p>We ask for proof it's your home or your car before we open anything. It takes a minute, and it's the reason you can trust a locksmith with your door.</p>
+      <figure class="photo" style="margin-top:var(--space-sm)">
+        <img src="img/old.jpg" width="1024" height="683" alt="Three old iron keys lying together on a dark surface" style="aspect-ratio:16/9">
+        <figcaption><span>Old keys we are asked to copy</span><b>Heritage</b></figcaption>
+      </figure>
+    </div>
+    <ul class="rows">
+      <li><span>Answered by</span><span>A person, 24 hours</span></li>
+      <li><span>Arrival</span><span>We tell you when you call</span></li>
+      <li><span>Damage to your door</span><span>None, or we fix it</span></li>
+      <li><span>Proof it's yours</span><span>Always asked</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="area">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we drive</h2>
+      <p>Based in Naenae. All of Lower Hutt and the valley, day or night. Upper Hutt and Wellington city by arrangement.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 460" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Lower Hutt beside Wellington Harbour with the Hutt River running down to the sea, Petone on the shore, Naenae, Taita and Stokes Valley in the valley, Wainuiomata over the hills, and Upper Hutt marked as by arrangement.</title>
+          <g font-family="Mona Sans, sans-serif" font-weight="500" fill="var(--color-ink-2)">
+            <path d="M0 330C60 350 130 340 190 370S260 440 300 460H0Z" fill="var(--color-paper-3)"/>
+            <text x="22" y="430" font-size="14" fill="var(--color-muted)">Wellington Harbour</text>
+            <path d="M520 0C470 70 430 120 380 170S300 250 240 320 190 355" fill="none" stroke="var(--color-accent-2)" stroke-width="5"/>
+            <text x="402" y="108" font-size="13" fill="var(--color-muted)" transform="rotate(-48 402 108)">Hutt River</text>
+            <circle cx="300" cy="240" r="150" fill="none" stroke="var(--color-muted)" stroke-width="1" stroke-dasharray="6 6"/>
+            <text x="372" y="128" font-size="13" fill="var(--color-muted)">about 15 km</text>
+            <rect x="256" y="206" width="98" height="52" fill="var(--color-paper-3)"/>
+            <text x="305" y="238" text-anchor="middle" font-size="19" font-weight="500" fill="var(--color-ink)">Lower Hutt</text>
+            <circle cx="290" cy="196" r="5" fill="var(--color-accent)"/>
+            <rect x="170" y="330" width="10" height="10" fill="var(--color-ink)"/><text x="188" y="340" font-size="16">Petone</text>
+            <rect x="338" y="172" width="10" height="10" fill="var(--color-ink)"/><text x="356" y="184" font-size="16">Taita</text>
+            <rect x="262" y="270" width="10" height="10" fill="var(--color-ink)"/><text x="280" y="284" font-size="16">Epuni</text>
+            <rect x="420" y="214" width="10" height="10" fill="var(--color-ink)"/><text x="438" y="228" font-size="16">Stokes Valley</text>
+            <rect x="372" y="338" width="10" height="10" fill="var(--color-ink)"/><text x="390" y="352" font-size="16">Wainuiomata</text>
+            <rect x="466" y="40" width="10" height="10" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="360" y="32" font-size="15" fill="var(--color-muted)">Upper Hutt, by arrangement</text>
+            <g transform="translate(550 400)"><path d="M0 -20 L8 8 L0 3 L-8 8 Z" fill="var(--color-ink)"/><text x="0" y="28" font-size="14" text-anchor="middle">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Sketch, not to scale. Blue dot: our base in Naenae.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Hutt suburbs: Naenae, Taita, Epuni, Boulcott, Avalon, Waiwhetu, Moera, Petone, Alicetown, Stokes Valley, Wainuiomata and more.</p>
+        <ul class="towns">
+          <li><span>Lower Hutt</span><span class="u">0–10 km</span></li>
+          <li><span>Petone</span><span class="u">6 km</span></li>
+          <li><span>Stokes Valley</span><span class="u">9 km</span></li>
+          <li><span>Wainuiomata</span><span class="u">12 km</span></li>
+          <li><span>Upper Hutt</span><span class="u">17 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band section" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Call, any hour</h2>
+      <p>Call or text Ben. Tell us the street and what's locked, and we'll tell you how long we'll be.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Emergencies</dt><dd>24 hours, every day</dd></div>
+          <div><dt>Rekeys and new locks</dt><dd>7:30 am – 5:00 pm</dd></div>
+          <div><dt>Quotes back</dt><dd>Within the day</dd></div>
+        </dl>
+      </div>
+      <form class="well form" id="quote" novalidate>
+        <h3>Booking request</h3>
+        <p class="label">For a lockout tonight, please call instead.</p>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job">
+              <option>House lockout</option><option>Car lockout</option><option>Rekey</option><option>New locks</option><option>Key cutting</option><option>Security check</option><option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Anything we should know</label><textarea id="f-msg" name="message" placeholder="e.g. three locks to rekey, tenants moving in on Friday"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Small Hours Locksmiths, Lower Hutt · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Small Hours Locksmiths is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../rubbish-removal/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>34<i class="w"> of </i><i class="s">/</i>50</span><a href="../house-washing/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

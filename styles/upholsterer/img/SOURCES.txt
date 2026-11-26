@@ -1,0 +1,30 @@
+Photos for the Loom & Spring Upholstery sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped square, given the Atelier warm-daylight treatment (contrast down 6%, colour down about 10%, a touch warmer) and saved as JPEG quality 80.
+They are stand-ins: museum chairs and fabric samples.
+
+hero.jpg
+  Title:   Easy chair, probably Boston, Massachusetts, 1760-1780, mahogany, soft maple, reproduction wool upholstery - Winterthur Museum (Daderot)
+  Source:  https://commons.wikimedia.org/w/index.php?curid=27886719
+  File:    https://upload.wikimedia.org/wikipedia/commons/b/b5/Easy_chair%2C_probably_Boston%2C_Massachusetts%2C_1760-1780%2C_mahogany%2C_soft_maple%2C_reproduction_wool_upholstery_-_Winterthur_Museum_-_DSC01384.JPG
+  Licence: CC0 1.0
+  Note:    cropped square from the 960 px version
+
+work1.jpg
+  Title:   Gondola side chair, maker unknown, New York City, c. 1820, mahogany, cherry, mahogany veneer, silk upholstery - De Young Museum (Daderot)
+  Source:  https://commons.wikimedia.org/w/index.php?curid=37165469
+  File:    https://upload.wikimedia.org/wikipedia/commons/7/7c/Gondola_side_chair%2C_maker_unknown%2C_New_York_City%2C_c._1820%2C_mahogany%2C_cherry%2C_mahogany_veneer%2C_silk_upholstery_-_De_Young_Museum_-_DSC00812.JPG
+  Licence: CC0 1.0
+  Note:    cropped square from the 960 px version
+
+work2.jpg
+  Title:   Fabric samples, Symphonic Collection (Brentano fabrics)
+  Source:  https://www.flickr.com/photos/42298505@N02/8465574104
+  File:    https://live.staticflickr.com/8510/8465574104_c82ab23197_b.jpg
+  Licence: Public Domain Mark 1.0
+
+work3.jpg
+  Title:   Fabric samples, Gallery Collection (Brentano fabrics)
+  Source:  https://www.flickr.com/photos/42298505@N02/7691469820
+  File:    https://live.staticflickr.com/7136/7691469820_4849e1304f_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped square, left of centre

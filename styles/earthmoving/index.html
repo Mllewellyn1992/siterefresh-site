@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Longacre Earthmoving | Earthmoving contractor in Whangārei (sample site)</title>
+<meta name="description" content="Sample site: a made-up Whangārei earthmoving contractor, built to show the Furrow style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@600&family=Red+Hat+Text:wght@400;500&family=Red+Hat+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(96% 0.011 85); --color-paper-2: oklch(99.5% 0.005 85); --color-paper-3: oklch(92% 0.016 85);
+  --color-ink: oklch(18% 0.006 60); --color-ink-2: oklch(28% 0.008 60); --color-muted: oklch(44% 0.012 60); --color-rule: oklch(88% 0.013 85);
+  --color-accent: oklch(70% 0.19 40); --color-accent-ink: oklch(18% 0.006 60); --color-accent-soft: oklch(91% 0.05 50); --color-focus: oklch(60% 0.19 40);
+  --color-green: oklch(48% 0.11 150); --color-green-soft: oklch(92% 0.04 150);
+  --color-contour: oklch(62% 0.07 58); --color-water: oklch(60% 0.05 232); --color-hedge: oklch(50% 0.1 150);
+  --color-grid: oklch(90% 0.014 85); --color-grid-strong: oklch(85% 0.018 85); --color-sheet: oklch(99.3% 0.004 85);
+  --font-display: "Red Hat Display", "Red Hat Text", ui-sans-serif, sans-serif; --font-body: "Red Hat Text", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: "Red Hat Mono", ui-monospace, monospace;
+  --radius-card: 10px; --radius-entry: 14px; --radius-pill: 6px; --rule-hair: 1px;
+  --shadow-card: 0 1px 2px oklch(18% 0.006 60 / 0.08), 0 14px 28px -16px oklch(18% 0.006 60 / 0.28);
+  --shadow-lift: 0 1px 1px oklch(18% 0.006 60 / 0.1), 0 2px 4px -1px oklch(18% 0.006 60 / 0.1), 0 24px 44px -20px oklch(18% 0.006 60 / 0.42);
+  --tracking-display: -0.035em; --display-weight: 600;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 3rem; --space-2xl: 4.5rem; --space-3xl: 6.5rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
+  --text-display-m: clamp(2.25rem, 1.5rem + 2.8vw, 3.5rem);
+  --text-display-l: clamp(3rem, 1.6rem + 5.4vw, 5.75rem);
+  --wrap: 74rem; --gutter: clamp(1rem, 4vw, 2.5rem); --banner-h: 2.25rem;
+  --ease-out: cubic-bezier(.2,.7,.2,1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); background: var(--color-paper); }
+body { margin: 0; background: var(--color-paper); color: var(--color-muted); font: 400 var(--text-body)/1.55 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+p { margin: 0; }
+a { color: var(--color-ink); text-underline-offset: 0.2em; }
+a:hover { color: oklch(48% 0.17 40); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+::selection { background: color-mix(in oklab, var(--color-accent) 35%, transparent); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); color: var(--color-ink); line-height: 1; margin: 0; }
+h2 { font-size: var(--text-display-m); }
+h3 { font-size: 1.25rem; letter-spacing: -0.02em; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.num { font-family: var(--font-outlier); font-weight: 400; font-variant-numeric: tabular-nums; font-size: 0.9em; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { border-top: var(--rule-hair) solid var(--color-ink); padding-top: var(--space-md); margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 32rem; }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 60; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem; background: var(--color-ink); color: var(--color-paper); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { color: var(--color-accent); font-weight: 500; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+/* keys */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; min-height: 48px; padding: 0 var(--space-lg); border-radius: var(--radius-pill); cursor: pointer; text-decoration: none; white-space: nowrap;
+  font: 500 1rem/1 var(--font-body); background: var(--color-paper-2); color: var(--color-ink); border: 1px solid var(--color-rule); box-shadow: inset 0 1px 0 var(--color-sheet), 0 1px 1px var(--color-rule); }
+.btn svg { width: 1.1em; height: 1.1em; flex: none; }
+.btn:active { transform: translateY(1px); }
+.btn:hover { color: var(--color-ink); background: var(--color-paper); }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); border-color: color-mix(in oklab, var(--color-accent) 78%, var(--color-ink)); box-shadow: inset 0 1px 0 color-mix(in oklab, var(--color-sheet) 32%, transparent), inset 0 -1px 0 color-mix(in oklab, var(--color-ink) 10%, transparent); }
+.btn--primary:hover { background: oklch(74% 0.18 42); color: var(--color-accent-ink); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.chip { display: inline-block; font: 500 0.8125rem/1.2 var(--font-body); padding: 0.25rem 0.55rem; border-radius: 6px; background: var(--color-green-soft); color: var(--color-green); }
+
+/* header */
+.top { border-bottom: 1px solid var(--color-ink); background: var(--color-paper); position: relative; z-index: 3; }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-sm); }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.4rem; height: 2.4rem; flex: none; }
+.brand span { font: 600 1.375rem/1 var(--font-display); letter-spacing: var(--tracking-display); }
+.brand small { display: block; font: 500 0.8125rem/1.3 var(--font-body); letter-spacing: 0; color: var(--color-muted); margin-top: 0.15rem; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); text-decoration: none; }
+.nav a:not(.btn):hover { text-decoration: underline; }
+.nav .btn { min-height: 44px; padding-inline: var(--space-md); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+@media (min-width: 421px) { .nav .btn .sr { display: none; } }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } }
+
+/* hero: survey map */
+.hero { position: relative; isolation: isolate; border-bottom: 1px solid var(--color-ink); overflow: hidden; }
+.hero canvas.map { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; display: block; }
+.hero__fade { position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse 52% 80% at 24% 50%, color-mix(in oklab, var(--color-paper) 92%, transparent), transparent 85%); }
+.hero__grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--space-xl); align-items: center; padding-block: var(--space-2xl); min-height: 36rem; }
+.hero h1 { font-size: var(--text-display-l); margin-block: var(--space-sm) var(--space-md); line-height: 0.98; }
+.hero__lede { font-size: 1.125rem; max-width: 31rem; color: var(--color-ink-2); margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 0.75rem; margin-top: var(--space-lg); }
+.rating .big { font: 600 2.25rem/1 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent); }
+.stars svg { width: 1rem; height: 1rem; }
+.pin { position: absolute; z-index: 1; }
+.pin i { display: block; width: 1.05rem; height: 1.05rem; background: var(--color-ink); border: 2px solid var(--color-sheet); box-shadow: 0 0 0 1px var(--color-ink); }
+.pin--disc i { border-radius: 50%; }
+.pin--diamond i { transform: rotate(45deg); width: 0.95rem; height: 0.95rem; }
+.pin--tri i { width: 0; height: 0; background: none; border: 0; box-shadow: none; border-left: 0.6rem solid transparent; border-right: 0.6rem solid transparent; border-bottom: 1.05rem solid var(--color-ink); }
+.pin--open i { background: var(--color-accent); }
+.pin--tri.pin--open i { background: none; border-bottom-color: var(--color-accent); }
+.pin b { position: absolute; left: 1.4rem; top: -0.2rem; white-space: nowrap; background: var(--color-ink); color: var(--color-sheet); font: 400 0.75rem/1 var(--font-outlier); padding: 0.3rem 0.45rem; border-radius: 4px; }
+.pin--open b { background: var(--color-accent); color: var(--color-ink); }
+.hero__pins { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+@media (max-width: 960px) { .hero__grid { grid-template-columns: minmax(0, 1fr); min-height: 0; } .hero__pins { display: none; } .hero__fade { background: color-mix(in oklab, var(--color-paper) 55%, transparent); } }
+
+/* notebook card */
+.entry { border-radius: var(--radius-entry); background: var(--color-paper-2); box-shadow: 0 0 0 1px var(--color-ink), var(--shadow-lift); overflow: hidden; position: relative; z-index: 2; }
+.entry__hd { background: var(--color-ink); color: var(--color-sheet); padding: 0.75rem 1rem 0.9rem; display: flex; justify-content: space-between; align-items: end; gap: 1rem; }
+.entry__hd .kind { font: 500 0.875rem/1.2 var(--font-body); display: flex; align-items: center; gap: 0.5rem; }
+.entry__hd .kind i { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--color-accent); }
+.entry__hd .time { font: 600 2.75rem/1 var(--font-display); letter-spacing: var(--tracking-display); font-variant-numeric: tabular-nums; }
+.entry__hd .date { font: 400 0.8125rem/1.2 var(--font-body); color: oklch(80% 0.01 85); text-align: right; }
+.notebook { background: linear-gradient(var(--color-grid) 1px, transparent 1px) 0 0 / 8px 8px, linear-gradient(90deg, var(--color-grid) 1px, transparent 1px) 0 0 / 8px 8px, var(--color-paper-2); }
+.cells { display: grid; grid-template-columns: 1fr 1fr; }
+.cells > div { padding: 0.55rem 1rem 0.7rem; border-bottom: 1px solid var(--color-ink); min-height: 4rem; }
+.cells > div:nth-child(odd) { border-right: 1px solid var(--color-ink); }
+.cells small { display: block; font: 500 0.75rem/1.2 var(--font-body); color: var(--color-muted); margin-bottom: 0.2rem; }
+.cells span { font: 500 1.0625rem/1.25 var(--font-body); color: var(--color-ink); }
+.cells span.num { font-size: 1rem; }
+.entry__ft { padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; background: var(--color-paper-2); }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--space-xl); align-items: start; }
+.quotes { margin: 0; padding: 0; border-top: 1px solid var(--color-ink); }
+.quotes li { list-style: none; padding-block: var(--space-md); border-bottom: 1px solid var(--color-rule); display: grid; gap: 0.5rem; }
+.quotes blockquote { margin: 0; font-size: 1.0625rem; color: var(--color-ink-2); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+.quotes .who b { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .reviews { grid-template-columns: minmax(0, 1fr); } }
+
+/* services */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); margin: 0; padding: 0; }
+.svc li { list-style: none; background: var(--color-paper-2); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: var(--space-md); display: grid; grid-template-rows: auto auto 1fr auto; gap: 0.45rem; border: 1px solid var(--color-rule); }
+.svc svg { width: 3rem; height: 3rem; color: var(--color-ink); margin-bottom: 0.3rem; }
+.svc p { font-size: 0.9375rem; }
+.svc .num { color: var(--color-ink); font-size: 0.8125rem; padding-top: 0.4rem; border-top: 1px solid var(--color-rule); }
+@media (max-width: 860px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .svc { grid-template-columns: minmax(0, 1fr); } }
+
+/* how + machines */
+.how { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--space-xl); align-items: start; }
+.steps { margin: 0; padding: 0; border-top: 1px solid var(--color-ink); counter-reset: s; }
+.steps li { list-style: none; border-bottom: 1px solid var(--color-rule); padding-block: var(--space-md); display: grid; grid-template-columns: 3.25rem minmax(0, 1fr); gap: var(--space-sm); align-items: start; }
+.steps .n { font: 400 0.875rem/1 var(--font-outlier); background: var(--color-ink); color: var(--color-sheet); width: 2.5rem; height: 2.5rem; display: grid; place-items: center; border-radius: 6px; }
+.steps h3 { margin-bottom: 0.25rem; }
+.sheet { background: var(--color-sheet); border-radius: 3px; box-shadow: var(--shadow-card), 0 0 0 1px var(--color-rule); padding: var(--space-md); position: relative; }
+.sheet::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: linear-gradient(to bottom, oklch(18% 0.006 60 / 0.07), transparent); pointer-events: none; }
+.sheet h3 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+.sheet table { width: 100%; border-collapse: collapse; margin-top: var(--space-sm); font-size: 0.9375rem; }
+.sheet th { text-align: left; font: 500 0.8125rem/1.2 var(--font-body); color: var(--color-muted); padding: 0 0.5rem 0.4rem 0; border-bottom: 2px solid var(--color-ink); }
+.sheet td { padding: 0.65rem 0.5rem 0.65rem 0; border-bottom: 1px solid var(--color-rule); vertical-align: top; color: var(--color-ink-2); }
+.sheet td:first-child { font-weight: 500; color: var(--color-ink); }
+.sheet td.num { white-space: nowrap; color: var(--color-ink); }
+@media (max-width: 860px) { .how { grid-template-columns: minmax(0, 1fr); } }
+
+/* photos */
+.photos { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-md); }
+.photo { margin: 0; grid-column: span 6; }
+.photo img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 45%; border-radius: 10px; background: var(--color-paper-3); }
+.photo figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); margin-top: 0.6rem; display: flex; justify-content: space-between; gap: 1rem; color: var(--color-ink-2); }
+.photo figcaption .num { white-space: nowrap; color: var(--color-ink); }
+@media (max-width: 760px) { .photo { grid-column: 1 / -1; } }
+
+/* about */
+.about { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-xl); align-items: start; }
+.about .lead { font: 600 var(--text-display-s)/1.08 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); margin-bottom: var(--space-md); }
+.about p + p { margin-top: var(--space-sm); }
+.ruled { margin: 0; padding: 0; border-top: 1px solid var(--color-ink); }
+.ruled div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: 1px solid var(--color-rule); }
+.ruled dt { color: var(--color-muted); }
+.ruled dd { margin: 0; color: var(--color-ink); font-weight: 500; text-align: right; }
+@media (max-width: 860px) { .about { grid-template-columns: minmax(0, 1fr); } }
+
+/* area */
+.area { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-xl); align-items: start; }
+.areamap { position: relative; border-radius: var(--radius-card); overflow: hidden; box-shadow: 0 0 0 1px var(--color-ink); aspect-ratio: 7 / 5; background: var(--color-paper-3); }
+.areamap canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.areamap .pin b { font-family: var(--font-body); font-size: 0.75rem; }
+.towns { margin: var(--space-md) 0 0; padding: 0; border-top: 1px solid var(--color-ink); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: 1px solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+.towns .num { color: var(--color-ink-2); white-space: nowrap; }
+@media (max-width: 860px) { .area { grid-template-columns: minmax(0, 1fr); } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-xl); align-items: start; }
+.contact__call { display: grid; gap: var(--space-lg); }
+.phone { font: 600 var(--text-display-m)/1 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); text-decoration: none; font-variant-numeric: tabular-nums; }
+.phone:hover { color: oklch(48% 0.17 40); }
+.hours { margin: 0; padding: 0; border-top: 1px solid var(--color-ink); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: 1px solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 500; }
+.hours dd { margin: 0; text-align: right; }
+.form { padding: var(--space-lg); display: grid; gap: var(--space-md); }
+.form h3 { font-size: var(--text-display-s); }
+.field { position: relative; }
+.field label { position: absolute; left: 0.9rem; top: 0.5rem; font: 500 0.75rem/1 var(--font-body); color: var(--color-muted); pointer-events: none; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: 6px; border: 1px solid var(--color-muted); background: var(--color-sheet); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 1.6rem 0.9rem 0.45rem; min-height: 52px; }
+textarea { min-height: 7rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%); background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } }
+
+footer { border-top: 1px solid var(--color-ink); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7.5 9h9M7.5 12h5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Longacre Earthmoving, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="2" y="2" width="44" height="44" rx="8" fill="var(--color-ink)"/>
+        <path d="M8 36c6-8 10-8 16-14s10-6 16-12" fill="none" stroke="var(--color-contour)" stroke-width="2"/>
+        <path d="M8 41c8-9 14-9 20-15s8-6 12-10" fill="none" stroke="var(--color-contour)" stroke-width="2"/>
+        <path d="M10 28l8-8h9l5 5v6H10z" fill="var(--color-accent)"/>
+        <circle cx="16" cy="32" r="3" fill="var(--color-ink)" stroke="var(--color-accent)" stroke-width="2"/>
+      </svg>
+      <span>Longacre Earthmoving<small>Whangārei earthmoving · Hamish</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#reviews">Reviews</a>
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span class="sr">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <canvas class="map" id="heroMap" aria-hidden="true"></canvas>
+  <div class="hero__fade" aria-hidden="true"></div>
+  <div class="hero__pins" id="heroPins" aria-hidden="true">
+    <span class="pin pin--disc" data-x="52" data-y="20"><i></i><b>07:40 Site visit</b></span>
+    <span class="pin pin--diamond" data-x="51" data-y="50"><i></i><b>10:15 Cut</b></span>
+    <span class="pin pin--tri pin--open" data-x="46" data-y="78"><i></i><b>14:30 Cart away</b></span>
+  </div>
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Earthmoving · Whangārei and Northland</p>
+      <h1>Ground cut, shaped and left tidy.</h1>
+      <p class="hero__lede">Hamish digs house platforms, driveways, trenches and farm tracks around Whangārei with a 14 t digger and a tip truck. A free site visit, then a written price.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Hamish</a>
+        <a class="btn" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="big">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from <span class="num">44</span> Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <div class="entry notebook" aria-label="Example job sheet">
+      <div class="entry__hd"><span class="kind"><i></i>Site visit</span><span class="time">07:40</span><span class="date">Thu 12 Nov<br>Example sheet</span></div>
+      <div class="cells">
+        <div><small>Job</small><span>House platform</span></div>
+        <div><small>Where</small><span>Maungatapere</span></div>
+        <div><small>Machine</small><span class="num">14 t digger</span></div>
+        <div><small>Cut</small><span class="num">220 m³</span></div>
+        <div><small>Cart away</small><span class="num">6 truck loads</span></div>
+        <div><small>Left</small><span>Level, drained, tidy</span></div>
+      </div>
+      <div class="entry__ft"><span class="chip">Price in writing</span><span class="label num">Quote in 2 days</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="entry notebook" style="max-width:24rem">
+        <div class="entry__hd"><span class="kind"><i></i>Google reviews</span><span class="time">4.9</span></div>
+        <div class="cells">
+          <div><small>Reviews</small><span class="num">44</span></div>
+          <div><small>Out of</small><span class="num">5</span></div>
+        </div>
+        <div class="entry__ft"><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></div>
+      </div>
+      <ul class="quotes">
+        <li><blockquote>“Hamish cut our house platform on a sidling section and carted the clay away in three days. Level to the millimetre, and he left the access track better than he found it.”</blockquote><p class="who"><b>Jenny</b><span>Maungatapere</span><span>· House platform</span></p></li>
+        <li><blockquote>“Trenched 90 metres for the power and water to our shed. Called me before he dug near the old drain and the price didn't move.”</blockquote><p class="who"><b>Rawiri</b><span>Kamo</span><span>· Trenching</span></p></li>
+        <li><blockquote>“Re-formed two farm tracks that wash out every winter and put in culverts. Come the first heavy rain they held.”</blockquote><p class="who"><b>Dale</b><span>Maungakaramea</span><span>· Farm tracks</span></p></li>
+        <li><blockquote>“Dug us a small pond for the stock water. Turned up when he said, and talked me through where the clay needed to go.”</blockquote><p class="who"><b>Lisa</b><span>Hikurangi</span><span>· Pond</span></p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we dig</h2>
+      <p>Rural and residential earthworks from a single trench to a full building platform. Each job is walked, measured and priced in writing.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 44h44"/><path d="M8 44V30h24v14"/><path d="M12 30l-2-6h20l2 6"/><path d="M32 22l8-14 6 4-6 10"/><path d="M40 8l-2-3"/></svg>
+        <h3>House platforms</h3><p>Cut and fill for a level, drained building site.</p><span class="num">Cut to the plan levels</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4L8 48M36 4l8 44"/><path d="M26 8v6M26 22v6M26 36v6"/></svg>
+        <h3>Driveways and accessways</h3><p>Formed, drained and metalled ready for use.</p><span class="num">Fall away from the house</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h44"/><path d="M10 12v28h32V12"/><path d="M10 40h32"/><path d="M16 22h20M16 30h20" stroke-dasharray="3 4"/></svg>
+        <h3>Trenching</h3><p>Drains, power, water and fibre laid in a clean trench.</p><span class="num">Mini digger for tight spots</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 40c10-4 14-18 22-20s14 8 22 6"/><path d="M4 46c10-4 14-12 22-14s14 4 22 2"/><circle cx="38" cy="12" r="3"/></svg>
+        <h3>Farm tracks</h3><p>Cut, cambered and culverted so they don't wash out.</p><span class="num">Culverts supplied and set</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24c6 14 34 14 40 0"/><path d="M10 30c6 8 26 8 32 0" stroke-dasharray="3 4"/><path d="M4 24h44"/><path d="M14 18c2-3 4-3 6 0M26 16c2-3 4-3 6 0" /></svg>
+        <h3>Ponds and dams</h3><p>Dug, shaped and clay-lined for stock water or looks.</p><span class="num">Clay keyed to hold water</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h28v22H4z"/><path d="M32 22h8l6 8v6H32z"/><circle cx="14" cy="40" r="4"/><circle cx="38" cy="40" r="4"/><path d="M8 20h16" stroke-dasharray="2 3"/></svg>
+        <h3>Cart away and fill</h3><p>Tip truck for spoil, metal and clean fill.</p><span class="num">Tip truck and driver</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="how" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How a job runs</h2>
+      <p>Most platforms and driveways are cut in two to four days, weather allowing.</p>
+    </div>
+    <div class="how">
+      <ol class="steps">
+        <li><span class="n">01</span><div><h3>Walk the site</h3><p>Hamish walks the ground with you, checks access, levels and where the water goes. Free, about 30 minutes.</p></div></li>
+        <li><span class="n">02</span><div><h3>Written price</h3><p>Hours, machine and trucking set out, with what is and isn't included.</p></div></li>
+        <li><span class="n">03</span><div><h3>Peg and cut</h3><p>Levels pegged first, then the digger starts at the top and works down.</p></div></li>
+        <li><span class="n">04</span><div><h3>Shape and tidy</h3><p>Batters trimmed, drains in, spoil gone, and a walk round with you before we leave.</p></div></li>
+      </ol>
+      <div class="sheet">
+        <h3>Which machine for which job</h3>
+        <p class="label">Three sizes, picked to fit your gate and your job.</p>
+        <table>
+          <thead><tr><th>Machine</th><th>Width</th><th>Best for</th></tr></thead>
+          <tbody>
+            <tr><td>1.7 t mini</td><td class="num">1.0 m</td><td>Trenches, footings, tight yards</td></tr>
+            <tr><td>5 t digger</td><td class="num">1.7 m</td><td>Driveways, drains, small cuts</td></tr>
+            <tr><td>14 t digger</td><td class="num">2.5 m</td><td>Platforms, ponds, big cuts</td></tr>
+            <tr><td>Tip truck</td><td class="num">8 m³</td><td>Spoil and fill, in and out</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent jobs</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="photos">
+      <figure class="photo"><img src="img/dozer.jpg" width="1024" height="768" alt="A yellow bulldozer pushing broken dark rock across an open site under a cloudy sky"><figcaption><span>Site cleared and levelled, Hikurangi</span><span class="num">1.4 ha</span></figcaption></figure>
+      <figure class="photo"><img src="img/site.jpg" style="object-position:50% 62%" width="550" height="734" alt="A yellow excavator loading a dump truck with soil on a building site"><figcaption><span>Platform cut, Maungatapere</span><span class="num">220 m³</span></figcaption></figure>
+      <figure class="photo"><img src="img/hero.jpg" width="1024" height="680" alt="A small yellow earthmoving machine with a front blade standing in rough grass beside a stand of conifers"><figcaption><span>Track blade, Maungakaramea</span><span class="num">480 m</span></figcaption></figure>
+      <figure class="photo"><img src="img/trench.jpg" width="640" height="676" alt="A deep trench shored with blue steel boxes, with a digger working beyond"><figcaption><span>Deep drain trench with shoring, Kamo</span><span class="num">3.2 m deep</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head"><h2>About Hamish</h2></div>
+    <div class="about">
+      <div>
+        <p class="lead">One operator, one digger, and the same hands on every job.</p>
+        <p>Hamish runs Longacre Earthmoving himself out of Maungatapere. He walks every site before quoting, runs the digger himself, and rings you if the ground isn't what he expected.</p>
+        <p>He works rural blocks and town sections alike, and keeps the machine clean so it doesn't carry weeds from one farm to the next.</p>
+      </div>
+      <dl class="ruled">
+        <div><dt>Based in</dt><dd>Maungatapere, Whangārei</dd></div>
+        <div><dt>Machines</dt><dd class="num">1.7 t, 5 t, 14 t</dd></div>
+        <div><dt>Quote</dt><dd>In writing, before we dig</dd></div>
+        <div><dt>Site visit</dt><dd>Free</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we dig</h2>
+      <p>Based at Maungatapere. All of Whangārei and the country around it, out to about 50 km. Further, by arrangement.</p>
+    </div>
+    <div class="area">
+      <div class="areamap" id="areaBox" role="img" aria-label="Survey-style sketch of the service area: Whangārei in the middle with Kamo, Maungatapere, Hikurangi, Ruakākā and Waipū around it. Not to scale.">
+        <canvas id="areaMap" aria-hidden="true"></canvas>
+        <span class="pin pin--disc" data-x="14" data-y="26"><i></i><b>Maungatapere, yard</b></span>
+        <span class="pin pin--diamond" data-x="38" data-y="52"><i></i><b>Whangārei</b></span>
+        <span class="pin pin--disc" data-x="52" data-y="30"><i></i><b>Kamo</b></span>
+        <span class="pin pin--disc" data-x="32" data-y="12"><i></i><b>Hikurangi</b></span>
+        <span class="pin pin--tri" data-x="70" data-y="78"><i></i><b>Ruakākā</b></span>
+        <span class="pin pin--tri" data-x="58" data-y="88"><i></i><b>Waipū</b></span>
+      </div>
+      <div>
+        <p>Whangārei suburbs: Kamo, Tikipunga, Onerahi, Regent, Maunu, Kensington, Otangarei, Parua Bay, Maungatapere and more.</p>
+        <ul class="towns">
+          <li><span>Whangārei</span><span class="num">0–10 km</span></li>
+          <li><span>Kamo</span><span class="num">6 km</span></li>
+          <li><span>Hikurangi</span><span class="num">14 km</span></li>
+          <li><span>Ruakākā</span><span class="num">34 km</span></li>
+          <li><span>Waipū</span><span class="num">46 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Get a price</h2>
+      <p>Call or text Hamish. Send a photo of the ground and a rough size and he'll come out and walk it.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd class="num">6:30 am – 5:30 pm</dd></div>
+          <div><dt>Saturday</dt><dd class="num">Site visits, 8:00 am – 12:00 pm</dd></div>
+          <div><dt>Quote back</dt><dd class="num">Within 2 working days</dd></div>
+        </dl>
+      </div>
+      <form class="entry notebook form" id="quote" novalidate>
+        <h3>Quote request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Where is the job</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job"><option>House platform</option><option>Driveway</option><option>Trenching</option><option>Farm track</option><option>Pond or dam</option><option>Cart away or fill</option><option>Something else</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Rough size and anything we should know</label><textarea id="f-msg" name="message" placeholder="e.g. 20 m by 12 m platform, sloping section, clay"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Longacre Earthmoving, Whangārei · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Longacre Earthmoving is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+
+/* The survey map: contours traced from noise by marching squares. Generated on load and resize, never a picture. */
+(function () {
+  function css(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+  function hash(x, y, s) { var h = (x * 374761393 + y * 668265263 + s * 144665) | 0; h = (h ^ (h >>> 13)) * 1274126177 | 0; return ((h ^ (h >>> 16)) >>> 0) / 4294967295; }
+  function vnoise(x, y, s) {
+    var xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi;
+    var u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+    var a = hash(xi, yi, s), b = hash(xi + 1, yi, s), c = hash(xi, yi + 1, s), d = hash(xi + 1, yi + 1, s);
+    return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+  }
+  function field(x, y, s) { return 0.55 * vnoise(x * 0.9, y * 0.9, s) + 0.3 * vnoise(x * 1.9 + 7, y * 1.9 + 3, s + 1) + 0.15 * vnoise(x * 3.7 + 2, y * 3.7 + 9, s + 2); }
+  var SEG = { 1: [[3, 2]], 2: [[2, 1]], 3: [[3, 1]], 4: [[0, 1]], 5: [[0, 1], [3, 2]], 6: [[0, 2]], 7: [[0, 3]], 8: [[0, 3]], 9: [[0, 2]], 10: [[0, 3], [2, 1]], 11: [[0, 1]], 12: [[3, 1]], 13: [[2, 1]], 14: [[3, 2]] };
+
+  function draw(canvas, seed, opts) {
+    var box = canvas.parentElement, W = box.clientWidth, H = box.clientHeight;
+    if (!W || !H) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    var g = canvas.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var paper = css('--color-paper-3'), contour = css('--color-contour'), ink = css('--color-ink'), hedge = css('--color-hedge'), water = css('--color-water'), accent = css('--color-accent');
+    g.fillStyle = opts.bg || css('--color-paper'); g.fillRect(0, 0, W, H);
+    var cell = 8, cols = Math.ceil(W / cell) + 1, rows = Math.ceil(H / cell) + 1, sc = 0.011 * cell * (opts.zoom || 1);
+    var v = new Float32Array(cols * rows), i, j;
+    for (j = 0; j < rows; j++) for (i = 0; i < cols; i++) v[j * cols + i] = field(i * sc, j * sc, seed);
+    var levels = 18, k, x0, y0;
+    function pt(e, i, j, a, b, c, d, L) {
+      var x = i * cell, y = j * cell;
+      function t(p, q) { return (L - p) / (q - p); }
+      if (e === 0) return [x + t(a, b) * cell, y];
+      if (e === 1) return [x + cell, y + t(b, c) * cell];
+      if (e === 2) return [x + t(d, c) * cell, y + cell];
+      return [x, y + t(a, d) * cell];
+    }
+    for (k = 1; k < levels; k++) {
+      var L = 0.18 + (0.72 * k) / levels, heavy = k % 5 === 0;
+      g.beginPath(); g.strokeStyle = contour; g.globalAlpha = heavy ? 0.95 : 0.55; g.lineWidth = heavy ? 1.6 : 0.9;
+      var labelDone = false;
+      for (j = 0; j < rows - 1; j++) for (i = 0; i < cols - 1; i++) {
+        var a = v[j * cols + i], b = v[j * cols + i + 1], c = v[(j + 1) * cols + i + 1], d = v[(j + 1) * cols + i];
+        var idx = (a > L ? 8 : 0) | (b > L ? 4 : 0) | (c > L ? 2 : 0) | (d > L ? 1 : 0);
+        var segs = SEG[idx]; if (!segs) continue;
+        for (var s = 0; s < segs.length; s++) {
+          var p = pt(segs[s][0], i, j, a, b, c, d, L), q = pt(segs[s][1], i, j, a, b, c, d, L);
+          g.moveTo(p[0], p[1]); g.lineTo(q[0], q[1]);
+        }
+      }
+      g.stroke();
+    }
+    g.globalAlpha = 1;
+    /* labels on a few heavy lines */
+    g.font = '500 10px "Red Hat Mono", monospace'; g.fillStyle = contour; g.textBaseline = 'middle';
+    [[0.18, 0.2, 425], [0.62, 0.86, 450], [0.9, 0.35, 400], [0.34, 0.7, 375]].forEach(function (p) {
+      var tx = p[0] * W, ty = p[1] * H; g.save(); g.fillStyle = opts.bg || css('--color-paper'); g.fillRect(tx - 2, ty - 7, 28, 14); g.fillStyle = contour; g.fillText(String(p[2]), tx, ty); g.restore();
+    });
+    /* hedge lines (dotted), wall (solid), stream, buildings */
+    function poly(pts, style, width, dash) { g.beginPath(); g.setLineDash(dash || []); g.strokeStyle = style; g.lineWidth = width; pts.forEach(function (p, n) { n ? g.lineTo(p[0] * W, p[1] * H) : g.moveTo(p[0] * W, p[1] * H); }); g.stroke(); g.setLineDash([]); }
+    poly([[0.04, 0.2], [0.3, 0.16], [0.52, 0.3], [0.58, 0.55]], hedge, 2, [1.5, 4]);
+    poly([[0.1, 0.9], [0.28, 0.74], [0.5, 0.78], [0.72, 0.64]], hedge, 2, [1.5, 4]);
+    poly([[0.58, 0.55], [0.8, 0.5], [0.96, 0.58]], ink, 1.4);
+    var wp = []; for (i = 0; i <= 24; i++) { var tt = i / 24; wp.push([tt, 0.9 - 0.45 * tt + 0.035 * Math.sin(tt * 14)]); }
+    poly(wp, water, 3);
+    var bx = opts.bld || [[0.32, 0.4], [0.36, 0.43]];
+    g.fillStyle = css('--color-paper-2'); g.strokeStyle = ink; g.lineWidth = 1;
+    bx.forEach(function (b) { var x = b[0] * W, y = b[1] * H; g.fillRect(x, y, 24, 14); g.strokeRect(x, y, 24, 14); g.beginPath(); for (var h = 4; h < 24; h += 5) { g.moveTo(x + h, y + 14); g.lineTo(x + h + 6, y); } g.save(); g.beginPath(); g.rect(x, y, 24, 14); g.clip(); g.stroke(); g.restore(); });
+    /* the holding, edged in tangerine like a title plan */
+    if (opts.holding) {
+      g.beginPath(); opts.holding.forEach(function (p, n) { n ? g.lineTo(p[0] * W, p[1] * H) : g.moveTo(p[0] * W, p[1] * H); }); g.closePath();
+      g.fillStyle = 'rgba(255,140,60,0.07)'; g.fill(); g.strokeStyle = accent; g.lineWidth = 3; g.lineJoin = 'round'; g.stroke();
+    }
+    if (opts.ring) { g.beginPath(); g.setLineDash([8, 7]); g.strokeStyle = ink; g.lineWidth = 1.5; g.arc(opts.ring[0] * W, opts.ring[1] * H, opts.ring[2] * Math.min(W, H), 0, 7); g.stroke(); g.setLineDash([]); }
+    /* route between pins */
+    var pins = box.querySelectorAll('.pin');
+    if (opts.route && pins.length > 1) {
+      g.beginPath(); g.setLineDash([6, 6]); g.strokeStyle = ink; g.lineWidth = 1.6;
+      pins.forEach ? 0 : 0;
+      Array.prototype.forEach.call(pins, function (p, n) { var x = p.dataset.x / 100 * W, y = p.dataset.y / 100 * H; n ? g.lineTo(x, y) : g.moveTo(x, y); }); g.stroke(); g.setLineDash([]);
+    }
+    /* paper grain and two fold creases, inside the map only */
+    for (i = 0; i < W * H / 260; i++) { g.fillStyle = 'rgba(80,60,30,' + (0.02 + Math.random() * 0.03) + ')'; g.fillRect(Math.random() * W, Math.random() * H, 1.2, 1.2); }
+    var cr = g.createLinearGradient(W * 0.33 - 3, 0, W * 0.33 + 3, 0); cr.addColorStop(0, 'rgba(0,0,0,0)'); cr.addColorStop(0.5, 'rgba(60,40,20,0.10)'); cr.addColorStop(1, 'rgba(255,255,255,0.18)');
+    g.fillStyle = cr; g.fillRect(W * 0.33 - 3, 0, 6, H);
+    var cr2 = g.createLinearGradient(W * 0.66 - 3, 0, W * 0.66 + 3, 0); cr2.addColorStop(0, 'rgba(0,0,0,0)'); cr2.addColorStop(0.5, 'rgba(60,40,20,0.10)'); cr2.addColorStop(1, 'rgba(255,255,255,0.18)');
+    g.fillStyle = cr2; g.fillRect(W * 0.66 - 3, 0, 6, H);
+  }
+
+  function place(box) { Array.prototype.forEach.call(box.querySelectorAll('.pin'), function (p) { p.style.left = p.dataset.x + '%'; p.style.top = p.dataset.y + '%'; }); }
+  var hero = document.getElementById('heroMap'), area = document.getElementById('areaMap');
+  var heroPins = document.getElementById('heroPins'); place(heroPins); place(document.getElementById('areaBox'));
+  function run() {
+    draw(hero, 11, { holding: [[0.46, 0.14], [0.72, 0.2], [0.75, 0.62], [0.6, 0.9], [0.44, 0.82], [0.42, 0.4]], route: false, bld: [[0.5, 0.68], [0.54, 0.72]] });
+    /* pins live in the pin layer, so route uses hero pins too */
+    hero.parentElement.querySelectorAll('.hero__pins .pin');
+    draw(area, 5, { bg: css('--color-paper-3'), zoom: 1.3, ring: [0.38, 0.52, 0.42], bld: [[0.7, 0.2]] });
+  }
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(run, 150); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(run); else run();
+  run();
+})();
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../bathroom-renovator/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>28<i class="w"> of </i><i class="s">/</i>50</span><a href="../flooring/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Setout Architectural Design | Architectural designer in Upper Hutt (sample site)</title>
+<meta name="description" content="Sample site: a made-up Upper Hutt architectural designer, built to show the Vantage style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV,SHRP@200..500,0,0..100&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(13.5% 0.012 235); --color-paper-2: oklch(17% 0.014 235); --color-paper-3: oklch(21% 0.016 235);
+  --color-ink: oklch(95% 0.006 230); --color-ink-2: oklch(82% 0.012 230); --color-muted: oklch(66% 0.016 230);
+  --color-rule: oklch(27% 0.014 235); --color-rule-2: oklch(34% 0.016 235);
+  --color-accent: oklch(89% 0.19 126); --color-accent-hi: oklch(93% 0.17 126); --color-accent-ink: oklch(19% 0.04 126); --color-focus: oklch(89% 0.19 126);
+  --point-lo: oklch(42% 0.04 245); --point-mid: oklch(70% 0.04 232); --point-hi: oklch(96% 0.02 215);
+  --color-slot: oklch(21% 0.016 235);
+  --font-display: "Geologica", ui-sans-serif, system-ui, sans-serif; --font-body: "Geologica", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 4px; --radius-pill: 999px; --rule-hair: 1px; --tick: 10px;
+  --shadow-card: none;
+  --tracking-display: -0.035em; --display-weight: 300;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-md: 1.0625rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(1.6rem, 1.2rem + 1.8vw, 2.3rem);
+  --text-display-m: clamp(2.1rem, 1.4rem + 3vw, 3.5rem);
+  --text-display: clamp(2.8rem, 1.5rem + 5.4vw, 5.6rem);
+  --dur-micro: 120ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 300 var(--text-body)/1.6 var(--font-body); font-variation-settings: "SHRP" 0; padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: color-mix(in oklab, var(--color-accent) 30%, transparent); color: var(--color-ink); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: none; }
+a:hover { text-decoration: underline; text-decoration-color: var(--color-accent); text-underline-offset: 0.2em; }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); font-variation-settings: "SHRP" 100; letter-spacing: var(--tracking-display); line-height: 1; color: var(--color-ink); margin: 0; }
+h2 { font-size: var(--text-display-m); }
+h3 { font-size: 1.3rem; font-weight: 400; letter-spacing: -0.02em; }
+p { margin: 0; }
+.label { font: 400 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.num { font-variant-numeric: tabular-nums; font-weight: 400; }
+.num .u { color: var(--color-muted); font-size: 0.75em; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 34rem; }
+
+.ticks { position: relative; }
+.ticks::before, .ticks::after { content: ""; position: absolute; inset: 0; pointer-events: none; border: var(--rule-hair) solid var(--color-rule-2);
+  -webkit-mask: conic-gradient(at var(--tick) var(--tick), transparent 75%, var(--color-ink) 0) 0 0 / calc(100% - var(--tick)) calc(100% - var(--tick));
+  mask: conic-gradient(at var(--tick) var(--tick), transparent 75%, var(--color-ink) 0) 0 0 / calc(100% - var(--tick)) calc(100% - var(--tick)); }
+.ticks::after { transform: rotate(180deg); }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem;
+  background: var(--color-accent); color: var(--color-accent-ink); font: 400 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { font-weight: 500; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 48px; padding: 0 var(--space-lg); border: 0; border-radius: var(--radius-pill); cursor: pointer; text-decoration: none !important; white-space: nowrap;
+  font: 400 var(--text-md)/1 var(--font-body); color: var(--color-ink); background: transparent; transition: background var(--dur-micro) var(--ease-out); }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
+.btn--primary:hover { background: var(--color-accent-hi); }
+.btn--line { box-shadow: inset 0 0 0 var(--rule-hair) var(--color-rule-2); }
+.btn--line:hover { background: var(--color-paper-2); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+.top { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.7rem; }
+.brand:hover { text-decoration: none; }
+.brand svg { width: 2.4rem; height: 2.4rem; flex: none; }
+.brand span { font: 400 1.3rem/1 var(--font-display); font-variation-settings: "SHRP" 100; letter-spacing: -0.03em; }
+.brand small { display: block; font: 300 0.8125rem/1.3 var(--font-body); color: var(--color-muted); letter-spacing: 0; margin-top: 0.2rem; font-variation-settings: "SHRP" 0; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 400 var(--text-sm)/1 var(--font-body); }
+.nav .btn { min-height: 44px; padding-inline: var(--space-md); }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1.1rem; } }
+
+/* hero: the cloud */
+.hero { position: relative; overflow: hidden; }
+.hero__cloud { position: absolute; inset: 0; z-index: 0; }
+.hero__cloud canvas { width: 100%; height: 100%; display: block; }
+.hero__cloud::after { content: ""; position: absolute; inset: 0; pointer-events: none; background:
+  linear-gradient(90deg, var(--color-paper) 0%, color-mix(in oklab, var(--color-paper) 70%, transparent) 38%, transparent 62%),
+  linear-gradient(0deg, var(--color-paper) 0%, transparent 22%), linear-gradient(180deg, var(--color-paper) 0%, transparent 14%); }
+.hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: end; min-height: 38rem; padding-block: var(--space-3xl) var(--space-2xl); }
+.hero__copy { grid-column: 1 / span 6; }
+.hero h1 { font-size: var(--text-display); margin-block: var(--space-md) var(--space-lg); }
+.hero__lede { font-size: 1.125rem; max-width: 33rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 0.9rem; margin-top: var(--space-lg); }
+.rating .num-big { font: 200 2.8rem/1 var(--font-display); font-variant-numeric: tabular-nums; color: var(--color-ink); letter-spacing: -0.03em; }
+.stars { display: inline-flex; gap: 2px; color: var(--color-ink-2); }
+.stars svg { width: 1rem; height: 1rem; }
+.hero__note { grid-column: 9 / span 4; justify-self: end; font: 400 0.8125rem/1.4 var(--font-body); color: var(--color-muted); text-align: right; }
+.hero__note b { display: block; font: 400 1.4rem/1.1 var(--font-display); font-variant-numeric: tabular-nums; color: var(--color-ink); }
+@media (max-width: 860px) {
+  .hero__grid { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-top: 24rem; }
+  .hero__copy, .hero__note { grid-column: 1 / -1; justify-self: start; text-align: left; }
+  .hero__cloud { bottom: auto; height: 26rem; }
+  .hero__cloud::after { background: linear-gradient(0deg, var(--color-paper) 0%, transparent 40%), linear-gradient(180deg, var(--color-paper) 0%, transparent 14%); }
+}
+
+.photo { margin: 0; }
+.photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-card); background: var(--color-paper-3); }
+.photo figcaption { font: 400 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); margin-top: 0.6rem; display: flex; justify-content: space-between; gap: 1rem; }
+.photo figcaption .num { white-space: nowrap; color: var(--color-ink-2); }
+
+/* services */
+.svc { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); }
+.svc li { list-style: none; padding: var(--space-lg); display: grid; grid-template-rows: auto auto 1fr; gap: 0.6rem; align-content: start; background: var(--color-paper-2); border-radius: var(--radius-card); }
+.svc svg { width: 3rem; height: 3rem; color: var(--color-ink-2); }
+.svc h3 { font-size: 1.3rem; }
+@media (max-width: 960px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .svc { grid-template-columns: 1fr; } }
+
+/* layers + section */
+.band--2 { background: var(--color-paper-2); }
+.cut { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.cut__draw { grid-column: 1 / span 8; margin: 0; padding: var(--space-md); }
+.cut__draw svg { width: 100%; height: auto; display: block; }
+.cut__side { grid-column: 9 / span 4; }
+@media (max-width: 860px) { .cut__draw, .cut__side { grid-column: 1 / -1; } }
+.layers { margin: var(--space-md) 0 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.layers li { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.8rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.sw { position: relative; width: 2.6rem; height: 1.5rem; border-radius: 999px; background: var(--color-paper-3); box-shadow: inset 0 0 0 1px var(--color-rule-2); border: 0; cursor: pointer; padding: 0; flex: none; }
+.sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--color-muted); transition: transform var(--dur-micro) var(--ease-out), background var(--dur-micro); }
+.sw[aria-pressed="true"] { background: color-mix(in oklab, var(--color-accent) 25%, var(--color-paper-3)); }
+.sw[aria-pressed="true"]::after { transform: translateX(1.1rem); background: var(--color-accent); }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: var(--space-2xl) 0 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.steps li { list-style: none; padding: var(--space-md) var(--space-md) 0; display: grid; gap: 0.4rem; align-content: start; }
+.steps li:first-child { padding-left: 0; }
+.steps li + li { border-left: var(--rule-hair) solid var(--color-rule); }
+.steps .n { font: 200 var(--text-display-s)/1 var(--font-display); font-variant-numeric: tabular-nums; color: var(--color-ink); }
+@media (max-width: 760px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-lg); } .steps li:nth-child(3) { padding-left: 0; border-left: 0; } }
+
+/* sheet register table */
+.log { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.log th { text-align: left; font-weight: 400; color: var(--color-muted); font-size: var(--text-sm); padding: 0.7rem 0.8rem; border-bottom: var(--rule-hair) solid var(--color-rule-2); }
+.log td { padding: 0.75rem 0.8rem; border-bottom: var(--rule-hair) solid var(--color-rule); font-weight: 400; }
+.log td:first-child { color: var(--color-ink); white-space: nowrap; }
+.log td.n, .log th.n { text-align: right; white-space: nowrap; }
+.log tr:hover td { background: var(--color-paper-2); }
+.dot { display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--color-accent); margin-right: 0.5rem; vertical-align: 0.05em; }
+.tablewrap { overflow-x: auto; }
+
+.figs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xl); margin-top: var(--space-2xl); }
+.figs .box { padding: var(--space-lg); display: grid; gap: 0.4rem; }
+.figs .fig { font: 200 clamp(2.8rem, 2rem + 3.6vw, 5rem)/1 var(--font-display); font-variant-numeric: tabular-nums; color: var(--color-ink); letter-spacing: -0.04em; }
+.figs .fig small { font: 400 0.3em/1 var(--font-body); color: var(--color-muted); letter-spacing: 0; margin-left: 0.3em; }
+@media (max-width: 760px) { .figs { grid-template-columns: 1fr; gap: var(--space-md); } }
+
+.pours { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+.pours .photo:first-child, .pours .photo:nth-child(4) { grid-column: span 2; }
+@media (max-width: 760px) { .pours { grid-template-columns: 1fr; } .pours .photo:first-child, .pours .photo:nth-child(4) { grid-column: auto; } }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.plate { grid-column: 1 / span 4; padding: var(--space-lg); display: grid; gap: var(--space-sm); }
+.plate .big { font: 200 clamp(5rem, 3rem + 7vw, 8.5rem)/0.85 var(--font-display); letter-spacing: -0.05em; font-variant-numeric: tabular-nums; color: var(--color-ink); }
+.quotes { grid-column: 5 / span 8; margin: 0; padding: 0; }
+.quotes li { list-style: none; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.5rem; }
+.quotes li:first-child { padding-top: 0; }
+.quotes blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink-2); }
+.quotes .who { font: 400 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.quotes .who b { color: var(--color-ink); font-weight: 400; }
+@media (max-width: 860px) { .plate, .quotes { grid-column: 1 / -1; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-paper-2); border-radius: var(--radius-card); }
+.area__list { grid-column: 8 / span 5; }
+.towns { margin: var(--space-md) 0 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 400; }
+.towns .num { white-space: nowrap; color: var(--color-ink-2); }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: 200 var(--text-display-m)/1 var(--font-display); font-variation-settings: "SHRP" 100; letter-spacing: -0.04em; color: var(--color-ink); font-variant-numeric: tabular-nums; }
+.hours { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 400; }
+.hours dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg); display: grid; gap: var(--space-md); }
+.form h3 { font-size: var(--text-display-s); font-weight: 300; }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 400 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: var(--radius-card); border: var(--rule-hair) solid var(--color-rule-2); background: var(--color-paper-2); font: 300 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3rem; caret-color: var(--color-accent); }
+input:focus, select:focus, textarea:focus { outline: 0; border-color: var(--color-accent); }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink-2) 50%), linear-gradient(135deg, var(--color-ink-2) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 400 var(--text-sm)/1.4 var(--font-body); color: var(--color-accent); min-height: 1.4em; }
+@media (max-width: 860px) { .contact__call, .form { grid-column: 1 / -1; } }
+@media (max-width: 860px) { .reviews, .area, .contact, .cut { grid-template-columns: minmax(0, 1fr); } }
+
+footer { border-top: var(--rule-hair) solid var(--color-rule); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 300 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H10l-5 4v-4a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7 8.5h10M7 11.5h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Setout Architectural Design, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke-width="1.6">
+        <path d="M3 13V3h10M35 3h10v10M45 35v10H35M13 45H3V35" stroke="var(--color-rule-2)"/>
+        <path d="M12 34V21l12-9 12 9v13z" stroke="var(--color-ink)"/><path d="M12 34h24M20 34V26h8v8" stroke="var(--color-ink)"/><circle cx="24" cy="12" r="2.4" fill="var(--color-accent)" stroke="none"/>
+      </svg>
+      <span>Setout Architectural Design<small>Upper Hutt architectural designer · Ruth</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#how">How we draw</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="hero__cloud" aria-hidden="true"><canvas id="cloud"></canvas></div>
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Architectural designer · Upper Hutt and the Hutt Valley</p>
+      <h1>Plans measured on site, drawn to build.</h1>
+      <p class="hero__lede">Ruth designs new homes, extensions and renovations across the Hutt Valley. She measures your site and house herself, draws every sheet, and takes the set through council with you.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Ruth</a>
+        <a class="btn btn--line" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="num-big">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from <span class="num">24</span> Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <p class="hero__note"><b class="num">1:100<span class="u"> scale</span></b>Every concept plan, drawn from a site measure.</p>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we draw</h2>
+      <p>Residential design from first sketch to the drawings your builder prices from.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="miter" aria-hidden="true"><path d="M8 24l18-14 18 14"/><path d="M12 22v22h28V22"/><path d="M22 44V32h8v12"/><path d="M4 44h44"/></svg>
+        <h3>New homes</h3>
+        <p>Concept to consent drawings for a new house on your section.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="miter" aria-hidden="true"><path d="M6 20l14-10 14 10v22H6z"/><path d="M34 28h12v14H34"/><path d="M40 28v-6M34 22h12"/><path d="M13 42V32h8v10"/></svg>
+        <h3>Extensions</h3>
+        <p>Another bedroom, a bigger kitchen or a second storey, drawn to match.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="miter" aria-hidden="true"><path d="M6 8h40v36H6z"/><path d="M6 24h18v20M24 24h22M32 8v16"/><path d="M12 30h6M12 36h6"/></svg>
+        <h3>Renovations</h3>
+        <p>New layouts for kitchens, bathrooms and living areas in an existing house.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="miter" aria-hidden="true"><path d="M6 12v28h40"/><path d="M6 40l12-12 8 6 12-14 8 8"/><circle cx="18" cy="28" r="1.8" fill="currentColor" stroke="none"/><circle cx="38" cy="20" r="1.8" fill="currentColor" stroke="none"/></svg>
+        <h3>Site and as-built measure</h3>
+        <p>Measured plans of your existing house and section before any design starts.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="miter" aria-hidden="true"><path d="M8 8h26l10 10v26H8z"/><path d="M34 8v10h10"/><path d="M14 26h24M14 32h24M14 38h14"/></svg>
+        <h3>Consent drawings</h3>
+        <p>The full drawing set and forms for your council building consent.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="miter" aria-hidden="true"><path d="M26 6l18 10v20L26 46 8 36V16z"/><path d="M8 16l18 10 18-10M26 26v20"/></svg>
+        <h3>3D views</h3>
+        <p>Simple 3D views so you can see the house before it is built.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section band--2" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>A section through the design</h2>
+      <p>Every house gets a section drawing. It fixes the heights that matter: floor, ceiling and ridge.</p>
+    </div>
+    <div class="cut">
+      <figure class="cut__draw ticks">
+        <svg viewBox="0 0 700 340" role="img" aria-labelledby="cutT">
+          <title id="cutT">Section through a single-storey house on a gentle slope: floor level 0.45 m above ground, ceiling height 2.4 m, ridge 5.6 m above floor.</title>
+          <g font-family="Geologica, sans-serif" font-weight="400" font-size="14" fill="var(--color-ink-2)">
+            <!-- ground -->
+            <path d="M20 270 L320 270 L420 282 L680 282" fill="none" stroke="var(--color-ink-2)" stroke-width="1.5"/>
+            <g stroke="var(--color-rule-2)" stroke-width="1"><path d="M40 270 l-8 10M80 270 l-8 10M120 270 l-8 10M160 270 l-8 10M200 270 l-8 10M240 270 l-8 10M280 270 l-8 10M440 282 l-8 10M500 282 l-8 10M560 282 l-8 10M620 282 l-8 10"/></g>
+            <!-- house -->
+            <g fill="none" stroke="var(--color-ink)" stroke-width="1.8">
+              <path d="M150 270 V238 H520 V270"/>
+              <path d="M150 238 V120 M520 238 V120"/>
+              <path d="M130 120 L335 36 L540 120 Z"/>
+              <path d="M150 124 H520" stroke="var(--color-rule-2)" stroke-dasharray="6 5"/>
+              <path d="M240 238 V160 h50 V238 M380 238 V160 h90 V238" stroke-width="1.4"/>
+            </g>
+            <!-- ridge dims -->
+            <g stroke="var(--color-muted)" stroke-width="1"><path d="M580 36 V238 M572 36 h16 M572 124 h16 M572 238 h16"/></g>
+            <text x="596" y="84" fill="var(--color-ink)" class="num">5.60 m</text>
+            <text x="596" y="186" fill="var(--color-ink)">2.40 m</text>
+            <text x="596" y="232" fill="var(--color-muted)">floor</text>
+            <!-- callout: found point, lime -->
+            <circle cx="335" cy="36" r="3.5" fill="var(--color-accent)"/>
+            <path d="M335 36 L335 14" stroke="var(--color-accent)" stroke-width="1"/>
+            <text x="345" y="22" fill="var(--color-accent)">ridge 5.60 m</text>
+            <text x="30" y="260" fill="var(--color-muted)">ground</text>
+            <text x="160" y="226" fill="var(--color-muted)" font-size="13">floor +0.45 m</text>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Section through a single-storey house. Drawing not to scale.</figcaption>
+      </figure>
+      <div class="cut__side">
+        <h3>Drawing layers</h3>
+        <p class="label" style="margin-top:.4rem">Switch the point cloud layers in the hero on or off.</p>
+        <ul class="layers">
+          <li><span>Ground</span><button class="sw" type="button" aria-pressed="true" aria-label="Ground layer" data-layer="0"></button></li>
+          <li><span>Structures</span><button class="sw" type="button" aria-pressed="true" aria-label="Structures layer" data-layer="1"></button></li>
+          <li><span>Canopy</span><button class="sw" type="button" aria-pressed="true" aria-label="Canopy layer" data-layer="2"></button></li>
+          <li><span>Measured points</span><button class="sw" type="button" aria-pressed="true" aria-label="Measured points" data-layer="3"></button></li>
+        </ul>
+      </div>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><h3>Measure</h3><p>Ruth measures the site and the house herself, and checks boundaries and levels.</p></li>
+      <li><span class="n">02</span><h3>Concept</h3><p>Two or three layout options on one sheet, then one taken forward.</p></li>
+      <li><span class="n">03</span><h3>Consent</h3><p>The full set drawn up and lodged, with council questions answered.</p></li>
+      <li><span class="n">04</span><h3>Build set</h3><p>Detail drawings and schedules your builder prices and builds from.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="register">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>The drawing set</h2>
+      <p>A consent set for a new house is usually eight sheets. This is what each one carries.</p>
+    </div>
+    <div class="tablewrap">
+      <table class="log">
+        <thead><tr><th>Sheet</th><th>Title</th><th>What it shows</th><th class="n">Scale</th></tr></thead>
+        <tbody>
+          <tr><td><span class="dot"></span>A-01</td><td>Site plan</td><td>Boundaries, house position, drive, drainage</td><td class="n">1:200</td></tr>
+          <tr><td>A-02</td><td>Floor plan</td><td>Rooms, walls, doors, windows, dimensions</td><td class="n">1:100</td></tr>
+          <tr><td>A-03</td><td>Elevations</td><td>All four sides, heights, cladding</td><td class="n">1:100</td></tr>
+          <tr><td>A-04</td><td>Sections</td><td>Floor, ceiling and roof heights</td><td class="n">1:50</td></tr>
+          <tr><td>A-05</td><td>Foundation plan</td><td>Footings, slab, bracing</td><td class="n">1:100</td></tr>
+          <tr><td>A-06</td><td>Roof plan</td><td>Falls, gutters, downpipes</td><td class="n">1:100</td></tr>
+          <tr><td>A-07</td><td>Details</td><td>Wall, window and floor junctions</td><td class="n">1:10</td></tr>
+          <tr><td>A-08</td><td>Schedules</td><td>Windows, doors, finishes</td><td class="n">n/a</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="figs">
+      <div class="box ticks"><span class="fig">1<small>site visit</small></span><span class="label">to measure before design starts</span></div>
+      <div class="box ticks"><span class="fig">3<small>options</small></span><span class="label">on the first concept sheet</span></div>
+      <div class="box ticks"><span class="fig">8<small>sheets</small></span><span class="label">in a typical new-house set</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section band--2" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent work</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="pours">
+      <figure class="photo">
+        <img src="img/hero.jpg" width="960" height="720" alt="A scale model of a two-storey timber house with a shingled roof and a carved veranda">
+        <figcaption><span>Study model, two-storey villa</span><span class="num">1:50</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/model.jpg" width="800" height="600" alt="A cut-away model of a single-storey house on a landscaped base">
+        <figcaption><span>Cut-away model, single storey</span><span class="num">1:100</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/desk.jpg" width="960" height="640" alt="A set of site drawings on a desk with a drawing curve and ruler">
+        <figcaption><span>Site plan on the desk</span><span class="num">1:200</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/plan.jpg" width="960" height="574" alt="A coloured architectural drawing with a plan and several elevations of a long brick building">
+        <figcaption><span>Plan and elevations, one sheet</span><span class="num">1:100</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="plate ticks">
+        <span class="big">4.9</span>
+        <p>out of 5, from <b class="num">24</b> Google reviews</p>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Ruth measured our old house before she drew a line, and it showed. The extension plans fit the existing rooms exactly and the builder didn't have a single query.”</blockquote>
+          <p class="who"><b>Nina</b><span>Heretaunga</span><span>· Extension</span></p>
+        </li>
+        <li>
+          <blockquote>“She gave us three layouts on one sheet and was happy to keep changing them until it felt right. Council questions were answered within the week.”</blockquote>
+          <p class="who"><b>Ben</b><span>Pinehaven</span><span>· New home</span></p>
+        </li>
+        <li>
+          <blockquote>“Clear drawings, a clear quote and no surprises. We could see the finished house on the 3D views before we signed anything.”</blockquote>
+          <p class="who"><b>Moana</b><span>Trentham</span><span>· Renovation</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section band--2" id="area">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we work</h2>
+      <p>Based in Trentham. All of Upper Hutt plus towns within about 35 km. Further out for new homes, by arrangement.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 440" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Upper Hutt in the middle with a 35 km ring taking in Kaitoke, Lower Hutt, Porirua and Wellington, and Featherston and Masterton by arrangement.</title>
+          <g font-family="Geologica, sans-serif" font-weight="400" font-size="16" fill="var(--color-ink-2)">
+            <g stroke="var(--color-rule)" stroke-width="1"><path d="M0 110h600M0 220h600M0 330h600M150 0v440M300 0v440M450 0v440"/></g>
+            <path d="M380 0 C 360 80, 330 150, 305 215 S 270 300, 230 380 S 190 430, 170 440" fill="none" stroke="var(--color-rule-2)" stroke-width="2"/>
+            <text x="336" y="100" font-size="13" fill="var(--color-muted)" text-anchor="end">Hutt River</text>
+            <circle cx="300" cy="230" r="185" fill="none" stroke="var(--color-rule-2)" stroke-width="1.5" stroke-dasharray="5 6"/>
+            <text x="418" y="104" font-size="13" fill="var(--color-muted)">35 km</text>
+            <g fill="var(--color-ink)"><circle cx="300" cy="230" r="9"/></g>
+            <text x="316" y="258" fill="var(--color-ink)" font-size="19">Upper Hutt</text>
+            <circle cx="287" cy="241" r="5" fill="var(--color-accent)"/>
+            <g>
+              <circle cx="352" cy="185" r="3.5" fill="var(--color-ink-2)"/><text x="364" y="180">Kaitoke</text>
+              <circle cx="228" cy="283" r="3.5" fill="var(--color-ink-2)"/><text x="216" y="289" text-anchor="end">Lower Hutt</text>
+              <circle cx="194" cy="235" r="3.5" fill="var(--color-ink-2)"/><text x="182" y="231" text-anchor="end">Porirua</text>
+              <circle cx="168" cy="330" r="3.5" fill="var(--color-ink-2)"/><text x="156" y="336" text-anchor="end">Wellington</text>
+              <circle cx="500" cy="215" r="3.5" fill="none" stroke="var(--color-ink-2)"/><text x="490" y="205" fill="var(--color-muted)" font-size="14" text-anchor="end">Featherston, by arrangement</text>
+              <circle cx="565" cy="129" r="3.5" fill="none" stroke="var(--color-ink-2)"/><text x="555" y="125" fill="var(--color-muted)" font-size="14" text-anchor="end">Masterton, by arrangement</text>
+            </g>
+            <g transform="translate(556 56)"><path d="M0 -22 L9 8 L0 2 L-9 8 Z" fill="var(--color-ink-2)"/><text x="0" y="28" text-anchor="middle" font-size="14">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Sketch, not to scale. Lime dot: the studio in Trentham.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Upper Hutt suburbs: Trentham, Wallaceville, Heretaunga, Silverstream, Totara Park, Pinehaven, Clouston Park, Maoribank, Birchville and more.</p>
+        <ul class="towns">
+          <li><span>Upper Hutt</span><span class="num">0–8 km</span></li>
+          <li><span>Kaitoke</span><span class="num">12 km</span></li>
+          <li><span>Lower Hutt</span><span class="num">15 km</span></li>
+          <li><span>Porirua</span><span class="num">25 km</span></li>
+          <li><span>Wellington</span><span class="num">34 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Get a price</h2>
+      <p>Call or text Ruth. Send a photo of the site and a rough idea of the job and she'll arrange a measure.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--line" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd>8:00 am – 5:00 pm</dd></div>
+          <div><dt>Saturday</dt><dd>By appointment</dd></div>
+          <div><dt>Quote back</dt><dd>Within 3 working days</dd></div>
+        </dl>
+      </div>
+      <form class="form ticks" id="quote" novalidate>
+        <h3>Quote request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job">
+              <option>New home</option><option>Extension</option><option>Renovation</option><option>Site or as-built measure</option><option>Consent drawings</option><option>3D views</option><option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Rough size and anything we should know</label><textarea id="f-msg" name="message" placeholder="e.g. add a third bedroom and a deck to a 1970s house"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Setout Architectural Design, Upper Hutt · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Setout Architectural Design is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+
+/* point cloud: generated points only, no lines, no glow. A section of land, a house, trees. */
+(function () {
+  var cv = document.getElementById('cloud'); if (!cv) return;
+  var ctx = cv.getContext('2d');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var LO = [59, 80, 98], MID = [134, 163, 179], HI = [228, 246, 250], LIME = [188, 240, 83];
+  var P = []; // x,y,z,layer
+  var seed = 7; function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+  function terr(x, z) { return 0.35 * Math.sin(x * 0.5 + 1) * Math.cos(z * 0.45) + 0.18 * Math.sin(x * 1.3 + z * 0.9) - 0.04 * x; }
+  var i, x, y, z;
+  for (i = 0; i < 6500; i++) { x = (rnd() - 0.5) * 16; z = (rnd() - 0.5) * 16; P.push([x, terr(x, z), z, 0]); }
+  var hx = 2.6, hz = 1.7, base = terr(0, 0) + 0.05, wallH = 1.4;
+  for (i = 0; i < 2600; i++) { // walls
+    var side = Math.floor(rnd() * 4), t = rnd(), h = rnd() * wallH;
+    if (side === 0) { x = -hx + 2 * hx * t; z = -hz; } else if (side === 1) { x = -hx + 2 * hx * t; z = hz; } else if (side === 2) { x = -hx; z = -hz + 2 * hz * t; } else { x = hx; z = -hz + 2 * hz * t; }
+    P.push([x, base + h, z, 1]);
+  }
+  for (i = 0; i < 2600; i++) { // gable roof, ridge along x
+    x = (rnd() - 0.5) * 2 * (hx + 0.35); var s = rnd() < 0.5 ? -1 : 1, u = rnd(); z = s * (hz + 0.3) * (1 - u); y = base + wallH + u * 0.95;
+    P.push([x, y, z, 1]);
+  }
+  for (i = 0; i < 900; i++) { x = -hx + 0.4 + rnd() * 0.9; z = hz; P.push([x, base + rnd() * 0.9, z + 0.01, 1]); }
+  var trees = [[-4.6, -3, 1.6], [4.8, -2.4, 1.9], [-5.2, 2.6, 1.4], [3.6, 4.1, 1.7], [6.2, 1.2, 1.3], [-2.6, -5, 1.5]];
+  trees.forEach(function (t) { for (var k = 0; k < 520; k++) { var a = rnd() * 6.283, r = Math.sqrt(rnd()) * 0.8 * (1 - 0.0), hh = rnd(); var rr = r * (1 - hh * 0.75); P.push([t[0] + Math.cos(a) * rr, terr(t[0], t[1]) + 0.4 + hh * t[2], t[1] + Math.sin(a) * rr, 2]); } });
+  // measured points: found, lime
+  var FOUND = [[0, base + wallH + 0.95, 0], [hx, base, hz], [-hx, base, -hz]];
+  var W, H, dpr, ang = reduce ? 0.7 : 0, sweepY = reduce ? 1.2 : -1, tiltX = 0, tiltT = 0, vis = true, layers = [true, true, true, true];
+  function size() { dpr = Math.min(window.devicePixelRatio || 1, 2); var r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); }
+  function mix(a, b, t) { return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
+  function draw() {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+    var ca = Math.cos(ang), sa = Math.sin(ang), tilt = 0.5 + tiltX, ct = Math.cos(tilt), st = Math.sin(tilt);
+    var narrow = W < 700, scale = Math.min(W, H * 1.5) * (narrow ? 0.062 : 0.052), cx = narrow ? W * 0.5 : W * 0.7, cy = narrow ? H * 0.58 : H * 0.56;
+    for (var n = 0; n < P.length; n++) {
+      var p = P[n]; if (!layers[p[3]]) continue;
+      var rx = p[0] * ca - p[2] * sa, rz = p[0] * sa + p[2] * ca, ry = p[1];
+      var py = ry * ct - rz * st, pz = ry * st + rz * ct;
+      var f = 1 / (1 + pz * 0.045), sx = cx + rx * scale * f, sy = cy - py * scale * f;
+      var depth = Math.max(0.15, Math.min(1, 0.85 - pz * 0.05));
+      var ht = Math.max(0, Math.min(1, (p[1] + 0.6) / 3.4));
+      var c = ht < 0.5 ? mix(LO, MID, ht * 2) : mix(MID, HI, (ht - 0.5) * 2);
+      var d = Math.abs(p[1] - sweepY), lift = d < 0.35 ? 1 - d / 0.35 : 0;
+      if (lift > 0) c = mix(c, HI, lift);
+      ctx.globalAlpha = depth * (0.45 + 0.55 * lift + 0.2 * ht);
+      ctx.fillStyle = 'rgb(' + (c[0] | 0) + ',' + (c[1] | 0) + ',' + (c[2] | 0) + ')';
+      var s = (1.1 + 1.3 * f * depth) * (narrow ? 0.8 : 1);
+      ctx.fillRect(sx, sy, s, s);
+    }
+    if (layers[3]) {
+      ctx.globalAlpha = 1; ctx.fillStyle = 'rgb(' + LIME.join(',') + ')';
+      FOUND.forEach(function (q) {
+        var rx = q[0] * ca - q[2] * sa, rz = q[0] * sa + q[2] * ca, py = q[1] * ct - rz * st, pz = q[1] * st + rz * ct, f = 1 / (1 + pz * 0.045);
+        ctx.beginPath(); ctx.arc(cx + rx * scale * f, cy - py * scale * f, 3.2, 0, 6.283); ctx.fill();
+      });
+    }
+    ctx.globalAlpha = 1;
+  }
+  var last = 0;
+  function frame(ts) {
+    if (!vis) { last = 0; requestAnimationFrame(frame); return; }
+    var dt = last ? Math.min(0.05, (ts - last) / 1000) : 0; last = ts;
+    ang += dt * (6.283 / 120); tiltX += (tiltT - tiltX) * 0.05;
+    sweepY += dt * 1.05; if (sweepY > 3.2) sweepY = -1.4;
+    draw(); requestAnimationFrame(frame);
+  }
+  size(); draw();
+  window.addEventListener('resize', function () { size(); draw(); });
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { vis = e[0].isIntersecting; }, { threshold: 0 }).observe(cv);
+  if (!reduce) {
+    window.addEventListener('pointermove', function (e) { tiltT = ((e.clientY / window.innerHeight) - 0.5) * 0.12; });
+    requestAnimationFrame(frame);
+  }
+  document.querySelectorAll('.sw').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      layers[+b.getAttribute('data-layer')] = on; draw();
+    });
+  });
+})();
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../garage-doors/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>49<i class="w"> of </i><i class="s">/</i>50</span><a href="../picture-framer/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

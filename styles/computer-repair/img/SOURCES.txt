@@ -1,0 +1,26 @@
+Photos for the Extra Life Computer Repair sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped square, given the theme's ember tint (dark aubergine to orange) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   (untitled) hand testing a computer motherboard, rawpixel
+  Source:  https://www.rawpixel.com/image/5947362/free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHg2NzgzNDYtaW1hZ2Uta3d5b3Z2ZzIuanBn.jpg
+  Licence: CC0 1.0
+
+work1.jpg
+  Title:   Inside a telephone (rawpixel)
+  Source:  https://www.rawpixel.com/image/5939292/inside-telephone
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvc2s0MjU3LWltYWdlLWt3eW5wanY1LmpwZw.jpg
+  Licence: CC0 1.0
+
+work2.jpg
+  Title:   Next Top Model Data Center, Jefferson Lab (Flickr)
+  Source:  https://www.flickr.com/photos/53950384@N02/55166403733
+  File:    https://live.staticflickr.com/65535/55166403733_95faa792f0_b.jpg
+  Licence: Public Domain Mark 1.0
+
+work3.jpg
+  Title:   2024 Data Center Details, Jefferson Lab (Flickr)
+  Source:  https://www.flickr.com/photos/53950384@N02/53959398004
+  File:    https://live.staticflickr.com/65535/53959398004_5470595337_b.jpg
+  Licence: Public Domain Mark 1.0

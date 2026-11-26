@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Gone by Noon | Rubbish removal in Porirua (sample site)</title>
+<meta name="description" content="Sample site: a made-up Porirua rubbish removal business, built to show the Manifesto style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* manifesto */
+:root {
+  --color-paper: oklch(13% 0.01 60); --color-paper-2: oklch(17% 0.011 60); --color-paper-3: oklch(22% 0.012 60);
+  --color-ink: oklch(95% 0.014 85); --color-ink-2: oklch(84% 0.012 80); --color-muted: oklch(64% 0.016 65);
+  --color-rule: oklch(31% 0.014 60);
+  --color-accent: oklch(56% 0.228 28); --color-accent-deep: oklch(49% 0.2 28); --color-accent-text: oklch(64% 0.22 28); --color-accent-ink: oklch(98.5% 0.004 90);
+  --color-focus: oklch(64% 0.22 28);
+  --font-display: "Anton", "Impact", sans-serif; --font-body: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 0; --rule-hair: 1px; --rule-bar: 4px;
+  --tracking-display: 0.004em; --lh-tight: 0.9;
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --text-display-m: clamp(3rem, 1.6rem + 5vw, 5.5rem);
+  --dur-long: 450ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 78rem; --gutter: clamp(1rem, 4vw, 2.5rem); --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.55 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: var(--color-accent); color: var(--color-accent-ink); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { color: var(--color-accent-text); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; letter-spacing: var(--tracking-display); color: var(--color-ink); line-height: 1.02; margin: 0; }
+h2 { font-size: var(--text-display-m); }
+h3 { font-size: 1.75rem; line-height: 1; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-md); margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 32rem; }
+.band { background: var(--color-paper-2); }
+.band--red { background: var(--color-accent); color: var(--color-accent-ink); }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem; background: var(--color-paper-3); border-bottom: var(--rule-hair) solid var(--color-rule); color: var(--color-ink); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; color: var(--color-accent-text); }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; white-space: nowrap; border: var(--rule-hair) solid transparent; border-radius: 0; background: none; padding: var(--space-sm) var(--space-lg); min-height: 3rem; font: 600 1rem/1.2 var(--font-body); color: var(--color-ink); text-decoration: none; cursor: pointer; }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
+.btn--primary:hover { background: var(--color-accent-deep); color: var(--color-accent-ink); }
+.btn--secondary { border-color: var(--color-ink-2); color: var(--color-ink); }
+.btn--secondary:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+.top { border-bottom: var(--rule-bar) solid var(--color-ink); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-sm); }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.4rem; height: 2.4rem; flex: none; }
+.brand span { font: 400 1.6rem/0.95 var(--font-display); text-transform: uppercase; letter-spacing: var(--tracking-display); }
+.brand small { display: block; font: 500 0.8125rem/1.3 var(--font-body); text-transform: none; color: var(--color-muted); letter-spacing: 0; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); }
+.nav .btn { min-height: 2.75rem; padding-inline: var(--space-md); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1.35rem; } }
+
+/* hero: the poster */
+.hero { padding-block: var(--space-2xl) var(--space-xl); }
+.display { container-type: inline-size; line-height: var(--lh-tight); }
+.display > span { display: block; white-space: nowrap; font: 400 min(16cqi, 13rem)/var(--lh-tight) var(--font-display); text-transform: uppercase; color: var(--color-ink); }
+.display .hot { color: var(--color-accent-text); }
+.reveal { animation: wipe var(--dur-long) var(--ease-out) both; }
+@keyframes wipe { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0); } }
+.hero__row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: end; margin-top: var(--space-xl); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); }
+.hero__lede { grid-column: 1 / span 6; font-size: 1.3125rem; line-height: 1.45; color: var(--color-ink-2); }
+.hero__cta { grid-column: 8 / span 5; display: grid; gap: var(--space-md); }
+.rating { display: flex; align-items: center; gap: 0.75rem; }
+.rating .big { font: 400 2.5rem/1 var(--font-display); color: var(--color-ink); }
+.stars { display: inline-flex; gap: 2px; color: var(--color-ink); }
+.stars svg { width: 0.95rem; height: 0.95rem; }
+@media (max-width: 860px) { .hero__row { grid-template-columns: minmax(0, 1fr); } .hero__lede, .hero__cta { grid-column: 1 / -1; } }
+
+/* photographs: off-white duotone, square, ringed */
+.photo { margin: 0; }
+.photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; outline: var(--rule-hair) solid var(--color-rule); outline-offset: -1px; background: var(--color-paper-3); }
+.photo--wide img { aspect-ratio: 4 / 3; }
+.photo figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); margin-top: 0.6rem; display: flex; justify-content: space-between; gap: 1rem; }
+.photo figcaption b { color: var(--color-ink-2); font-weight: 600; white-space: nowrap; }
+.bleed { border-block: var(--rule-hair) solid var(--color-rule); }
+.bleed img { width: 100%; height: clamp(14rem, 34vw, 28rem); object-fit: cover; object-position: 50% 60%; outline: 0; }
+
+/* the record: reviews + services */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.score { grid-column: 1 / span 4; padding-top: var(--space-xs); }
+.score .fig { font: 400 clamp(8rem, 5rem + 11vw, 15rem)/0.82 var(--font-display); color: var(--color-ink); display: block; }
+.score p { margin-top: var(--space-sm); }
+.quotes { grid-column: 5 / span 8; margin: 0; padding: 0; }
+.quotes li { list-style: none; padding-block: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.5rem; }
+.quotes li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.quotes blockquote { margin: 0; font-size: 1.1875rem; color: var(--color-ink-2); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.25rem 0.75rem; flex-wrap: wrap; }
+.quotes .who b { color: var(--color-ink); font-weight: 600; }
+@media (max-width: 860px) { .reviews { grid-template-columns: minmax(0, 1fr); } .score, .quotes { grid-column: 1 / -1; } }
+
+.rec { margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.rec li { list-style: none; display: grid; grid-template-columns: 5rem 3.5rem minmax(0, 1fr) minmax(0, 1.1fr); gap: var(--space-md); align-items: center; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.rec .n { font: 400 var(--text-display-s)/1 var(--font-display); color: var(--color-muted); }
+.rec svg { width: 3rem; height: 3rem; color: var(--color-ink); }
+.rec h3 { font-size: var(--text-display-s); }
+@media (max-width: 760px) {
+  .rec li { grid-template-columns: 2.75rem minmax(0, 1fr); row-gap: 0.25rem; }
+  .rec .n { grid-row: span 3; align-self: start; font-size: 1.5rem; }
+  .rec svg { display: none; }
+  .rec h3 { font-size: 2rem; }
+}
+
+/* poster line + creed */
+.poster { padding-block: var(--space-3xl); }
+.poster .display > span { font-size: min(21cqi, 13rem); }
+.poster__row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); margin-top: var(--space-lg); border-top: var(--rule-bar) solid var(--color-ink); padding-top: var(--space-md); }
+.poster__row > div { grid-column: span 6; display: grid; gap: 0.35rem; align-content: start; }
+.poster__row h3 { color: var(--color-accent-text); }
+@media (max-width: 760px) { .poster__row > div { grid-column: 1 / -1; } }
+
+/* how */
+.steps { margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.steps li { list-style: none; padding: var(--space-md) var(--space-md) 0 0; display: grid; gap: 0.4rem; align-content: start; }
+.steps li + li { padding-left: var(--space-md); border-left: var(--rule-hair) solid var(--color-rule); }
+.steps .n { font: 400 var(--text-display-s)/1 var(--font-display); color: var(--color-muted); }
+@media (max-width: 760px) {
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-lg); }
+  .steps li:nth-child(3) { padding-left: 0; border-left: 0; }
+}
+
+/* load guide */
+.loads { margin: var(--space-xl) 0 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.loads li { list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) 7rem; gap: var(--space-md); align-items: center; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.loads h3 { font-size: var(--text-display-s); }
+.loads .cap { text-align: right; font: 400 1.75rem/1 var(--font-display); color: var(--color-ink); white-space: nowrap; }
+.gauge { height: 1.5rem; border: var(--rule-hair) solid var(--color-ink-2); position: relative; }
+.gauge i { position: absolute; inset: 0 auto 0 0; background: var(--color-ink); }
+@media (max-width: 640px) { .loads li { grid-template-columns: minmax(0, 1fr) auto; } .loads .gauge { grid-column: 1 / -1; grid-row: 2; } }
+
+.work { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--space-lg); align-items: start; }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+
+.about { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.about__text { grid-column: 1 / span 6; display: grid; gap: var(--space-sm); }
+.facts { grid-column: 8 / span 5; margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.facts li { list-style: none; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.facts .fig { font: 400 1.75rem/1 var(--font-display); text-transform: uppercase; color: var(--color-ink); white-space: nowrap; }
+@media (max-width: 860px) { .about { grid-template-columns: minmax(0, 1fr); } .about__text, .facts { grid-column: 1 / -1; } }
+
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-paper-2); outline: var(--rule-hair) solid var(--color-rule); outline-offset: -1px; }
+.area__list { grid-column: 8 / span 5; display: grid; gap: var(--space-md); }
+.towns { margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 600; }
+.towns .fig { white-space: nowrap; color: var(--color-ink-2); }
+@media (max-width: 860px) { .area { grid-template-columns: minmax(0, 1fr); } .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact: the red field, the pledge */
+.pledge { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; padding-block: var(--space-3xl); }
+.pledge__line { grid-column: 1 / span 6; display: grid; gap: var(--space-lg); }
+.pledge__line h2 { color: var(--color-accent-ink); font-size: clamp(3rem, 1.6rem + 5.6vw, 6rem); line-height: 1.0; }
+.pledge .phone { font: 400 var(--text-display-m)/1 var(--font-display); color: var(--color-accent-ink); text-decoration: none; }
+.pledge .phone:hover { color: var(--color-paper); }
+.pledge a { color: var(--color-accent-ink); }
+.pledge .label, .pledge .hours dt, .pledge .hours dd { color: var(--color-accent-ink); }
+.hours { margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-accent-ink); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid color-mix(in oklab, var(--color-accent-ink) 55%, transparent); }
+.hours dt { font-weight: 600; }
+.hours dd { margin: 0; }
+.pledge .btn--primary { background: var(--color-paper); color: var(--color-ink); }
+.pledge .btn--primary:hover { background: var(--color-paper-3); color: var(--color-ink); }
+.pledge .btn--secondary { border-color: var(--color-accent-ink); color: var(--color-accent-ink); }
+.pledge .btn--secondary:hover { background: var(--color-accent-ink); border-color: var(--color-accent-ink); color: var(--color-accent-deep); }
+.form { grid-column: 8 / span 5; display: grid; gap: var(--space-md); }
+.form h3 { color: var(--color-accent-ink); font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 600 var(--text-sm)/1.3 var(--font-body); color: var(--color-accent-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border: var(--rule-hair) solid var(--color-accent-ink); border-radius: 0; background: var(--color-paper-2); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3rem; }
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--color-paper); outline-offset: 2px; }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%); background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-accent-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .pledge { grid-template-columns: minmax(0, 1fr); } .pledge__line, .form { grid-column: 1 / -1; } }
+
+footer { border-top: var(--rule-bar) solid var(--color-ink); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+@media (prefers-reduced-motion: reduce) { .reveal { animation: none; } }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2.2"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Gone by Noon, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="2" y="2" width="44" height="44" fill="var(--color-ink)"/>
+        <path d="M11 33h26M13 33l-2-14h26l-2 14" fill="none" stroke="var(--color-paper)" stroke-width="3" stroke-linejoin="miter"/>
+        <path d="M17 19v-5h14v5" fill="none" stroke="var(--color-paper)" stroke-width="3"/>
+        <path d="M13 40h22" stroke="var(--color-accent)" stroke-width="3"/>
+      </svg>
+      <span>Gone by Noon<small>Porirua rubbish removal · Tane and Jo</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">What we take</a>
+      <a href="#how">How it goes</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span class="sr">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <h1 class="display reveal" aria-label="Your rubbish. Gone by noon.">
+      <span aria-hidden="true">Your rubbish.</span>
+      <span aria-hidden="true">Gone by <span class="hot">noon.</span></span>
+    </h1>
+    <div class="hero__row">
+      <p class="hero__lede">Tane and Jo load, take and tip household rubbish, old furniture and garden waste around Porirua. Text a photo, get a time, and it's off your section before lunch.</p>
+      <div class="hero__cta">
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Tane</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+        </div>
+        <div class="rating">
+          <span class="big">4.9</span>
+          <div>
+            <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+            <p class="label">from 52 Google reviews</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<figure class="photo bleed" style="margin:0">
+  <img src="img/load.jpg" width="1024" height="369" alt="A garage floor piled high with old furniture, a mattress, frames and boxes, ready to be cleared" fetchpriority="high">
+</figure>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="score">
+        <span class="fig">4.9</span>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <p class="label">out of 5, from 52 Google reviews</p>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Mum's garage had thirty years in it. Tane and Jo had it all out and on the truck by eleven, swept the floor, and rang us to say what went to the tip and what went to the op shop.”</blockquote>
+          <p class="who"><b>Karen</b><span>Whitby</span><span>· Garage clear-out</span></p>
+        </li>
+        <li>
+          <blockquote>“Texted a photo of the old couch and fridge at 7 am. They were here at 9:30 and gone by 10. Nothing left on the lawn.”</blockquote>
+          <p class="who"><b>Mitch</b><span>Titahi Bay</span><span>· Furniture and whiteware</span></p>
+        </li>
+        <li>
+          <blockquote>“Tenant left a mess. Jo cleared the lot in one trip and sent me a photo of the empty room so I could close it off with the agent.”</blockquote>
+          <p class="who"><b>Anita</b><span>Cannons Creek</span><span>· End of tenancy</span></p>
+        </li>
+        <li>
+          <blockquote>“Cleared our green waste after a storm took out the macrocarpa. Fast, polite, and didn't leave a leaf.”</blockquote>
+          <p class="who"><b>Bill</b><span>Plimmerton</span><span>· Garden waste</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band section" id="services">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we take</h2>
+      <p>Most things that fit on a truck and are allowed at the tip. Ask first about anything else.</p>
+    </div>
+    <ol class="rec">
+      <li>
+        <span class="n">01</span>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter" aria-hidden="true"><path d="M8 22h32v-8H8zM10 22v14M38 22v14M6 36h36"/><path d="M14 14v-4h20v4"/></svg>
+        <h3>Furniture</h3>
+        <p>Couches, beds, tables and wardrobes, carried out from anywhere in the house.</p>
+      </li>
+      <li>
+        <span class="n">02</span>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter" aria-hidden="true"><rect x="10" y="5" width="28" height="38"/><path d="M10 18h28M15 11h4M15 24v8"/></svg>
+        <h3>Whiteware</h3>
+        <p>Fridges, washers and dryers, taken off your hands and recycled where we can.</p>
+      </li>
+      <li>
+        <span class="n">03</span>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter" aria-hidden="true"><path d="M8 20h32l-3 22H11z"/><path d="M6 20h36M18 20v-6h12v6"/><path d="M19 26v10M24 26v10M29 26v10"/></svg>
+        <h3>Household rubbish</h3>
+        <p>Bags and boxes from a clear-out, a shed, a spare room or a flat.</p>
+      </li>
+      <li>
+        <span class="n">04</span>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter" aria-hidden="true"><path d="M24 42V22"/><path d="M24 28c-8 0-12-6-12-14 8 0 12 6 12 14z"/><path d="M24 22c0-7 5-11 12-11 0 7-5 11-12 11z"/></svg>
+        <h3>Green waste</h3>
+        <p>Branches, hedge clippings and lawn cuttings, loaded and tipped.</p>
+      </li>
+      <li>
+        <span class="n">05</span>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter" aria-hidden="true"><path d="M6 38h36M10 38V26h12V14h16v24"/><path d="M14 20l8-6"/></svg>
+        <h3>Building waste</h3>
+        <p>Offcuts, old decking and gib from a small reno, in tidy loads.</p>
+      </li>
+      <li>
+        <span class="n">06</span>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter" aria-hidden="true"><path d="M5 38h38M8 38V22h20l8 8v8"/><circle cx="16" cy="38" r="4" fill="var(--color-paper-2)"/><circle cx="34" cy="38" r="4" fill="var(--color-paper-2)"/><path d="M28 22v8h8"/></svg>
+        <h3>Section clear-outs</h3>
+        <p>An overgrown corner, a collapsed shed or a yard that needs starting again.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="poster">
+  <div class="wrap">
+    <p class="display" aria-label="One call. One load. Done.">
+      <span aria-hidden="true">One call.</span>
+      <span aria-hidden="true">One load.</span>
+      <span aria-hidden="true">Done.</span>
+    </p>
+    <div class="poster__row">
+      <div><h3>Before you call</h3><p>Take a photo of what's going. Send it with the street and a time that suits.</p></div>
+      <div><h3>On the day</h3><p>We carry it out ourselves. You don't have to move a thing or be home.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band section" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How a clear-out goes</h2>
+      <p>Most jobs start and finish before lunch. These are the four steps, and the load guide below sizes it for you.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><h3>Text</h3><p>Send a photo and your street. We reply with a time within the hour.</p></li>
+      <li><span class="n">02</span><h3>Turn up</h3><p>We arrive in the window we gave you and look it over with you.</p></li>
+      <li><span class="n">03</span><h3>Load</h3><p>We carry it all out and sweep up as we go.</p></li>
+      <li><span class="n">04</span><h3>Tip</h3><p>Sorted at the transfer station, with anything reusable set aside.</p></li>
+    </ol>
+    <ul class="loads">
+      <li><h3>A ute load</h3><div class="gauge" role="img" aria-label="Quarter of a truck"><i style="width:25%"></i></div><span class="cap">1/4 truck</span></li>
+      <li><h3>Half a truck</h3><div class="gauge" role="img" aria-label="Half a truck"><i style="width:50%"></i></div><span class="cap">1/2 truck</span></li>
+      <li><h3>A full truck</h3><div class="gauge" role="img" aria-label="A full truck"><i style="width:100%"></i></div><span class="cap">1 truck</span></li>
+      <li><h3>A big one</h3><div class="gauge" role="img" aria-label="Two trucks"><i style="width:100%"></i></div><span class="cap">2 trips</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent jobs</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="photo photo--wide">
+        <img src="img/yard.jpg" width="768" height="512" alt="A stack of old air conditioning units against a brick wall, waiting to be taken away">
+        <figcaption><span>Old units stacked for pick-up, Elsdon</span><b>14 units</b></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/units.jpg" width="1024" height="683" alt="Close-up of a dismantled air conditioner against red brick">
+        <figcaption><span>Stripped for recycling</span><b>Set aside</b></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/sign.jpg" width="1024" height="529" alt="A weathered metal sign reading rubbish prohibited">
+        <figcaption><span>The sign says no. We say call us.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band section" id="about">
+  <div class="wrap about">
+    <div class="about__text">
+      <h2>Two people. One truck.</h2>
+      <p>Tane drives and Jo loads. You deal with the two of them from the first text to the empty room, and we keep it that simple on purpose.</p>
+      <p>We separate what can be reused, recycled or tipped before we leave, and tell you where each lot went. No dumping, ever.</p>
+    </div>
+    <ul class="facts">
+      <li><span>Reply to a text</span><span class="fig">Within the hour</span></li>
+      <li><span>Most jobs</span><span class="fig">Done by noon</span></li>
+      <li><span>Dumped illegally</span><span class="fig">Never</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="area">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we go</h2>
+      <p>Based in Elsdon. All of Porirua and the settlements around it. Further out by arrangement.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 460" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Porirua in the middle with the harbour running out to the coast past Titahi Bay and Plimmerton, Pāuatahanui up the inlet, Tawa to the south, and Lower Hutt and Wellington marked as by arrangement.</title>
+          <g font-family="Public Sans, sans-serif" font-weight="500" fill="var(--color-ink-2)">
+            <g stroke="var(--color-rule)" stroke-width="1"><path d="M0 115h600M0 230h600M0 345h600M150 0v460M300 0v460M450 0v460"/></g>
+            <path d="M0 100C70 170 90 330 60 460H0Z" fill="var(--color-paper-3)"/>
+            <text x="26" y="330" font-size="14" fill="var(--color-muted)" transform="rotate(-90 26 330)">Cook Strait</text>
+            <path d="M440 0C420 80 380 130 340 190S290 250 240 232 120 180 55 150" fill="none" stroke="var(--color-ink)" stroke-width="5"/>
+            <text x="360" y="120" font-size="14" fill="var(--color-muted)" transform="rotate(-52 360 120)">Porirua Harbour</text>
+            <circle cx="300" cy="230" r="150" fill="none" stroke="var(--color-ink)" stroke-width="2" stroke-dasharray="8 7"/>
+            <text x="380" y="106" font-size="14" fill="var(--color-ink-2)">about 20 km</text>
+            <rect x="262" y="196" width="94" height="64" fill="var(--color-ink)"/>
+            <text x="309" y="236" text-anchor="middle" font-family="Anton, sans-serif" font-size="21" fill="var(--color-paper)">PORIRUA</text>
+            <circle cx="286" cy="252" r="6" fill="var(--color-accent)" stroke="var(--color-paper)" stroke-width="2"/>
+            <rect x="290" y="350" width="12" height="12" fill="var(--color-ink)"/><text x="308" y="366" font-size="17">Tawa</text>
+            <rect x="330" y="132" width="12" height="12" fill="var(--color-ink)"/><text x="318" y="148" font-size="17" text-anchor="end">Pāuatahanui</text>
+            <rect x="130" y="100" width="12" height="12" fill="var(--color-ink)"/><text x="148" y="116" font-size="17">Plimmerton</text>
+            <rect x="82" y="224" width="12" height="12" fill="var(--color-ink)"/><text x="100" y="244" font-size="17">Titahi Bay</text>
+            <rect x="500" y="300" width="10" height="10" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="510" y="336" font-size="15" text-anchor="end" fill="var(--color-muted)">Lower Hutt, by arrangement</text>
+            <rect x="330" y="418" width="10" height="10" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="330" y="448" font-size="15" text-anchor="end" fill="var(--color-muted)">Wellington, by arrangement</text>
+            <g transform="translate(550 44)"><path d="M0 -22 L9 8 L0 2 L-9 8 Z" fill="var(--color-ink)"/><text x="0" y="28" font-size="15" text-anchor="middle">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Sketch, not to scale. Red dot: the yard in Elsdon.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Porirua suburbs: Elsdon, Cannons Creek, Waitangirua, Takapūwāhia, Kenepuru, Aotea, Whitby, Papakōwhai and more.</p>
+        <ul class="towns">
+          <li><span>Porirua</span><span class="fig">0–10 km</span></li>
+          <li><span>Titahi Bay</span><span class="fig">6 km</span></li>
+          <li><span>Plimmerton</span><span class="fig">8 km</span></li>
+          <li><span>Tawa</span><span class="fig">8 km</span></li>
+          <li><span>Pāuatahanui</span><span class="fig">10 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band--red" id="contact">
+  <div class="wrap pledge">
+    <div class="pledge__line">
+      <h2>Get it gone.</h2>
+      <a class="phone" href="tel:+64210000000">021 000 0000</a>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+        <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+      </div>
+      <dl class="hours">
+        <div><dt>Mon–Sat</dt><dd>7:00 am – 5:00 pm</dd></div>
+        <div><dt>Sunday</dt><dd>Emergency clear-outs only</dd></div>
+        <div><dt>Reply</dt><dd>Within the hour</dd></div>
+      </dl>
+    </div>
+    <form class="form" id="quote" novalidate>
+      <h3>Tell us what's going</h3>
+      <div class="row2">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+        <div class="field"><label for="f-job">Job</label>
+          <select id="f-job" name="job">
+            <option>Furniture</option><option>Whiteware</option><option>Household rubbish</option><option>Green waste</option><option>Building waste</option><option>Section clear-out</option><option>Something else</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label for="f-msg">What is it and how much?</label><textarea id="f-msg" name="message" placeholder="e.g. old couch, fridge and a pile of boxes in the garage"></textarea></div>
+      <button class="btn btn--primary" type="submit">Send request</button>
+      <p class="form__note" id="formNote" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Gone by Noon, Porirua · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Gone by Noon is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../solar/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>33<i class="w"> of </i><i class="s">/</i>50</span><a href="../locksmith/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

@@ -1,0 +1,23 @@
+Photos for the Setout Architectural Design sample (made-up business). All found on Wikimedia Commons (the source Openverse indexes; Openverse's own API was blocked by a bot check at build time), licence CC0 1.0: no credit required.
+Each was muted (saturation -20%, contrast +6%) as the Vantage style asks and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Centre for Wooden Architecture, May 2026, model (Bdx)
+  Source:  https://commons.wikimedia.org/wiki/File:Centre_for_Wooden_Architecture,_May_2026,_model.jpg
+  Licence: CC0 1.0
+
+model.jpg
+  Title:   Model of Chochikukyo House 1 (1904.CC)
+  Source:  https://commons.wikimedia.org/wiki/File:Model_of_Chochikukyo_House_1.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the top-left to leave out the museum labels
+
+desk.jpg
+  Title:   Architectural drawings (Unsplash) (Sergey Zolkin)
+  Source:  https://commons.wikimedia.org/wiki/File:Architectural_drawings_(Unsplash).jpg
+  Licence: CC0 1.0
+
+plan.jpg
+  Title:   Architectural drawing mmbw spotswood sewerage pumping station (Christian Kussmaul)
+  Source:  https://commons.wikimedia.org/wiki/File:Architectural_drawing_mmbw_spotswood_sewerage_pumping_station.jpg
+  Licence: CC0 1.0

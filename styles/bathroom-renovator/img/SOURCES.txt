@@ -1,0 +1,30 @@
+Photos for the Plainwater Bathrooms sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped square, slightly desaturated with a touch more contrast (Editorial style) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Bathroom3 (Foto Miki Digital)
+  Source:  https://www.flickr.com/photos/96511847@N04/9202908406
+  File:    https://live.staticflickr.com/2834/9202908406_e41b3c81bc_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped square
+
+freestanding.jpg
+  Title:   Bathroom in Luxury Home (Foto Miki Digital)
+  Source:  https://www.flickr.com/photos/96511847@N04/10798221476
+  File:    https://live.staticflickr.com/5522/10798221476_3895deec18_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped square
+
+compact.jpg
+  Title:   Parramatta Bathroom Renovation (PortiaTurbo)
+  Source:  https://www.flickr.com/photos/89187948@N05/23152080580
+  File:    https://live.staticflickr.com/5742/23152080580_6bc0bd0ea4_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped square
+
+slate.jpg
+  Title:   slate shower tile (weremonkey)
+  Source:  https://www.flickr.com/photos/44642876@N00/27069389836
+  File:    https://live.staticflickr.com/7356/27069389836_d7c9a4bb7c_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped square

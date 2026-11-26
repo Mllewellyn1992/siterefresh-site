@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Extra Life Computer Repair | Computer repair in Huntly (sample site)</title>
+<meta name="description" content="Sample site: a made-up Huntly computer repair shop, built to show the Arcade style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Chivo:wght@400;700;900&family=Silkscreen:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(14% 0.04 312); --color-paper-2: oklch(18.5% 0.042 312); --color-paper-3: oklch(23% 0.045 312);
+  --color-ink: oklch(95% 0.014 315); --color-ink-2: oklch(87% 0.018 315); --color-muted: oklch(71% 0.024 315);
+  --color-rule: oklch(34% 0.05 312);
+  --color-accent: oklch(66% 0.215 40); --color-accent-2: oklch(88% 0.195 115); --color-accent-ink: oklch(14% 0.04 312);
+  --color-focus: oklch(88% 0.195 115);
+  --color-crt-r: oklch(63% 0.24 25); --color-crt-g: oklch(80% 0.25 140); --color-crt-b: oklch(60% 0.24 265); --color-crt-c: oklch(78% 0.14 200); --color-shade: oklch(8% 0.02 315);
+  --font-display: "Bungee", "Impact", sans-serif; --font-body: "Chivo", ui-sans-serif, sans-serif; --font-outlier: "Silkscreen", monospace;
+  --radius-card: 4px; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 2px;
+  --shadow-card: 6px 6px 0 var(--color-accent-2);
+  --tracking-display: 0; --display-weight: 400;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+  --text-display-m: clamp(2rem, 1.3rem + 3vw, 3.5rem);
+  --text-display-l: clamp(2.75rem, 1.4rem + 5.2vw, 5.5rem);
+  --dur-micro: 120ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.6 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: var(--color-accent); color: var(--color-accent-ink); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-accent-2); text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+a:hover { color: var(--color-accent-2); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+h1, .display { font-family: var(--font-display); font-weight: 400; line-height: 1.02; text-transform: uppercase; color: var(--color-ink); margin: 0; }
+h1 { text-shadow: -1.5px 0 0 var(--color-crt-r), 1.5px 0 0 var(--color-crt-c); }
+h2, h3 { font-family: var(--font-body); font-weight: 900; letter-spacing: -0.02em; line-height: 1; color: var(--color-ink); margin: 0; }
+h2 { font-size: var(--text-display-m); }
+h3 { font-size: 1.375rem; }
+p { margin: 0; }
+.label { font: 700 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.fig { font-family: var(--font-outlier); font-weight: 700; font-variant-numeric: tabular-nums; color: var(--color-accent-2); }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { border-top: var(--rule-bar) solid var(--color-accent); padding-top: var(--space-md); margin-bottom: var(--space-xl);
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 34rem; }
+
+/* the screen */
+.crt { position: relative; isolation: isolate; }
+.crt::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background-image:
+    repeating-linear-gradient(to right, color-mix(in oklab, var(--color-crt-r) 5%, transparent) 0 1px, color-mix(in oklab, var(--color-crt-g) 5%, transparent) 1px 2px, color-mix(in oklab, var(--color-crt-b) 5%, transparent) 2px 3px),
+    repeating-linear-gradient(to bottom, transparent 0 2px, color-mix(in oklab, var(--color-shade) 16%, transparent) 2px 3px); }
+
+/* sample banner */
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem;
+  background: var(--color-accent-2); color: var(--color-accent-ink); font: 700 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { font: 700 0.75rem/1 var(--font-body); text-transform: uppercase; background: var(--color-accent-ink); color: var(--color-accent-2); padding: 0.2rem 0.4rem; }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+/* controls: the press surface */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 3rem; padding: var(--space-sm) var(--space-lg); white-space: nowrap; cursor: pointer; text-decoration: none;
+  background: var(--color-accent); color: var(--color-accent-ink); border: var(--rule-bar) solid var(--color-ink); border-radius: var(--radius-card); font: 700 1.0625rem/1.1 var(--font-body);
+  box-shadow: var(--shadow-card); transition: translate var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out); }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn:hover { color: var(--color-accent-ink); translate: -1px -1px; box-shadow: 7px 7px 0 var(--color-accent-2); }
+.btn:active { translate: 3px 3px; box-shadow: 2px 2px 0 var(--color-accent-2); }
+.btn--secondary { background: transparent; color: var(--color-ink); }
+.btn--secondary:hover { color: var(--color-ink); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-md) var(--space-md); padding-bottom: 6px; padding-right: 6px; }
+
+/* header */
+.top { border-bottom: var(--rule-bar) solid var(--color-rule); background: var(--color-paper); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.5rem; height: 2.5rem; flex: none; }
+.brand span { font: 400 1.5rem/1 var(--font-display); text-transform: uppercase; }
+.brand small { display: block; margin-top: 0.3rem; font: 700 0.8125rem/1.3 var(--font-body); text-transform: none; color: var(--color-muted); }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 700 var(--text-sm)/1 var(--font-body); text-decoration: none; }
+.nav a:not(.btn):hover { text-decoration: underline; text-decoration-color: var(--color-accent-2); }
+.nav .btn { padding-inline: var(--space-md); min-height: 2.75rem; box-shadow: 4px 4px 0 var(--color-accent-2); }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1.2rem; } }
+
+/* hero: marquee */
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero__photo { grid-column: 8 / span 5; margin-top: var(--space-md); }
+.hero h1 { font-size: var(--text-display-l); margin-block: var(--space-md) var(--space-lg); }
+.hero__lede { font-size: 1.1875rem; max-width: 33rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 1rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); max-width: 33rem; }
+.rating .fig { font-size: 3rem; line-height: 1; }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent); }
+.stars svg { width: 1.05rem; height: 1.05rem; }
+@media (max-width: 860px) { .hero__grid { grid-template-columns: minmax(0, 1fr); } .hero__copy, .hero__photo { grid-column: 1 / -1; } }
+
+/* photographs: through the screen, ember tint (processed in the file) */
+.photo { margin: 0; }
+.photo .shot { position: relative; isolation: isolate; border: var(--rule-bar) solid var(--color-ink); border-radius: var(--radius-card); overflow: hidden; background: var(--color-paper-3); }
+.photo .shot::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background-image:
+    repeating-linear-gradient(to right, color-mix(in oklab, var(--color-crt-r) 5%, transparent) 0 1px, color-mix(in oklab, var(--color-crt-g) 5%, transparent) 1px 2px, color-mix(in oklab, var(--color-crt-b) 5%, transparent) 2px 3px),
+    repeating-linear-gradient(to bottom, transparent 0 2px, color-mix(in oklab, var(--color-shade) 16%, transparent) 2px 3px); }
+.photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.photo figcaption { font: 700 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); margin-top: 0.7rem; display: flex; justify-content: space-between; gap: 1rem; }
+.photo figcaption span:last-child { color: var(--color-accent-2); white-space: nowrap; }
+
+/* services: wells */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); margin: 0; padding: 0; }
+.svc li { list-style: none; background: var(--color-paper-2); border: var(--rule-bar) solid var(--color-rule); border-radius: var(--radius-card); padding: var(--space-md); display: grid; grid-template-rows: auto auto 1fr; gap: 0.5rem; align-content: start; }
+.svc li:nth-child(odd) svg { color: var(--color-accent); }
+.svc li:nth-child(even) svg { color: var(--color-accent-2); }
+.svc svg { width: 3.25rem; height: 3.25rem; margin-bottom: 0.25rem; }
+@media (max-width: 860px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) {
+  .svc { grid-template-columns: 1fr; }
+  .svc li { grid-template-columns: 3.25rem 1fr; grid-template-rows: auto auto; column-gap: var(--space-md); }
+  .svc li svg { grid-row: span 2; }
+}
+
+/* symptom menu: rows, one cursor row lit */
+.menu-wrap { margin-top: var(--space-2xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg) var(--space-xl); align-items: start; }
+.menu-wrap > div { grid-column: 1 / span 4; min-width: 0; }
+.menu-wrap h2 { font-size: var(--text-display-s); }
+.menu-wrap .menu-wrap__sub { margin-top: var(--space-sm); font-weight: 400; }
+.menu { grid-column: 5 / span 8; margin: 0; padding: 0; background: var(--color-paper-2); border: var(--rule-bar) solid var(--color-rule); border-radius: var(--radius-card); }
+.menu li { list-style: none; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; padding: 0.8rem var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); }
+.menu li:first-child { border-top: 0; }
+.menu b { font: 900 1.125rem/1.2 var(--font-body); color: var(--color-ink); letter-spacing: -0.01em; }
+.menu b::before { content: "> "; color: var(--color-accent-2); font-family: var(--font-body); }
+.menu li span { color: var(--color-ink-2); }
+.menu li:hover, .menu li[aria-current] { background: var(--color-accent); transition: background-color var(--dur-micro) steps(1); }
+.menu li:hover b, .menu li[aria-current] b, .menu li:hover span, .menu li[aria-current] span, .menu li:hover b::before, .menu li[aria-current] b::before { color: var(--color-accent-ink); }
+@media (max-width: 860px) { .menu-wrap { grid-template-columns: minmax(0, 1fr); } .menu-wrap > div, .menu { grid-column: 1 / -1; } }
+
+/* band and steps */
+.band { background: var(--color-paper-2); }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-rule); border-bottom: var(--rule-bar) solid var(--color-rule); }
+.steps li { list-style: none; padding: var(--space-md); display: grid; gap: 0.5rem; align-content: start; }
+.steps li + li { border-left: var(--rule-bar) solid var(--color-rule); }
+.steps .n { font: 700 3rem/1 var(--font-outlier); color: var(--color-accent); }
+.steps li:nth-child(even) .n { color: var(--color-accent-2); }
+@media (max-width: 760px) {
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps li:nth-child(3) { border-left: 0; }
+  .steps li:nth-child(n+3) { border-top: var(--rule-bar) solid var(--color-rule); }
+}
+
+/* recent jobs */
+.work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+.work .photo:first-child { grid-column: span 3; }
+.work .photo:first-child .shot img { aspect-ratio: 16 / 7; }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } .work .photo:first-child { grid-column: auto; } .work .photo:first-child .shot img { aspect-ratio: 1 / 1; } }
+
+/* ember statement */
+.band--ember { background: var(--color-accent); color: var(--color-accent-ink); }
+.band--ember .wrap { padding-block: var(--space-3xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: end; }
+.statement { grid-column: 1 / span 8; font: 400 var(--text-display-l)/1 var(--font-display); text-transform: uppercase; color: var(--color-accent-ink); margin: 0; }
+.band--ember .note { grid-column: 9 / span 4; color: var(--color-accent-ink); font-weight: 700; }
+@media (max-width: 860px) { .band--ember .wrap { grid-template-columns: minmax(0, 1fr); } .statement, .band--ember .note { grid-column: 1 / -1; } }
+
+/* reviews */
+.well { background: var(--color-paper-2); border: var(--rule-bar) solid var(--color-rule); border-radius: var(--radius-card); }
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.plate { grid-column: 1 / span 5; padding: var(--space-lg); display: grid; gap: var(--space-sm); border-top: 6px solid var(--color-accent); }
+.plate .big { font: 700 clamp(4.5rem, 3rem + 7vw, 8.5rem)/1 var(--font-outlier); color: var(--color-accent-2); }
+.plate .unit { font: 700 1.125rem/1.35 var(--font-body); color: var(--color-ink); }
+.quotes { grid-column: 6 / span 7; margin: 0; padding: 0; }
+.quotes li { list-style: none; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.6rem; }
+.quotes li:first-child { padding-top: 0; }
+.quotes blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink); }
+.quotes .who { font: 700 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.quotes .who b { color: var(--color-accent-2); }
+@media (max-width: 860px) { .reviews { grid-template-columns: minmax(0, 1fr); } .plate, .quotes { grid-column: 1 / -1; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-paper-2); border: var(--rule-bar) solid var(--color-rule); border-radius: var(--radius-card); }
+.area__list { grid-column: 8 / span 5; }
+.towns { margin: var(--space-md) 0 0; padding: 0; border-top: var(--rule-bar) solid var(--color-rule); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 700; }
+.towns li span:last-child { color: var(--color-accent-2); font-weight: 700; white-space: nowrap; }
+@media (max-width: 860px) { .area { grid-template-columns: minmax(0, 1fr); } .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: 900 var(--text-display-m)/1 var(--font-body); letter-spacing: -0.02em; color: var(--color-ink); text-decoration: none; }
+.contact__call .phone:hover { color: var(--color-accent-2); }
+.hours { margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-rule); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 700; }
+.hours dd { margin: 0; text-align: right; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg); display: grid; gap: var(--space-md); box-shadow: var(--shadow-card); }
+.form h3 { font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 700 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: 0; border: var(--rule-bar) solid var(--color-muted); background: var(--color-paper); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3.25rem; }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 700 var(--text-sm)/1.4 var(--font-body); color: var(--color-accent-2); min-height: 1.4em; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } .contact__call, .form { grid-column: 1 / -1; } }
+
+footer { border-top: var(--rule-bar) solid var(--color-rule); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 700 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } .btn:hover, .btn:active { translate: none; } }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2.2"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Extra Life Computer Repair, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="2" y="2" width="44" height="44" fill="var(--color-accent)" stroke="var(--color-ink)" stroke-width="2.5"/>
+        <path d="M13 30V18h8v4h-4v4h4v4zM27 18h8v12h-8z" fill="var(--color-accent-ink)"/>
+        <path d="M31 22h0v4" stroke="var(--color-accent)" stroke-width="2"/>
+        <path d="M10 38h28" stroke="var(--color-accent-2)" stroke-width="3"/>
+      </svg>
+      <span>Extra Life<small>Computer repair · Huntly</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Computer repair · Huntly and the Waikato · Kiri &amp; the bench</p>
+      <h1>Fixed. Not binned.</h1>
+      <p class="hero__lede">Kiri and Hemi repair laptops, desktops and home networks from a bench on Huntly's Main Street. Drop it in, we tell you what is wrong before we touch it, and you decide what happens next.</p>
+      <div class="btns">
+        <a class="btn" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Kiri</a>
+        <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="fig">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from 52 Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <figure class="photo hero__photo">
+      <div class="shot"><img src="img/hero.jpg" width="1200" height="1200" alt="A hand holding a small red tester against a computer motherboard on a workbench" fetchpriority="high"></div>
+      <figcaption><span>On the bench</span><span>Stand-in photo</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we fix</h2>
+      <p>Home and small-business computers. Everything is looked at on the bench in Huntly, not posted to another city.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M10 12h32v22H10z"/><path d="M4 40h44l-4 -6H8z"/><path d="M22 26l4-6 4 6" stroke-width="2.5"/>
+        </svg>
+        <h3>Laptop repair</h3>
+        <p>Cracked screens, dead keys, tired batteries, broken hinges.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M26 5l16 6v12c0 11-7 19-16 24C17 42 10 34 10 23V11z"/><path d="M19 25l5 5 9-11"/>
+        </svg>
+        <h3>Virus clean-up</h3>
+        <p>Pop-ups, slow starts and scam software cleared off.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="miter" aria-hidden="true">
+          <ellipse cx="26" cy="12" rx="16" ry="6"/><path d="M10 12v26c0 3 7 6 16 6s16-3 16-6V12"/><path d="M10 25c0 3 7 6 16 6s16-3 16-6"/><path d="M34 40l6-6M40 40l-6-6" stroke-width="2.5"/>
+        </svg>
+        <h3>Data rescue</h3>
+        <p>Photos and files pulled off drives that will not start.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M6 18h40v16H6z"/><path d="M12 18v-5M20 18v-5M28 18v-5M36 18v-5"/><path d="M12 26h4M22 26h4"/><path d="M26 44V38m-5 3l5-5 5 5" stroke-width="2.5"/>
+        </svg>
+        <h3>Upgrades</h3>
+        <p>More memory and a fast SSD to wake an old machine up.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M12 6h28v40H12z"/><circle cx="26" cy="18" r="6"/><path d="M19 32h14M19 38h14"/><path d="M26 15v6M23 18h6" stroke-width="2"/>
+        </svg>
+        <h3>Custom builds</h3>
+        <p>A gaming or editing PC built to your list and tested.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="miter" aria-hidden="true">
+          <path d="M6 20c11-10 29-10 40 0"/><path d="M13 27c8-7 18-7 26 0"/><path d="M20 34c4-3 8-3 12 0"/><rect x="23" y="39" width="6" height="6"/>
+        </svg>
+        <h3>Wi-Fi fixes</h3>
+        <p>Dead spots, dropouts and routers set up properly.</p>
+      </li>
+    </ul>
+
+    <div class="menu-wrap">
+      <div>
+        <h2>What's wrong?</h2>
+        <p class="menu-wrap__sub">Pick the one that sounds like yours. Most problems fall into a few piles.</p>
+      </div>
+      <ul class="menu" aria-label="Common problems and what usually causes them">
+        <li aria-current="true"><b>Won't turn on</b><span>Charger, power socket or battery</span></li>
+        <li><b>Takes forever to start</b><span>Full drive or too little memory</span></li>
+        <li><b>Cracked screen</b><span>New panel, fitted on the bench</span></li>
+        <li><b>Pop-ups everywhere</b><span>Unwanted software to clear</span></li>
+        <li><b>Files gone</b><span>Often still on the drive</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band section crt" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>How a repair goes</h2>
+      <p>Most repairs are done in 2 to 3 working days. We text when it is ready, and nothing gets fixed until you say yes.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><h3>Drop in</h3><p>Bring it to the bench or call and we pick it up around town.</p></li>
+      <li><span class="n">02</span><h3>Diagnose</h3><p>We find the fault and tell you what it is, in plain words.</p></li>
+      <li><span class="n">03</span><h3>Repair</h3><p>You say yes, we fix it. Your files stay where they are.</p></li>
+      <li><span class="n">04</span><h3>Test</h3><p>Run, restart, run again. Then a text and you collect.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>On the bench</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="photo">
+        <div class="shot"><img src="img/work1.jpg" width="1200" height="1200" alt="Close view inside an opened-up phone showing its tiny parts and connectors"></div>
+        <figcaption><span>Phone, opened up</span><span>Stand-in photo</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="shot"><img src="img/work2.jpg" width="1200" height="1200" alt="A tangle of network and power cables behind a rack of computers"></div>
+        <figcaption><span>Cable spaghetti</span><span>Stand-in photo</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="shot"><img src="img/work3.jpg" width="1200" height="1200" alt="Bundles of fibre-optic cables plugged into a patch panel"></div>
+        <figcaption><span>Wi-Fi and network</span><span>Stand-in photo</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band--ember crt">
+  <div class="wrap">
+    <p class="statement">Back on. Back to work.</p>
+    <p class="note">You get a call or a text before any repair starts, and the old parts back if you want them. If it is not worth fixing, we say so.</p>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What customers say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="well plate crt">
+        <span class="big">4.9</span>
+        <p class="unit">out of 5, from 52 Google reviews</p>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <ul class="quotes">
+        <li><blockquote>“Laptop wouldn't start and I thought the school work was gone. Kiri got everything off it and had it running again by Thursday.”</blockquote><p class="who"><b>Mereana</b><span>Huntly East</span><span>· Laptop</span></p></li>
+        <li><blockquote>“Told me straight that a new screen cost more sense than a new laptop. Quick, polite, and no upselling.”</blockquote><p class="who"><b>Callum</b><span>Huntly West</span><span>· Screen</span></p></li>
+        <li><blockquote>“The old desktop was crawling. Hemi put in an SSD and some memory and now it starts before I've sat down.”</blockquote><p class="who"><b>Dave</b><span>Taupiri</span><span>· Upgrade</span></p></li>
+        <li><blockquote>“Fixed the Wi-Fi in the back bedroom that nobody else could sort. Took half an hour.”</blockquote><p class="who"><b>Tui</b><span>Ngāruawāhia</span><span>· Wi-Fi</span></p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we are</h2>
+      <p>The bench is in Huntly's centre. Pick-up and drop-off around town and out to the nearby villages.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map crt">
+        <svg viewBox="0 0 600 460" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Huntly beside the Waikato River, with Rangiriri, Taupiri and Ngāruawāhia around it, and Hamilton and Pukekohe by arrangement.</title>
+          <g font-family="Chivo, sans-serif" font-weight="700" font-size="17" fill="var(--color-ink)">
+            <!-- rivers -->
+            <path d="M240 460 C 250 400, 280 340, 275 290 S 262 220, 265 170 S 250 70, 230 0" fill="none" stroke="var(--color-muted)" stroke-width="4"/>
+            <text x="262" y="345" font-size="14" fill="var(--color-muted)" text-anchor="end">Waikato River</text>
+            <!-- ring -->
+            <circle cx="320" cy="250" r="170" fill="none" stroke="var(--color-accent-2)" stroke-width="2" stroke-dasharray="8 7"/>
+            <text x="150" y="130" fill="var(--color-accent-2)" font-size="14">30 km</text>
+            <!-- city block -->
+            <rect x="290" y="226" width="70" height="52" fill="var(--color-accent)"/>
+            <text x="325" y="257" text-anchor="middle" font-family="Bungee, sans-serif" font-size="14" fill="var(--color-accent-ink)">HUNTLY</text>
+            <circle cx="308" cy="268" r="5" fill="var(--color-accent-2)" stroke="var(--color-accent-ink)" stroke-width="2"/>
+            <g>
+              <rect x="306" y="172" width="11" height="11" fill="var(--color-ink)"/><text x="326" y="182">Rangiriri</text>
+              <rect x="334" y="300" width="11" height="11" fill="var(--color-ink)"/><text x="354" y="311">Taupiri</text>
+              <rect x="316" y="350" width="11" height="11" fill="var(--color-ink)"/><text x="336" y="361">Ngāruawāhia</text>
+              <rect x="377" y="420" width="10" height="10" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="397" y="430" font-size="15" fill="var(--color-ink-2)">Hamilton, by arrangement</text>
+              <rect x="230" y="40" width="10" height="10" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="250" y="50" font-size="15" fill="var(--color-ink-2)">Pukekohe, by arrangement</text>
+            </g>
+            <g transform="translate(40 60)"><path d="M0 0v-26M-8 -16L0 -28l8 12" fill="none" stroke="var(--color-ink)" stroke-width="2.5"/><text x="12" y="-6" font-size="14">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin:.6rem .8rem">Sketch, not to scale. Acid dot: the bench in Huntly.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Huntly suburbs: Huntly East, Huntly West, Glen Afton, Rotowaro, Pukemiro, Kimihia and the town centre, with pick-up out to the villages.</p>
+        <ul class="towns">
+          <li><span>Huntly</span><span>0–5 km</span></li>
+          <li><span>Taupiri</span><span>8 km</span></li>
+          <li><span>Rangiriri</span><span>12 km</span></li>
+          <li><span>Ngāruawāhia</span><span>15 km</span></li>
+          <li><span>Hamilton</span><span>35 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Get it fixed</h2>
+      <p>Call or text Kiri. Tell us the make, what it does or doesn't do, and when it started.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd>9:00 am – 5:30 pm</dd></div>
+          <div><dt>Saturday</dt><dd>10:00 am – 1:00 pm</dd></div>
+          <div><dt>Reply</dt><dd>Same working day</dd></div>
+        </dl>
+      </div>
+      <form class="well form" id="quote" novalidate>
+        <h3>Repair request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job"><option>Laptop repair</option><option>Virus clean-up</option><option>Data rescue</option><option>Upgrade</option><option>Custom build</option><option>Wi-Fi fix</option><option>Something else</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">What is it doing?</label><textarea id="f-msg" name="message" placeholder="e.g. Lenovo laptop, black screen since Tuesday, light comes on"></textarea></div>
+        <button class="btn" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Extra Life Computer Repair, Huntly · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Extra Life Computer Repair is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../surveyor/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>17<i class="w"> of </i><i class="s">/</i>50</span><a href="../upholsterer/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

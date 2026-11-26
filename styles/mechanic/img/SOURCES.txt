@@ -1,0 +1,34 @@
+Photos for the Kerr Street Motors sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped as noted, converted to a dark black-and-white duotone (graphite to pale ink) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Project 365 #230: 180815 Under The Hood (comedy_nose)
+  Source:  https://www.flickr.com/photos/23408922@N07/20693834991
+  File:    https://live.staticflickr.com/688/20693834991_668f5c9e4e_b.jpg
+  Licence: Public Domain Mark 1.0
+
+flathead.jpg
+  Title:   1930 Ford Model A - Engine Bay (Serjio Zenkov)
+  Source:  https://www.flickr.com/photos/143014812@N05/28042668041
+  File:    https://live.staticflickr.com/7587/28042668041_0e2295b2a8_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped to leave out the photographer's mark in the bottom corner
+
+gt.jpg
+  Title:   Ford GT Engine Bay (Kodjo71)
+  Source:  https://www.flickr.com/photos/170005454@N07/46909341545
+  File:    https://live.staticflickr.com/65535/46909341545_9f70a993bc_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped to leave out a person at the top right
+
+tread.jpg
+  Title:   Car tyre
+  Source:  https://www.rawpixel.com/image/6035214/car-tyre-free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJtYXR1cmVfYmxhY2tfYXV0b19hbHRyZWlmZW4taW1hZ2Uta3liZDh0aDIuanBn.jpg
+  Licence: CC0 1.0
+
+stack.jpg
+  Title:   Car tyre
+  Source:  https://www.rawpixel.com/image/6040038/car-tyre-free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2ZyY2FyX3R5cmVzX3doZWVsX2JhbmQtaW1hZ2Uta3liZTJkd2wuanBn.jpg
+  Licence: CC0 1.0

@@ -1,0 +1,37 @@
+Photos for the Evenglow Gas sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was resized to 1200 px or less and saved as JPEG quality 80, with a small contrast and vibrance lift to suit the Dusk style.
+
+hero.jpg
+  Title:   Sunrise and fog, Willamette Valley, Oregon (Bonnie Moreland (free images))
+  Source:  https://www.flickr.com/photos/66741228@N05/26160273239
+  File:    https://live.staticflickr.com/4498/26160273239_46868644a4_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    left as shot (natural), full frame
+
+range.jpg
+  Title:   Yellow flame gas range
+  Source:  https://www.rawpixel.com/image/4051735/photo-image-candle-public-domain
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA2L2ZsMTQwODMxODc4NzEtaW1hZ2Uta3VjaDBxZDQuanBn.jpg
+  Licence: CC0 1.0
+  Note:    lightly toned (natural, contrast +4, vibrance +6)
+
+rings.jpg
+  Title:   Flame gas
+  Source:  https://www.rawpixel.com/image/4051738/original-public-domain-image-from-flickr
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvZmwxNDA5ODc4NzEzMi1pbWFnZS1rdWNoMTB4cy5qcGc.jpg
+  Licence: CC0 1.0
+  Note:    lightly toned
+
+simmer.jpg
+  Title:   Gas Stove Cooker
+  Source:  https://www.rawpixel.com/image/5970744/gas-stove-cooker
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvaXMxMDEzNy1pbWFnZS1rd3lzaG51di5qcGc.jpg
+  Licence: CC0 1.0
+  Note:    lightly toned
+
+heater.jpg
+  Title:   gas heater (Sudarshanaloka)
+  Source:  https://www.flickr.com/photos/145567060@N04/29981884466
+  File:    https://live.staticflickr.com/5256/29981884466_1434935f71_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped square to the heater; lightly toned

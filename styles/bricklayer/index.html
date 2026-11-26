@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Kilnside Brick &amp; Block | Bricklayer in Timaru (sample site)</title>
+<meta name="description" content="Sample site: a made-up Timaru bricklayer, built to show the Terrazzo style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Onest:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(96% 0.009 82); --color-paper-2: oklch(92% 0.012 82); --color-paper-3: oklch(87.5% 0.014 80);
+  --color-plate: oklch(99.5% 0.003 82);
+  --color-ink: oklch(16% 0.006 60); --color-ink-2: oklch(27% 0.006 60); --color-muted: oklch(46% 0.01 60);
+  --color-rule: oklch(81% 0.012 80);
+  --color-accent: oklch(53% 0.15 38); --color-accent-soft: oklch(91% 0.035 45); --color-accent-ink: oklch(99.5% 0.003 82); --color-focus: oklch(50% 0.16 38);
+  --font-display: "Syne", ui-sans-serif, sans-serif; --font-body: "Onest", ui-sans-serif, sans-serif;
+  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 2px;
+  --shadow-card: 14px 14px 0 var(--color-paper-3); --shadow-card-hover: 14px 14px 0 var(--color-ink);
+  --tracking-display: -0.025em; --display-weight: 700;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(1.6rem, 1.2rem + 1.8vw, 2.3rem);
+  --text-display-m: clamp(2rem, 1.3rem + 3vw, 3.4rem);
+  --text-display: clamp(2.5rem, 1.4rem + 4.6vw, 5rem);
+  --dur-micro: 120ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.5 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: color-mix(in oklab, var(--color-accent) 25%, transparent); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { text-decoration-color: var(--color-accent); color: var(--color-ink); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing: var(--tracking-display); line-height: 1; color: var(--color-ink); margin: 0; }
+h2 { font-size: var(--text-display-m); }
+h3 { font-size: 1.25rem; letter-spacing: -0.015em; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.code { font-family: var(--font-outlier); font-weight: 500; font-variant-numeric: tabular-nums; font-size: 0.9375rem; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { border-top: var(--rule-bar) solid var(--color-ink); padding-top: var(--space-md); margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 34rem; }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem;
+  background: var(--color-ink); color: var(--color-paper); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { font: 500 0.75rem/1 var(--font-outlier); color: var(--color-accent-soft); }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 3rem; padding: 0 var(--space-lg); border-radius: 0; cursor: pointer; text-decoration: none; white-space: nowrap;
+  font: 500 1.0625rem/1 var(--font-body); color: var(--color-ink); background: transparent; border: 0; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out); }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn--primary { background: var(--color-ink); color: var(--color-paper); }
+.btn--primary:hover { background: var(--color-ink-2); color: var(--color-paper); text-decoration: none; }
+.btn--secondary { box-shadow: inset 0 0 0 var(--rule-bar) var(--color-ink); }
+.btn--secondary:hover { background: var(--color-paper-2); text-decoration: none; }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+.top { border-bottom: var(--rule-bar) solid var(--color-ink); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.brand svg { width: 2.6rem; height: 2.6rem; flex: none; }
+.brand span { font: 700 1.3rem/1 var(--font-display); letter-spacing: var(--tracking-display); }
+.brand small { display: block; font: 500 0.8125rem/1.3 var(--font-body); letter-spacing: 0; color: var(--color-muted); margin-top: 0.25rem; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); }
+.nav .btn { min-height: 2.75rem; padding-inline: var(--space-md); }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1.1rem; } }
+
+.card { background: var(--color-plate); border: var(--rule-bar) solid var(--color-ink); box-shadow: var(--shadow-card); }
+
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: start; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero__media { grid-column: 8 / span 5; margin-right: 14px; margin-bottom: 14px; }
+.hero h1 { font-size: var(--text-display); margin-block: var(--space-md) var(--space-lg); }
+.hero__lede { font-size: 1.125rem; max-width: 34rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 0.9rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); max-width: 34rem; }
+.rating .big { font: 700 2.6rem/1 var(--font-display); letter-spacing: -0.04em; color: var(--color-ink); }
+.stars { display: inline-flex; gap: 2px; color: var(--color-ink); }
+.stars svg { width: 1rem; height: 1rem; }
+@media (max-width: 860px) { .hero__copy, .hero__media { grid-column: 1 / -1; } }
+
+/* photographs sit in cards, edge to edge, caption beneath */
+.sample-card { margin: 0; padding: 0; }
+.sample-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-bottom: var(--rule-bar) solid var(--color-ink); background: var(--color-paper-3); }
+.sample-card figcaption { padding: 0.8rem 1rem 0.9rem; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; font: 500 var(--text-sm)/1.35 var(--font-body); color: var(--color-ink); }
+.sample-card figcaption .code { color: var(--color-muted); white-space: nowrap; }
+a.card { display: block; text-decoration: none; transition: box-shadow var(--dur-micro) var(--ease-out); }
+
+/* services */
+.svc { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xl) var(--space-xl); padding-right: 14px; padding-bottom: 14px; }
+.svc li { list-style: none; padding: var(--space-lg); display: grid; grid-template-rows: auto auto 1fr; gap: 0.6rem; align-content: start; transition: box-shadow var(--dur-micro) var(--ease-out); }
+.svc li:hover { box-shadow: var(--shadow-card-hover); }
+.svc svg { width: 3rem; height: 3rem; color: var(--color-ink); }
+.svc .code { color: var(--color-accent); }
+.svc h3 { font-size: 1.3rem; }
+@media (max-width: 960px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .svc { grid-template-columns: 1fr; } }
+
+/* bond drawer */
+.band--paper2 { background: var(--color-paper-2); }
+.bonds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xl); padding-right: 14px; padding-bottom: 14px; }
+.bond { padding: 0; }
+.bond svg { display: block; width: 100%; height: auto; border-bottom: var(--rule-bar) solid var(--color-ink); }
+.bond div { padding: 0.8rem 1rem 1rem; display: grid; gap: 0.25rem; }
+.bond h3 { font-size: 1.15rem; }
+@media (max-width: 760px) { .bonds { grid-template-columns: 1fr; } }
+
+/* steps on rules */
+.steps { margin: var(--space-2xl) 0 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.steps li { list-style: none; display: grid; grid-template-columns: 5rem minmax(8rem, 14rem) 1fr; gap: var(--space-md); align-items: baseline; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.steps .n { font: 700 var(--text-display-s)/1 var(--font-display); letter-spacing: -0.04em; color: var(--color-ink); }
+.steps h3 { font: 500 1.125rem/1.3 var(--font-body); letter-spacing: 0; }
+@media (max-width: 640px) { .steps li { grid-template-columns: 3.5rem 1fr; } .steps li p { grid-column: 2; } }
+
+.pours { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); padding-right: 14px; padding-bottom: 14px; }
+@media (max-width: 960px) { .pours { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .pours { grid-template-columns: 1fr; } }
+
+/* ink band */
+.band--ink { background: var(--color-ink); color: var(--color-paper); }
+.band--ink .wrap { padding-block: var(--space-3xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: center; }
+.band--ink .fig { grid-column: 1 / span 6; font: 700 clamp(5rem, 3rem + 11vw, 11rem)/0.85 var(--font-display); letter-spacing: -0.04em; color: var(--color-paper); }
+.band--ink .fig small { display: block; font: 500 1.0625rem/1.4 var(--font-body); letter-spacing: 0; color: var(--color-paper-3); margin-top: var(--space-sm); }
+.band--ink ul { grid-column: 8 / span 5; margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-paper); }
+.band--ink li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-ink-2); color: var(--color-paper); }
+.band--ink li .code { color: var(--color-paper-3); }
+.band--ink .note { grid-column: 1 / -1; max-width: 44rem; color: var(--color-paper-3); }
+@media (max-width: 860px) { .band--ink .wrap { grid-template-columns: minmax(0, 1fr); } .band--ink .fig, .band--ink ul { grid-column: 1 / -1; } }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.plate { grid-column: 1 / span 4; padding: var(--space-lg); display: grid; gap: var(--space-sm); margin-right: 14px; margin-bottom: 14px; }
+.plate .big { font: 700 clamp(5rem, 3rem + 7vw, 8rem)/0.85 var(--font-display); letter-spacing: -0.04em; color: var(--color-ink); }
+.quotes { grid-column: 5 / span 8; margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.quotes li { list-style: none; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.5rem; }
+.quotes blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink-2); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.quotes .who b { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 860px) { .plate, .quotes { grid-column: 1 / -1; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-plate); border: var(--rule-bar) solid var(--color-ink); }
+.area__list { grid-column: 8 / span 5; }
+.towns { margin: var(--space-md) 0 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li:hover { background: var(--color-accent-soft); }
+.towns li:hover .code { color: var(--color-accent); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 500; }
+.towns .code { white-space: nowrap; }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: 700 var(--text-display-m)/1 var(--font-display); letter-spacing: -0.03em; text-decoration: none; }
+.hours { margin: 0; padding: 0; border-top: var(--rule-bar) solid var(--color-ink); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 500; }
+.hours dd { margin: 0; text-align: right; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg); display: grid; gap: var(--space-md); margin-right: 14px; margin-bottom: 14px; }
+.form h3 { font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: 0; border: 1px solid var(--color-ink); background: var(--color-plate); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3rem; }
+textarea { min-height: 6.5rem; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.8rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-accent); min-height: 1.4em; }
+@media (max-width: 860px) { .contact__call, .form { grid-column: 1 / -1; } }
+@media (max-width: 860px) { .hero__grid, .reviews, .area, .contact { grid-template-columns: minmax(0, 1fr); } }
+
+footer { border-top: var(--rule-bar) solid var(--color-ink); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Kilnside Brick and Block, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="2" y="2" width="44" height="44" fill="var(--color-ink)"/>
+        <g fill="var(--color-paper)"><rect x="7" y="9" width="15" height="7"/><rect x="25" y="9" width="16" height="7"/><rect x="7" y="19" width="7" height="7"/><rect x="17" y="19" width="15" height="7"/><rect x="35" y="19" width="6" height="7"/><rect x="7" y="29" width="15" height="7"/><rect x="25" y="29" width="16" height="7"/></g>
+        <rect x="25" y="29" width="16" height="7" fill="var(--color-accent)"/>
+      </svg>
+      <span>Kilnside Brick &amp; Block<small>Timaru bricklayer · Hemi &amp; one labourer</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Work</a>
+      <a href="#how">How we lay</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Bricklayer · Timaru and South Canterbury</p>
+      <h1>Brick and block, laid to the line.</h1>
+      <p class="hero__lede">Hemi lays brick veneer, block walls, fences and chimneys across Timaru and South Canterbury. He measures on site, writes down the bond, the brick and the mortar colour, and lays it that way.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Hemi</a>
+        <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="big">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from <span class="code">27</span> Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <figure class="card sample-card hero__media">
+      <img src="img/hero.jpg" width="1000" height="1000" alt="Tan clay brickwork laid in running bond, close up, with mortar joints" fetchpriority="high">
+      <figcaption><span>Clay brick, running bond, raked joint</span><span class="code">BR-01</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we lay</h2>
+      <p>Residential brick and block, from a letterbox pillar to a double-storey veneer. Hemi measures, prices in writing and lays it himself.</p>
+    </div>
+    <ul class="svc">
+      <li class="card">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M5 8h42v36H5z"/><path d="M5 20h42M5 32h42M19 8v12M33 20v12M19 32v12"/></svg>
+        <span class="code">SV-01</span>
+        <h3>Brick veneer</h3>
+        <p>New builds and extensions, tied back to the frame and laid to the plans.</p>
+      </li>
+      <li class="card">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M4 14h44v12H4zM4 26h44v12H4z"/><path d="M26 14v12M15 26v12M37 26v12"/><path d="M4 44h44"/></svg>
+        <span class="code">SV-02</span>
+        <h3>Concrete block walls</h3>
+        <p>Core-filled block for garages, sheds and walls that carry a load.</p>
+      </li>
+      <li class="card">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M8 44V22h14V10h22v34"/><path d="M8 33h36M22 22h22M30 10v12M36 22v11M18 33v11"/></svg>
+        <span class="code">SV-03</span>
+        <h3>Retaining walls</h3>
+        <p>Block walls with drainage behind, for banks and level lawns.</p>
+      </li>
+      <li class="card">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M14 46V16h24v30"/><path d="M10 16h32M12 12h28v4H12z"/><path d="M14 26h24M14 36h24M26 16v10M20 26v10M32 26v10"/></svg>
+        <span class="code">SV-04</span>
+        <h3>Fences and pillars</h3>
+        <p>Brick letterbox pillars, gate posts and low front fences.</p>
+      </li>
+      <li class="card">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M16 46V14h20v32"/><path d="M13 14h26M16 22h20M16 30h20M16 38h20M26 14v8M21 22v8M31 22v8M26 30v8"/><path d="M20 8c0-3 6-3 6-6M28 8c0-3 6-3 6-6" stroke-width="2"/></svg>
+        <span class="code">SV-05</span>
+        <h3>Chimneys and fireplaces</h3>
+        <p>New brick chimneys, hearths and fireplace surrounds.</p>
+      </li>
+      <li class="card">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" aria-hidden="true"><path d="M5 10h42v30H5z"/><path d="M5 20h42M5 30h42M16 10v10M32 10v10M24 20v10M40 20v10M16 30v10"/><path d="M30 46l14-14" stroke-width="3"/><path d="M42 30l6 6" stroke-width="3"/></svg>
+        <span class="code">SV-06</span>
+        <h3>Repointing and repairs</h3>
+        <p>Raking out failed mortar and replacing cracked or spalled bricks.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band--paper2 section" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>The bond drawer</h2>
+      <p>The bond is the pattern the bricks lock in. It changes how a wall looks and how it carries load. Hemi lays all three.</p>
+    </div>
+    <div class="bonds">
+      <figure class="card bond" style="margin:0">
+        <svg viewBox="0 0 240 150" role="img" aria-label="Running bond: each course offset by half a brick" style="background:var(--color-plate)">
+          <g fill="oklch(56% 0.13 40)" stroke="var(--color-plate)" stroke-width="3">
+            <rect x="0" y="0" width="58" height="22"/><rect x="60" y="0" width="58" height="22"/><rect x="120" y="0" width="58" height="22"/><rect x="180" y="0" width="60" height="22"/>
+            <rect x="-30" y="25" width="58" height="22"/><rect x="30" y="25" width="58" height="22"/><rect x="90" y="25" width="58" height="22"/><rect x="150" y="25" width="58" height="22"/><rect x="210" y="25" width="58" height="22"/>
+            <rect x="0" y="50" width="58" height="22"/><rect x="60" y="50" width="58" height="22"/><rect x="120" y="50" width="58" height="22"/><rect x="180" y="50" width="60" height="22"/>
+            <rect x="-30" y="75" width="58" height="22"/><rect x="30" y="75" width="58" height="22"/><rect x="90" y="75" width="58" height="22"/><rect x="150" y="75" width="58" height="22"/><rect x="210" y="75" width="58" height="22"/>
+            <rect x="0" y="100" width="58" height="22"/><rect x="60" y="100" width="58" height="22"/><rect x="120" y="100" width="58" height="22"/><rect x="180" y="100" width="60" height="22"/>
+            <rect x="-30" y="125" width="58" height="22"/><rect x="30" y="125" width="58" height="22"/><rect x="90" y="125" width="58" height="22"/><rect x="150" y="125" width="58" height="22"/><rect x="210" y="125" width="58" height="22"/>
+          </g>
+        </svg>
+        <div><span class="code">BD-01</span><h3>Running bond</h3><p class="label">Half-brick offset. The everyday bond for veneer and fences.</p></div>
+      </figure>
+      <figure class="card bond" style="margin:0">
+        <svg viewBox="0 0 240 150" role="img" aria-label="Stack bond: bricks directly above each other" style="background:var(--color-plate)">
+          <g fill="oklch(56% 0.13 40)" stroke="var(--color-plate)" stroke-width="3">
+            <rect x="0" y="0" width="58" height="22"/><rect x="60" y="0" width="58" height="22"/><rect x="120" y="0" width="58" height="22"/><rect x="180" y="0" width="60" height="22"/>
+            <rect x="0" y="25" width="58" height="22"/><rect x="60" y="25" width="58" height="22"/><rect x="120" y="25" width="58" height="22"/><rect x="180" y="25" width="60" height="22"/>
+            <rect x="0" y="50" width="58" height="22"/><rect x="60" y="50" width="58" height="22"/><rect x="120" y="50" width="58" height="22"/><rect x="180" y="50" width="60" height="22"/>
+            <rect x="0" y="75" width="58" height="22"/><rect x="60" y="75" width="58" height="22"/><rect x="120" y="75" width="58" height="22"/><rect x="180" y="75" width="60" height="22"/>
+            <rect x="0" y="100" width="58" height="22"/><rect x="60" y="100" width="58" height="22"/><rect x="120" y="100" width="58" height="22"/><rect x="180" y="100" width="60" height="22"/>
+            <rect x="0" y="125" width="58" height="22"/><rect x="60" y="125" width="58" height="22"/><rect x="120" y="125" width="58" height="22"/><rect x="180" y="125" width="60" height="22"/>
+          </g>
+        </svg>
+        <div><span class="code">BD-02</span><h3>Stack bond</h3><p class="label">Joints line up. A clean, modern look, laid with joint reinforcement.</p></div>
+      </figure>
+      <figure class="card bond" style="margin:0">
+        <svg viewBox="0 0 240 150" role="img" aria-label="Flemish bond: stretchers and headers alternate in every course" style="background:var(--color-plate)">
+          <g fill="oklch(56% 0.13 40)" stroke="var(--color-plate)" stroke-width="3">
+            <rect x="0" y="0" width="58" height="22"/><rect x="60" y="0" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="90" y="0" width="58" height="22"/><rect x="150" y="0" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="180" y="0" width="58" height="22"/>
+            <rect x="0" y="25" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="30" y="25" width="58" height="22"/><rect x="90" y="25" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="120" y="25" width="58" height="22"/><rect x="180" y="25" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="210" y="25" width="30" height="22"/>
+            <rect x="0" y="50" width="58" height="22"/><rect x="60" y="50" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="90" y="50" width="58" height="22"/><rect x="150" y="50" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="180" y="50" width="58" height="22"/>
+            <rect x="0" y="75" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="30" y="75" width="58" height="22"/><rect x="90" y="75" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="120" y="75" width="58" height="22"/><rect x="180" y="75" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="210" y="75" width="30" height="22"/>
+            <rect x="0" y="100" width="58" height="22"/><rect x="60" y="100" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="90" y="100" width="58" height="22"/><rect x="150" y="100" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="180" y="100" width="58" height="22"/>
+            <rect x="0" y="125" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="30" y="125" width="58" height="22"/><rect x="90" y="125" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="120" y="125" width="58" height="22"/><rect x="180" y="125" width="28" height="22" fill="oklch(36% 0.07 30)"/><rect x="210" y="125" width="30" height="22"/>
+          </g>
+        </svg>
+        <div><span class="code">BD-03</span><h3>Flemish bond</h3><p class="label">Long and short faces alternate. For heritage repairs and feature walls.</p></div>
+      </figure>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><h3>Measure</h3><p>Hemi walks the site, checks the plans and levels, and writes down the bond, brick and mortar.</p></li>
+      <li><span class="n">02</span><h3>Set out</h3><p>Corners built first, a line strung between them, every course checked against it.</p></li>
+      <li><span class="n">03</span><h3>Lay</h3><p>Brick and block laid in the agreed bond, ties and flashings fitted as the wall goes up.</p></li>
+      <li><span class="n">04</span><h3>Point and clean</h3><p>Joints struck to match the sample, then the wall washed down and the site swept.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent work</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="pours">
+      <figure class="card sample-card" style="margin:0">
+        <img src="img/work1.jpg" width="1000" height="1000" alt="Close view of tan clay brickwork in running bond with pale joints">
+        <figcaption><span>Tan clay, struck joint</span><span class="code">BR-02</span></figcaption>
+      </figure>
+      <figure class="card sample-card" style="margin:0">
+        <img src="img/work2.jpg" width="1000" height="1000" alt="Dark brick infill set into a granite wall">
+        <figcaption><span>Dark brick infill, cut edge</span><span class="code">BR-03</span></figcaption>
+      </figure>
+      <figure class="card sample-card" style="margin:0">
+        <img src="img/work3.jpg" width="1000" height="1000" alt="Thin orange-tan bricks laid in long horizontal courses">
+        <figcaption><span>Long-format brick, fine joint</span><span class="code">BR-04</span></figcaption>
+      </figure>
+      <figure class="card sample-card" style="margin:0">
+        <img src="img/work4.jpg" width="1000" height="1000" alt="A tall brick chimney stack against a blue sky">
+        <figcaption><span>Brick chimney stack</span><span class="code">BR-05</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band--ink">
+  <div class="wrap">
+    <p class="fig">1:1<small>Every wall is laid to the sample you approved</small></p>
+    <ul>
+      <li><span>Bond</span><span class="code">chosen on site</span></li>
+      <li><span>Brick</span><span class="code">from your sample</span></li>
+      <li><span>Mortar</span><span class="code">matched to a test patch</span></li>
+      <li><span>Joint</span><span class="code">struck, raked or flush</span></li>
+    </ul>
+    <p class="note">Before the first course goes down, Hemi lays a small test patch with your brick, your mortar and your joint. If it isn't right, it comes down and goes up again. Then the wall is laid to match it.</p>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="card plate">
+        <span class="big">4.9</span>
+        <p>out of 5, from <b>27</b> Google reviews</p>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“Hemi laid a test patch first so we could pick the mortar colour in daylight. The finished veneer matches it exactly, and the lines are dead straight.”</blockquote>
+          <p class="who"><b>Rachel</b><span>Highfield</span><span>· Brick veneer</span></p>
+        </li>
+        <li>
+          <blockquote>“Built two letterbox pillars and a low front fence. Turned up when he said, cleaned up after every day, and the price he wrote down was the price on the invoice.”</blockquote>
+          <p class="who"><b>Callum</b><span>Gleniti</span><span>· Fence and pillars</span></p>
+        </li>
+        <li>
+          <blockquote>“Our old chimney was leaking at the base. He rebuilt the stack in matching brick and you can't tell where the old work stops.”</blockquote>
+          <p class="who"><b>Tessa</b><span>Pleasant Point</span><span>· Chimney</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we lay</h2>
+      <p>Based in Washdyke. All of Timaru plus South Canterbury towns within about 50 km. Further out for bigger jobs, by arrangement.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 440" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Timaru on the coast with a 50 km ring taking in Temuka, Geraldine, Pleasant Point and Waimate.</title>
+          <g font-family="Onest, sans-serif" font-weight="500" fill="var(--color-ink)">
+            <g stroke="var(--color-paper-3)" stroke-width="1"><path d="M0 110h600M0 220h600M0 330h600M150 0v440M300 0v440M450 0v440"/></g>
+            <!-- coast -->
+            <path d="M120 440 C 160 380, 150 330, 170 290 S 210 220, 220 180 S 250 80, 230 0" fill="none" stroke="var(--color-ink)" stroke-width="3" stroke-dasharray="2 0"/>
+            <text x="64" y="330" font-size="14" fill="var(--color-muted)" transform="rotate(-70 64 330)">Pacific coast</text>
+            <circle cx="215" cy="215" r="180" fill="none" stroke="var(--color-ink)" stroke-width="1.5" stroke-dasharray="7 6"/>
+            <text x="352" y="96" font-size="14" fill="var(--color-muted)">50 km</text>
+            <rect x="196" y="196" width="40" height="40" fill="var(--color-ink)"/>
+            <text x="248" y="226" font-size="20">Timaru</text>
+            <circle cx="205" cy="180" r="7" fill="var(--color-accent)" stroke="var(--color-plate)" stroke-width="2"/>
+            <g>
+              <rect x="190" y="116" width="10" height="10"/><text x="208" y="125" font-size="17">Temuka</text>
+              <rect x="150" y="58" width="10" height="10"/><text x="168" y="67" font-size="17">Geraldine</text>
+              <rect x="300" y="152" width="10" height="10"/><text x="318" y="161" font-size="17">Pleasant Point</text>
+              <rect x="265" y="372" width="10" height="10"/><text x="283" y="381" font-size="17">Waimate</text>
+              <rect x="378" y="22" width="10" height="10" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="396" y="31" font-size="15" fill="var(--color-muted)">Fairlie, by arrangement</text>
+            </g>
+            <g transform="translate(556 60)"><path d="M0 -22 L9 8 L0 2 L-9 8 Z" fill="var(--color-ink)"/><text x="0" y="28" font-size="15" text-anchor="middle">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Sketch, not to scale. Orange dot: the yard in Washdyke.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Timaru suburbs: Highfield, Gleniti, Marchwiel, Redruth, Parkside, Washdyke, Seaview, Watlington, Maori Hill, Glenwood and more.</p>
+        <ul class="towns">
+          <li><span>Timaru</span><span class="code">0–10 km</span></li>
+          <li><span>Temuka</span><span class="code">17 km</span></li>
+          <li><span>Pleasant Point</span><span class="code">23 km</span></li>
+          <li><span>Geraldine</span><span class="code">36 km</span></li>
+          <li><span>Waimate</span><span class="code">45 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Get a price</h2>
+      <p>Call or text Hemi. Send a photo of the wall or the plans and a rough size and he'll come and measure.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd class="code">7:00 am – 5:00 pm</dd></div>
+          <div><dt>Saturday</dt><dd class="code">Quotes only, 8:00 am – 12:00 pm</dd></div>
+          <div><dt>Quote back</dt><dd class="code">Within 3 working days</dd></div>
+        </dl>
+      </div>
+      <form class="card form" id="quote" novalidate>
+        <h3>Quote request</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job">
+              <option>Brick veneer</option><option>Block walls</option><option>Retaining wall</option><option>Fence or pillars</option><option>Chimney or fireplace</option><option>Repointing or repairs</option><option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Rough size and anything we should know</label><textarea id="f-msg" name="message" placeholder="e.g. about 8 m of front fence, brick to match the house"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Kilnside Brick &amp; Block, Timaru · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Kilnside Brick &amp; Block is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../data-cabler/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>47<i class="w"> of </i><i class="s">/</i>50</span><a href="../garage-doors/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

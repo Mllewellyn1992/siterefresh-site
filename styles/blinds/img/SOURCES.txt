@@ -1,0 +1,32 @@
+Photos for the Softlight Blinds sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was colour muted and given a faint sepia wash, saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Window shutter (rawpixel)
+  Source:  https://www.rawpixel.com/image/6030008/window-shutter-free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJ3aW5kb3dfYmxpbmRzX3JvbGxlcl9zaHV0dGVyLWltYWdlLWt5YmNkaGFoLmpwZw.jpg
+  Licence: CC0 1.0
+
+night.jpg
+  Title:   ROLLER BLINDS (khanaftabdm07)
+  Source:  https://www.flickr.com/photos/197047148@N08/52514220738
+  File:    https://live.staticflickr.com/65535/52514220738_d1413ac6c0_b.jpg
+  Licence: Public Domain Mark 1.0
+
+shadow.jpg
+  Title:   Jeans (Photo Cindy)
+  Source:  https://www.flickr.com/photos/13631562@N00/4879840037
+  File:    https://live.staticflickr.com/4101/4879840037_5a2fbaf0b7_b.jpg
+  Licence: Public Domain Mark 1.0
+
+sheer.jpg
+  Title:   Curtains Window (Catt Liu)
+  Source:  https://stocksnap.io/photo/curtains-window-B904140969
+  File:    https://cdn.stocksnap.io/img-thumbs/960w/B904140969.jpg
+  Licence: CC0 1.0
+
+garden.jpg
+  Title:   Inside the little 1 room loft / duplex, window, new deck, patio table and chairs (Wonderlane)
+  Source:  https://www.flickr.com/photos/71401718@N00/11148238105
+  File:    https://live.staticflickr.com/5534/11148238105_972a6de478_b.jpg
+  Licence: CC0 1.0

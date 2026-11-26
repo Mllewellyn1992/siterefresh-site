@@ -1,0 +1,32 @@
+Photos for the Whitestone Framing sample (made-up business). All found on Wikimedia Commons (the source Openverse indexes; Openverse's own API was blocked by a bot check at build time), licence CC0 1.0: no credit required.
+Each was cropped square, warmed slightly (contrast +6%) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Astragal frame MET 86K 122r2
+  Source:  https://commons.wikimedia.org/wiki/File:Astragal_frame_MET_86K_122r2.jpg
+  Licence: CC0 1.0
+  Note:    Metropolitan Museum of Art open-access image; cropped square
+
+silver.jpg
+  Title:   Picture Frame MET 86W 214R2M
+  Source:  https://commons.wikimedia.org/wiki/File:Picture_Frame_MET_86W_214R2M.jpg
+  Licence: CC0 1.0
+  Note:    Metropolitan Museum of Art open-access image; cropped square
+
+timber.jpg
+  Title:   Picture frame favored by Eduardo Orlando Ortega (Wmpearl)
+  Source:  https://commons.wikimedia.org/wiki/File:Picture_frame_favored_by_Eduardo_Orlando_Ortega.JPG
+  Licence: CC0 1.0
+  Note:    cropped square
+
+textile.jpg
+  Title:   Omega Workshops fabric with Maud design (14GTR)
+  Source:  https://commons.wikimedia.org/wiki/File:Omega_Workshops_fabric_with_Maud_design.jpg
+  Licence: CC0 1.0
+  Note:    cropped square
+
+corner.jpg
+  Title:   Detail of a picture frame in monochrome (Robert-brook)
+  Source:  https://commons.wikimedia.org/wiki/File:Detail_of_a_picture_frame_in_monochrome.jpg
+  Licence: CC0 1.0
+  Note:    cropped square

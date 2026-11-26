@@ -1,0 +1,31 @@
+Photos for the Upswing Garage Doors sample (made-up business). All found on Wikimedia Commons (the source Openverse indexes; Openverse's own API was blocked by a bot check at build time), licence CC0 1.0: no credit required.
+Each was converted to a violet tint (Ultraviolet dark violet to pale lavender, contrast +10) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Garage Door.png (Pikoshak)
+  Source:  https://commons.wikimedia.org/wiki/File:Garage_Door.png
+  Licence: CC0 1.0
+  Note:    left edge cropped off to remove a border artefact
+
+mesh.jpg
+  Title:   Fancy Garage Door Roller Grates Near K Road II (Ingolfson)
+  Source:  https://commons.wikimedia.org/wiki/File:Fancy_Garage_Door_Roller_Grates_Near_K_Road_II.jpg
+  Licence: CC0 1.0
+  Note:    cropped square from the left to leave out a shop sign on the right
+
+roller.jpg
+  Title:   Fancy Garage Door Roller Grates Near K Road I (Ingolfson)
+  Source:  https://commons.wikimedia.org/wiki/File:Fancy_Garage_Door_Roller_Grates_Near_K_Road_I.jpg
+  Licence: CC0 1.0
+  Note:    cropped square
+
+timber.jpg
+  Title:   Garage with red door, Gas Street, Camborne, Cornwall, August 2024 (Mutney)
+  Source:  https://commons.wikimedia.org/wiki/File:Garage_with_red_door,_Gas_Street,_Camborne,_Cornwall_-_August_2024.jpg
+  Licence: CC0 1.0
+  Note:    cropped square
+
+drum.jpg
+  Title:   Trinity Church Golders Green, Hodford Road (June 2024) Interior Roller Shutter (Hassocks5489)
+  Source:  https://commons.wikimedia.org/wiki/File:Trinity_Church_Golders_Green,_Hodford_Road,_Golders_Green_(June_2024)_(Interior_Roller_Shutter).jpg
+  Licence: CC0 1.0

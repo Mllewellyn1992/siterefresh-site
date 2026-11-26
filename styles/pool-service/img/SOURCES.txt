@@ -1,0 +1,32 @@
+Photos for the Bluebottle Pool and Spa sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was left uncropped, colour muted slightly with a faint sepia tint and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Even With Glasses the Water is Murky (cogdogblog)
+  Source:  https://www.flickr.com/photos/37996646802@N01/791328451
+  File:    https://live.staticflickr.com/1182/791328451_0c0141d3b3_b.jpg
+  Licence: CC0 1.0
+
+indoor.jpg
+  Title:   2014_02_07 (Dennis S. Hurd)
+  Source:  https://www.flickr.com/photos/43296902@N00/12373327174
+  File:    https://live.staticflickr.com/7425/12373327174_3f028a9b87_b.jpg
+  Licence: CC0 1.0
+
+spa.jpg
+  Title:   2011_01_02 (Dennis S. Hurd)
+  Source:  https://www.flickr.com/photos/43296902@N00/5317490569
+  File:    https://live.staticflickr.com/5286/5317490569_476a7af93f_b.jpg
+  Licence: CC0 1.0
+
+jets.jpg
+  Title:   Spa-flection (cogdogblog)
+  Source:  https://www.flickr.com/photos/37996646802@N01/4249541537
+  File:    https://live.staticflickr.com/4013/4249541537_24c1f967a3_b.jpg
+  Licence: CC0 1.0
+
+tub.jpg
+  Title:   2007_10_29 (Dennis S. Hurd)
+  Source:  https://www.flickr.com/photos/43296902@N00/1800001330
+  File:    https://live.staticflickr.com/2330/1800001330_39bccc0068_b.jpg
+  Licence: CC0 1.0

@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Kōwhai Street Framing | Picture framer in Motueka (sample site)</title>
+<meta name="description" content="Sample site: a made-up Motueka picture framer, built to show the Vellum style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@600&family=Grenze:wght@400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(94% 0.024 82); --color-paper-2: oklch(90% 0.032 80); --color-paper-3: oklch(86% 0.036 78);
+  --color-ink: oklch(23% 0.025 55); --color-ink-2: oklch(31% 0.024 58); --color-muted: oklch(46% 0.024 64);
+  --color-rule: oklch(75% 0.035 72);
+  --color-accent: oklch(43% 0.17 268); --color-accent-deep: oklch(35% 0.15 268); --color-accent-soft: oklch(89% 0.035 268); --color-accent-ink: oklch(95% 0.02 82);
+  --color-focus: oklch(50% 0.18 268); --color-field: var(--color-accent);
+  --font-display: "Grenze Gotisch", ui-serif, Georgia, serif; --font-body: "Hanken Grotesk", ui-sans-serif, sans-serif;
+  --font-outlier: "Grenze", ui-serif, Georgia, serif;
+  --radius-card: 2px; --radius-pill: 2px; --rule-hair: 1px; --rule-double: 4px; --shadow-card: none;
+  --tracking-display: -0.01em; --display-weight: 600; --fibre: 0.5;
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(1.9rem, 1.4rem + 1.6vw, 2.5rem);
+  --text-display-m: clamp(2.4rem, 1.6rem + 3vw, 3.8rem);
+  --text-display: clamp(3.4rem, 1.8rem + 6vw, 6.6rem);
+  --dur-micro: 120ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.55 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+::selection { background: var(--color-accent-soft); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { text-decoration-color: var(--color-accent); color: var(--color-ink); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+h1, h2 { font-family: var(--font-display); font-weight: 600; letter-spacing: var(--tracking-display); line-height: 0.92; color: var(--color-ink); margin: 0; }
+h3 { font-family: var(--font-body); font-weight: 600; font-size: 1.2rem; line-height: 1.2; color: var(--color-ink); margin: 0; }
+h2 { font-size: var(--text-display-m); }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.fig { font-family: var(--font-body); font-variant-numeric: tabular-nums; font-weight: 500; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { border-top: var(--rule-hair) solid var(--color-ink); padding-top: var(--space-md); margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 34rem; }
+.rule-double { border-top: var(--rule-double) double var(--color-ink); }
+.fibre { position: relative; isolation: isolate; }
+.fibre::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: var(--fibre); mix-blend-mode: multiply; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='p' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.02' numOctaves='4' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.62 0 0 0 0 0.52 0 0 0 0 0.36 0 0 0 0.3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"); }
+
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem;
+  background: var(--color-ink); color: var(--color-paper); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { font-weight: 600; color: var(--color-accent-soft); }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 3rem; padding: 0 var(--space-lg); border: var(--rule-hair) solid currentColor; border-radius: var(--radius-card); cursor: pointer; text-decoration: none; white-space: nowrap;
+  font: 500 1.0625rem/1 var(--font-body); color: var(--color-ink); background: transparent; transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out); }
+.btn svg { width: 1.15em; height: 1.15em; flex: none; }
+.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
+.btn--primary:hover { background: var(--color-accent-deep); border-color: var(--color-accent-deep); color: var(--color-accent-ink); }
+.btn--secondary:hover { background: var(--color-paper-2); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+/* masthead */
+.top { border-bottom: var(--rule-double) double var(--color-ink); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+.brand svg { width: 2.8rem; height: 2.8rem; flex: none; }
+.brand span { font: 600 1.9rem/0.95 var(--font-display); letter-spacing: var(--tracking-display); }
+.brand small { display: block; font: 500 0.8125rem/1.3 var(--font-body); letter-spacing: 0; color: var(--color-muted); margin-top: 0.3rem; }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 600 var(--text-sm)/1 var(--font-body); text-decoration: none; }
+.nav a:not(.btn):hover { text-decoration: underline; text-decoration-color: var(--color-accent); }
+.nav .btn { min-height: 2.75rem; padding-inline: var(--space-md); }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn .long { display: none; } .brand span { font-size: 1.6rem; } }
+
+.hero { padding-block: var(--space-2xl) var(--space-3xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: center; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero__media { grid-column: 8 / span 5; }
+.hero h1 { font-size: var(--text-display); margin-block: var(--space-md) var(--space-lg); }
+.hero__lede { font-size: 1.125rem; max-width: 34rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 0.9rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); max-width: 34rem; }
+.rating .big { font: 400 2.6rem/1 var(--font-outlier); color: var(--color-ink); }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent); }
+.stars svg { width: 1rem; height: 1rem; }
+@media (max-width: 860px) { .hero__copy, .hero__media { grid-column: 1 / -1; } }
+
+.photo { margin: 0; }
+.photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius-card); border: var(--rule-hair) solid var(--color-rule); background: var(--color-paper-3); }
+.photo figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); margin-top: 0.6rem; display: flex; justify-content: space-between; gap: 1rem; }
+.photo figcaption .fig { white-space: nowrap; color: var(--color-ink-2); }
+
+/* services */
+.svc { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--rule-hair) solid var(--color-rule); }
+.svc li { list-style: none; padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; grid-template-rows: auto auto 1fr; gap: 0.6rem; align-content: start; }
+.svc li:not(:nth-child(3n+1)) { padding-left: var(--space-lg); }
+.svc li:not(:nth-child(3n)) { border-right: var(--rule-hair) solid var(--color-rule); }
+.svc li:hover { background: var(--color-accent-soft); }
+.svc svg { width: 3rem; height: 3rem; color: var(--color-accent); }
+@media (max-width: 860px) {
+  .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svc li, .svc li:not(:nth-child(3n+1)) { padding: var(--space-lg) var(--space-md) var(--space-lg) 0; border-right: 0 !important; }
+  .svc li:nth-child(even) { padding-left: var(--space-md); border-left: var(--rule-hair) solid var(--color-rule); }
+}
+@media (max-width: 560px) { .svc { grid-template-columns: 1fr; } .svc li, .svc li:nth-child(even), .svc li:not(:nth-child(3n+1)) { padding: var(--space-lg) 0; border-left: 0; } }
+
+/* mouldings in section */
+.profiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-2xl); }
+.profile svg { width: 100%; height: auto; display: block; background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); }
+.profile h3 { margin-top: 0.7rem; }
+.profile p { margin-top: 0.2rem; }
+@media (max-width: 760px) { .profiles { grid-template-columns: 1fr; } }
+
+/* day book table */
+.book { width: 100%; border-collapse: collapse; border-top: var(--rule-double) double var(--color-ink); font-variant-numeric: tabular-nums; }
+.book th { text-align: left; font-weight: 500; font-size: var(--text-sm); color: var(--color-muted); padding: 0.7rem 0.8rem; border-bottom: var(--rule-hair) solid var(--color-ink); }
+.book td { padding: 0.8rem 0.8rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.book td:first-child { font: 400 1.5rem/1 var(--font-outlier); color: var(--color-accent); width: 3.5rem; }
+.book td:nth-child(2) { font-weight: 600; font-size: 1.125rem; color: var(--color-ink); }
+.book .r, .book th.r { text-align: right; white-space: nowrap; }
+.book tr:hover td { background: var(--color-accent-soft); }
+.tablewrap { overflow-x: auto; }
+
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: var(--rule-hair) solid var(--color-ink); margin: var(--space-2xl) 0 0; padding: 0; }
+.steps li { list-style: none; padding: var(--space-md) var(--space-md) 0; display: grid; gap: 0.4rem; align-content: start; }
+.steps li:first-child { padding-left: 0; }
+.steps li + li { border-left: var(--rule-hair) solid var(--color-rule); }
+.steps .n { font: 400 var(--text-display-s)/1 var(--font-outlier); color: var(--color-accent); }
+@media (max-width: 760px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-lg); } .steps li:nth-child(3) { padding-left: 0; border-left: 0; } }
+
+.pours { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); }
+.pours .photo:nth-child(1) { grid-column: 1 / span 6; grid-row: 1 / span 2; }
+.pours .photo:nth-child(2) { grid-column: 7 / span 3; }
+.pours .photo:nth-child(3) { grid-column: 10 / span 3; }
+.pours .photo:nth-child(4) { grid-column: 7 / span 6; }
+.pours .photo:nth-child(4) img { aspect-ratio: 2 / 1; }
+@media (max-width: 760px) { .pours { grid-template-columns: 1fr; } .pours .photo, .pours .photo:nth-child(n) { grid-column: auto; grid-row: auto; } .pours .photo:nth-child(4) img { aspect-ratio: 1 / 1; } }
+
+/* statement band on the fibre wash */
+.band--fibre { background: var(--color-paper-2); }
+.band--fibre .wrap { padding-block: var(--space-3xl); }
+.statement { font: 400 var(--text-display-s)/1.02 var(--font-outlier); color: var(--color-ink); max-width: 56rem; margin: 0 0 var(--space-xl); }
+.nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--rule-hair) solid var(--color-ink); }
+.nums div { padding: var(--space-md) var(--space-md) 0 0; display: grid; gap: 0.3rem; }
+.nums div + div { padding-left: var(--space-md); border-left: var(--rule-hair) solid var(--color-rule); }
+.nums .fig2 { font: 600 clamp(3.4rem, 2rem + 5vw, 6rem)/0.9 var(--font-display); color: var(--color-accent); }
+@media (max-width: 640px) { .nums { grid-template-columns: 1fr; } .nums div, .nums div + div { padding: var(--space-md) 0; border-left: 0; border-bottom: var(--rule-hair) solid var(--color-rule); } }
+
+/* reviews */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.plate { grid-column: 1 / span 4; padding: var(--space-lg); display: grid; gap: var(--space-sm); border: var(--rule-hair) solid var(--color-ink); border-top: var(--rule-double) double var(--color-ink); }
+.plate .big { font: 600 clamp(5.5rem, 3rem + 7vw, 9rem)/0.85 var(--font-display); color: var(--color-accent); }
+.quotes { grid-column: 5 / span 8; margin: 0; padding: 0; border-top: var(--rule-double) double var(--color-ink); }
+.quotes li { list-style: none; padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); display: grid; gap: 0.5rem; }
+.quotes blockquote { margin: 0; font-size: 1.125rem; color: var(--color-ink-2); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.quotes .who b { color: var(--color-ink); font-weight: 600; }
+@media (max-width: 860px) { .plate, .quotes { grid-column: 1 / -1; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-ink); border-radius: var(--radius-card); }
+.area__list { grid-column: 8 / span 5; }
+.towns { margin: var(--space-md) 0 0; padding: 0; border-top: var(--rule-double) double var(--color-ink); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: var(--rule-hair) solid var(--color-rule); }
+.towns li:hover { background: var(--color-accent-soft); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 600; }
+.towns .fig { white-space: nowrap; color: var(--color-ink-2); }
+@media (max-width: 860px) { .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact: form on the field */
+.band--field { background: var(--color-field); color: var(--color-accent-ink); }
+.band--field h2, .band--field h3 { color: var(--color-accent-ink); }
+.band--field .section__head { border-top-color: var(--color-accent-ink); }
+.band--field a { color: var(--color-accent-ink); }
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: 600 var(--text-display-m)/0.95 var(--font-display); text-decoration: none; color: var(--color-accent-ink); }
+.band--field .btn--primary { background: var(--color-paper); border-color: var(--color-paper); color: var(--color-accent); }
+.band--field .btn--primary:hover { background: var(--color-accent-soft); border-color: var(--color-accent-soft); color: var(--color-accent-deep); }
+.band--field .btn--secondary { color: var(--color-accent-ink); }
+.band--field .btn--secondary:hover { background: var(--color-accent-deep); }
+.hours { margin: 0; padding: 0; border-top: var(--rule-double) double var(--color-accent-ink); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.6rem; border-bottom: var(--rule-hair) solid color-mix(in oklab, var(--color-accent-ink) 40%, transparent); }
+.hours dt { font-weight: 600; }
+.hours dd { margin: 0; text-align: right; }
+.form { grid-column: 7 / span 6; display: grid; gap: var(--space-md); }
+.form h3 { font: 600 var(--text-display-s)/1 var(--font-display); }
+.answer { font: 600 var(--text-display-s)/1 var(--font-display); color: var(--color-accent-ink); min-height: 1.1em; }
+.cells { display: flex; flex-wrap: wrap; margin: 0; padding: 0; border: 0; }
+.cells legend { padding: 0; margin-bottom: 0.4rem; font: 500 var(--text-sm)/1.3 var(--font-body); }
+.cell { position: relative; }
+.cell input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; min-height: 0; }
+.cell span { display: block; padding: 0.7rem 1rem; border: var(--rule-hair) solid var(--color-accent-ink); margin: 0 -1px -1px 0; font: 500 var(--text-sm)/1.2 var(--font-body); }
+.cell input:checked + span { background: var(--color-paper); color: var(--color-accent); }
+.cell input:focus-visible + span { outline: 3px solid var(--color-paper); outline-offset: 2px; }
+.cells__row { display: flex; flex-wrap: wrap; }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+.field input, textarea { width: 100%; border-radius: var(--radius-card); border: var(--rule-hair) solid var(--color-ink); background: var(--color-paper); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 0.8rem; min-height: 3rem; }
+textarea { min-height: 6.5rem; resize: vertical; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); min-height: 1.4em; }
+@media (max-width: 860px) { .contact__call, .form { grid-column: 1 / -1; } }
+@media (max-width: 860px) { .hero__grid, .reviews, .area, .contact { grid-template-columns: minmax(0, 1fr); } }
+
+footer { border-top: var(--rule-double) double var(--color-ink); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="miter"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Kōwhai Street Framing, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="var(--color-ink)" stroke-width="2">
+        <rect x="5" y="5" width="38" height="38"/><rect x="11" y="11" width="26" height="26" stroke-width="1"/><rect x="16" y="16" width="16" height="16" fill="var(--color-accent)" stroke="none"/>
+        <path d="M5 5l6 6M43 5l-6 6M5 43l6-6M43 43l-6-6" stroke-width="1.2"/>
+      </svg>
+      <span>Kōwhai Street Framing<small>Motueka picture framer · Fiona</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Framing</a>
+      <a href="#how">How we frame</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="long">021 000 0000</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Picture framer · Motueka and Tasman</p>
+      <h1>Framed by hand, made to last.</h1>
+      <p class="hero__lede">Fiona cuts, joins and fits every frame herself, from a family photo to a signed jersey. Bring it in, choose a moulding and a mount, and collect it ready to hang.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Fiona</a>
+        <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="big">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from <span class="fig">33</span> Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <figure class="photo hero__media">
+      <img src="img/hero.jpg" width="960" height="960" alt="An empty gilt picture frame with carved leaf scrolls, photographed on black" fetchpriority="high">
+      <figcaption><span>Gilt leaf frame, water gilded</span><span class="fig">No. 01</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we frame</h2>
+      <p>Pictures, prints, objects and mirrors. Fiona measures, quotes in writing and does the framing herself.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter" aria-hidden="true"><rect x="6" y="6" width="40" height="40"/><rect x="12" y="12" width="28" height="28"/><path d="M16 36l8-10 6 6 4-4 6 8z"/><circle cx="32" cy="20" r="2.5"/></svg>
+        <h3>Picture framing</h3>
+        <p>Photographs, prints and paintings, framed to suit the picture and the wall.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter" aria-hidden="true"><rect x="5" y="5" width="42" height="42"/><rect x="12" y="12" width="28" height="28"/><rect x="16" y="16" width="20" height="20"/><path d="M12 12l4 4M40 12l-4 4M12 40l4-4M40 40l-4-4"/></svg>
+        <h3>Mounts and mats</h3>
+        <p>Cut-bevel mounts in single, double or triple layers, in acid-free board.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter" aria-hidden="true"><path d="M8 8h36v36H8z"/><path d="M8 8l-3-3M44 8l3-3M8 44l-3 3M44 44l3 3"/><path d="M14 38l9-12 7 8 5-6 4 10z"/></svg>
+        <h3>Canvas stretching</h3>
+        <p>Canvases and needlework stretched square and taut over a new frame.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter" aria-hidden="true"><rect x="5" y="9" width="42" height="34"/><rect x="11" y="15" width="30" height="22"/><path d="M20 33V21l6 5 6-5v12"/></svg>
+        <h3>Shadow boxes</h3>
+        <p>Deep frames for medals, jerseys, tickets and keepsakes, pinned in place.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter" aria-hidden="true"><ellipse cx="26" cy="24" rx="15" ry="19"/><ellipse cx="26" cy="24" rx="11" ry="15" stroke-width="1"/><path d="M14 18c4-4 8-6 12-6"/><path d="M20 46h12"/></svg>
+        <h3>Mirror frames</h3>
+        <p>Mirrors cut and framed to size, with a hanging kit that fits the wall.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter" aria-hidden="true"><rect x="6" y="6" width="40" height="40"/><path d="M12 12h28v28H12z" stroke-dasharray="4 3"/><path d="M30 34l8-8 4 4-8 8-5 1z"/></svg>
+        <h3>Re-framing and repairs</h3>
+        <p>New glass, new backing or a whole new frame for something already on your wall.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="how" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Mouldings, in section</h2>
+      <p>The profile of the wood decides how a frame sits on the wall. These three are the most asked for.</p>
+    </div>
+    <div class="profiles">
+      <figure class="profile" style="margin:0">
+        <svg viewBox="0 0 240 150" role="img" aria-label="Cross-section of a flat moulding: a plain rectangle with a small rebate"><g fill="var(--color-paper-3)" stroke="var(--color-ink)" stroke-width="2"><path d="M60 30h120v84H60v-16h24V46H60z"/></g><g stroke="var(--color-muted)" stroke-width="1"><path d="M60 126h120M60 120v12M180 120v12"/></g><text x="120" y="144" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="var(--color-muted)">30 mm face</text></svg>
+        <h3>Flat</h3><p class="label">A plain face with a small rebate. Clean lines for prints and photographs.</p>
+      </figure>
+      <figure class="profile" style="margin:0">
+        <svg viewBox="0 0 240 150" role="img" aria-label="Cross-section of a scoop moulding: a curved dip in the face leading to the picture"><g fill="var(--color-paper-3)" stroke="var(--color-ink)" stroke-width="2"><path d="M50 30h140v84H50v-16h30V80c20 0 30-14 30-34 0-10 8-16 20-16"/></g><path d="M50 30h60c-14 6-20 12-20 24 0 14-10 26-30 26H50z" fill="var(--color-paper-3)" stroke="var(--color-ink)" stroke-width="2"/><g stroke="var(--color-muted)" stroke-width="1"><path d="M50 126h140M50 120v12M190 120v12"/></g><text x="120" y="144" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="var(--color-muted)">35 mm face</text></svg>
+        <h3>Scoop</h3><p class="label">A curved dip that draws the eye in. Good for oils, watercolours and mirrors.</p>
+      </figure>
+      <figure class="profile" style="margin:0">
+        <svg viewBox="0 0 240 150" role="img" aria-label="Cross-section of a stepped moulding: three steps down to the picture"><g fill="var(--color-paper-3)" stroke="var(--color-ink)" stroke-width="2"><path d="M40 24h160v90H40V98h24V80h24V62h24V46H40z" transform="translate(0 0)"/></g><g stroke="var(--color-ink)" stroke-width="1.2" fill="none"><path d="M40 24v22M64 46v16M88 62v18"/></g><g stroke="var(--color-muted)" stroke-width="1"><path d="M40 126h160M40 120v12M200 120v12"/></g><text x="120" y="144" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="12" fill="var(--color-muted)">50 mm face</text></svg>
+        <h3>Stepped</h3><p class="label">Three steps down to the picture. A deeper look for larger works.</p>
+      </figure>
+    </div>
+
+    <div class="section__head">
+      <h2>The order book</h2>
+      <p class="label">Sample entries, as a clerk would write them up.</p>
+    </div>
+    <div class="tablewrap">
+      <table class="book">
+        <thead><tr><th>No.</th><th>Item</th><th>Moulding</th><th class="r">Size</th><th class="r">Mount</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Wedding photograph</td><td>Flat, black ash</td><td class="r">300 × 400 mm</td><td class="r">Double, cream</td></tr>
+          <tr><td>2</td><td>Watercolour, Motueka Quay</td><td>Scoop, silver leaf</td><td class="r">450 × 600 mm</td><td class="r">Single, white</td></tr>
+          <tr><td>3</td><td>Rugby jersey, signed</td><td>Shadow box, oak</td><td class="r">700 × 800 mm</td><td class="r">Felt, navy</td></tr>
+          <tr><td>4</td><td>Needlework sampler</td><td>Stepped, walnut</td><td class="r">350 × 350 mm</td><td class="r">None</td></tr>
+          <tr><td>5</td><td>Hall mirror</td><td>Scoop, gilt</td><td class="r">600 × 900 mm</td><td class="r">n/a</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ol class="steps">
+      <li><span class="n">1</span><h3>Choose</h3><p>Bring the picture in. Fiona lays corner samples and mounts against it so you can see them together.</p></li>
+      <li><span class="n">2</span><h3>Measure</h3><p>The frame is measured to the picture and the order is written up with a price.</p></li>
+      <li><span class="n">3</span><h3>Cut and join</h3><p>Moulding mitred, glued and pinned. The mount is cut and the picture hinged in.</p></li>
+      <li><span class="n">4</span><h3>Fit</h3><p>Glass cleaned, backing sealed, wire fitted. Collect it ready to hang.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent frames</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="pours">
+      <figure class="photo">
+        <img src="img/silver.jpg" width="960" height="960" alt="A silver carved picture frame with a leaf pattern around the border">
+        <figcaption><span>Silver leaf, carved acanthus</span><span class="fig">No. 02</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/timber.jpg" width="878" height="878" alt="The corner of a wide timber frame with a linen slip and a mount">
+        <figcaption><span>Timber, linen slip</span><span class="fig">No. 03</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/textile.jpg" width="893" height="893" alt="A bold geometric printed textile in a pale timber frame">
+        <figcaption><span>Textile, pale oak</span><span class="fig">No. 04</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="img/corner.jpg" width="720" height="720" alt="The corner of an ornate silver frame around a seascape">
+        <figcaption><span>Ornate corner, seascape</span><span class="fig">No. 05</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band--fibre fibre">
+  <div class="wrap">
+    <p class="statement">Every frame is cut, joined and fitted by one pair of hands, and written in the book before it leaves the workshop.</p>
+    <div class="nums">
+      <div><span class="fig2">2</span><span class="label">weeks, the usual wait for a frame</span></div>
+      <div><span class="fig2">1</span><span class="label">framer, from first cut to final fit</span></div>
+      <div><span class="fig2">40</span><span class="label">mouldings on the sample wall</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="plate">
+        <span class="big">4.9</span>
+        <p>out of 5, from <b>33</b> Google reviews</p>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <ul class="quotes">
+        <li>
+          <blockquote>“I brought in my grandmother's embroidery in a carrier bag. Fiona stretched it, picked a walnut frame that suited it and had it ready in two weeks. It now hangs in our hall.”</blockquote>
+          <p class="who"><b>Jenny</b><span>Riwaka</span><span>· Needlework</span></p>
+        </li>
+        <li>
+          <blockquote>“Framed our son's first rugby jersey in a shadow box. The mount colour was spot on and she pinned it so it hangs flat without a mark.”</blockquote>
+          <p class="who"><b>Craig</b><span>Motueka</span><span>· Shadow box</span></p>
+        </li>
+        <li>
+          <blockquote>“Honest advice on mounts. She talked me out of the fancy one and the plain cream looks far better with the watercolour.”</blockquote>
+          <p class="who"><b>Liz</b><span>Mapua</span><span>· Watercolour</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we frame</h2>
+      <p>Workshop and counter in Motueka. Pick-up and drop-off for Tasman towns within about 25 km, and courier further afield.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 440" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Motueka beside Tasman Bay with a 25 km ring taking in Riwaka, Kaiteriteri, Upper Moutere and Mapua, and Takaka and Nelson by arrangement.</title>
+          <g font-family="Hanken Grotesk, sans-serif" font-weight="500" fill="var(--color-ink)">
+            <g stroke="var(--color-paper-3)" stroke-width="1"><path d="M0 110h600M0 220h600M0 330h600M150 0v440M300 0v440M450 0v440"/></g>
+            <path d="M110 0 C 140 80, 170 130, 205 170 S 260 250, 330 300 S 470 360, 600 340" fill="none" stroke="var(--color-ink)" stroke-width="2.5"/>
+            <text x="400" y="150" font-size="14" fill="var(--color-muted)">Tasman Bay</text>
+            <path d="M260 440 C 250 380, 235 320, 220 260 S 205 232, 205 215" fill="none" stroke="var(--color-muted)" stroke-width="2.5" stroke-dasharray="1 0"/>
+            <text x="270" y="400" font-size="13" fill="var(--color-muted)">Motueka River</text>
+            <circle cx="200" cy="215" r="170" fill="none" stroke="var(--color-accent)" stroke-width="1.8" stroke-dasharray="7 6"/>
+            <text x="318" y="106" font-size="14" fill="var(--color-accent)">25 km</text>
+            <rect x="180" y="198" width="40" height="34" fill="var(--color-ink)"/>
+            <text x="232" y="224" font-size="20">Motueka</text>
+            <circle cx="170" cy="240" r="6" fill="var(--color-accent)" stroke="var(--color-paper)" stroke-width="2"/>
+            <g>
+              <rect x="171" y="180" width="10" height="10"/><text x="160" y="190" font-size="17" text-anchor="end">Riwaka</text>
+              <rect x="147" y="120" width="10" height="10"/><text x="135" y="130" font-size="17" text-anchor="end">Kaiteriteri</text>
+              <rect x="217" y="295" width="10" height="10"/><text x="235" y="304" font-size="17">Upper Moutere</text>
+              <rect x="285" y="300" width="10" height="10"/><text x="303" y="324" font-size="17">Mapua</text>
+              <rect x="86" y="18" width="10" height="10" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="104" y="28" font-size="15" fill="var(--color-muted)">Takaka, by arrangement</text>
+              <rect x="363" y="392" width="10" height="10" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="381" y="402" font-size="15" fill="var(--color-muted)">Nelson, by arrangement</text>
+            </g>
+            <g transform="translate(556 56)"><path d="M0 -22 L9 8 L0 2 L-9 8 Z" fill="var(--color-ink)"/><text x="0" y="28" text-anchor="middle" font-size="15">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.6rem">Sketch, not to scale. Blue dot: the workshop in Motueka.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Motueka and nearby: Riwaka, Kaiteriteri, Upper Moutere, Mapua, Tasman and the Motueka Valley.</p>
+        <ul class="towns">
+          <li><span>Motueka</span><span class="fig">0–4 km</span></li>
+          <li><span>Riwaka</span><span class="fig">6 km</span></li>
+          <li><span>Kaiteriteri</span><span class="fig">13 km</span></li>
+          <li><span>Upper Moutere</span><span class="fig">14 km</span></li>
+          <li><span>Mapua</span><span class="fig">18 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section band--field" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Get a price</h2>
+      <p>Call or text Fiona. Send a photo of the picture and a rough size and she'll tell you what it needs.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn btn--primary" href="tel:+64210000000"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+          <a class="btn btn--secondary" href="sms:+64210000000"><svg aria-hidden="true"><use href="#i-text"/></svg>Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Tue–Fri</dt><dd class="fig">9:00 am – 5:00 pm</dd></div>
+          <div><dt>Saturday</dt><dd class="fig">9:00 am – 12:00 pm</dd></div>
+          <div><dt>Quote back</dt><dd class="fig">Within 2 working days</dd></div>
+        </dl>
+      </div>
+      <form class="form" id="quote" novalidate>
+        <h3>Quote request</h3>
+        <fieldset class="cells">
+          <legend>What are we framing?</legend>
+          <div class="cells__row">
+            <label class="cell"><input type="radio" name="job" value="A photograph or print" checked><span>Photo or print</span></label>
+            <label class="cell"><input type="radio" name="job" value="A painting or canvas"><span>Painting or canvas</span></label>
+            <label class="cell"><input type="radio" name="job" value="An object or jersey"><span>Object or jersey</span></label>
+            <label class="cell"><input type="radio" name="job" value="A mirror"><span>Mirror</span></label>
+          </div>
+        </fieldset>
+        <p class="answer" id="answer" aria-live="polite">A photograph or print</p>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="field"><label for="f-sub">Suburb or town</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+        <div class="field"><label for="f-msg">Size and anything we should know</label><textarea id="f-msg" name="message" placeholder="e.g. about 40 by 50 cm, a watercolour on thick paper"></textarea></div>
+        <button class="btn btn--primary" type="submit">Send request</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Kōwhai Street Framing, Motueka · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Kōwhai Street Framing is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+document.querySelectorAll('.cell input').forEach(function (r) {
+  r.addEventListener('change', function () { document.getElementById('answer').textContent = r.value; });
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../architectural-designer/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>50<i class="w"> of </i><i class="s">/</i>50</span><a href="../concreter/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

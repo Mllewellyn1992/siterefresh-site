@@ -1,0 +1,34 @@
+Photos for the Wainui Wall Co sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was colour-muted (saturation to 35%) and saved as JPEG quality 80, in daylight as the Ink theme asks.
+
+mud.jpg
+  Title:   In case you're wondering, yes, you can mix drywall mud by hand. It takes longer, of course, but it's way more  (Kim Siever)
+  Source:  https://www.flickr.com/photos/57873306@N00/37268058615
+  File:    https://live.staticflickr.com/4402/37268058615_75494d0d75.jpg
+  Licence: Public Domain Mark 1.0
+
+patch.jpg
+  Title:   Finally got around to patching all the holes in this room. I can see why the previous homeowners just put wood (Kim Siever)
+  Source:  https://www.flickr.com/photos/57873306@N00/43512425494
+  File:    https://live.staticflickr.com/1848/43512425494_cbf7b15f95.jpg
+  Licence: Public Domain Mark 1.0
+
+skim.jpg
+  Title:   Drywall repair at hatchery quarters (USFWS Mountain Prairie)
+  Source:  https://www.flickr.com/photos/51986662@N05/49525529776
+  File:    https://live.staticflickr.com/65535/49525529776_dd74975ed3_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped from the left to a squarer frame
+
+cornice.jpg
+  Title:   Pendulum-clock in the stucco and marble architecture (19th century) at Villa Pignatelli Museum in Naples (Carlo Raso)
+  Source:  https://www.flickr.com/photos/70125105@N06/26905142979
+  File:    https://live.staticflickr.com/4539/26905142979_fbd0900ef0_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    a stand-in for cornice and ceiling-rose work
+
+board.jpg
+  Title:   Drywall is almost done! #sieverrenos (Kim Siever)
+  Source:  https://www.flickr.com/photos/57873306@N00/28292348580
+  File:    https://live.staticflickr.com/8807/28292348580_0641b07f3b_b.jpg
+  Licence: Public Domain Mark 1.0

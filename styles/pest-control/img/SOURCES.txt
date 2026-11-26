@@ -1,0 +1,30 @@
+Photos for the Clearsweep Pest Control sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped to 4:3, darkened and warmed (low warm light into shadow)  and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Paper Wasp Nest
+  Source:  https://www.flickr.com/photos/49208525@N08/22362271188
+  File:    https://live.staticflickr.com/5701/22362271188_36637a92c1_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to 4:3
+
+eave.jpg
+  Title:   Wasp nest
+  Source:  https://www.flickr.com/photos/136617541@N02/23555697935
+  File:    https://live.staticflickr.com/5710/23555697935_17f44cf05c_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to 4:3
+
+timber.jpg
+  Title:   Wasp Nest
+  Source:  https://www.flickr.com/photos/51986662@N05/50376203866
+  File:    https://live.staticflickr.com/65535/50376203866_7e90b6fb3b_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to 4:3
+
+tree.jpg
+  Title:   Wasp nest, McCarthy, AK
+  Source:  https://www.flickr.com/photos/63044976@N06/20931409926
+  File:    https://live.staticflickr.com/710/20931409926_e84e7a07ca_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped to 4:3

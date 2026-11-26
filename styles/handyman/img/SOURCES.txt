@@ -1,0 +1,28 @@
+Photos for the Half Day Handyman sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was converted to black and white with the greys crushed (copier look) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Toolbox (JFGryphon)
+  Source:  https://www.flickr.com/photos/30484128@N03/49985663631
+  File:    https://live.staticflickr.com/65535/49985663631_753ecda128_b.jpg
+  Licence: CC0 1.0
+
+hammer.jpg
+  Title:   Free technical tools wrench hammer (rawpixel)
+  Source:  https://www.rawpixel.com/image/5906591/photo-image-public-domain-wood-free
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4NzA0MDE5LWltYWdlLWt3dnY1bXliLmpwZw.jpg
+  Licence: CC0 1.0
+  Note:    cropped to leave out the left edge
+
+nails.jpg
+  Title:   Hammer And Nails Wood Background (rawpixel)
+  Source:  https://www.rawpixel.com/image/5964891/hammer-and-nails-wood-background
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHUyMzU0MjI1LWltYWdlLWt3eXJtaGFoLmpwZw.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the right half to leave out a jar label on the left
+
+post.jpg
+  Title:   Old nail in wood (rawpixel)
+  Source:  https://www.rawpixel.com/image/6045320/free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJ3b3JrX25haWxfd29vZF9vbGQtaW1hZ2Uta3ljZXFmeWMuanBn.jpg
+  Licence: CC0 1.0

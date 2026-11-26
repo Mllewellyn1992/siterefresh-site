@@ -1,0 +1,28 @@
+Photos for the Kauri Datum Surveying sample (made-up business). All found via Openverse, licence CC0: no credit required.
+Each was cropped square, softened in colour (muted) and saved as JPEG quality 80. They are stand-ins: survey marks and open land.
+
+work1.jpg
+  Title:   Survey Marker (Daquella manera)
+  Source:  https://www.flickr.com/photos/62518311@N00/27675343707
+  File:    https://live.staticflickr.com/1748/27675343707_04b59169d3_b.jpg
+  Licence: CC0 1.0
+
+field.jpg
+  Title:   Survey marker (Thomson20192)
+  Source:  https://www.flickr.com/photos/93558439@N05/34611575870
+  File:    https://live.staticflickr.com/4247/34611575870_e167174b54_b.jpg
+  Licence: CC0 1.0
+
+work2.jpg
+  Title:   Survey Marker (Dennis S. Hurd)
+  Source:  https://www.flickr.com/photos/43296902@N00/28428430616
+  File:    https://live.staticflickr.com/8618/28428430616_e814ac711b_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the right-hand square
+
+work3.jpg
+  Title:   Survey the skies
+  Source:  https://www.flickr.com/photos/148598741@N02/51273023410
+  File:    https://live.staticflickr.com/65535/51273023410_cea944ea54_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped inside the dark picture border

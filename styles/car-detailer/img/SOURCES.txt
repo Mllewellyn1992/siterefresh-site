@@ -1,0 +1,34 @@
+Photos for the Lamplight Detailing sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped as noted, converted to black and white, printed deeper (highlights pulled down) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   1959 Imperial Crown (Mustang Joe)
+  Source:  https://www.flickr.com/photos/63234672@N04/6825374344
+  File:    https://live.staticflickr.com/7055/6825374344_eee5c6de09_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the lights and bumper, leaving out the lettering on the bonnet, the sign above and the photographer's caption strip
+
+vent.jpg
+  Title:   Antique Car Detail
+  Source:  https://www.rawpixel.com/image/5967512/antique-car-detail
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvbnMxMzE0MS1pbWFnZS1rd3lzMTNuai5qcGc.jpg
+  Licence: CC0 1.0
+
+fender.jpg
+  Title:   1941 Willys Coupe - 'Orange Rush' (Mustang Joe)
+  Source:  https://www.flickr.com/photos/63234672@N04/6974676249
+  File:    https://live.staticflickr.com/7042/6974676249_87abbcba1e_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the front wing and wheel, leaving out the caption strip and the crowd
+
+beads.jpg
+  Title:   Car wash (Kim Siever)
+  Source:  https://www.flickr.com/photos/57873306@N00/197660066
+  File:    https://live.staticflickr.com/60/197660066_58d3f5b813.jpg
+  Licence: Public Domain Mark 1.0
+
+spray.jpg
+  Title:   car wash (Erbin D'kay)
+  Source:  https://www.flickr.com/photos/132517350@N07/21018147670
+  File:    https://live.staticflickr.com/5698/21018147670_8508cfabba_b.jpg
+  Licence: Public Domain Mark 1.0

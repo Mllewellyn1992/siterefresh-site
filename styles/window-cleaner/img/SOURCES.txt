@@ -1,0 +1,34 @@
+Photos for the Clear Day Windows sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was unaltered colour, saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Free skyscraper window cleaning services (rawpixel)
+  Source:  https://www.rawpixel.com/image/5906435/photo-image-public-domain-blue-people
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4NzE0NjE4LWltYWdlLWt3dnY1ajY2LmpwZw.jpg
+  Licence: CC0 1.0
+
+sky.jpg
+  Title:   edge rooftop building glass facade (rawpixel)
+  Source:  https://www.rawpixel.com/image/3297793/free-photo-image-sky-architecture-house
+  File:    https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA2L3Vwd2s2MjA4MjQyMS13aWtpbWVkaWEtaW1hZ2Uta293bnZ0dGguanBn.jpg
+  Licence: CC0 1.0
+
+curve.jpg
+  Title:   Curved glass facade modern building (rawpixel)
+  Source:  https://www.rawpixel.com/image/3287254/free-photo-image-glass-architecture-building
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMzc3MzMwLXdpa2ltZWRpYS1pbWFnZS1rb3dodm9vcC5qcGc.jpg
+  Licence: CC0 1.0
+
+sun.jpg
+  Title:   A tall, modern skyscraper towers upward against a clear blue sky (Yam B Chhetri)
+  Source:  https://wordpress.org/photos/photo/3226816336/
+  File:    https://pd.w.org/2025/05/322681633645ff591.35223921-1536x2048.jpeg
+  Licence: CC0 1.0
+  Note:    cropped from the bottom
+
+squeegee.jpg
+  Title:   Kitchen sink squeegee, white (shop8447)
+  Source:  https://www.flickr.com/photos/185514373@N06/49061884053
+  File:    https://live.staticflickr.com/65535/49061884053_3945bc397c.jpg
+  Licence: CC0 1.0
+  Note:    cropped from the top; small source image, shown small

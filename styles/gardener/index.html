@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Wren &amp; Willow Gardens | Garden maintenance in Matamata (sample site)</title>
+<meta name="description" content="Sample site: a made-up Matamata garden maintenance business, built to show the Bloom style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=ranade@400,500,600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=gambarino@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-paper: oklch(97% 0.010 72); --color-paper-2: oklch(94.6% 0.013 70); --color-paper-3: oklch(91.5% 0.016 66);
+  --color-ink: oklch(21% 0.024 40); --color-ink-2: oklch(31% 0.022 46); --color-muted: oklch(49% 0.02 56);
+  --color-rule: oklch(88% 0.014 64); --color-sheet: oklch(98.7% 0.007 78);
+  --color-accent: oklch(53% 0.145 36); --color-accent-2: oklch(66% 0.10 55); --color-accent-soft: oklch(53% 0.145 36 / 0.11);
+  --color-accent-ink: oklch(98.5% 0.008 72); --color-focus: oklch(53% 0.145 36);
+  --lane-1: oklch(50% 0.04 55); --lane-2: oklch(48% 0.105 28); --lane-3: oklch(70% 0.115 72); --lane-4: oklch(65% 0.085 12);
+  --grid-16: oklch(21% 0.024 40 / 0.035); --grid-beat: oklch(21% 0.024 40 / 0.075); --grid-bar: oklch(21% 0.024 40 / 0.15); --grid-row: oklch(21% 0.024 40 / 0.045);
+  --rubber: oklch(55% 0.15 34); --rubber-hi: oklch(66% 0.125 42); --rubber-lo: oklch(43% 0.125 31);
+  --umber: oklch(30% 0.03 45); --bezel: oklch(92.5% 0.014 68); --case: oklch(93.5% 0.012 70);
+  --hi: oklch(99.6% 0.006 80 / 0.75); --shade-1: oklch(21% 0.024 40 / 0.08); --shade-2: oklch(21% 0.024 40 / 0.16); --shade-3: oklch(30% 0.06 40 / 0.28);
+  --font-display: "Ranade", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
+  --font-outlier: "Gambarino", Georgia, serif; --font-code: "Geist Mono", ui-monospace, monospace;
+  --radius-card: 18px; --radius-inner: 10px; --radius-clip: 6px; --radius-pill: 999px; --rule-hair: 1px;
+  --shadow-card: 0 1px 2px oklch(21% 0.024 40 / 0.06), 0 18px 36px -18px oklch(21% 0.024 40 / 0.26);
+  --shadow-lift: 0 2px 4px oklch(21% 0.024 40 / 0.07), 0 36px 72px -32px oklch(45% 0.1 40 / 0.34);
+  --tracking-display: -0.024em; --display-weight: 600;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.25  0 0 0 0 0.15  0 0 0 0 0.1  0 0 0 1.3 -0.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+
+  --space-xs: 0.5rem; --space-sm: 0.75rem; --space-md: 1.25rem; --space-lg: 2rem; --space-xl: 2.5rem; --space-2xl: 4rem; --space-3xl: 6rem;
+  --text-sm: 0.9375rem; --text-body: 1.0625rem;
+  --text-display-s: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+  --text-display-m: clamp(2.25rem, 1.4rem + 3.4vw, 3.75rem);
+  --text-display-l: clamp(2.75rem, 1.4rem + 5.2vw, 5.75rem);
+  --dur-micro: 120ms; --ease-out: cubic-bezier(.2,.7,.2,1);
+  --wrap: 76rem; --gutter: clamp(1rem, 4vw, 2.5rem);
+  --banner-h: 2.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--banner-h) + 1rem); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font: 400 var(--text-body)/1.55 var(--font-body); padding-top: var(--banner-h); overflow-x: hidden; }
+/* two quiet blooms and a faint grain, fixed */
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(45% 40% at 100% 0%, color-mix(in oklab, var(--color-accent) 8%, transparent), transparent 70%), radial-gradient(40% 36% at 0% 100%, color-mix(in oklab, var(--color-accent-2) 5%, transparent), transparent 70%); }
+body::after { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: var(--grain); background-size: 180px; opacity: 0.05; mix-blend-mode: multiply; }
+body > *:not(.sample) { position: relative; z-index: 1; }
+::selection { background: var(--color-accent-soft); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-accent); text-underline-offset: 0.2em; text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); color: var(--color-ink); line-height: 1.06; margin: 0; }
+h2 { font-size: var(--text-display-m); }
+h3 { font-size: 1.3125rem; line-height: 1.15; }
+p { margin: 0; }
+.label { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.mono { font-family: var(--font-code); font-variant-numeric: tabular-nums; }
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-3xl); }
+.section__head { padding-top: var(--space-md); margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-sm) var(--space-lg); }
+.section__head p { max-width: 34rem; }
+
+/* sample banner */
+.sample { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--banner-h); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-inline: 1rem;
+  background: var(--color-umber); background: var(--umber); color: var(--color-sheet); font: 500 0.8125rem/1.2 var(--font-body); text-align: center; }
+.sample b { font: 500 0.75rem/1 var(--font-body); background: var(--color-accent-soft); color: var(--color-sheet); padding: 0.25rem 0.55rem; border-radius: var(--radius-pill); box-shadow: inset 0 0 0 1px oklch(98% 0.01 72 / 0.35); }
+@media (max-width: 480px) { .sample { font-size: 0.75rem; } .sample b { display: none; } }
+
+/* controls: rubber cap in a bezel, on a sheet pill */
+.btn { display: inline-flex; align-items: center; gap: 0.8rem; min-height: 3.5rem; padding: 0.4rem 1.5rem 0.4rem 0.4rem; white-space: nowrap; cursor: pointer; text-decoration: none; border: 0;
+  border-radius: var(--radius-pill); background: var(--color-sheet); color: var(--color-ink); font: 500 1.0625rem/1 var(--font-body);
+  box-shadow: 0 0 0 1px var(--shade-1), 0 8px 18px -10px var(--shade-2), inset 0 1px 0 var(--hi); }
+.btn:hover { text-decoration: none; box-shadow: 0 0 0 1px var(--shade-2), 0 10px 20px -10px var(--shade-2), inset 0 1px 0 var(--hi); }
+.bezel { width: 2.7rem; height: 2.7rem; flex: none; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 50% 30%, var(--bezel), var(--color-paper-3)); box-shadow: inset 0 2px 3px var(--shade-2), 0 1px 0 var(--hi); }
+.cap { width: 2.05rem; height: 2.05rem; border-radius: 50%; display: grid; place-items: center; color: var(--color-accent-ink); position: relative; overflow: hidden;
+  background: radial-gradient(120% 110% at 50% 18%, var(--rubber-hi), var(--rubber) 48%, var(--rubber-lo)); box-shadow: inset 0 1px 0.5px var(--hi), 0 5px 9px -3px var(--shade-3); transition: translate var(--dur-micro) var(--ease-out); }
+.cap::after { content: ""; position: absolute; inset: 0; background-image: var(--grain); background-size: 120px; opacity: 0.3; mix-blend-mode: soft-light; }
+.btn:active .cap { translate: 0 1px; }
+.cap svg { width: 1rem; height: 1rem; position: relative; z-index: 1; }
+.btn--plain { padding: 0.4rem 1.5rem; background: var(--color-sheet); }
+.btn--umber { background: var(--umber); color: var(--color-sheet); box-shadow: inset 0 1px 0 oklch(60% 0.03 45 / 0.5); }
+.btns { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-md); }
+
+/* header */
+.top { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-md); }
+.brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--color-ink); }
+.brand svg { width: 2.6rem; height: 2.6rem; flex: none; }
+.brand span { font: 600 1.4rem/1 var(--font-display); letter-spacing: var(--tracking-display); }
+.brand small { display: block; margin-top: 0.3rem; font: 500 0.8125rem/1.3 var(--font-body); letter-spacing: 0; color: var(--color-muted); }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a:not(.btn) { font: 500 var(--text-sm)/1 var(--font-body); color: var(--color-ink); text-decoration: none; }
+.nav a:not(.btn):hover { text-decoration: underline; }
+.nav .btn { min-height: 3rem; padding-right: 1.2rem; font-size: var(--text-sm); }
+.nav .bezel { width: 2.3rem; height: 2.3rem; } .nav .cap { width: 1.75rem; height: 1.75rem; }
+.nav .btn .short { display: none; }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 480px) { .nav .btn .long { display: none; } .nav .btn .short { display: inline; } .brand span { font-size: 1.2rem; } }
+
+/* hero: the stage on the grid */
+.roll { background-color: var(--color-sheet);
+  background-image: linear-gradient(to right, var(--grid-bar) 1px, transparent 1px), linear-gradient(to right, var(--grid-beat) 1px, transparent 1px), linear-gradient(to right, var(--grid-16) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-row) 1px, transparent 1px);
+  background-size: 25% 100%, 8.3333% 100%, 2.0833% 100%, 100% 14px; }
+.hero { padding-block: var(--space-2xl) var(--space-3xl); position: relative; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(to right, var(--grid-bar) 1px, transparent 1px), linear-gradient(to right, var(--grid-beat) 1px, transparent 1px), linear-gradient(to right, var(--grid-16) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-row) 1px, transparent 1px);
+  background-size: 160px 100%, 40px 100%, 10px 100%, 100% 14px;
+  -webkit-mask-image: radial-gradient(70% 90% at 60% 40%, #000 20%, transparent 85%); mask-image: radial-gradient(70% 90% at 60% 40%, #000 20%, transparent 85%); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl) var(--space-lg); align-items: center; }
+.hero__copy { grid-column: 1 / span 7; }
+.hero__photo { grid-column: 8 / span 5; }
+.hero h1 { font-size: var(--text-display-l); line-height: 1.04; margin-block: var(--space-md) var(--space-lg); }
+.hero__lede { font-size: 1.1875rem; max-width: 33rem; margin-bottom: var(--space-lg); }
+.rating { display: flex; align-items: center; gap: 1rem; margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); max-width: 33rem; }
+.rating > .mono { font-size: 2rem; font-weight: 500; line-height: 1; color: var(--color-ink); }
+.stars { display: inline-flex; gap: 2px; color: var(--color-accent); }
+.stars svg { width: 0.95rem; height: 0.95rem; }
+@media (max-width: 860px) { .hero__copy, .hero__photo { grid-column: 1 / -1; } }
+
+/* photographs: warm daylight, raised card */
+.photo { margin: 0; }
+.photo .frame { border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-lift); background: var(--color-paper-3); }
+.photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.photo figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); margin-top: 0.75rem; display: flex; justify-content: space-between; gap: 1rem; }
+.photo figcaption .mono { color: var(--color-ink); white-space: nowrap; font-size: 0.8125rem; }
+
+/* services: raised cases */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); margin: 0; padding: 0; }
+.svc li { list-style: none; background: var(--color-sheet); border-radius: var(--radius-card); box-shadow: var(--shadow-card), inset 0 1px 0 var(--hi); padding: var(--space-lg); display: grid; grid-template-rows: auto auto 1fr; gap: 0.5rem; align-content: start; }
+.svc .tile { width: 3.5rem; height: 3.5rem; border-radius: var(--radius-inner); display: grid; place-items: center; margin-bottom: 0.4rem; color: var(--color-ink);
+  background: linear-gradient(color-mix(in oklab, var(--c) 16%, var(--color-sheet)), color-mix(in oklab, var(--c) 28%, var(--color-sheet))); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--c) 40%, transparent), inset 0 1px 0 var(--hi); }
+.svc .tile svg { width: 2.25rem; height: 2.25rem; }
+.svc li:nth-child(4n+1) .tile { --c: var(--lane-1); } .svc li:nth-child(4n+2) .tile { --c: var(--lane-2); } .svc li:nth-child(4n+3) .tile { --c: var(--lane-3); } .svc li:nth-child(4n) .tile { --c: var(--lane-4); }
+@media (max-width: 860px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) {
+  .svc { grid-template-columns: 1fr; }
+  .svc li { grid-template-columns: 3.5rem 1fr; grid-template-rows: auto auto; column-gap: var(--space-md); padding: var(--space-md); }
+  .svc li .tile { grid-row: span 2; }
+}
+
+/* the garden's year: lanes on the grid */
+.band { background: var(--color-paper-2); }
+.year { border-radius: var(--radius-card); box-shadow: var(--shadow-card); overflow: hidden; background: var(--color-sheet); }
+.year__scroll { overflow-x: auto; }
+.year__in { min-width: 44rem; }
+.ruler { display: grid; grid-template-columns: 7.5rem repeat(12, minmax(0, 1fr)); border-bottom: 1px solid var(--grid-bar); background: var(--color-paper-2); font: 400 0.75rem/1 var(--font-code); color: var(--color-muted); }
+.ruler span { padding: 0.7rem 0.4rem; border-left: 1px solid var(--grid-beat); }
+.ruler span:first-child { border-left: 0; }
+.lanes { position: relative; display: grid; grid-template-columns: 7.5rem 1fr; }
+.lanes__names { display: grid; grid-auto-rows: 4rem; }
+.lanes__names div { padding: 0 0.6rem; display: flex; align-items: center; font: 500 0.875rem/1.2 var(--font-body); color: var(--color-ink); border-bottom: 1px solid var(--grid-row); }
+.lanes__roll { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: 4rem; align-items: center; row-gap: 0;
+  background-color: var(--color-sheet); background-image: linear-gradient(to right, var(--grid-bar) 1px, transparent 1px), linear-gradient(to right, var(--grid-beat) 1px, transparent 1px), linear-gradient(to right, var(--grid-16) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-row) 1px, transparent 1px);
+  background-size: 25% 100%, 8.3333% 100%, 2.0833% 100%, 100% 4rem; }
+.clip { --c: var(--lane-1); margin-inline: 2px; height: 2.5rem; padding: 0 0.6rem; display: flex; align-items: center; border-radius: var(--radius-clip); font: 500 0.8125rem/1 var(--font-body); color: var(--color-ink); white-space: nowrap; overflow: hidden;
+  background: linear-gradient(color-mix(in oklab, var(--c) 18%, var(--color-sheet)), color-mix(in oklab, var(--c) 28%, var(--color-sheet))); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--c) 42%, transparent), inset 0 1px 0 var(--hi); }
+.l1 { --c: var(--lane-1); } .l2 { --c: var(--lane-2); } .l3 { --c: var(--lane-3); } .l4 { --c: var(--lane-4); }
+.playhead { position: absolute; top: 0; bottom: 0; left: 0; width: 1px; background: var(--color-accent); z-index: 2; }
+.year__note { padding: 0.75rem 1rem; border-top: 1px solid var(--grid-beat); }
+
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-md); margin: var(--space-2xl) 0 0; padding: 0; }
+.steps li { list-style: none; padding: var(--space-md); display: grid; gap: 0.4rem; align-content: start; background: var(--color-sheet); border-radius: var(--radius-card); box-shadow: var(--shadow-card), inset 0 1px 0 var(--hi); }
+.steps .n { font: 500 0.8125rem/1 var(--font-code); color: var(--color-accent); border-bottom: 1px solid var(--color-rule); padding-bottom: 0.6rem; margin-bottom: 0.3rem; }
+.steps .crop { height: 1.1rem; margin-bottom: 0.3rem; background-image: linear-gradient(to right, var(--grid-bar) 1px, transparent 1px), linear-gradient(to right, var(--grid-beat) 1px, transparent 1px); background-size: 25% 100%, 8.3333% 100%; border-radius: 4px; position: relative; }
+.steps .crop i { position: absolute; top: 20%; height: 60%; border-radius: 3px; background: color-mix(in oklab, var(--c, var(--lane-1)) 40%, var(--color-sheet)); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--c, var(--lane-1)) 50%, transparent); }
+@media (max-width: 860px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+
+/* recent jobs */
+.work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+
+/* band statement */
+.band--umber { background: var(--color-paper-3); }
+.band--umber .wrap { padding-block: var(--space-3xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg); align-items: end; }
+.statement { grid-column: 1 / span 8; font: 600 var(--text-display-l)/1.02 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); margin: 0; }
+.band--umber .note { grid-column: 9 / span 4; }
+@media (max-width: 860px) { .band--umber .wrap { grid-template-columns: minmax(0, 1fr); } .statement, .band--umber .note { grid-column: 1 / -1; } }
+
+/* reviews: the one serif figure */
+.reviews { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.plate { grid-column: 1 / span 5; padding: var(--space-lg); display: grid; gap: var(--space-sm); background: var(--color-sheet); border-radius: var(--radius-card); box-shadow: var(--shadow-lift), inset 0 1px 0 var(--hi); }
+.plate .big { font: 400 clamp(10rem, 7rem + 12vw, 14rem)/0.85 var(--font-outlier); color: var(--color-ink); letter-spacing: -0.02em; }
+.plate .unit { font: 500 1.125rem/1.35 var(--font-body); color: var(--color-ink-2); }
+.quotes { grid-column: 6 / span 7; margin: 0; padding: 0; display: grid; gap: var(--space-md); }
+.quotes li { list-style: none; padding: var(--space-md) var(--space-lg); background: var(--color-sheet); border-radius: var(--radius-card); box-shadow: var(--shadow-card), inset 0 1px 0 var(--hi); display: grid; gap: 0.6rem; }
+.quotes blockquote { margin: 0; font-size: 1.0625rem; color: var(--color-ink-2); }
+.quotes .who { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.quotes .who b { color: var(--color-ink); font-weight: 600; }
+@media (max-width: 860px) { .reviews { grid-template-columns: minmax(0, 1fr); } .plate, .quotes { grid-column: 1 / -1; } }
+
+/* area */
+.area { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.area__map { grid-column: 1 / span 7; margin: 0; }
+.area__map svg { width: 100%; height: auto; display: block; border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+.area__list { grid-column: 8 / span 5; }
+.towns { margin: var(--space-md) 0 0; padding: 0; border-top: 1px solid var(--color-rule); }
+.towns li { list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.75rem; border-bottom: 1px solid var(--color-rule); }
+.towns li span:first-child { color: var(--color-ink); font-weight: 600; }
+.towns .mono { color: var(--color-ink-2); white-space: nowrap; font-size: 0.875rem; }
+@media (max-width: 860px) { .area { grid-template-columns: minmax(0, 1fr); } .area__map, .area__list { grid-column: 1 / -1; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.contact__call { grid-column: 1 / span 5; display: grid; gap: var(--space-lg); }
+.contact__call .phone { font: 600 var(--text-display-m)/1 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); text-decoration: none; }
+.contact__call .phone:hover { color: var(--color-accent); }
+.hours { margin: 0; padding: 0; border-top: 1px solid var(--color-rule); }
+.hours div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; border-bottom: 1px solid var(--color-rule); }
+.hours dt { color: var(--color-ink); font-weight: 600; }
+.hours dd { margin: 0; text-align: right; }
+.form { grid-column: 7 / span 6; padding: var(--space-lg); display: grid; gap: var(--space-md); background: var(--color-sheet); border-radius: var(--radius-card); box-shadow: var(--shadow-lift), inset 0 1px 0 var(--hi); }
+.form h3 { font-size: var(--text-display-s); }
+.field { display: grid; gap: 0.35rem; }
+.field label { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-ink); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+@media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+input, select, textarea { width: 100%; border-radius: 1.6rem; border: 1px solid var(--color-muted); background: var(--color-paper); font: 400 1rem/1.4 var(--font-body); color: var(--color-ink); padding: 0.7rem 1.1rem; min-height: 3.25rem; }
+textarea { min-height: 6.5rem; resize: vertical; border-radius: var(--radius-inner); }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.4rem) 55%, calc(100% - 1.05rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.6rem; }
+.form .btn { justify-self: start; }
+.form__note { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-ink); min-height: 1.4em; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } .contact__call, .form { grid-column: 1 / -1; } }
+
+footer { border-top: 1px solid var(--color-rule); padding-block: var(--space-lg) var(--space-2xl); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+footer p { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="sample" role="note"><b>Sample</b> Sample site — made-up business to show this style</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M7 9h10M7 12h6" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Wren and Willow Gardens, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect width="48" height="48" rx="14" fill="var(--rubber)"/>
+        <path d="M24 38V22" stroke="var(--color-accent-ink)" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M24 26c-8 0-12-5-12-11 8 0 12 4 12 11z" fill="var(--color-accent-ink)"/>
+        <path d="M24 30c7 0 11-4 11-10-7 0-11 4-11 10z" fill="var(--color-accent-ink)" opacity="0.75"/>
+      </svg>
+      <span>Wren &amp; Willow<small>Matamata garden care · Hana &amp; Jo</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a class="btn" href="tel:+64210000000"><span class="bezel"><span class="cap"><svg aria-hidden="true"><use href="#i-phone"/></svg></span></span><span class="long">021 000 0000</span><span class="short">Call</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="label">Garden maintenance · Matamata and the Waikato · Hana &amp; Jo</p>
+      <h1>A garden that looks after itself, nearly.</h1>
+      <p class="hero__lede">Hana and Jo look after gardens in Matamata all year: mowing, hedges, pruning, weeding and mulch, planting and clean-ups. The same two people on every visit, who learn what your garden likes.</p>
+      <div class="btns">
+        <a class="btn" href="tel:+64210000000"><span class="bezel"><span class="cap"><svg aria-hidden="true"><use href="#i-phone"/></svg></span></span>Call Hana</a>
+        <a class="btn btn--plain" href="sms:+64210000000">Text a photo</a>
+      </div>
+      <div class="rating">
+        <span class="mono">4.9</span>
+        <div>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="label">from <span class="mono">44</span> Google reviews</p>
+        </div>
+      </div>
+    </div>
+    <figure class="photo hero__photo">
+      <div class="frame"><img src="img/hero.jpg" width="1200" height="1200" alt="A green wheelbarrow of fallen petals on a lawn beside beds of pink and white tulips" fetchpriority="high"></div>
+      <figcaption><span>Spring tidy-up, Hinuera</span><span class="mono">3 hours</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What we do</h2>
+      <p>Weekly, fortnightly or one-off. We bring the tools and take the green waste away.</p>
+    </div>
+    <ul class="svc">
+      <li>
+        <span class="tile"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 32h28"/><path d="M10 32l4-8 4 8M20 32l4-12 4 12"/><path d="M8 20c2-2 4-2 6 0M24 12c2-2 4-2 6 0"/></svg></span>
+        <h3>Regular garden care</h3>
+        <p>A set visit every week or fortnight to keep it all ticking.</p>
+      </li>
+      <li>
+        <span class="tile"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 30h30"/><path d="M9 30v-5M14 30v-8M19 30v-6M24 30v-9M29 30v-5"/><path d="M5 34h30" stroke-dasharray="2 4"/></svg></span>
+        <h3>Lawns and edges</h3>
+        <p>Mowed, edged and trimmed to a clean line along beds and paths.</p>
+      </li>
+      <li>
+        <span class="tile"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 34V16c0-4 3-6 7-6h10c4 0 7 2 7 6v18"/><path d="M5 34h30"/><path d="M14 14h12" stroke-dasharray="2 3"/></svg></span>
+        <h3>Hedge trimming</h3>
+        <p>Square, tapered or loose, cut by hand and tidied up after.</p>
+      </li>
+      <li>
+        <span class="tile"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 34V18"/><path d="M20 22c-4-4-6-8-6-12M20 18c4-2 7-5 8-9"/><path d="M8 30l8-10M16 20l-3-2m3 2l-2 3"/></svg></span>
+        <h3>Pruning</h3>
+        <p>Roses, fruit trees and shrubs cut back at the right time of year.</p>
+      </li>
+      <li>
+        <span class="tile"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 26c4-6 10-8 14-8s10 2 14 8"/><path d="M6 26h28v6H6z"/><path d="M13 12v6M20 8v10M27 12v6"/></svg></span>
+        <h3>Weeding and mulch</h3>
+        <p>Beds cleared of weeds, then covered to hold moisture and keep them away.</p>
+      </li>
+      <li>
+        <span class="tile"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6v14"/><path d="M20 20c-5 0-8-3-8-8 5 0 8 3 8 8z"/><path d="M20 24c5 0 8-3 8-8-5 0-8 3-8 8z"/><path d="M10 34h20M12 28h16v6H12z"/></svg></span>
+        <h3>Planting and tidy-ups</h3>
+        <p>New plants in, overgrown corners cleared, section made presentable.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band section" id="how">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Your garden's year</h2>
+      <p>Each job has its season. This is a typical year of visits for a Matamata garden, laid out like a calendar so you can see what comes when.</p>
+    </div>
+    <div class="year">
+      <div class="year__scroll" tabindex="0" role="region" aria-label="A typical year of garden jobs, scrolls sideways on a phone">
+        <div class="year__in">
+          <div class="ruler" aria-hidden="true"><span></span><span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span><span>JUL</span><span>AUG</span><span>SEP</span><span>OCT</span><span>NOV</span><span>DEC</span></div>
+          <div class="lanes">
+            <div class="lanes__names"><div>Lawns</div><div>Hedges and pruning</div><div>Beds</div><div>Planting</div></div>
+            <div class="lanes__roll">
+              <span class="clip l1" style="grid-row:1;grid-column:1/5">Weekly mowing</span>
+              <span class="clip l1" style="grid-row:1;grid-column:5/10">Fortnightly mowing</span>
+              <span class="clip l1" style="grid-row:1;grid-column:10/13">Weekly mowing</span>
+              <span class="clip l2" style="grid-row:2;grid-column:1/3">Hedge cut</span>
+              <span class="clip l2" style="grid-row:2;grid-column:6/9">Rose and fruit tree pruning</span>
+              <span class="clip l2" style="grid-row:2;grid-column:11/13">Hedge cut</span>
+              <span class="clip l3" style="grid-row:3;grid-column:3/6">Weed and clear</span>
+              <span class="clip l3" style="grid-row:3;grid-column:9/12">Weed and mulch</span>
+              <span class="clip l4" style="grid-row:4;grid-column:4/6">Bulbs in</span>
+              <span class="clip l4" style="grid-row:4;grid-column:10/13">Summer planting</span>
+              <span class="playhead" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="label year__note">A sample year. Your visits follow your garden, not this chart. Swipe sideways on a phone.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><span class="crop" aria-hidden="true"><i style="left:0;width:20%;--c:var(--lane-1)"></i></span><h3>Walk the garden</h3><p>We walk it with you and note what you love and what you don't.</p></li>
+      <li><span class="n">02</span><span class="crop" aria-hidden="true"><i style="left:10%;width:55%;--c:var(--lane-3)"></i></span><h3>Plan the year</h3><p>A simple list of jobs by season and how often we visit.</p></li>
+      <li><span class="n">03</span><span class="crop" aria-hidden="true"><i style="left:0;width:30%;--c:var(--lane-2)"></i><i style="left:45%;width:35%;--c:var(--lane-4)"></i></span><h3>Tend it</h3><p>Visits on the day we agreed, and a text if the weather moves us.</p></li>
+      <li><span class="n">04</span><span class="crop" aria-hidden="true"><i style="left:60%;width:35%;--c:var(--lane-1)"></i></span><h3>Check in</h3><p>Each season we go over what worked and change the plan.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Recent gardens</h2>
+      <p class="label">Photos are stand-ins for this sample.</p>
+    </div>
+    <div class="work">
+      <figure class="photo">
+        <div class="frame"><img src="img/work1.jpg" width="1200" height="1200" alt="Raised vegetable beds mulched with straw, with cabbages growing in rows"></div>
+        <figcaption><span>Veg beds weeded and mulched, Waharoa</span><span class="mono">8 beds</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="img/work2.jpg" width="1200" height="1200" alt="Green-handled secateurs resting on a weathered log"></div>
+        <figcaption><span>Rose pruning, Walton</span><span class="mono">June</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="img/work3.jpg" width="1200" height="1200" alt="Daffodils in flower in a garden bed in spring sun"></div>
+        <figcaption><span>Spring bulbs, Okauia</span><span class="mono">300 bulbs</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band--umber">
+  <div class="wrap">
+    <p class="statement">Same two gardeners, every visit.</p>
+    <p class="note">Hana and Jo do the work themselves. You know who is coming, what they will do and when they will be done, and you can text us the day before if something changes.</p>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>What clients say</h2>
+      <p class="label">Sample reviews written for this style demo.</p>
+    </div>
+    <div class="reviews">
+      <div class="plate">
+        <span class="big">4.9</span>
+        <p class="unit">out of 5, from <span class="mono">44</span> Google reviews</p>
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      </div>
+      <ul class="quotes">
+        <li><blockquote>“After Mum moved into care the garden went wild. Hana and Jo cleared it in two visits and now keep it tidy every fortnight. Honest and friendly.”</blockquote><p class="who"><b>Joanne</b><span>Waharoa</span></p></li>
+        <li><blockquote>“They told me which of the roses were worth saving and which were done. The ones they pruned have flowered better than ever.”</blockquote><p class="who"><b>Ian</b><span>Hinuera</span></p></li>
+        <li><blockquote>“Hedge was taller than the house. It's now square and neat, and they took every scrap away.”</blockquote><p class="who"><b>Mere</b><span>Te Poi</span></p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Where we work</h2>
+      <p>Based in Matamata. The town and the settlements around it, with bigger jobs further out by arrangement.</p>
+    </div>
+    <div class="area">
+      <figure class="area__map">
+        <svg viewBox="0 0 600 460" role="img" aria-labelledby="mapT">
+          <title id="mapT">Sketch of the service area: Matamata below the Kaimai Range, with Waharoa, Cambridge and Tirau around it; Te Aroha and Hamilton by arrangement.</title>
+          <rect width="600" height="460" fill="var(--color-sheet)"/>
+          <g stroke="var(--grid-beat)" stroke-width="1"><path d="M0 115h600M0 230h600M0 345h600M150 0v460M300 0v460M450 0v460"/></g>
+          <g font-family="Ranade, sans-serif" font-weight="500" font-size="16" fill="var(--color-ink)">
+            <path d="M600 0 V460 H400 C 380 380, 360 330, 380 270 S 430 170, 420 100 S 450 30, 470 0Z" fill="var(--color-paper-3)" stroke="var(--color-ink)" stroke-width="1.5"/>
+            <text x="500" y="280" fill="var(--color-muted)" font-size="14">Kaimai Range</text>
+            <circle cx="340" cy="250" r="165" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-dasharray="6 6"/>
+            <text x="150" y="150" font-family="Geist Mono, monospace" font-size="12" fill="var(--color-accent)">30 km</text>
+            <rect x="290" y="226" width="86" height="46" rx="10" fill="var(--umber)"/>
+            <text x="333" y="254" text-anchor="middle" font-weight="600" font-size="17" fill="var(--color-sheet)">Matamata</text>
+            <circle cx="304" cy="262" r="5" fill="var(--rubber)" stroke="var(--color-sheet)" stroke-width="2"/>
+            <g>
+              <rect x="300" y="176" width="10" height="10" rx="3"/><text x="318" y="190">Waharoa</text>
+              <rect x="196" y="260" width="10" height="10" rx="3"/><text x="100" y="262" text-anchor="start">Cambridge</text>
+              <rect x="340" y="352" width="10" height="10" rx="3"/><text x="358" y="366">Tirau</text>
+              <rect x="322" y="86" width="10" height="10" rx="3" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="340" y="96" font-size="15" fill="var(--color-ink-2)">Te Aroha, by arrangement</text>
+              <rect x="104" y="233" width="10" height="10" rx="3" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="30" y="222" font-size="15" fill="var(--color-ink-2)">Hamilton, by arrangement</text>
+            </g>
+            <g transform="translate(560 410)"><path d="M0 0v-26M-8 -16L0 -28l8 12" fill="none" stroke="var(--color-ink)" stroke-width="2"/><text x="12" y="-8" font-size="13">N</text></g>
+          </g>
+        </svg>
+        <figcaption class="label" style="margin-top:.75rem">Sketch, not to scale. Red dot: our base in Matamata.</figcaption>
+      </figure>
+      <div class="area__list">
+        <p>Matamata and nearby: Waharoa, Hinuera, Okauia, Te Poi, Walton, Manawaru and the town centre.</p>
+        <ul class="towns">
+          <li><span>Matamata</span><span class="mono">0–8 km</span></li>
+          <li><span>Waharoa</span><span class="mono">6 km</span></li>
+          <li><span>Tirau</span><span class="mono">19 km</span></li>
+          <li><span>Cambridge</span><span class="mono">33 km</span></li>
+          <li><span>Te Aroha</span><span class="mono">31 km</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Book a visit</h2>
+      <p>Call or text Hana. A photo of the garden and a few words about what bothers you is plenty.</p>
+    </div>
+    <div class="contact">
+      <div class="contact__call">
+        <a class="phone" href="tel:+64210000000">021 000 0000</a>
+        <div class="btns">
+          <a class="btn" href="tel:+64210000000"><span class="bezel"><span class="cap"><svg aria-hidden="true"><use href="#i-phone"/></svg></span></span>Call now</a>
+          <a class="btn btn--plain" href="sms:+64210000000">Send a text</a>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon–Fri</dt><dd class="mono">7:30 am – 5:00 pm</dd></div>
+          <div><dt>Saturday</dt><dd class="mono">8:00 am – 12:00 pm</dd></div>
+          <div><dt>Reply</dt><dd class="mono">Same day</dd></div>
+        </dl>
+      </div>
+      <form class="form" id="quote" novalidate>
+        <h3>Garden enquiry</h3>
+        <div class="row2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" autocomplete="address-level2"></div>
+          <div class="field"><label for="f-job">Job</label>
+            <select id="f-job" name="job"><option>Regular garden care</option><option>Lawns and edges</option><option>Hedge trimming</option><option>Pruning</option><option>Weeding and mulch</option><option>Planting or tidy-up</option><option>Something else</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Tell us about the garden</label><textarea id="f-msg" name="message" placeholder="e.g. quarter-acre, hedge along the road, roses at the back"></textarea></div>
+        <button class="btn" type="submit"><span class="bezel"><span class="cap"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span>Send enquiry</button>
+        <p class="form__note" id="formNote" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Wren &amp; Willow Gardens, Matamata · 021 000 0000</p>
+    <p>Sample site for siterefresh.co.nz. Wren &amp; Willow Gardens is a made-up business; reviews and job details are examples.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('formNote').textContent = 'This is a sample site, so the form does not send. On your own site it goes straight to your phone.';
+});
+</script>
+
+
+<!--srnav--><style>#srnav{position:fixed;top:6px;right:6px;z-index:2147483647;display:flex;align-items:center;gap:2px;font:600 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;background:#16231f;color:#fff;border-radius:999px;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.3)}#srnav a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:30px;border-radius:999px;padding:0 10px}#srnav a:hover,#srnav a:focus-visible{background:#2f7d5b;outline:none}#srnav span{padding:0 4px;opacity:.85;white-space:nowrap}#srnav i{font-style:normal}#srnav .s{display:none}@media(max-width:480px){#srnav .w{display:none}#srnav .s{display:inline}#srnav a{min-width:30px;padding:0 8px}}@media print{#srnav{display:none}}</style><nav id="srnav" aria-label="Other styles"><a href="../upholsterer/" aria-label="Previous style">&larr;</a><span><i class="w">Style </i>19<i class="w"> of </i><i class="s">/</i>50</span><a href="../signwriter/" aria-label="Next style">&rarr;</a><a href="../../#styles">All</a></nav><!--/srnav-->
+</body>
+</html>

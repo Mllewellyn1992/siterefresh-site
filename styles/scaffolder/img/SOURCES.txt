@@ -1,0 +1,34 @@
+Photos for the Tussock Scaffolding sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped as noted, converted to a hard ink-and-paper duotone (contrast up) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Back with scaffolding, 1232 Druid Hill Avenue, Baltimore, MD 21217 (Baltimore Heritage)
+  Source:  https://www.flickr.com/photos/44034762@N04/32483635746
+  File:    https://live.staticflickr.com/613/32483635746_af975eab51_b.jpg
+  Licence: CC0 1.0
+
+rowhouses.jpg
+  Title:   Scaffolding on rowhouses, 1808–1810 Barclay Street, Baltimore, MD 21202 (Baltimore Heritage)
+  Source:  https://www.flickr.com/photos/44034762@N04/49713659436
+  File:    https://live.staticflickr.com/65535/49713659436_bbaffdb902_b.jpg
+  Licence: CC0 1.0
+
+street.jpg
+  Title:   Scaffolding (Steven Mark Browning)
+  Source:  https://www.flickr.com/photos/94871567@N05/10390334804
+  File:    https://live.staticflickr.com/5524/10390334804_e3eb28399f_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    cropped from the bottom to leave out the pavement
+
+bamboo.jpg
+  Title:   Bamboo Scaffolding (cogdogblog)
+  Source:  https://www.flickr.com/photos/37996646802@N01/2868548890
+  File:    https://live.staticflickr.com/3262/2868548890_b956b876fb_b.jpg
+  Licence: CC0 1.0
+
+tower.jpg
+  Title:   Scaffolding near Pioneer Courthouse (D Coetzee)
+  Source:  https://www.flickr.com/photos/29507259@N02/3605788455
+  File:    https://live.staticflickr.com/3336/3605788455_35360308f1_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped to the left part of the frame, the scaffold tower

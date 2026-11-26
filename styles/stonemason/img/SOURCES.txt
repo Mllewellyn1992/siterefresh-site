@@ -1,0 +1,23 @@
+Photos for the Penguin Lane Stoneworks sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped square, printed as a duotone (warm near-black ink on oat paper, contrast up a little) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Dry stone wall
+  Source:  https://www.flickr.com/photos/126064386@N03/32952698584
+  File:    https://live.staticflickr.com/2876/32952698584_4d1b9cffd9_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped square
+
+closeup.jpg
+  Title:   Dry stone wall
+  Source:  https://www.flickr.com/photos/126064386@N03/32952759904
+  File:    https://live.staticflickr.com/3843/32952759904_8f5e12409b_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped square
+
+course.jpg
+  Title:   Dry stone wall
+  Source:  https://www.flickr.com/photos/126064386@N03/33639644612
+  File:    https://live.staticflickr.com/2872/33639644612_dec4748cd9_b.jpg
+  Licence: CC0 1.0
+  Note:    cropped square

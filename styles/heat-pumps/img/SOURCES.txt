@@ -1,0 +1,30 @@
+Photos for the Hearthbeat Heat Pumps sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was resized to 1200 px or less, brightened a little with more vibrance (Hum style) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Air conditioner (Open Grid Scheduler / Grid Engine)
+  Source:  https://www.flickr.com/photos/29155878@N03/20094897922
+  File:    https://live.staticflickr.com/351/20094897922_44b9367022_b.jpg
+  Licence: CC0 1.0
+  Note:    slightly brighter and more vivid
+
+wall.jpg
+  Title:   Modern heat pump system on a residential building at sunset – sustainable energy solution for future heating and cooling needs. (joachim353)
+  Source:  https://www.flickr.com/photos/200871156@N06/55500034722
+  File:    https://live.staticflickr.com/65535/55500034722_e7dc974fc0_b.jpg
+  Licence: Public Domain Mark 1.0
+  Note:    slightly brighter and more vivid
+
+roof.jpg
+  Title:   A large air conditioning unit is situated on a sloped metal roof, with a clear blue sky in the background. The unit has a white exterior with a grid pattern on the front, and pipes connected to it. (Dylan Espinoza Pereira)
+  Source:  https://wordpress.org/photos/photo/27469e3ea0/
+  File:    https://pd.w.org/2026/04/27469e3ea0aedd520.88005265-2048x1536.jpg
+  Licence: CC0 1.0
+  Note:    slightly brighter and more vivid
+
+dial.jpg
+  Title:   Thermostat heating radiator
+  Source:  https://www.rawpixel.com/image/6030754/photo-image-public-domain-free
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJ0aGVybW9zdGF0X2hlYXRpbmdfcmFkaWF0b3JfaGVhdC1pbWFnZS1reWJjaWFvMS5qcGc.jpg
+  Licence: CC0 1.0
+  Note:    slightly brighter and more vivid

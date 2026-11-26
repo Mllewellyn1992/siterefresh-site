@@ -1,0 +1,30 @@
+Photos for the Evergreen Edge Mowing sample (made-up business). All found via Openverse, licence CC0 or Public Domain Mark: no credit required.
+Each was cropped to 4:3, colour lifted a little (saturation +15%, contrast +5%) and saved as JPEG quality 80.
+
+hero.jpg
+  Title:   Lawn mower
+  Source:  https://www.rawpixel.com/image/6035725/lawn-mower-free-public-domain-cc0-image
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJsYXduX21vd2VyX2dhcmRlbmluZ19tb3dfMy1pbWFnZS1reWJkY3I5ai5qcGc.jpg
+  Licence: CC0 1.0
+  Note:    cropped to 4:3
+
+front.jpg
+  Title:   Lawn mower
+  Source:  https://www.rawpixel.com/image/6035741/lawn-mower-free-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJsYXduX21vd2VyX2dhcmRlbmluZ19tb3dfMC1pbWFnZS1reWJkY28xZi5qcGc.jpg
+  Licence: CC0 1.0
+  Note:    cropped to 4:3
+
+trees.jpg
+  Title:   Lawn mower
+  Source:  https://www.rawpixel.com/image/6035724/lawn-mower-free-public-domain-cc0-image
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJsYXduX21vd2VyX2dhcmRlbmluZ19tb3dfMi1pbWFnZS1reWJkY3g1cC5qcGc.jpg
+  Licence: CC0 1.0
+  Note:    cropped to 4:3
+
+rideon.jpg
+  Title:   Free lawn mower
+  Source:  https://www.rawpixel.com/image/5922120/free-lawn-mower-public-domain-cc0-photo
+  File:    https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHg2MTA5MDctaW1hZ2Uta3d2eGxrOWIuanBn.jpg
+  Licence: CC0 1.0
+  Note:    cropped tight to the mower to leave out the rider

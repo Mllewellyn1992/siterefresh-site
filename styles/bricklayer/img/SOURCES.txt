@@ -1,0 +1,32 @@
+Photos for the Kilnside Brick & Block sample (made-up business). All found on Wikimedia Commons (the source Openverse indexes; Openverse's own API was blocked by a bot check at build time), licence CC0 1.0: no credit required.
+Each was cropped square, lightly sharpened and saved as JPEG quality 78-80 (true colour, as the Terrazzo style asks).
+
+hero.jpg
+  Title:   Surfaces vertical brick wall closeup view (Tomwsulcer)
+  Source:  https://commons.wikimedia.org/wiki/File:Surfaces_vertical_brick_wall_closeup_view.JPG
+  Licence: CC0 1.0
+  Note:    cropped to a square from the top-left
+
+work1.jpg
+  Title:   Sioux City First Congl W side brickwork 4 (Ammodramus)
+  Source:  https://commons.wikimedia.org/wiki/File:Sioux_City_First_Congl_W_side_brickwork_4.JPG
+  Licence: CC0 1.0
+  Note:    cropped square
+
+work2.jpg
+  Title:   Brickwork detail, Ismaili Centre, London (Robert-brook)
+  Source:  https://commons.wikimedia.org/wiki/File:Brickwork_detail,_Ismaili_Centre,_London.jpg
+  Licence: CC0 1.0
+  Note:    cropped square, resized to 800px
+
+work3.jpg
+  Title:   Sioux City First Congl W side brickwork 1 (Ammodramus)
+  Source:  https://commons.wikimedia.org/wiki/File:Sioux_City_First_Congl_W_side_brickwork_1.JPG
+  Licence: CC0 1.0
+  Note:    cropped square
+
+work4.jpg
+  Title:   Alderley Brickwork Tower (qld) (The Chief Icon)
+  Source:  https://commons.wikimedia.org/wiki/File:Alderley_Brickwork_Tower_(qld).jpg
+  Licence: CC0 1.0
+  Note:    cropped square from the top; no names or plates visible
